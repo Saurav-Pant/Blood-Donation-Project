@@ -1,12 +1,42 @@
-import React from 'react'
+import React from "react";
+import { Link } from "react-router-dom";
+import { BiDonateBlood } from "react-icons/bi";
 
-const navbar = () => {
+const Navbar = () => {
   return (
-    <div>
-       
-
+    <div className="flex items-center justify-around px-4 py-2">
+      <div className="flex items-center">
+        <Link to="/" className="text-black">
+          <BiDonateBlood size={30} />
+        </Link>
+      </div>
+      <div className="flex items-center">
+        <ul className="flex" >
+          <li className="ml-8">
+            <Link to="/" className="text-black">
+              Home
+            </Link>
+          </li>
+          <li className="ml-8">
+            <Link to="/about" className="text-black">
+              About Us
+            </Link>
+          </li>
+          <li className="ml-8">
+            <Link to="/find-blood" className="text-black">
+              Find Blood
+            </Link>
+          </li>
+          <li className="ml-8">
+            <Link to="/signup" className="text-black">
+              Register Now
+            </Link>
+          </li>
+        </ul>
+        <button className="ml-10 px-4 py-2  rounded border-2 border-black">Log In</button>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default navbar
+export default Navbar;
