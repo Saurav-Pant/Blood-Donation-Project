@@ -4,13 +4,14 @@ const collaborators = () => {
   return (
     <div>
         <div>
+            <p>Hello</p>
+        </div>
+        <div>
+            <p>Hii</p>
 
         </div>
         <div>
-
-        </div>
-        <div>
-            
+            <p>Bye</p>
         </div>
     </div>
   )
