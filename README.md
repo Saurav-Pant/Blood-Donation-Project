@@ -43,7 +43,7 @@ To contribute to the project, follow the steps below:
      git commit -m "Add feature XYZ"
      ``
 6. **Creating a New Branch**
-   -Before starting work on a new feature or bug fix, create a new branch with your GitHub profile name:
+   - Before starting work on a new feature or bug fix, create a new branch with your GitHub profile name:
    ```bash
       git checkout -b your-github-profile-name
     ``
