@@ -38,15 +38,16 @@ To contribute to the project, follow the steps below:
      ```bash
      git add .
      ```
-   - Commit the changes with a descriptive message:
-     ```bash
-     git commit -m "Add feature XYZ"
-     ``
+ 
 6. **Creating a New Branch**
    - Before starting work on a new feature or bug fix, create a new branch with your GitHub profile name:
    ```bash
       git checkout -b your-github-profile-name
     ``
+     - Commit the changes with a descriptive message:
+     ```bash
+     git commit -m "Add feature XYZ"
+     ``
 
 7. **Pushing Changes**
    - Push your changes to your forked repository:
