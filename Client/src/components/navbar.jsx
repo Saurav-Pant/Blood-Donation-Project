@@ -7,11 +7,11 @@ const Navbar = () => {
     <div className="flex items-center justify-around px-4 py-2">
       <div className="flex items-center">
         <Link to="/" className="text-black">
-          <BiDonateBlood size={30} />
+          <BiDonateBlood size={40} />
         </Link>
       </div>
       <div className="flex items-center">
-        <ul className="flex" >
+        <ul className="hidden sm:flex">
           <li className="ml-8">
             <Link to="/" className="text-black">
               Home
@@ -33,7 +33,7 @@ const Navbar = () => {
             </Link>
           </li>
         </ul>
-        <button className="ml-10 px-4 py-2  rounded border-2 border-black">Log In</button>
+        <button className="ml-10 px-4 py-2 rounded border-2 border-black">Log In</button>
       </div>
     </div>
   );
