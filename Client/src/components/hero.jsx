@@ -8,10 +8,10 @@ const Hero = () => {
         <img src={blood} alt="" className="" />
       </div>
       <div className="">
-        <h1 className="text-4xl font-bold">Donate Blood</h1>
+        <h1 className="text-4xl font-bold font-serif">Save Life Donate Blood</h1>
         <p className="text-xl pt-5 ">
           Donate blood to save lives. Your blood donation can save a life and
-          help others to live a better life
+          help others to live a better life and make a better future for their families
         </p>
       </div>
     </div>
