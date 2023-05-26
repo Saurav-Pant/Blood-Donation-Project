@@ -7,7 +7,7 @@ const Navbar = () => {
     <div className="flex items-center justify-around px-4 py-2">
       <div className="flex items-center">
         <Link to="/" className="text-black">
-          <BiDonateBlood size={40} />
+          <BiDonateBlood size={50} />
         </Link>
       </div>
       <div className="flex items-center">
