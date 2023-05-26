@@ -38,6 +38,22 @@ This will create a local copy of the repository on your machine.
 Start Contributing
 Now that you have set up the project on your local machine, you can start contributing to the project by adding the necessary functionality to connect blood donors with individuals in need.
 
+Committing Changes
+
+1.After making changes to the code, use the following command to stage the changes:
+   git add .
+   
+2.Commit the changes with a descriptive message:
+ git commit -m "Add feature XYZ"
+
+Pushing Changes
+
+1.Push your changes to your forked repository:
+  git push origin main
+ 
+ 2.Submit a pull request to the original repository, clearly describing the changes you have made
+ 
+ .
 Contributing Guidelines
 When contributing to the Blood Donation Project, please ensure that you follow these guidelines:
 
@@ -55,19 +71,5 @@ The Blood Donation Project aims to make a positive impact by connecting blood do
 
 
 You can copy the entire content above and paste it into your README.md file, and it will have the beautiful formatting applied.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
