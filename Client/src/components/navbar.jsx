@@ -29,7 +29,12 @@ const Navbar = () => {
           </li>
           <li className="ml-8">
             <Link to="/signup" className="text-black">
-              Register Now
+             <option value="">
+              Register As Donor
+             </option>
+             <option value="">
+              Register As Recipient
+             </option>
             </Link>
           </li>
         </ul>
