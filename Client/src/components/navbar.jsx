@@ -14,7 +14,7 @@ const Navbar = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ type: "spring", stiffness: 100 }}>
-        <Link to="/" className="text-white">
+        <Link to="/" className="text-red-500">
           <BiDonateBlood size={50} />
         </Link>
       </div>
