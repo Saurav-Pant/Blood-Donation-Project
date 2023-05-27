@@ -26,7 +26,7 @@ const Collaborators = () => {
       </motion.div>
 
       <div>
-        <h1 className="text-7xl font-bold flex justify-center items-center  ">
+        <h1 className="text-7xl font-bold flex justify-center items-center text-gray-300 hover:text-red-300 transition-colors duration-300 ease-in-out">
           ...
         </h1>
       </div>

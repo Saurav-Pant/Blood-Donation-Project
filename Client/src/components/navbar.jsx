@@ -39,7 +39,7 @@ const Navbar = () => {
           </li>
         </ul>
         <motion.button
-          className="ml-10 px-4 py-2 rounded border-2  border-black hover:opacity-80 transition-colors duration-300"
+          className="ml-10 px-4 py-2 rounded border-2  border-black hover:opacity-80 transition-colors duration-300 "
           style={{
             backgroundColor: theme.button.buttonBgColor,
             color: theme.button.buttonTextColor,
