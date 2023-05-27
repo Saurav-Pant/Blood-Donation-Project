@@ -9,7 +9,11 @@ const Navbar = () => {
 
   return (
     <div className="flex items-center justify-around px-4 py-2">
-      <div className="flex items-center rounded-full bg-black">
+      <div
+        className="flex items-center rounded-full bg-black"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ type: "spring", stiffness: 100 }}>
         <Link to="/" className="text-white">
           <BiDonateBlood size={50} />
         </Link>
@@ -34,15 +38,18 @@ const Navbar = () => {
             <Link to="/signup">Register Now</Link>
           </li>
         </ul>
-        <button
+        <motion.button
           className="ml-10 px-4 py-2 rounded border-2  border-black hover:opacity-80 transition-colors duration-300"
           style={{
             backgroundColor: theme.button.buttonBgColor,
             color: theme.button.buttonTextColor,
           }}
+          initial={{ opacity: 0 , position: "relative", right: "-100px" }}
+          animate={{ opacity: 1 , position: "relative", right: "0px" }}
+          transition={{ duration: 1 }}
         >
           Log In
-        </button>
+        </motion.button>
       </motion.div>
       <div>
         <motion.button
@@ -52,11 +59,9 @@ const Navbar = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 2 }}
           whileHover={{ scale: 1.2 }}
-          whileInView={
-            {
-              scale: 1.2,
-            }
-          }
+          whileInView={{
+            scale: 1.2,
+          }}
           whileTap={{ scale: 0.8 }}
         >
           {theme.icon}

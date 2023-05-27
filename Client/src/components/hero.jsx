@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import blood from "../asset/blood.svg";
 import { ThemeContext } from "../context/ThemeContext";
+import { motion } from "framer-motion";
 
 const Hero = () => {
   const { theme } = useContext(ThemeContext);
@@ -18,15 +19,18 @@ const Hero = () => {
           help others to live a better life and make a better future for their
           families
         </p>
-        <button
+        <motion.button
           className="mt-5 px-6 py-3  rounded-md  ml-5 hover:opacity-80 transition-colors duration-300"
           style={{
             backgroundColor: theme.button.buttonBgColor,
             color: theme.button.buttonTextColor,
           }}
+            initial={{ opacity: 0 , position: "relative", left: "-50px" }}
+            animate={{ opacity: 1 , position: "relative", left: "0px" }}
+            transition={{ duration: 1 }}
         >
           Get Blood Now
-        </button>
+        </motion.button>
       </div>
     </div>
   );
