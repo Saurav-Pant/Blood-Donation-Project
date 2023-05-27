@@ -1,13 +1,13 @@
 import React, { useContext } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
-import Home from "./pages/home";
-import Login from "./pages/login";
-import Register from "./pages/register";
-import AboutUs from "./pages/aboutUs";
-import FindBlood from "./pages/findBlood";
-import Navbar from "./components/navbar";
-import Footer from "./components/footer";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import AboutUs from "./pages/AboutUs";
+import FindBlood from "./pages/FindBlood";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import { ThemeContext } from "./context/ThemeContext";
 
 const App = () => {

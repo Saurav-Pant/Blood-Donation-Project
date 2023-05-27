@@ -1,6 +1,6 @@
 import React from 'react'
 
-const getBlood = () => {
+const GetBlood = () => {
   return (
     <div>
         <h1>How to get Blood?</h1>
@@ -22,4 +22,4 @@ const getBlood = () => {
   )
 }
 
-export default getBlood
+export default GetBlood

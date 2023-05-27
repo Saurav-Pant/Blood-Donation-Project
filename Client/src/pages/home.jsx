@@ -1,9 +1,9 @@
 import React from "react";
-import Navbar from "../components/navbar";
-import Hero from "../components/hero";
+import Navbar from "../components/Navbar";
+import Hero from "../components/Hero";
 import OurMission from "../components/OurMission";
-import Collaborators from "../components/collaborators";
-import getBlood from "../components/getBlood";
+import Collaborators from "../components/Collaborators";
+import GetBlood from "../components/GetBlood";
 
 const home = () => {
   return (

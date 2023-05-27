@@ -7,15 +7,15 @@ const Collaborators = () => {
         Our Collaborators
       </h1>
 
-      <div class="flex justify-center items-center h-[50vh] px-10">
-        <div class="m-2 p-4 bg-white shadow-md flex items-center justify-center w-[200px] h-[200px] hover:bg-gray-50">
-          <p class="text-center">NCC</p>
+      <div className="flex justify-center items-center h-[50vh] px-10">
+        <div className="m-2 p-4 bg-white shadow-md flex items-center justify-center w-[200px] h-[200px] hover:bg-gray-50">
+          <p className="text-center">NCC</p>
         </div>
-        <div class="m-2 p-4 bg-white shadow-md flex items-center justify-center w-[200px] h-[200px] hover:bg-gray-50">
-          <p class="text-center">NSS</p>
+        <div className="m-2 p-4 bg-white shadow-md flex items-center justify-center w-[200px] h-[200px] hover:bg-gray-50">
+          <p className="text-center">NSS</p>
         </div>
-        <div class="m-2 p-4 bg-white shadow-md flex items-center justify-center w-[200px] h-[200px] hover:bg-gray-50">
-          <p class="text-center">YMCA</p>
+        <div className="m-2 p-4 bg-white shadow-md flex items-center justify-center w-[200px] h-[200px] hover:bg-gray-50">
+          <p className="text-center">YMCA</p>
         </div>
       </div>
 
