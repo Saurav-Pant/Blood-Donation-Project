@@ -9,8 +9,8 @@ const OurMission = () => {
   };
 
   return (
-    <div className="bg-gray-50 rounded-xl shadow-xl">
-      <h1 className="text-4xl font-bold  pl-16 pt-4 ">Our Mission</h1>
+    <div className="bg-gray-50 rounded-xl shadow-xl sm:h-[45vh] md:h-[45vh] lg:h-[25vh] pt-3 hover:bg-gray-100">
+      <h1 className="text-4xl font-bold  pl-16 pt-4 font-mono">Our Mission</h1>
       <p className="text-lg px-12  font-light font-sans py-4 text-justify" style={missionStyle}>
         Our mission is to address the critical need for blood supply in the
         country by connecting donors and recipients. We provide a seamless
