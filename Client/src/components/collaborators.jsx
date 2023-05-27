@@ -8,13 +8,13 @@ const Collaborators = () => {
       </h1>
 
       <div class="flex justify-center items-center h-[50vh] px-10">
-        <div class="m-2 p-4 bg-white shadow-md flex items-center justify-center w-[200px] h-[200px] hover:bg-gray-50">
+        <div class="m-2 p-4 bg-white text-black shadow-md flex items-center justify-center w-[200px] h-[200px] hover:bg-gray-100">
           <p class="text-center">NCC</p>
         </div>
-        <div class="m-2 p-4 bg-white shadow-md flex items-center justify-center w-[200px] h-[200px] hover:bg-gray-50">
+        <div class="m-2 p-4 bg-white text-black shadow-md flex items-center justify-center w-[200px] h-[200px] hover:bg-gray-100">
           <p class="text-center">NSS</p>
         </div>
-        <div class="m-2 p-4 bg-white shadow-md flex items-center justify-center w-[200px] h-[200px] hover:bg-gray-50">
+        <div class="m-2 p-4 bg-white text-black shadow-md flex items-center justify-center w-[200px] h-[200px] hover:bg-gray-100">
           <p class="text-center">YMCA</p>
         </div>
       </div>
