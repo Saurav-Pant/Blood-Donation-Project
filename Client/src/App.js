@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/home";
@@ -8,12 +8,18 @@ import AboutUs from "./pages/aboutUs";
 import FindBlood from "./pages/findBlood";
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
+import { ThemeContext } from "./context/ThemeContext";
 
-function App() {
+const App = () => {
+  const { theme } = useContext(ThemeContext);
   return (
     <Router>
-      <div>
-        {/* Navbar */}
+      <div
+        style={{
+          backgroundColor: theme.background,
+          color: theme.color,
+        }}
+      >
         <Navbar />
 
         <Routes>
@@ -29,6 +35,6 @@ function App() {
       </div>
     </Router>
   );
-}
+};
 
 export default App;
