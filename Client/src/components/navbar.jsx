@@ -5,8 +5,8 @@ import { BiDonateBlood } from "react-icons/bi";
 const Navbar = () => {
   return (
     <div className="flex items-center justify-around px-4 py-2">
-      <div className="flex items-center">
-        <Link to="/" className="text-black">
+      <div className="flex items-center rounded-full bg-black">
+        <Link to="/" className="text-white">
           <BiDonateBlood size={50} />
         </Link>
       </div>

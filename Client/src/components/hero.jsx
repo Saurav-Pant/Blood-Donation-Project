@@ -8,10 +8,10 @@ const Hero = () => {
         <img src={blood} alt="" className="" />
       </div>
       <div className="flex-col md:flex-col">
-        <h1 className="text-4xl font-bold font-serif sm:text-xl md:text-3xl lg:text-4xl">
+        <h1 className="text-4xl font-bold sm:text-xl md:text-3xl lg:text-4xl font-mono">
           Save Life Donate Blood
         </h1>
-        <p className="text-xl pt-5 text-justify mr-8">
+        <p className="text-xl pt-5 text-justify mr-8 font-thin ">
           Donate blood to save lives. Your blood donation can save a life and
           help others to live a better life and make a better future for their
           families
