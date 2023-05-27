@@ -6,18 +6,26 @@ import Login from "./pages/login";
 import Register from "./pages/register";
 import AboutUs from "./pages/aboutUs";
 import FindBlood from "./pages/findBlood";
+import Navbar from "./components/navbar";
+import Footer from "./components/footer";
 
 function App() {
   return (
     <Router>
       <div>
+        {/* Navbar */}
+        <Navbar />
+
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/signup"  element={<Register />} />
+          <Route path="/signup" element={<Register />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/find-blood" element={<FindBlood />} />
         </Routes>
+
+        {/* Footer */}
+        <Footer />
       </div>
     </Router>
   );

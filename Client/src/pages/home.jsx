@@ -8,12 +8,10 @@ import getBlood from "../components/getBlood";
 const home = () => {
   return (
     <div>
-      <Navbar />
       <Hero />
-      <OurMission/>
-      <Collaborators/>
-      <getBlood/>
-      
+      <OurMission />
+      <Collaborators />
+      <getBlood />
     </div>
   );
 };

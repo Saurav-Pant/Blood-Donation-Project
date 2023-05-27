@@ -2,11 +2,7 @@ import React from "react";
 import Navbar from "../components/navbar";
 
 const findBlood = () => {
-  return (
-    <div>
-      <Navbar /> 
-    </div>
-  );
+  return <div></div>;
 };
 
 export default findBlood;
