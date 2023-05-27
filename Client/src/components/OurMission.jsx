@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { ThemeContext } from "../context/ThemeContext";
+import { motion } from "framer-motion";
 
 const OurMission = () => {
   const { theme } = useContext(ThemeContext);
@@ -24,10 +25,14 @@ const OurMission = () => {
         background: divStyle.background,
       }}
     >
-      <h1 className="text-4xl font-bold pl-16 pt-4 font-mono">Our Mission</h1>
-      <p
+      <h1 className="text-4xl font-bold pl-16 pt-4 font-mono hover:text-red-300 transition-colors duration-300 ease-in-out">
+        Our Mission
+      </h1>
+      <motion.p
         className="text-lg px-12 font-light font-sans py-4 text-justify"
         style={missionStyle}
+        initial={{ opacity: 0, position: "relative", top: "-100px" }}
+        whileInView={{ opacity: 1, position: "relative", top: "0px" }}
       >
         Our mission is to address the critical need for blood supply in the
         country by connecting donors and recipients. We provide a seamless
@@ -35,7 +40,7 @@ const OurMission = () => {
         a reliable system, we empower individuals to make a significant impact
         on society. Through compassion and unity, we inspire more donors, saving
         lives one donation at a time.
-      </p>
+      </motion.p>
     </div>
   );
 };

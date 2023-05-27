@@ -10,7 +10,7 @@ const Navbar = () => {
   return (
     <div className="flex items-center justify-around px-4 py-2">
       <div
-        className="flex items-center rounded-full bg-black"
+        className="flex items-center rounded-full"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ type: "spring", stiffness: 100 }}>

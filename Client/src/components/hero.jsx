@@ -11,7 +11,7 @@ const Hero = () => {
         <img src={blood} alt="" className="" />
       </div>
       <div className="flex-col md:flex-col">
-        <h1 className="text-4xl font-bold sm:text-xl md:text-3xl lg:text-4xl font-serif ">
+        <h1 className="text-4xl font-bold sm:text-xl md:text-3xl lg:text-4xl font-serif hover:text-red-300 transition-colors duration-300 ease-in-out">
           Save Life Donate Blood
         </h1>
         <p className="text-xl pt-5 text-justify mr-8 font-thin ">
