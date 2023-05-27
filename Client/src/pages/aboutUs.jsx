@@ -1,8 +1,17 @@
 import React from "react";
-import Navbar from "../components/navbar";
+import OurMission from "../components/OurMission";
+import Collaborators from "../components/collaborators";
 
 const aboutUs = () => {
-  return <div></div>;
+  return (
+    <>
+      <div className="pt-10">
+        <OurMission />
+        <Collaborators />
+      </div>
+      ;
+    </>
+  );
 };
 
 export default aboutUs;

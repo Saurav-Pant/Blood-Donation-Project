@@ -33,6 +33,7 @@ const OurMission = () => {
         style={missionStyle}
         initial={{ opacity: 0, position: "relative", top: "-100px" }}
         whileInView={{ opacity: 1, position: "relative", top: "0px" }}
+        
       >
         Our mission is to address the critical need for blood supply in the
         country by connecting donors and recipients. We provide a seamless

@@ -14,13 +14,13 @@ const Collaborators = () => {
         whileInView={{ opacity: 1, position: "relative", top: "0px" }}
         transition={{ duration: 1 }}
       >
-        <div className="m-2 p-4 bg-white text-black shadow-md flex items-center justify-center w-[200px] h-[200px] hover:bg-gray-100 rounded-sm ">
+        <div className="m-2 p-4 bg-white text-black shadow-md flex items-center justify-center w-[200px] h-[200px] hover:bg-red-50 rounded-sm ">
           <p className="text-center">NCC</p>
         </div>
-        <div className="m-2 p-4 bg-white text-black shadow-md flex items-center justify-center w-[200px] h-[200px] hover:bg-gray-100 rounded-sm">
+        <div className="m-2 p-4 bg-white text-black shadow-md flex items-center justify-center w-[200px] h-[200px] hover:bg-red-50 rounded-sm">
           <p className="text-center">NSS</p>
         </div>
-        <div class="m-2 p-4 bg-white text-black shadow-md flex items-center justify-center w-[200px] h-[200px] hover:bg-gray-100 rounded-sm">
+        <div class="m-2 p-4 bg-white text-black shadow-md flex items-center justify-center w-[200px] h-[200px] hover:bg-red-50 rounded-sm">
           <p class="text-center">YMCA</p>
         </div>
       </motion.div>
