@@ -10,7 +10,7 @@ const Hero = () => {
         <img src={blood} alt="" className="" />
       </div>
       <div className="flex-col md:flex-col">
-        <h1 className="text-4xl font-bold sm:text-xl md:text-3xl lg:text-4xl font-serif">
+        <h1 className="text-4xl font-bold sm:text-xl md:text-3xl lg:text-4xl font-serif ">
           Save Life Donate Blood
         </h1>
         <p className="text-xl pt-5 text-justify mr-8 font-thin ">
@@ -19,7 +19,7 @@ const Hero = () => {
           families
         </p>
         <button
-          className="mt-5 px-6 py-3  rounded-md hover:bg-gray-800 transition-colors duration-300 ml-5"
+          className="mt-5 px-6 py-3  rounded-md  ml-5 hover:opacity-80 transition-colors duration-300"
           style={{
             backgroundColor: theme.button.buttonBgColor,
             color: theme.button.buttonTextColor,

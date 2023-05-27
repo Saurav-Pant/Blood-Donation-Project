@@ -12,16 +12,14 @@ const OurMission = () => {
   };
 
   const divStyle = {
-    borderRadius: "3xl",
     boxShadow: "xl",
     background: theme.mode === "light" ? "#F7FAFC" : "#374151",
   };
 
   return (
     <div
-      className="sm:h-[45vh] md:h-[45vh] lg:h-[30vh] pt-3"
+      className="sm:h-[45vh] md:h-[45vh] lg:h-[30vh] pt-3 mx-5 rounded-2xl"
       style={{
-        borderRadius: divStyle.borderRadius,
         boxShadow: divStyle.boxShadow,
         background: divStyle.background,
       }}
