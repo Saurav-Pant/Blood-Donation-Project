@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { BsTwitter, BsInstagram, BsFacebook } from "react-icons/bs";
 
-const Footer = () => {
+const footer = () => {
   return (
     <footer className="py-10 mx-5 shadow-2xl bg-slate-700 rounded-2xl text-white mt-6 mb-1 ">
       <div className="container mx-auto px-4">
@@ -61,4 +61,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default footer;

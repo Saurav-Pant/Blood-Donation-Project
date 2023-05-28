@@ -1,6 +1,6 @@
 import React from "react";
-import OurMission from "../components/OurMission";
-import Collaborators from "../components/Collaborators";
+import OurMission from "../components/ourmission";
+import Collaborators from "../components/collaborators";
 
 const aboutUs = () => {
   return (
