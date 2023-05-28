@@ -19,7 +19,7 @@ const OurMission = () => {
 
   return (
     <div
-      className="sm:max-h-[45vh] md:max-h-[45vh] lg:max-h-[30vh] pt-3 mx-5 rounded-2xl "
+      className="sm:max-h-[45vh] md:max-h-[45vh] lg:h-[30vh] pt-3 mx-5 rounded-2xl"
       style={{
         boxShadow: divStyle.boxShadow,
         background: divStyle.background,
