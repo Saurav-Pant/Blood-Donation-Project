@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, {useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { BiDonateBlood } from "react-icons/bi";
 import { ThemeContext } from "../context/ThemeContext";
@@ -6,16 +6,14 @@ import { motion } from "framer-motion";
 
 const Navbar = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
+  const [PhoneView, SetPhoneView] = useState(false);
 
   return (
     <div className="flex items-center justify-around px-4 py-2">
-      <div
-        className="flex items-center rounded-full border-2 border-red-500 p-2"
-      >
+      <div className="flex items-center rounded-full border-2 border-red-500 p-2">
         <Link to="/" className="text-red-500">
-        <BiDonateBlood size={50} className="hidden sm:block " />
-          <BiDonateBlood size={30} className="sm:hidden" />
-
+          <BiDonateBlood size={50} className="sm:hidden" />
+          <BiDonateBlood size={30} className="hidden sm:block " />
         </Link>
       </div>
       <motion.div

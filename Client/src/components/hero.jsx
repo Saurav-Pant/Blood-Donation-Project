@@ -9,7 +9,7 @@ const Hero = () => {
   return (
     <div className="flex flex-col md:flex-row justify-evenly items-center mt-5  md:min-h-screen  ">
       <div className="flex flex-col md:order-2 md:ml-8 w-[60vh] mx-5 ">
-        <h1 className="text-4xl lg:text-xl font-bold font-serif text-center hover:text-red-300 transition-colors duration-300 ease-in-out ">
+        <h1 className="text-3xl lg:text-6xl font-bold font-serif text-center hover:text-red-300 transition-colors duration-300 ease-in-out ">
           Save Life Donate Blood
         </h1>
 
