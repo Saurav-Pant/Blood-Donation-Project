@@ -8,8 +8,8 @@ const Hero = () => {
 
   return (
     <div className="flex flex-col md:flex-row justify-evenly items-center h-[90vh]">
-      <div className="md:order-2 w-[40vh]">
-        <img src={blood} alt="" className="w-96" />
+      <div className="md:order-2 w-[50vh]">
+        <img src={blood} alt="" className="" />
       </div>
       <div className="flex flex-col md:order-1 md:ml-8 w-[60vh] mx-5">
         <h1 className="text-2xl md:text-4xl sm:text-xl font-bold font-serif text-center hover:text-red-300 transition-colors duration-300 ease-in-out font-serif'">
@@ -22,7 +22,7 @@ const Hero = () => {
           families
         </p>
         <motion.button
-          className="mt-12 px-6 py-3 rounded-md hover:opacity-80 transition-colors duration-300 w-40 mx-16"
+          className="mt-12 px-6 py-3 rounded-md hover:opacity-80 transition-colors duration-300 w-40 mx-16 mb-3"
           style={{
             backgroundColor: theme.button.buttonBgColor,
             color: theme.button.buttonTextColor,
