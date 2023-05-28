@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 const Collaborators = () => {
   return (
     <div className="">
-      <h1 className="text-4xl font-bold pl-16 pt-10 font-mono hover:text-red-300 transition-colors duration-300 ease-in-out">
+      <h1 className="text-3xl lg:text-4xl font-bold pl-16 pt-10 font-mono hover:text-red-300 transition-colors duration-300 ease-in-out">
         Our Collaborators
       </h1>
 
