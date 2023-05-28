@@ -7,23 +7,16 @@ const Hero = () => {
   const { theme } = useContext(ThemeContext);
 
   return (
-    <div className="flex flex-col md:flex-row justify-evenly items-center h-[90vh]">
-      <motion.div className="md:order-2 w-[50vh]"
-        initial={{ opacity: 0, position: "relative", right: "-100px" }}
-        animate={{ opacity: 1, position: "relative", right: "0px" }}
-        transition={{ duration: 1 }}
-      >
-        <img src={blood} alt="" className="" />
-      </motion.div>
-      <div className="flex flex-col md:order-1 md:ml-8 w-[60vh] mx-5">
-        <h1 className="text-2xl md:text-4xl sm:text-xl font-bold font-serif text-center hover:text-red-300 transition-colors duration-300 ease-in-out font-serif'">
+    <div className="flex flex-col md:flex-row justify-evenly items-center mt-5  md:min-h-screen  ">
+      <div className="flex flex-col md:order-2 md:ml-8 w-[60vh] mx-5 ">
+        <h1 className="text-4xl lg:text-xl font-bold font-serif text-center hover:text-red-300 transition-colors duration-300 ease-in-out ">
           Save Life Donate Blood
         </h1>
 
         <p className="text-xl pt-5 text-justify mx-16 font-mono">
-          Donate blood to save lives Your blood donation can save a life and
+          Donate blood to save lives. Your blood donation can save a life and
           help others to live a better life and make a better future for their
-          families
+          families.
         </p>
         <motion.button
           className="mt-12 px-6 py-3 rounded-md hover:opacity-80 transition-colors duration-300 w-40 mx-16 mb-3"
@@ -38,6 +31,14 @@ const Hero = () => {
           Get Blood Now
         </motion.button>
       </div>
+      <motion.div
+        className="md:order-1 w-[50vh]"
+        initial={{ opacity: 0, position: "relative", right: "-100px" }}
+        animate={{ opacity: 1, position: "relative", right: "0px" }}
+        transition={{ duration: 1 }}
+      >
+        <img src={blood} alt="blood" />
+      </motion.div>
     </div>
   );
 };
