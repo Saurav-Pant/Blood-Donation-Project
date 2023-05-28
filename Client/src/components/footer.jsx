@@ -4,7 +4,7 @@ import { BsTwitter, BsInstagram, BsFacebook } from "react-icons/bs";
 
 const Footer = () => {
   return (
-    <footer className="py-10 mx-5 shadow-2xl bg-slate-700 rounded-2xl text-white mt-6 mb-1">
+    <footer className="py-10 mx-5 shadow-2xl bg-slate-700 rounded-2xl text-white mt-6 mb-1 ">
       <div className="container mx-auto px-4">
         <div className="md:flex md:flex-wrap md:justify-between md:items-center">
           <motion.div className="text-center md:text-left md:w-1/2 md:mb-0"
@@ -12,10 +12,10 @@ const Footer = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-lg font-bold hover:text-red-400">
+            <h2 className="text-lg font-mono hover:text-red-400">
               Blood Donation Project
             </h2>
-            <p className="mt-2 hover:text-red-200">
+            <p className="mt-2 hover:text-red-200 font-light">
               Saving Lives Through Blood Donation
             </p>
           </motion.div>

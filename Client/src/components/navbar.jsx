@@ -22,7 +22,7 @@ const Navbar = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 2 }}
       >
-        <ul className="hidden sm:flex">
+        <ul className="hidden sm:flex font-mono text-xl">
           <li className="ml-8  hover:text-red-400 transition-colors duration-300">
             <Link to="/">Home</Link>
           </li>
@@ -37,7 +37,7 @@ const Navbar = () => {
           </li>
         </ul>
         <motion.button
-          className="ml-10 px-4 py-2 rounded border-2 hidden sm:flex border-black hover:opacity-80 transition-colors duration-300 "
+          className="ml-10 px-4 py-2 rounded border-2 hidden sm:flex border-black"
           style={{
             backgroundColor: theme.button.buttonBgColor,
             color: theme.button.buttonTextColor,
@@ -45,6 +45,7 @@ const Navbar = () => {
           initial={{ opacity: 0, position: "relative", right: "-100px" }}
           animate={{ opacity: 1, position: "relative", right: "0px" }}
           transition={{ duration: 1 }}
+          whileHover={{ opacity: 0.7, transition: { duration: 0.5 } }}
         >
           Log In
         </motion.button>

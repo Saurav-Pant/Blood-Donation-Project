@@ -27,6 +27,8 @@ const Hero = () => {
           initial={{ opacity: 0, position: "relative", left: "-50px" }}
           animate={{ opacity: 1, position: "relative", left: "0px" }}
           transition={{ duration: 1 }}
+          whileHover={{ opacity: 0.7, transition: { duration: 0.5 } }}
+
         >
           Get Blood Now
         </motion.button>
