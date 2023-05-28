@@ -1,9 +1,9 @@
 import React from "react";
 import Hero from "../components/hero";
-import OurMission from "../components/OurMission";
+import OurMission from "../components/ourmission";
 import Collaborators from "../components/collaborators";
 
-import getBlood from "../components/getBlood";
+import getBlood from "../components/getblood";
 
 const home = () => {
   return (

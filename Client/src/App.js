@@ -5,7 +5,7 @@ import Home from "./pages/home";
 import Login from "./pages/login";
 import Register from "./pages/register";
 import AboutUs from "./pages/aboutUs";
-import FindBlood from "./pages/findBlood";
+import FindBlood from "./pages/findblood";
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 import { ThemeContext } from "./context/ThemeContext";
