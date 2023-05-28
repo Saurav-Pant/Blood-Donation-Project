@@ -8,9 +8,13 @@ const Hero = () => {
 
   return (
     <div className="flex flex-col md:flex-row justify-evenly items-center h-[90vh]">
-      <div className="md:order-2 w-[50vh]">
+      <motion.div className="md:order-2 w-[50vh]"
+        initial={{ opacity: 0, position: "relative", right: "-100px" }}
+        animate={{ opacity: 1, position: "relative", right: "0px" }}
+        transition={{ duration: 1 }}
+      >
         <img src={blood} alt="" className="" />
-      </div>
+      </motion.div>
       <div className="flex flex-col md:order-1 md:ml-8 w-[60vh] mx-5">
         <h1 className="text-2xl md:text-4xl sm:text-xl font-bold font-serif text-center hover:text-red-300 transition-colors duration-300 ease-in-out font-serif'">
           Save Life Donate Blood

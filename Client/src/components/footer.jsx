@@ -7,14 +7,18 @@ const Footer = () => {
     <footer className="py-10 mx-5 shadow-2xl bg-slate-700 rounded-2xl text-white mt-6 mb-1">
       <div className="container mx-auto px-4">
         <div className="md:flex md:flex-wrap md:justify-between md:items-center">
-          <div className="text-center md:text-left md:w-1/2 md:mb-0">
+          <motion.div className="text-center md:text-left md:w-1/2 md:mb-0"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+          >
             <h2 className="text-lg font-bold hover:text-red-400">
               Blood Donation Project
             </h2>
             <p className="mt-2 hover:text-red-200">
               Saving Lives Through Blood Donation
             </p>
-          </div>
+          </motion.div>
           <motion.div
             className="flex justify-center md:justify-end md:w-1/2 mt-4"
             initial={{ opacity: 0, x: -20 }}
