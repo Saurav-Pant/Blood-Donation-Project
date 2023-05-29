@@ -41,7 +41,12 @@ const GetBlood = () => {
         whileInView={{ opacity: 1, position: "relative", top: "0px" }}
         transition={{ duration: 1 }}
       >
-        <div className="h-fit w-full md:mb-18 lg:mb-24 mb-6 flex flex-col items-center justify-center">
+        <motion.div className="h-fit w-full md:mb-18 lg:mb-24 mb-6 flex flex-col items-center justify-center" 
+          initial={{ opacity: 0, position: "relative", right: "-100px" }}
+          whileInView={{ opacity: 1, position: "relative", right: "0px" }}
+          transition={{ duration: 1 }}
+
+        >
           <table>
             <tr>
               <td className='flex items-center justify-center'>
@@ -62,7 +67,7 @@ const GetBlood = () => {
               </td>
             </tr>
           </table>
-        </div>
+        </motion.div>
       </motion.div>
     </div>
   );
