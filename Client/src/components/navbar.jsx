@@ -25,7 +25,8 @@ const Navbar = () => {
           <BiDonateBlood size={30} className="sm:hidden " />
         </Link>
       </div>
-      <ul className="flex font-mono text-xl">
+      {/* Hide links in small devices */}
+      <ul className=" font-mono text-xl hidden sm:flex">
         <li className="ml-8 hover:text-red-400 transition-colors duration-300">
           <Link to="/">Home</Link>
         </li>
