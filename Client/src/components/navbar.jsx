@@ -36,19 +36,21 @@ const Navbar = () => {
             <Link to="/signup">Register Now</Link>
           </li>
         </ul>
-        <motion.button
-          className="ml-10 px-4 py-2 rounded border-2 hidden sm:flex border-black"
-          style={{
-            backgroundColor: theme.button.buttonBgColor,
-            color: theme.button.buttonTextColor,
-          }}
-          initial={{ opacity: 0, position: "relative", right: "-100px" }}
-          animate={{ opacity: 1, position: "relative", right: "0px" }}
-          transition={{ duration: 1 }}
-          whileHover={{ opacity: 0.7, transition: { duration: 0.5 } }}
-        >
-          Log In
-        </motion.button>
+        <Link to="/login">
+          <motion.button
+            className="ml-10 px-4 py-2 rounded border-2 hidden sm:flex border-black"
+            style={{
+              backgroundColor: theme.button.buttonBgColor,
+              color: theme.button.buttonTextColor,
+            }}
+            initial={{ opacity: 0, position: "relative", right: "-100px" }}
+            animate={{ opacity: 1, position: "relative", right: "0px" }}
+            transition={{ duration: 1 }}
+            whileHover={{ opacity: 0.7, transition: { duration: 0.5 } }}
+          >
+            Log In
+          </motion.button>
+        </Link>
       </motion.div>
       <div>
         <motion.button

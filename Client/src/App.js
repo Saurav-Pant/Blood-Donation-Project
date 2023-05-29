@@ -9,10 +9,14 @@ import FindBlood from "./pages/findblood";
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 import { ThemeContext } from "./context/ThemeContext";
-// import RegisterDoner from "./pages/RegisterDoner";
 
 const App = () => {
   const { theme } = useContext(ThemeContext);
+  const currentPath = window.location.pathname; // Get the current route path
+
+  // Check if the current route is not "/login"
+  const shouldDisplayNavbarAndFooter = currentPath !== "/login";
+
   return (
     <Router>
       <div
@@ -21,7 +25,8 @@ const App = () => {
           color: theme.color,
         }}
       >
-        <Navbar />
+        {/* Conditionally render Navbar */}
+        {shouldDisplayNavbarAndFooter && <Navbar />}
 
         <Routes>
           <Route path="/" element={<Home />} />
@@ -32,8 +37,8 @@ const App = () => {
           {/* <Route path="/Register-Doner" element={<RegisterDoner />} /> */}
         </Routes>
 
-        {/* Footer */}
-        <Footer />
+        {/* Conditionally render Footer */}
+        {shouldDisplayNavbarAndFooter && <Footer />}
       </div>
     </Router>
   );
