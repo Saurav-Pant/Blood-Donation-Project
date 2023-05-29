@@ -72,4 +72,5 @@ const GetBlood = () => {
   );
 };
 
-export default GetBlood;
+export default GetBlood
+

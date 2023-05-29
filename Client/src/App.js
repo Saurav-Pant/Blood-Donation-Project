@@ -4,11 +4,12 @@ import "./App.css";
 import Home from "./pages/home";
 import Login from "./pages/login";
 import AboutUs from "./pages/aboutUs";
-import FindBlood from "./pages/findblood";
+import FindBlood from "./pages/findBlood";
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 import { ThemeContext } from "./context/ThemeContext";
-
+import RegisterOrg from "./pages/registerOrg";
+import RegisterDonor from "./pages/registerDonor";
 const App = () => {
   const { theme } = useContext(ThemeContext);
   const location = useLocation(); // Get the current location
@@ -28,6 +29,8 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/find-blood" element={<FindBlood />} />
+        <Route path ="/register-org" element={<RegisterOrg />}/>
+        <Route path ="/register-donor" element={<RegisterDonor />}/>
       </Routes>
 
       {location.pathname !== "/login" && <Footer />}
