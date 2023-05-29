@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 const Collaborators = () => {
   return (
     <div className="">
-      <h1 className="text-4xl font-bold pl-16 pt-10 font-mono hover:text-red-300 transition-colors duration-300 ease-in-out">
+      <h1 className="text-3xl lg:text-4xl font-bold pl-16 pt-10 font-mono hover:text-red-300 transition-colors duration-300 ease-in-out">
         Our Collaborators
       </h1>
 
@@ -20,8 +20,8 @@ const Collaborators = () => {
         <div className="m-2 p-4 bg-white text-black shadow-md flex items-center justify-center w-[200px] h-[200px] hover:bg-red-50 rounded-sm">
           <p className="text-center">NSS</p>
         </div>
-        <div class="m-2 p-4 bg-white text-black shadow-md flex items-center justify-center w-[200px] h-[200px] hover:bg-red-50 rounded-sm">
-          <p class="text-center">YMCA</p>
+        <div className="m-2 p-4 bg-white text-black shadow-md flex items-center justify-center w-[200px] h-[200px] hover:bg-red-50 rounded-sm">
+          <p className="text-center">YMCA</p>
         </div>
       </motion.div>
 

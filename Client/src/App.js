@@ -1,39 +1,37 @@
 import React, { useContext } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/home";
 import Login from "./pages/login";
-import Register from "./pages/register";
 import AboutUs from "./pages/aboutUs";
-import FindBlood from "./pages/findBlood";
+import FindBlood from "./pages/findblood";
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 import { ThemeContext } from "./context/ThemeContext";
 
 const App = () => {
   const { theme } = useContext(ThemeContext);
+  const location = useLocation(); // Get the current location
+  console.log(location);
+
   return (
-    <Router>
-      <div
-        style={{
-          backgroundColor: theme.background,
-          color: theme.color,
-        }}
-      >
-        <Navbar />
+    <div
+      style={{
+        backgroundColor: theme.background,
+        color: theme.color,
+      }}
+    >
+      {location.pathname !== "/login" && <Navbar />}
 
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          {/* <Route path="/signup" element={<Register />} /> */}
-          <Route path="/about" element={<AboutUs />} />
-          <Route path="/find-blood" element={<FindBlood />} />
-        </Routes>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/about" element={<AboutUs />} />
+        <Route path="/find-blood" element={<FindBlood />} />
+      </Routes>
 
-        {/* Footer */}
-        <Footer />
-      </div>
-    </Router>
+      {location.pathname !== "/login" && <Footer />}
+    </div>
   );
 };
 

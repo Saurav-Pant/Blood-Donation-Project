@@ -61,3 +61,4 @@ const GetBlood = () => {
 };
 
 export default GetBlood
+
