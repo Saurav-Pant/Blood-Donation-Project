@@ -13,7 +13,7 @@ const Navbar = () => {
       style={{
         backgroundColor: theme.background,
         color: theme.color,
-        boxShadow: "0px 2px 10px rgba(0, 0, 0, 0.1)",
+        boxShadow: theme.boxShadow,
       }}
       initial={{ opacity: 0, y: -100 }}
       animate={{ opacity: 1, y: 0 }}
