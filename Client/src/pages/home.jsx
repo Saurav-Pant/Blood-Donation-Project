@@ -1,7 +1,8 @@
 import React from "react";
 import Hero from "../components/hero";
-import OurMission from "../components/ourmission";
+import OurMission from "../components/OurMission";
 import Collaborators from "../components/collaborators";
+import Footer from "../components/footer";
 import GetBlood from "../components/getBlood";
 
 const home = () => {
@@ -10,7 +11,8 @@ const home = () => {
       <Hero />
       <OurMission />
       <Collaborators />
-      <GetBlood/>
+      <GetBlood />
+      
     </div>
   );
 };
