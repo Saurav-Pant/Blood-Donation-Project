@@ -8,6 +8,7 @@ const lightTheme = {
   background: "#fff",
   color: "#000",
   icon: "☀️",
+  boxShadow: "0px 2px 10px rgba(0, 0, 0, 0.1)",
   button: {
     buttonBgColor: "#000",
     buttonTextColor: "#fff",
@@ -18,6 +19,7 @@ const darkTheme = {
   background: "#000000",
   color: "#FFFFFF",
   icon: "🌜",
+  boxShadow: "  0 2px 4px rgba(255, 255, 255, 0.2)",
   button: {
     buttonBgColor: "#fff",
     buttonTextColor: "#000",
