@@ -2,7 +2,7 @@ import React from "react";
 import Hero from "../components/hero";
 import OurMission from "../components/OurMission";
 import Collaborators from "../components/collaborators";
-import getBlood from "../components/getBlood";
+import GetBlood from "../components/getBlood"
 import Footer from "../components/footer";
 
 const home = () => {
@@ -11,7 +11,7 @@ const home = () => {
       <Hero />
       <OurMission />
       <Collaborators />
-      <getBlood />
+      <GetBlood/>
     </div>
   );
 };
