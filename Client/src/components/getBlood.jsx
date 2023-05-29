@@ -3,7 +3,7 @@ import pencil from "../asset/pencil.svg";
 import heartbeat from "../asset/heartbeat.svg";
 import { motion } from 'framer-motion';
 
-const GetBlood = () => {
+const getBlood = () => {
   const infoCard=(props)=>{
     return (
     <div className="h-[45vh] w-[25vw] my-0 p-0 relative flex items-center justify-center">
@@ -60,5 +60,5 @@ const GetBlood = () => {
   );
 };
 
-export default GetBlood
+export default getBlood;
 
