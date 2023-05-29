@@ -1,5 +1,5 @@
 import React from "react";
-import OurMission from "../components/OurMission";
+import OurMission from "../components/ourMission";
 import Collaborators from "../components/collaborators";
 
 const aboutUs = () => {
