@@ -2,7 +2,9 @@ import React from 'react'
 
 const login = () => {
   return (
-    <div>login</div>
+    <div className='flex justify-center items-center h-screen'>
+      Happy Coding 🎉
+    </div>
   )
 }
 

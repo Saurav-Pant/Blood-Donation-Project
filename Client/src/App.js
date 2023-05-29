@@ -11,7 +11,8 @@ import { ThemeContext } from "./context/ThemeContext";
 
 const App = () => {
   const { theme } = useContext(ThemeContext);
-  const location = useLocation(); // Get the current location
+  // Get the current location
+  const location = useLocation();
   console.log(location);
 
   return (
