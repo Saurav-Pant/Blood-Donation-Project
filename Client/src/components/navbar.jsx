@@ -5,11 +5,26 @@ import { ThemeContext } from "../context/ThemeContext";
 import { motion } from "framer-motion";
 
 const Navbar = () => {
-  const { theme, toggleTheme } = useContext(ThemeContext);
+  const handleclick = () => {
+    document.querySelector(".hamburger").classList.toggle('active');
+    document.querySelector(".nav-menu").classList.toggle('active');
+  }
 
+  const { theme, toggleTheme } = useContext(ThemeContext);
+  
+  let barcolor,navcolor;
+  if(theme.background === "#000000"){
+    barcolor = "#fff";
+    navcolor = "#000";
+  }
+  else{
+    barcolor = "#000";
+    navcolor = "#fff";
+  }
+  
   return (
     <motion.nav
-      className="fixed top-0 left-0 right-0 z-10 px-4 py-2 flex items-center justify-between "
+      className="sticky top-0 z-10 px-4 py-2 flex items-center justify-between "
       style={{
         backgroundColor: theme.background,
         color: theme.color,
@@ -26,23 +41,23 @@ const Navbar = () => {
         </Link>
       </div>
       {/* Hide links in small devices */}
-      <ul className=" font-mono text-xl hidden sm:flex">
-        <li className="ml-8 hover:text-red-400 transition-colors duration-300">
+      <ul className=" font-mono text-xl sm:flex nav-menu" onClick={handleclick} style={{backgroundColor:navcolor}}>
+        <li className="ml-8 hover:text-red-400 transition-colors duration-300 nav-item">
           <Link to="/">Home</Link>
         </li>
-        <li className="ml-8 hover:text-red-400 transition-colors duration-300">
+        <li className="ml-8 hover:text-red-400 transition-colors duration-300 nav-item">
           <Link to="/about">About Us</Link>
         </li>
-        <li className="ml-8 hover:text-red-400 transition-colors duration-300">
+        <li className="ml-8 hover:text-red-400 transition-colors duration-300 nav-item">
           <Link to="/find-blood">Find Blood</Link>
         </li>
-        <li className="ml-8 hover:text-red-400 transition-colors duration-300">
+        <li className="ml-8 hover:text-red-400 transition-colors duration-300 nav-item">
           <Link to="/signup">Register Now</Link>
         </li>
       </ul>
       <Link to="/login">
         <motion.button
-          className="ml-10 px-4 py-2 rounded border-2 hidden sm:flex border-black"
+          className="ml-10 px-4 py-2 rounded border-2 sm:flex border-black"
           style={{
             backgroundColor: theme.button.buttonBgColor,
             color: theme.button.buttonTextColor,
@@ -60,6 +75,11 @@ const Navbar = () => {
       >
         {theme.icon}
       </motion.button>
+      <div className="hamburger" onClick={handleclick}>
+        <span className="bar" style={{backgroundColor:barcolor}}></span>
+        <span className="bar" style={{backgroundColor:barcolor}}></span>
+        <span className="bar" style={{backgroundColor:barcolor}}></span>
+      </div>
     </motion.nav>
   );
 };
