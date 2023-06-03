@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { BsFacebook } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
 
-const Login = () => {
+const SignUp = () => {
   return (
     <div className="flex justify-evenly items-center h-screen bg-gray-100">
       <motion.div
@@ -151,7 +151,7 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;
 
 // import React from 'react';
 // import LogIn from "../asset/LogIn.png";

@@ -55,7 +55,7 @@ const Navbar = () => {
           <Link to="/signup">Register Now</Link>
         </li>
       </ul>
-      <Link to="/login">
+      <Link to="/SignUp">
         <motion.button
           className="ml-10 px-4 py-2 rounded border-2 sm:flex border-black"
           style={{
