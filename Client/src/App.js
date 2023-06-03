@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/home";
-import Login from "./pages/Login";
+import Login from "./pages/login";
 import AboutUs from "./pages/aboutUs";
 import FindBlood from "./pages/findBlood";
 import Navbar from "./components/navbar";
