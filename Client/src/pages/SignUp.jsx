@@ -3,6 +3,7 @@ import LogIn from "../asset/LogIn.png";
 import { motion } from "framer-motion";
 import { BsFacebook } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
+import {Link} from "react-router-dom";
 
 const SignUp = () => {
   return (
@@ -116,15 +117,19 @@ const SignUp = () => {
             }}
             transition={{ duration: 1 }}
           >
-            <a
+            <Link
               href="#"
-              className="px-4 py-2 rounded-full flex items-center mr-2"
+              className="px-4 py-2 rounded-full flex items-center mr-2 hover:transform hover:-translate-y-1 transition duration-300"
             >
-              <BsFacebook size={30} color="blue" />
-            </a>
-            <a href="#" className="px-4 py-2 rounded-full flex items-center">
-              <FcGoogle size={30} />
-            </a>
+              <BsFacebook className="text-blue-500" size="30" />
+            </Link>
+
+            <Link
+              href="#"
+              className="px-4 py-2 rounded-full flex items-center hover:transform hover:-translate-y-1 transition duration-300"
+            >
+              <FcGoogle className="text-gray-700" size="30" />
+            </Link>
           </motion.div>
           <motion.div
             className="mt-6 text-center"
@@ -141,9 +146,12 @@ const SignUp = () => {
             transition={{ duration: 2 }}
           >
             <span className="text-gray-700">Already have an account?</span>
-            <a href="#" className="text-blue-500  font-bold pl-3 ">
+            <Link
+              to="/login"
+              className="text-blue-500  font-bold pl-3 hover:text-red-400 transition-colors duration-300 ease-in-out "
+            >
               LogIn
-            </a>
+            </Link>
           </motion.div>
         </div>
       </motion.div>
