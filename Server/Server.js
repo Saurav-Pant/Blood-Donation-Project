@@ -1,14 +1,16 @@
 const express = require("express");
-
 const app = express();
 
-//MongoDB
-
+// MongoDB
 const mongoose = require("mongoose");
 
 mongoose.connect("mongodb://localhost:27017/MyDB", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+});
+
+mongoose.connection.on("connected", () => {
+  console.log("Connected to MongoDB");
 });
 
 app.listen(8080, () => {
