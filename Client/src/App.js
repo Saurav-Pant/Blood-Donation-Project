@@ -23,7 +23,7 @@ const App = () => {
         color: theme.color,
       }}
     >
-      {location.pathname !== "/login" && <Navbar />}
+      {location.pathname !== "/SignUp" && <Navbar />}
 
       <Routes>
         <Route path="/" element={<Home />} />
@@ -34,7 +34,7 @@ const App = () => {
         <Route path="/register-donor" element={<RegisterDonor />} />
       </Routes>
 
-      {location.pathname !== "/login" && <Footer />}
+      {location.pathname !== "/SignUp" && <Footer />}
     </div>
   );
 };
