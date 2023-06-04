@@ -14,7 +14,13 @@ const login = () => {
           to="/"
           className="px-4 py-2 rounded-ful font-bold bg-gradient-to-br h-20 w-40 transition-colors duration-300 ease-in-out"
         >
-          <IoMdArrowRoundBack size={50} color="red"/>
+          <motion.span
+            initial={{ opacity: 0, position: "relative", left: "-100px" }}
+            animate={{ opacity: 1, position: "relative", left: "0px" }}
+            transition={{ duration: 2.5 }}
+          >
+            <IoMdArrowRoundBack size={50} color="red" />
+          </motion.span>
         </Link>
       </div>
 
