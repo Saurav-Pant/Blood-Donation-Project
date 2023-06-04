@@ -10,10 +10,10 @@ import { ThemeContext } from "./context/ThemeContext";
 import RegisterOrg from "./pages/registerOrg";
 import RegisterDonor from "./pages/registerDonor";
 import SignUp from "./pages/SignUp";
+import Login from "./pages/login";
 
 const App = () => {
   const { theme } = useContext(ThemeContext);
-  // Get the current location
   const location = useLocation();
   console.log(location);
 
@@ -30,6 +30,7 @@ const App = () => {
 
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/SignUp" element={<SignUp />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/find-blood" element={<FindBlood />} />
