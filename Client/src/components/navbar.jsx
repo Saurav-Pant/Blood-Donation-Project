@@ -64,7 +64,7 @@ const Navbar = () => {
           }}
           whileHover={{ opacity: 0.7, transition: { duration: 0.5 } }}
         >
-          Log In
+         Sign Up
         </motion.button>
       </Link>
       <motion.button
