@@ -4,10 +4,20 @@ import { motion } from "framer-motion";
 import { BsFacebook } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
+import { IoMdArrowRoundBack } from "react-icons/io";
 
 const login = () => {
   return (
     <div className="flex justify-evenly items-center h-screen bg-gray-100">
+      <div className="absolute top-4 left-4">
+        <Link
+          to="/"
+          className="px-4 py-2 rounded-ful font-bold bg-gradient-to-br h-20 w-40 transition-colors duration-300 ease-in-out"
+        >
+          <IoMdArrowRoundBack size={50} color="red"/>
+        </Link>
+      </div>
+
       <motion.div
         className="hidden md:block"
         initial={{ opacity: 0, position: "relative", left: "-100px" }}
