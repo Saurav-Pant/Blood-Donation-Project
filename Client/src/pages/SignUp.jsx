@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import LogIn from "../asset/LogIn.png";
 import { motion } from "framer-motion";
 import { BsFacebook } from "react-icons/bs";
@@ -7,14 +7,40 @@ import { Link } from "react-router-dom";
 import { IoMdArrowRoundBack } from "react-icons/io";
 
 
-//Functions
-
-
-
 const SignUp = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  // Name
+  const handleName = (e) => {
+    setName(e.target.value);
+  };
+
+  //Email
+  const handleEmail = (e) => {
+    setEmail(e.target.value);
+  };
+
+  //Password
+  const handlePassword = (password) => {
+    setPassword(e.target.value);
+  };
+
+  //Form Submit
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+    try{
+      
+    }
+
+  }
+
   return (
     <div className="flex justify-evenly items-center h-screen bg-gray-100">
-        <div className="absolute top-4 left-4">
+      <div className="absolute top-4 left-4">
         <Link
           to="/"
           className="px-4 py-2 rounded-ful font-bold bg-gradient-to-br h-20 w-40 transition-colors duration-300 ease-in-out"
@@ -65,6 +91,7 @@ const SignUp = () => {
               y: 0,
             }}
             transition={{ duration: 1 }}
+
           >
             <div className="mb-6">
               <label
@@ -78,6 +105,8 @@ const SignUp = () => {
                 className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-center"
                 id="name"
                 placeholder="Enter Name"
+                value={name}
+                onchange={handleName}
               />
             </div>
             <div className="mb-6">
@@ -92,6 +121,8 @@ const SignUp = () => {
                 className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-center"
                 id="email"
                 placeholder="Email address"
+                value={email}
+                onchange={handleEmail}
               />
             </div>
             <div className="mb-6">
@@ -106,6 +137,8 @@ const SignUp = () => {
                 className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-center"
                 id="password"
                 placeholder="Password"
+                value={password}
+                onchange={handlePassword}
               />
             </div>
             <div className="mb-6">
@@ -180,5 +213,3 @@ const SignUp = () => {
 };
 
 export default SignUp;
-
-
