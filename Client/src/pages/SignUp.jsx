@@ -5,7 +5,7 @@ import { BsFacebook } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
 import { IoMdArrowRoundBack } from "react-icons/io";
-
+import axios from "axios";
 
 const SignUp = () => {
   const [name, setName] = useState("");
@@ -13,30 +13,39 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
 
   // Name
+
   const handleName = (e) => {
     setName(e.target.value);
   };
 
   //Email
+
   const handleEmail = (e) => {
     setEmail(e.target.value);
   };
 
   //Password
+
   const handlePassword = (password) => {
     setPassword(e.target.value);
   };
 
   //Form Submit
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    try{
-      
-    }
 
-  }
+    try {
+      const res = await axios.post("http://localhost:8080/signup", {
+        name,
+        email,
+        password,
+      });
+      res.data && window.location.replace("/login");
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <div className="flex justify-evenly items-center h-screen bg-gray-100">
@@ -91,7 +100,7 @@ const SignUp = () => {
               y: 0,
             }}
             transition={{ duration: 1 }}
-
+            onSubmit={handleSubmit}
           >
             <div className="mb-6">
               <label
