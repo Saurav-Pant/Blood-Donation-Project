@@ -1,10 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import error from "../asset/404.jpg";
+import { motion } from 'framer-motion';
 
 const PageNotFound = () => {
   return (
-    <div className="flex flex-col items-center justify-center h-[90vh]">
+    <motion.div className="flex flex-col items-center justify-center h-[90vh]"
+    initial={{ opacity: 0, y: -100 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 1, delay: 0.2 }}
+    >
            <h1 className="text-4xl text-red-500 font-bold mb-4 animate-bounce delay-1000" >
         Page Not Found
       </h1>
@@ -18,7 +22,7 @@ const PageNotFound = () => {
       >
         Go back to homepage
       </Link>
-    </div>
+    </motion.div>
   );
 };
 
