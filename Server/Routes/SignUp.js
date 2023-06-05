@@ -1,10 +1,9 @@
 const express = require("express");
 const router = express.Router();
 
-// Import the User model
 const User = require("../models/SignUp");
 
-// Create a new user
+// Creating  a new user
 router.post("/", async (req, res) => {
   try {
     const { name, email, password } = req.body;
@@ -21,3 +20,5 @@ router.post("/", async (req, res) => {
     res.status(500).json({ error: "Failed to save user." });
   }
 });
+
+module.exports = router;

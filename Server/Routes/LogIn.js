@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+
 const User = require("../models/LogIn");
 
 router.post("/", async (req, res) => {
@@ -10,7 +11,6 @@ router.post("/", async (req, res) => {
     if (!user) {
       return res.status(401).json({ error: "Invalid credentials" });
     }
-
     res.status(200).json({ message: "Login successful" });
   } catch (error) {
     res.status(500).json({ error: "Failed to log in." });
