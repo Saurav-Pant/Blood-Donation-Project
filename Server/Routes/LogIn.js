@@ -1,23 +1,19 @@
 const express = require("express");
 const router = express.Router();
-const User = require("../models/User"); // Import the User model
+const User = require("../models/LogIn");
 
 router.post("/", async (req, res) => {
   try {
     const { email, password } = req.body;
+    const user = await User.findOne({ email });
 
-    // Create a new user with the phone number
-    const newUser = new User({
-      email,
-      password,
-    });
+    if (!user) {
+      return res.status(401).json({ error: "Invalid credentials" });
+    }
 
-    // Save the user to the database
-    await newUser.save();
-
-    res.status(201).json(newUser); // Respond with the newly created user
+    res.status(200).json({ message: "Login successful" });
   } catch (error) {
-    res.status(500).json({ error: "Failed to save user." });
+    res.status(500).json({ error: "Failed to log in." });
   }
 });
 
