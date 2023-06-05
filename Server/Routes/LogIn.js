@@ -4,11 +4,12 @@ const User = require("../models/User"); // Import the User model
 
 router.post("/", async (req, res) => {
   try {
-    const {} = req.body;
+    const { email, password } = req.body;
 
     // Create a new user with the phone number
     const newUser = new User({
-      phoneNumber,
+      email,
+      password,
     });
 
     // Save the user to the database
