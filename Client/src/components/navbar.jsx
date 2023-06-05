@@ -52,7 +52,7 @@ const Navbar = () => {
           <Link to="/find-blood">Find Blood</Link>
         </li>
         <li className="ml-8 hover:text-red-400 transition-colors duration-300 nav-item">
-          <Link to="/signup">Register Now</Link>
+          <Link to="/SignUp">Register Now</Link>
         </li>
       </ul>
       <Link to="/SignUp">

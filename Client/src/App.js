@@ -11,6 +11,7 @@ import RegisterOrg from "./pages/registerOrg";
 import RegisterDonor from "./pages/registerDonor";
 import SignUp from "./pages/SignUp";
 import Login from "./pages/login";
+import PageNotFound from "./components/PageNotFound";
 
 const App = () => {
   const { theme } = useContext(ThemeContext);
@@ -36,6 +37,7 @@ const App = () => {
         <Route path="/find-blood" element={<FindBlood />} />
         <Route path="/register-org" element={<RegisterOrg />} />
         <Route path="/register-donor" element={<RegisterDonor />} />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
 
       {location.pathname !== "/SignUp" && location.pathname !== "/login" && (
