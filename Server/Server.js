@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const MONGO_URI = process.env.MONGO_URI;
 const SignUpRoute = require("./Routes/SignUp");
 const LogInRoute = require("./Routes/LogIn");
+const cors = require("cors");
 
 // MongoDB
 mongoose
@@ -21,6 +22,14 @@ mongoose
 
 // Middleware
 app.use(express.json());
+
+//cors
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+    credentials: true,
+  })
+);
 
 // Routes
 app.use("/signup", SignUpRoute);

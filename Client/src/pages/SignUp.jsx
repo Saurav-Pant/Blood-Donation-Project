@@ -26,7 +26,7 @@ const SignUp = () => {
 
   //Password
 
-  const handlePassword = (password) => {
+  const handlePassword = (e) => {
     setPassword(e.target.value);
   };
 
@@ -115,7 +115,7 @@ const SignUp = () => {
                 id="name"
                 placeholder="Enter Name"
                 value={name}
-                onchange={handleName}
+                onChange={handleName}
               />
             </div>
             <div className="mb-6">
@@ -131,7 +131,7 @@ const SignUp = () => {
                 id="email"
                 placeholder="Email address"
                 value={email}
-                onchange={handleEmail}
+                onChange={handleEmail}
               />
             </div>
             <div className="mb-6">
@@ -147,7 +147,7 @@ const SignUp = () => {
                 id="password"
                 placeholder="Password"
                 value={password}
-                onchange={handlePassword}
+                onChange={handlePassword}
               />
             </div>
             <div className="mb-6">
