@@ -6,6 +6,7 @@ const MONGO_URI = process.env.MONGO_URI;
 const SignUpRoute = require("./Routes/SignUp");
 const LogInRoute = require("./Routes/LogIn");
 const cors = require("cors");
+const session = require("express-session");
 
 // MongoDB
 mongoose
@@ -22,11 +23,19 @@ mongoose
 
 // Middleware
 app.use(express.json());
+app.use(
+  session({
+    secret: "sauravpant123",
+    resave: false,
+    saveUninitialized: false,
+  })
+);
 
 //cors
 app.use(
   cors({
     origin: "http://localhost:3000",
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     credentials: true,
   })
 );

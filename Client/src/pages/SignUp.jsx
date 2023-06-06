@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
 import LogIn from "../asset/LogIn.png";
 import { motion } from "framer-motion";
 import { BsFacebook } from "react-icons/bs";
@@ -18,19 +19,19 @@ const SignUp = () => {
     setName(e.target.value);
   };
 
-  //Email
+  // Email
 
   const handleEmail = (e) => {
     setEmail(e.target.value);
   };
 
-  //Password
+  // Password
 
   const handlePassword = (e) => {
     setPassword(e.target.value);
   };
 
-  //Form Submit
+  // Form Submit
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -42,6 +43,7 @@ const SignUp = () => {
         password,
       });
       console.log(res.data)
+      Navigate("/")
     } catch (err) {
       console.log(err);
     }
