@@ -41,7 +41,7 @@ const SignUp = () => {
         email,
         password,
       });
-      res.data && window.location.replace("/");
+      console.log(res.data)
     } catch (err) {
       console.log(err);
     }
