@@ -1,24 +1,26 @@
 const express = require("express");
 const router = express.Router();
+const { check, validationResult } = require("express-validator");
 
 const User = require("../models/SignUp");
 
 // Creating  a new user
-router.post("/", async (req, res) => {
-  try {
-    const { name, email, password } = req.body;
-
-    const newUser = new User({
-      name,
-      email,
-      password,
+router.post("/",
+[
+  check("name", "Please Enter a Valid Name").not().isEmpty(),
+  check("email", "Please enter a valid email").isEmail(),
+  check("password", "Please enter a valid password").isLength({
+    min: 6,
+  }),
+],
+async (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({
+      errors: errors.array(),
     });
-
-    await newUser.save();
-    res.status(201).json(newUser);
-  } catch {
-    res.status(500).json({ error: "Failed to save user." });
   }
-});
+)
+
 
 module.exports = router;
