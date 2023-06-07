@@ -44,21 +44,23 @@ router.post(
 
       await user.save();
 
-      const payload = {
-        user: {
-          id: user.id,
-        },
-      };
+      // const payload = {
+      //   user: {
+      //     id: user.id,
+      //     name: user.name,
+      //     email: user.email,
+      //   },
+      // };
 
-      jwt.sign(
-        payload,
-        process.env.JWT_SECRET,
-        { expiresIn: 3600 },
-        (err, token) => {
-          if (err) throw err;
-          res.json({ token });
-        }
-      );
+      // jwt.sign(
+      //   payload,
+      //   process.env.JWT_SECRET,
+      //   { expiresIn: 3600 },
+      //   (err, token) => {
+      //     if (err) throw err;
+      //     res.json({ token });
+      //   }
+      // );
     } catch (err) {
       console.error(err.message);
       res.status(500).send("Server Error");
