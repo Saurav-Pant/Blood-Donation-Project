@@ -60,6 +60,12 @@ app.use("/", (req, res) => {
   });
 });
 
+app.use("/hello", (req, res) => {
+  res.json({
+    message: "Hello from saurav",
+  });
+});
+
 app.listen(PORT, () => {
   console.log(`server is running on port ${PORT}`);
 });
