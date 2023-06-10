@@ -33,7 +33,7 @@ const Hero = () => {
         </motion.button>
       </div>
       <motion.div
-        className="h-[60vh] sm:mt-10 mt-0"
+        className="h-[60vh] sm:mt-10 mt-0 "
         initial={{ opacity: 0, position: "relative", left: "-100px" }}
         animate={{ opacity: 1, position: "relative", left: "0px" }}
         transition={{ duration: 2 }}
@@ -41,7 +41,7 @@ const Hero = () => {
         <img
           src={blood}
           alt="logo"
-          className="h-96 w-96 rounded-3xl shadow-md hover:bg-red-50 transition-colors duration-500 ease-in-out"
+          className="h-96 w-96 rounded-3xl shadow-md bg-red-50 hover:bg-red-100 transition-colors duration-500 ease-in-out"
         />
       </motion.div>
     </div>
