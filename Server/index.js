@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 
 //MongoDB
 mongoose
-  .connect("mongodb://localhost:27017/Blood-Donation", {
+  .connect("mongodb://127.0.0.1/Blood-Donation", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
