@@ -1,36 +1,53 @@
 import React, { useState } from "react";
-// import {useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import LogIn from "../asset/LogIn.png";
 import { motion } from "framer-motion";
 import { BsFacebook } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
 import { IoMdArrowRoundBack } from "react-icons/io";
-// import axios from "axios";
 
 const SignUp = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const navigate = useNavigate();
-
-
-  // Name
+  const navigate = useNavigate();
 
   const handleName = (e) => {
     setName(e.target.value);
   };
 
-  // Email
-
   const handleEmail = (e) => {
     setEmail(e.target.value);
   };
 
-  // Password
-
   const handlePassword = (e) => {
     setPassword(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const user = {
+      name: name,
+      email: email,
+      password: password,
+    };
+
+    fetch("http://localhost:8080/api/users", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        navigate("/login");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
 
@@ -87,6 +104,8 @@ const SignUp = () => {
               y: 0,
             }}
             transition={{ duration: 1 }}
+            onSubmit={handleSubmit}
+
           >
             <div className="mb-6">
               <label

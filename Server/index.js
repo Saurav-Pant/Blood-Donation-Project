@@ -1,18 +1,22 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
+const cors = require("cors");
 
 //Middleware
 app.use(express.json());
 
+//cors
+app.use(cors());
+
 //Routes
 app.use("/api/users", require("./Routes/SignUp"));
 
-app.get("/", (req, res) => {
-  res.json({
-    msg: "Hello World",
-  });
-});
+// app.get("/", (req, res) => {
+//   res.json({
+//     msg: "Hello World",
+//   });
+// });
 
 //MongoDB
 mongoose
