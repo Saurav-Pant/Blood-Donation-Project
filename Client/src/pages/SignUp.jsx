@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {useNavigate } from "react-router-dom";
+// import {useNavigate } from "react-router-dom";
 import LogIn from "../asset/LogIn.png";
 import { motion } from "framer-motion";
 import { BsFacebook } from "react-icons/bs";
