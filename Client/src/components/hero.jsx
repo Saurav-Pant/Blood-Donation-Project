@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import blood from "../asset/blood3.png";
+import blood from "../asset/Header.png";
 import { ThemeContext } from "../context/ThemeContext";
 import { motion } from "framer-motion";
 
@@ -28,18 +28,21 @@ const Hero = () => {
           animate={{ opacity: 1, position: "relative", left: "0px" }}
           transition={{ duration: 1 }}
           whileHover={{ opacity: 0.7, transition: { duration: 0.5 } }}
-
         >
           Get Blood Now
         </motion.button>
       </div>
       <motion.div
-        className="md:order-1 w-[50vh]"
-        initial={{ opacity: 0, position: "relative", right: "-100px" }}
-        animate={{ opacity: 1, position: "relative", right: "0px" }}
-        transition={{ duration: 1 }}
+        className="h-[60vh] sm:mt-10 mt-0"
+        initial={{ opacity: 0, position: "relative", left: "-100px" }}
+        animate={{ opacity: 1, position: "relative", left: "0px" }}
+        transition={{ duration: 2 }}
       >
-        <img src={blood} alt="blood" />
+        <img
+          src={blood}
+          alt="logo"
+          className="h-96 w-96 rounded-3xl shadow-md hover:bg-red-50 transition-colors duration-500 ease-in-out"
+        />
       </motion.div>
     </div>
   );
