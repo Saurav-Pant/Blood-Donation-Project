@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import {useNavigate } from "react-router-dom";
 import LogIn from "../asset/LogIn.png";
 import { motion } from "framer-motion";
 import { BsFacebook } from "react-icons/bs";
@@ -32,25 +32,6 @@ const SignUp = () => {
   const handlePassword = (e) => {
     setPassword(e.target.value);
   };
-
-  // Form Submit
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    try {
-      const res = await axios.post("http://localhost:8080/signup", {
-        name,
-        email,
-        password,
-      });
-      console.log(res.data);
-      navigate("/"); // Use the navigate function instead of Navigate component
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
 
 
   return (
@@ -106,7 +87,6 @@ const SignUp = () => {
               y: 0,
             }}
             transition={{ duration: 1 }}
-            onSubmit={handleSubmit}
           >
             <div className="mb-6">
               <label
