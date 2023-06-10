@@ -2,6 +2,12 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 
+//Middleware
+app.use(express.json());
+
+//Routes
+app.use("/api/users", require("./Routes/SignUp"));
+
 app.get("/", (req, res) => {
   res.json({
     msg: "Hello World",
@@ -9,7 +15,6 @@ app.get("/", (req, res) => {
 });
 
 //MongoDB
-
 mongoose
   .connect("mongodb://127.0.0.1/Blood-Donation", {
     useNewUrlParser: true,
