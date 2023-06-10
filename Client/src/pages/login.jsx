@@ -137,7 +137,7 @@ const Login = () => {
                 type="submit"
                 className="w-full bg-red-400 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline hover:bg-red-500"
               >
-                Sign in
+                Login
               </button>
             </div>
           </motion.form>
