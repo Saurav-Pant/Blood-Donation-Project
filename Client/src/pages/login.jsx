@@ -36,7 +36,7 @@ const login = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        navigate("/login");
+        navigate("/");
       })
       .catch((error) => {
         console.log(error);
@@ -97,6 +97,7 @@ const login = () => {
               y: 0,
             }}
             transition={{ duration: 1 }}
+            onSubmit={handleSubmit}
           >
             <div className="mb-6">
               <label
@@ -110,6 +111,8 @@ const login = () => {
                 className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-center"
                 id="email"
                 placeholder="Email address"
+                value={email}
+                onChange={handleEmail}
               />
             </div>
             <div className="mb-6">
@@ -124,6 +127,8 @@ const login = () => {
                 className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-center"
                 id="password"
                 placeholder="Password"
+                value={password}
+                onChange={handlePassword}
               />
             </div>
             <div className="mb-6">
