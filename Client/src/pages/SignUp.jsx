@@ -12,6 +12,8 @@ const SignUp = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate(); // Add the useNavigate hook here
+
 
   // Name
 
@@ -42,12 +44,14 @@ const SignUp = () => {
         email,
         password,
       });
-      console.log(res.data)
-      Navigate("/")
+      console.log(res.data);
+      navigate("/"); // Use the navigate function instead of Navigate component
     } catch (err) {
       console.log(err);
     }
   };
+
+
 
   return (
     <div className="flex justify-evenly items-center h-screen bg-gray-100">

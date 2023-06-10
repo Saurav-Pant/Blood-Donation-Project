@@ -40,6 +40,12 @@ app.use(
   })
 );
 
+app.use("/", (req, res) => {
+  res.json({
+    message: "Hello World",
+  });
+});
+
 // Routes
 app.use("/signup", SignUpRoute);
 app.use("/login", LogInRoute);
