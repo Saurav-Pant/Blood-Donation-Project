@@ -33,7 +33,7 @@ const SignUp = () => {
       password: password,
     };
 
-    fetch("http://localhost:8080/api/users", {
+    fetch("http://localhost:8080/api/users/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

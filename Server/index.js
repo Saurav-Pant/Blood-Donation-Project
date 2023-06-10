@@ -11,6 +11,7 @@ app.use(cors());
 
 //Routes
 app.use("/api/users", require("./Routes/SignUp"));
+app.use("/api/users", require("./Routes/Login"));
 
 // app.get("/", (req, res) => {
 //   res.json({
