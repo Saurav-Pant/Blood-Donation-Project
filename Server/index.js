@@ -1,13 +1,15 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
-const cors = require("cors");
 
 //Middleware
 app.use(express.json());
 
 //cors
-app.use(cors());
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  next();
+});
 
 //Routes
 app.use("/api/users", require("./Routes/SignUp"));
