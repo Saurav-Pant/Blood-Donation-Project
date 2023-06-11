@@ -1,17 +1,13 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
+const cors = require("cors"); // Import the cors module
 
-//Middleware
+// Middleware
 app.use(express.json());
+app.use(cors()); // Use the cors middleware
 
-//cors
-app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  next();
-});
-
-//Routes
+// Routes
 app.use("/api/users", require("./Routes/SignUp"));
 app.use("/api/users", require("./Routes/Login"));
 
@@ -21,7 +17,7 @@ app.get("/", (req, res) => {
   });
 });
 
-//MongoDB
+// MongoDB
 mongoose
   .connect("mongodb://127.0.0.1/Blood-Donation", {
     useNewUrlParser: true,
