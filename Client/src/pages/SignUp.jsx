@@ -33,7 +33,7 @@ const SignUp = () => {
       password: password,
     };
 
-    fetch("http://localhost:8080/api/users/signup", {
+    fetch("https://blood-donation-project-c4ij.vercel.app/api/users/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
