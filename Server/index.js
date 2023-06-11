@@ -2,24 +2,14 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const cors = require("cors");
-const { createProxyMiddleware } = require("http-proxy-middleware");
 
-// Middleware
+//Middleware
 app.use(express.json());
 
-// Enable CORS
+//cors
 app.use(cors());
 
-// Proxy middleware
-app.use(
-  "/api/users",
-  createProxyMiddleware({
-    target: "https://blood-donation-project-c4ij.vercel.app",
-    changeOrigin: true,
-  })
-);
-
-// Routes
+//Routes
 app.use("/api/users", require("./Routes/SignUp"));
 app.use("/api/users", require("./Routes/Login"));
 
@@ -29,7 +19,7 @@ app.get("/", (req, res) => {
   });
 });
 
-// MongoDB
+//MongoDB
 mongoose
   .connect("mongodb://127.0.0.1/Blood-Donation", {
     useNewUrlParser: true,
