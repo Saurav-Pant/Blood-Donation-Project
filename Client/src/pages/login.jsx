@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import LogIn from "../asset/LogIn.png";
 import { motion } from "framer-motion";
@@ -17,7 +17,7 @@ const Login = () => {
 
   const handlePassword = (e) => {
     setPassword(e.target.value);
-  }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -161,18 +161,21 @@ const Login = () => {
             }}
             transition={{ duration: 1 }}
           >
-            <Link
+            {/* <Link
               href="#"
               className="px-4 py-2 rounded-full flex items-center mr-2 hover:transform hover:-translate-y-1 transition duration-300"
             >
               <BsFacebook className="text-blue-500" size="30" />
-            </Link>
+            </Link> */}
 
             <Link
               href="#"
-              className="px-4 py-2 rounded-full flex items-center hover:transform hover:-translate-y-1 transition duration-300"
+              className="px-4 py-2 rounded-xl flex items-center bg-red-400 text-white font-bold hover:bg-red-500
+              transition-colors duration-300 ease-in-out"
             >
-              <FcGoogle className="text-gray-700" size="30" />
+              <button className="flex items-center justify-center w-full focus:outline-none">
+                Sign In with <FcGoogle className="ml-3" size={20} />
+              </button>
             </Link>
           </motion.div>
           <motion.div

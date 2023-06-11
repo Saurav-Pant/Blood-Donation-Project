@@ -13,11 +13,11 @@ app.use(cors());
 app.use("/api/users", require("./Routes/SignUp"));
 app.use("/api/users", require("./Routes/Login"));
 
-// app.get("/", (req, res) => {
-//   res.json({
-//     msg: "Hello World",
-//   });
-// });
+app.get("/", (req, res) => {
+  res.json({
+    msg: "Hello World",
+  });
+});
 
 //MongoDB
 mongoose
