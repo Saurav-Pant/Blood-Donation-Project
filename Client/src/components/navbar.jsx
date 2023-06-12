@@ -74,12 +74,14 @@ const Navbar = () => {
           </div>
           {/* Dropdown */}
           {showDropdown && (
-            <ul className="absolute left-0 w-40  rounded shadow mt-2">
+            <ul className="absolute left-0 w-40  rounded shadow mt-2 ">
               <li className="hover:text-red-400 transition-colors duration-300  px-4 py-2">
-                <Link to="/register-donor">Register as Donor</Link>
+                <Link to="/register-donor">Donor</Link>
+          
               </li>
-              <li className="hover:text-red-400 transition-colors duration-300  px-4 py-2">
-                <Link to="/register-organization">Register as Organization</Link>
+              <li><hr /></li>
+              <li className="hover:text-red-400 transition-colors duration-300  px-4  py-3">
+                <Link to="/register-organization">Organization</Link>
               </li>
             </ul>
           )}
