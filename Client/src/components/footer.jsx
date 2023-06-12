@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { BsTwitter, BsInstagram, BsFacebook } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 const footer = () => {
   return (
@@ -35,30 +36,30 @@ const footer = () => {
             }}
           >
             <div className="flex space-x-8">
-              <a
-                href="https://twitter.com"
+              <Link
+                to="https://twitter.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-red-300 transition-colors duration-300 ease-in-out"
+                className="transform hover:-translate-y-1 transition-transform duration-300"
               >
-                <BsTwitter size={30} />
-              </a>
-              <a
-                href="https://instagram.com"
+                <BsTwitter size={30} className="hover:text-red-300" />
+              </Link>
+              <Link
+                to="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-red-300 transition-colors duration-300 ease-in-out"
+                className="transform hover:-translate-y-1 transition-transform duration-300"
               >
-                <BsInstagram size={30} />
-              </a>
-              <a
-                href="https://facebook.com"
+                <BsInstagram size={30} className="hover:text-red-300" />
+              </Link>
+              <Link
+                to="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-red-300 transition-colors duration-300 ease-in-out"
+                className="transform hover:-translate-y-1 transition-transform duration-300"
               >
-                <BsFacebook size={30} />
-              </a>
+                <BsFacebook size={30} className="hover:text-red-300" />
+              </Link>
             </div>
           </motion.div>
         </div>
