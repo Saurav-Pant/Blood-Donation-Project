@@ -45,7 +45,7 @@ const DonorForm = () => {
             name="firstName"
             value={formData.firstName}
             onChange={handleInputChange}
-            className="pl-2 border-2 border-gray-300 hover:border-red-600 flex-grow h-10 w-[3vw]"
+            className="pl-2 border-2 border-gray-300 hover:border-red-800 flex-grow h-10 w-[3vw]"
             placeholder="First"
             required
           />
@@ -58,7 +58,7 @@ const DonorForm = () => {
             name="lastName"
             value={formData.lastName}
             onChange={handleInputChange}
-            className=" mb-[2vw] pl-2 border-2 border-gray-300 hover:border-red-600 flex-grow h-10 w-[3vw]"
+            className=" mb-[2vw] pl-2 border-2 border-gray-300 hover:border-red-800 flex-grow h-10 w-[3vw]"
             placeholder="Last"
             required
           />
@@ -73,7 +73,7 @@ const DonorForm = () => {
             name="phone"
             value={formData.phone}
             onChange={handleInputChange}
-            className="pl-2 border-2 border-gray-300 hover:border-red-600 flex-grow h-10 mb-[2vw]"
+            className="pl-2 border-2 border-gray-300 hover:border-red-800 flex-grow h-10 mb-[2vw]"
             placeholder="Phone Number"
             required
           />
@@ -86,7 +86,7 @@ const DonorForm = () => {
             name="email"
             value={formData.email}
             onChange={handleInputChange}
-            className="pl-2 border-2 border-gray-300 hover:border-red-600 flex-grow h-10 mb-[2vw]"
+            className="pl-2 border-2 border-gray-300 hover:border-red-800 flex-grow h-10 mb-[2vw]"
             placeholder="Email"
             required
           />
@@ -100,7 +100,7 @@ const DonorForm = () => {
             name="bloodGroup"
             value={formData.bloodGroup}
             onChange={handleInputChange}
-            className="pl-2 border-2 border-gray-300 hover:border-red-600 flex-grow h-10 mb-[2vw]"
+            className="pl-2 border-2 border-gray-300 hover:border-red-800 flex-grow h-10 mb-[2vw]"
             required
           >
             <option value="">-- Select --</option>
@@ -122,7 +122,7 @@ const DonorForm = () => {
             name="age"
             value={formData.age}
             onChange={handleInputChange}
-            className="pl-2 border-2 border-gray-300 hover:border-red-600 flex-grow h-10"
+            className="pl-2 border-2 border-gray-300 hover:border-red-800 flex-grow h-10"
             placeholder="Age"
             required
           />
@@ -137,7 +137,7 @@ const DonorForm = () => {
             name="address"
             value={formData.address}
             onChange={handleInputChange}
-            className="pl-2 border-2 border-gray-300 hover:border-red-600 flex-grow h-10"
+            className="pl-2 border-2 border-gray-300 hover:border-red-800 flex-grow h-10"
             placeholder="Address"
             required
           />
@@ -149,7 +149,7 @@ const DonorForm = () => {
             name="state"
             value={formData.state}
             onChange={handleInputChange}
-            className="pl-2 border-2 border-gray-300 hover:border-red-600 flex-grow h-10 mb-[2vw]"
+            className="pl-2 border-2 border-gray-300 hover:border-red-800 flex-grow h-10 mb-[2vw]"
             required
           >
             <option value="">-- Select --</option>
@@ -163,7 +163,7 @@ const DonorForm = () => {
             name="city"
             value={formData.city}
             onChange={handleInputChange}
-            className="pl-2 border-2 border-gray-300 hover:border-red-600 flex-grow h-10"
+            className="pl-2 border-2 border-gray-300 hover:border-red-800 flex-grow h-10"
             required
           >
             <option value="">-- Select --</option>
