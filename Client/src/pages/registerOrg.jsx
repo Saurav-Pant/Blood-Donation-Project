@@ -2,7 +2,7 @@ import React from 'react';
 import OrgForm from '../components/orgForm';
 const registerOrg = () => {
    return (
-    < OrgForm/>
+    <OrgForm />
    );
 };
 export default registerOrg

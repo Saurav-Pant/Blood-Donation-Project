@@ -81,7 +81,7 @@ const Navbar = () => {
               </li>
               <li><hr /></li>
               <li className="hover:text-red-400 transition-colors duration-300  px-4  py-3">
-                <Link to="/register-organization">Organization</Link>
+                <Link to="/register-org">Organization</Link>
               </li>
             </ul>
           )}

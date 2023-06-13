@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import { useState } from "react";
 
 const DonorForm = () => {
   const [formData, setFormData] = useState({
@@ -13,6 +14,12 @@ const DonorForm = () => {
     city: "",
     gender: "",
   });
+  const [isChecked, setIsChecked] = useState(false);
+
+  const handleCheckboxChange = (e) => {
+    setIsChecked(e.target.checked);
+  };
+
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -26,18 +33,21 @@ const DonorForm = () => {
     e.preventDefault();
     // Perform form submission logic here
     console.log(formData);
+    console.log(isChecked);
   };
-  const title= "First Name";
+  
+  const compulsory= <span className="text-red-600">*</span>;
+  
 
   return (
     <form onSubmit={handleSubmit} className="space-x-14 mr-[3vw]">
-      <div className="flex items-center bg-gradient-to-r from-red-900 via-red-900 to-red-800 h-[9vh] mx-10 mt-4 rounded w-[95vw] mb-[2vh]">
-        <h1 className="text-white text-lg font-bold ml-4">{"Register As Donor"}</h1>
+      <div className="flex items-center bg-gradient-to-r from-red-900 via-red-900 to-red-800 h-[11vh] mx-10 mt-4 rounded w-[95vw] mb-[2vh]">
+        <h1 className="text-white text-2xl font-bold ml-4">Register as donor</h1>
       </div>
       <div className="shadow border-1 p-8">
         <div className="flex mb-5">
-          <label htmlFor="firstName" className="w-24 mb-[2vw]">
-            <h1>{title}</h1>
+          <label htmlFor="firstName" className="w-24 mb-[2vw] mt-2 mr-1">
+            <h1>First Name {compulsory}</h1>
           </label>
           <input
             type="text"
@@ -49,8 +59,8 @@ const DonorForm = () => {
             placeholder="First"
             required
           />
-          <label htmlFor="lastName" className="w-24 mb-[2vw] ml-4">
-            Last Name
+          <label htmlFor="lastName" className="w-24 mb-[2vw] ml-4 mt-2 mr-1">
+            Last Name {compulsory}
           </label>
           <input
             type="text"
@@ -64,8 +74,8 @@ const DonorForm = () => {
           />
         </div>
         <div className="flex mb-5">
-          <label htmlFor="phone" className="w-24 mb-[2vw]">
-            Phone
+          <label htmlFor="phone" className="w-24 mb-[2vw] mt-2 mr-1">
+            Phone {compulsory}
           </label>
           <input
             type="text"
@@ -77,8 +87,8 @@ const DonorForm = () => {
             placeholder="Phone Number"
             required
           />
-          <label htmlFor="email" className="w-24 mb-[2vw] ml-4">
-            Email
+          <label htmlFor="email" className="w-24 mb-[2vw] ml-4 mt-2 mr-1">
+            Email {compulsory}
           </label>
           <input
             type="email"
@@ -92,15 +102,15 @@ const DonorForm = () => {
           />
         </div>
         <div className="flex mb-5">
-          <label htmlFor="bloodGroup" className="w-24 mb-[2vw]">
-            Blood Group
+          <label htmlFor="bloodGroup" className="w-26 mb-[2vw] mt-2 mr-1">
+            Blood Group {compulsory}
           </label>
           <select
             id="bloodGroup"
             name="bloodGroup"
             value={formData.bloodGroup}
             onChange={handleInputChange}
-            className="pl-2 border-2 border-gray-300 hover:border-red-600 flex-grow h-10 mb-[2vw]"
+            className="pl-2 border-2  border-gray-300 hover:border-red-600  h-10  mb-[2vw] "
             required
           >
             <option value="">-- Select --</option>
@@ -113,8 +123,8 @@ const DonorForm = () => {
             <option value="AB+">AB+</option>
             <option value="AB-">AB-</option>
           </select>
-          <label htmlFor="age" className="w-24 mb-[2vw] ml-4">
-            Age
+          <label htmlFor="age" className=" mb-[2vw] ml-12 mt-2 mr-1 w-[48px] ">
+            Age {compulsory}
           </label>
           <input
             type="number"
@@ -122,14 +132,14 @@ const DonorForm = () => {
             name="age"
             value={formData.age}
             onChange={handleInputChange}
-            className="pl-2 border-2 border-gray-300 hover:border-red-600 flex-grow h-10"
+            className="pl-2 border-2 border-gray-300 hover:border-red-600  h-10 w-[70px]"
             placeholder="Age"
             required
           />
         </div>
-        <div className="flex-col mb-5">
-          <label htmlFor="address" className="w-24 mt-2 mr-[2vw]">
-            Address
+        <div className="flex-col mb-5 ">
+          <label htmlFor="address" className="w-24 mt-2 mr-[2vw] ">
+            Address {compulsory}
           </label>
           <input
             type="text"
@@ -142,7 +152,7 @@ const DonorForm = () => {
             required
           />
           <label htmlFor="state" className="w-24 mt-2 mx-[2vw]">
-            State
+            State {compulsory}
           </label>
           <select
             id="state"
@@ -153,10 +163,11 @@ const DonorForm = () => {
             required
           >
             <option value="">-- Select --</option>
+            <option value="Uk">Uttarakhand</option>
             {/* Add options for states */}
           </select>
           <label htmlFor="city" className="w-24 mx-[2vw] mb-[2vw] ">
-            City
+            City {compulsory}
           </label>
           <select
             id="city"
@@ -167,12 +178,13 @@ const DonorForm = () => {
             required
           >
             <option value="">-- Select --</option>
+            <option value="Almora">Almora</option>
             {/* Add options for cities */}
           </select>
         </div>
-        <div className="flex mb-[2vw]">
-          <label htmlFor="gender" className="w-24 mb-[2vw]">
-            Gender
+        <div className="flex mb-[3vw]">
+          <label htmlFor="gender" className="w-24 mr-4">
+            Gender {compulsory}
           </label>
           <div className="flex items-center">
             <input
@@ -211,12 +223,24 @@ const DonorForm = () => {
             <label htmlFor="other">Others</label>
           </div>
         </div>
+        <div className="mb-[4vh]  font-bold ">
+      <label>
+        <input
+          type="checkbox"
+          checked={isChecked}
+          onChange={handleCheckboxChange}
+          className="mr-3 "        />
+        All the details which are filled  by me are right and ethical.
+      </label>
+    </div>
+<div className="flex justify-end">
         <button
           type="submit"
           className="bg-red-900 hover:bg-red-800 text-white font-bold py-2 px-4 rounded"
         >
           Register
         </button>
+        </div>
       </div>
     </form>
   );
