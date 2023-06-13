@@ -132,7 +132,7 @@ const DonorForm = () => {
             name="age"
             value={formData.age}
             onChange={handleInputChange}
-            className="pl-2 border-2 border-gray-300 hover:border-red-600 flex-grow h-10"
+            className="pl-2 border-2 border-gray-300 hover:border-red-600 w-[3vw] h-10"
             placeholder="Age"
             required
           />
