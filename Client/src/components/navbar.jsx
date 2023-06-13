@@ -64,7 +64,7 @@ const Navbar = () => {
           className="ml-8 nav-item relative"
           onClick={handleDropdownToggle}
         >
-          <div className="register-link flex items-center cursor-pointer">
+          <div className="register-link flex items-center cursor-pointer ">
             <span className="register-text mr-2">Register Now</span>
             {showDropdown ? (
               <AiFillCaretUp className="register-icon" />
@@ -74,7 +74,7 @@ const Navbar = () => {
           </div>
           {/* Dropdown */}
           {showDropdown && (
-            <ul className="absolute left-0 w-40  rounded shadow mt-2">
+            <ul className="absolute left-0 w-40  rounded shadow mt-2 bg-black text-white">
               <li className="hover:text-red-400 transition-colors duration-300  px-4 py-2">
                 <Link to="/register-donor">Register as Donor</Link>
               </li>
