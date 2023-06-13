@@ -29,7 +29,7 @@ const OurMission = () => {
         Our Mission
       </h1>
       <motion.p
-        className="text-lg px-12 font-light font-sans py-4 text-justify "
+        className="text-lg px-16 font-light font-sans py-4 text-justify "
         style={missionStyle}
         initial={{ opacity: 0, position: "relative", top: "-100px" }}
         whileInView={{ opacity: 1, position: "relative", top: "0px" }}

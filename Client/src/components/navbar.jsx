@@ -61,11 +61,11 @@ const Navbar = () => {
           <Link to="/find-blood">Find Blood</Link>
         </li>
         <li
-          className="ml-8 nav-item relative"
+          className="ml-16 nav-item relative"
           onClick={handleDropdownToggle}
         >
           <div className="register-link flex items-center cursor-pointer">
-            <span className="register-text mr-2">Register Now</span>
+            <span className="register-text  mr-2 ">Register Now</span>
             {showDropdown ? (
               <AiFillCaretUp className="register-icon" />
             ) : (
