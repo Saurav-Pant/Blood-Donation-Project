@@ -1,4 +1,5 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
+import { motion } from "framer-motion";
 
 const DonorForm = () => {
   const [formData, setFormData] = useState({
@@ -96,7 +97,13 @@ const DonorForm = () => {
   const compulsory = <span className="text-red-600">*</span>;
 
   return (
-    <form onSubmit={handleSubmit} className="space-x-14 mr-[3vw]">
+    <motion.form
+      onSubmit={handleSubmit}
+      className="space-x-14 mr-[3vw]"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 0.2, duration: 0.5 }}
+    >
       <div className="flex items-center bg-gradient-to-r from-red-900 via-red-900 to-red-800 h-[11vh] mx-10 mt-4 rounded w-[95vw] mb-[2vh]">
         <h1 className="text-white text-2xl font-bold ml-4">
           Register as donor
@@ -301,7 +308,7 @@ const DonorForm = () => {
           </button>
         </div>
       </div>
-    </form>
+    </motion.form>
   );
 };
 
