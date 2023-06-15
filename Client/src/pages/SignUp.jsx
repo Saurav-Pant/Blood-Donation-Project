@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import LogIn from "../asset/LogIn.png";
 import { motion } from "framer-motion";
-// import { BsFacebook } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
 import { IoMdArrowRoundBack } from "react-icons/io";
 
@@ -188,13 +187,6 @@ const SignUp = () => {
             }}
             transition={{ duration: 1 }}
           >
-            {/* <Link
-              href="#"
-              className="px-4 py-2 rounded-full flex items-center mr-2 hover:transform hover:-translate-y-1 transition duration-300"
-            >
-              <BsFacebook className="text-blue-500" size="30" />
-            </Link> */}
-
             <Link
               href="#"
               className="px-4 py-2 rounded-xl flex items-center bg-red-400 text-white font-bold hover:bg-red-500
