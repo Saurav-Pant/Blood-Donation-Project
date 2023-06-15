@@ -137,8 +137,8 @@ const DonorForm = () => {
             required
           />
         </div>
-        <div className="flex-col mb-5 ">
-          <label htmlFor="address" className="w-24 mt-2 mr-[2vw] ">
+        <div className="flex mb-5 ">
+          <label htmlFor="address" className=" mt-2 mr-[2vw] ">
             Address {compulsory}
           </label>
           <input
@@ -147,7 +147,7 @@ const DonorForm = () => {
             name="address"
             value={formData.address}
             onChange={handleInputChange}
-            className="pl-2 border-2 border-gray-300 hover:border-red-800 flex-grow h-10"
+            className="pl-2 border-2 border-gray-300 hover:border-red-800 flex-grow h-[12vh]"
             placeholder="Address"
             required
           />
@@ -166,7 +166,7 @@ const DonorForm = () => {
             <option value="Uk">Uttarakhand</option>
             {/* Add options for states */}
           </select>
-          <label htmlFor="city" className="w-24 mx-[2vw] mb-[2vw] ">
+          <label htmlFor="city" className="w-24 mx-[2vw] mb-[14vh] ">
             City {compulsory}
           </label>
           <select
@@ -182,7 +182,7 @@ const DonorForm = () => {
             {/* Add options for cities */}
           </select>
         </div>
-        <div className="flex mb-[3vw]">
+        <div className="flex  mb-[3vw]">
           <label htmlFor="gender" className="w-24 mr-4">
             Gender {compulsory}
           </label>
@@ -229,7 +229,7 @@ const DonorForm = () => {
           type="checkbox"
           checked={isChecked}
           onChange={handleCheckboxChange}
-          className="mr-3 "        />
+          className="mr-6 "        />
         All the details which are filled  by me are right and ethical.
       </label>
     </div>
