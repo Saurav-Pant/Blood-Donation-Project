@@ -37,7 +37,7 @@ const Login = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        navigate("/");
+        navigate("/register-donor");
       })
       .catch((error) => {
         console.log(error);

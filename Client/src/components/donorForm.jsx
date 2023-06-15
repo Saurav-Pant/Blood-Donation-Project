@@ -20,7 +20,6 @@ const DonorForm = () => {
     setIsChecked(e.target.checked);
   };
 
-
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevState) => ({
@@ -35,14 +34,15 @@ const DonorForm = () => {
     console.log(formData);
     console.log(isChecked);
   };
-  
-  const compulsory= <span className="text-red-600">*</span>;
-  
+
+  const compulsory = <span className="text-red-600">*</span>;
 
   return (
     <form onSubmit={handleSubmit} className="space-x-14 mr-[3vw]">
       <div className="flex items-center bg-gradient-to-r from-red-900 via-red-900 to-red-800 h-[11vh] mx-10 mt-4 rounded w-[95vw] mb-[2vh]">
-        <h1 className="text-white text-2xl font-bold ml-4">Register as donor</h1>
+        <h1 className="text-white text-2xl font-bold ml-4">
+          Register as donor
+        </h1>
       </div>
       <div className="shadow border-1 p-8">
         <div className="flex mb-5">
@@ -224,22 +224,23 @@ const DonorForm = () => {
           </div>
         </div>
         <div className="mb-[4vh]  font-bold ">
-      <label>
-        <input
-          type="checkbox"
-          checked={isChecked}
-          onChange={handleCheckboxChange}
-          className="mr-6 "        />
-        All the details which are filled  by me are right and ethical.
-      </label>
-    </div>
-<div className="flex justify-end">
-        <button
-          type="submit"
-          className="bg-red-900 hover:bg-red-800 text-white font-bold py-2 px-4 rounded"
-        >
-          Register
-        </button>
+          <label>
+            <input
+              type="checkbox"
+              checked={isChecked}
+              onChange={handleCheckboxChange}
+              className="mr-6 "
+            />
+            All the details which are filled by me are right and ethical.
+          </label>
+        </div>
+        <div className="flex justify-end">
+          <button
+            type="submit"
+            className="bg-red-900 hover:bg-red-800 text-white font-bold py-2 px-4 rounded"
+          >
+            Register
+          </button>
         </div>
       </div>
     </form>

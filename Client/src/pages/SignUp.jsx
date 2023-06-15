@@ -43,7 +43,7 @@ const SignUp = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        navigate("/login");
+        navigate("/register-donor");
       })
       .catch((error) => {
         console.log(error);
