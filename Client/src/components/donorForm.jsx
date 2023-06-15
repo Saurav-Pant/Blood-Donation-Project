@@ -30,6 +30,41 @@ const DonorForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const requiredFields = [
+      "firstName",
+      "lastName",
+      "phone",
+      "email",
+      "bloodGroup",
+      "age",
+      "address",
+      "state",
+      "city",
+      "gender",
+    ];
+    const emptyFields = requiredFields.filter((field) => !formData[field]);
+
+    if (emptyFields.length > 0) {
+      const fieldNames = emptyFields.map((field) =>
+        field === "bloodGroup"
+          ? "Blood Group"
+          : field.charAt(0).toUpperCase() + field.slice(1)
+      );
+      const message = `Please fill in the following fields: ${fieldNames.join(
+        ", "
+      )}`;
+      alert(message);
+      return;
+    }
+
+    if (!isChecked) {
+      alert(
+        "Please confirm that the details provided are correct and ethical."
+      );
+      return;
+    }
+
     try {
       await fetch("http://localhost:8080/api/donors", {
         method: "POST",
@@ -39,7 +74,7 @@ const DonorForm = () => {
         body: JSON.stringify(formData),
       });
       console.log("Donor registered successfully");
-      console.log(formData)
+      console.log(formData);
 
       setFormData({
         firstName: "",
