@@ -29,6 +29,31 @@ To contribute to the project, follow the steps below:
      ```bash
      npm install
      ```
+     
+Node.js Server SetupSetup
+To start the Node.js server, follow these steps:
+
+Clone the repository or create a new directory for your project.
+bash
+Copy code
+$ git clone https://github.com/your-repo-url.git
+Install the project dependencies using either NPM or Yarn.
+bash
+$ npm install
+or
+
+bash
+Copy code
+$ yarn install
+Customize server configuration (optional).
+If needed, you can modify the server configuration by editing the relevant files, such as server.js or any other configuration files present in your project.
+
+Start the server.
+cd Server
+bash
+$ node index.js
+Access the server.
+The server is now running and ready to handle incoming requests. You can access it by opening a web browser and navigating to http://localhost:3000 or the specific address and port specified in your server configuration.
 
 4. **Start Contributing**
    - Now that you have set up the project on your local machine, you can start contributing to the project by adding the necessary functionality to connect blood donors with individuals in need.
