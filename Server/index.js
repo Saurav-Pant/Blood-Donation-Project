@@ -10,6 +10,7 @@ app.use(cors()); // Use the cors middleware
 // Routes
 app.use("/api/users", require("./Routes/SignUp"));
 app.use("/api/users", require("./Routes/Login"));
+app.use("/api", require("./Routes/donorRoutes"));
 
 app.get("/", (req, res) => {
   res.json({

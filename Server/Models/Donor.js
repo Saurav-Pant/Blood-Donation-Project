@@ -4,71 +4,45 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const DonorSchema = new Schema({
-  FirstName: {
+  firstName: {
     type: String,
-    require: true,
-    trim: true,
-    minlength: 3,
+    required: true,
   },
-  LastName: {
+  lastName: {
     type: String,
-    require: true,
-    trim: true,
-    minlength: 3,
+    required: true,
   },
-  PhoneNumber: {
+  phone: {
     type: String,
-    require: true,
-    trim: true,
-    minlength: 10,
+    required: true,
   },
-
-  Email: {
+  email: {
     type: String,
-    require: true,
+    required: true,
   },
-
-  BloodGroup: {
+  bloodGroup: {
     type: String,
-    require: true,
-    trim: true,
-    minlength: 2,
+    required: true,
   },
-
   age: {
     type: Number,
-    require: true,
-    trim: true,
+    required: true,
   },
-
-  Address: {
+  address: {
     type: String,
-    require: true,
-    trim: true,
-    minlength: 3,
+    required: true,
   },
-
   state: {
     type: String,
-    require: true,
-    trim: true,
-    minlength: 3,
+    required: true,
   },
   city: {
     type: String,
-    require: true,
-    trim: true,
-    minlength: 3,
+    required: true,
   },
-  Gender: {
+  gender: {
     type: String,
-    require: true,
-    trim: true,
-    minlength: 3,
-  },
-  AllDone: {
-    type: Boolean,
-    default: false,
+    required: true,
   },
 });
 
