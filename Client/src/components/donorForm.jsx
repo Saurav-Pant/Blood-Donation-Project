@@ -102,7 +102,7 @@ const DonorForm = () => {
       className="space-x-14 mr-[3vw]"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ delay: 0.2, duration: 0.5 }}
+      transition={{ delay: 0.3, duration: 0.7 }}
     >
       <div className="flex items-center bg-gradient-to-r from-red-900 via-red-900 to-red-800 h-[11vh] mx-10 mt-4 rounded w-[95vw] mb-[2vh]">
         <h1 className="text-white text-2xl font-bold ml-4">
