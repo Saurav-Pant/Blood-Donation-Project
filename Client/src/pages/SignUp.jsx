@@ -24,7 +24,7 @@ const SignUp = () => {
     setPassword(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const user = {
@@ -33,21 +33,25 @@ const SignUp = () => {
       password: password,
     };
 
-    fetch("http://localhost:8080/api/users/signup", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(user),
-    })
-      .then((res) => res.json())
-      .then((data) => {
+    try {
+      const response = await fetch("http://localhost:8080/api/users/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(user),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
         console.log(data);
         navigate("/register-donor");
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+      } else {
+        throw new Error("Authentication failed");
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
