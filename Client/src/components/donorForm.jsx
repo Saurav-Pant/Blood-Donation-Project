@@ -28,11 +28,35 @@ const DonorForm = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Perform form submission logic here
-    console.log(formData);
-    console.log(isChecked);
+    try {
+      await fetch("http://localhost:8080/api/donors", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+      console.log("Donor registered successfully");
+      console.log(formData)
+
+      setFormData({
+        firstName: "",
+        lastName: "",
+        phone: "",
+        email: "",
+        bloodGroup: "",
+        age: "",
+        address: "",
+        state: "",
+        city: "",
+        gender: "",
+      });
+      setIsChecked(false);
+    } catch (error) {
+      console.error("Error registering donor", error);
+    }
   };
 
   const compulsory = <span className="text-red-600">*</span>;
