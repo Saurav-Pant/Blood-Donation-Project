@@ -5,20 +5,28 @@ const validator = require("validator");
 const SignUpUser = async (req, res) => {
   const { name, email, password } = req.body;
 
-  // validation
+  // Validation
   if (!name || !email || !password) {
     return res.status(400).json({
-      msg: "All Fields are required",
+      msg: "All fields are required",
     });
   }
 
   if (!validator.isEmail(email)) {
     return res.status(400).json({
-      msg: "Invalid Email",
+      msg: "Invalid email",
     });
   }
 
-  if (validator.isStrongPassword(password)) {
+  // Function for checking strong password
+  const isStrongPassword = (password) => {
+    const strongRegex = new RegExp(
+      "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})"
+    );
+    return strongRegex.test(password);
+  };
+
+  if (!isStrongPassword(password)) {
     return res.status(400).json({
       msg: "Password is not strong enough",
     });
@@ -31,7 +39,7 @@ const SignUpUser = async (req, res) => {
       return res.status(400).json({ msg: "User already exists" });
     }
 
-    // For Hashing the password
+    // Hashing the password
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
 
@@ -42,7 +50,7 @@ const SignUpUser = async (req, res) => {
       password: hashedPassword,
     });
 
-    // For Saving the user into the DB
+    // Saving the user into the DB
     const savedUser = await newUser.save();
 
     res.json({
@@ -50,7 +58,6 @@ const SignUpUser = async (req, res) => {
         id: savedUser.id,
         name: savedUser.name,
         email: savedUser.email,
-        password: savedUser.password,
       },
     });
   } catch (err) {
