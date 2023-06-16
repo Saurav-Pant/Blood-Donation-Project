@@ -1,5 +1,6 @@
 const User = require("../Models/User");
 const bcrypt = require("bcryptjs");
+const validator = require("validator");
 
 const SignUpUser = async (req, res) => {
   const { name, email, password } = req.body;
@@ -7,7 +8,19 @@ const SignUpUser = async (req, res) => {
   // validation
   if (!name || !email || !password) {
     return res.status(400).json({
-      msg: "Please enter all fields",
+      msg: "All Fields are required",
+    });
+  }
+
+  if (!validator.isEmail(email)) {
+    return res.status(400).json({
+      msg: "Invalid Email",
+    });
+  }
+
+  if (validator.isStrongPassword(password)) {
+    return res.status(400).json({
+      msg: "Password is not strong enough",
     });
   }
 
@@ -37,6 +50,7 @@ const SignUpUser = async (req, res) => {
         id: savedUser.id,
         name: savedUser.name,
         email: savedUser.email,
+        password: savedUser.password,
       },
     });
   } catch (err) {
