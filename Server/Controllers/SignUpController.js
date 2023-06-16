@@ -1,6 +1,15 @@
+require("dotenv").config();
 const User = require("../Models/User");
 const bcrypt = require("bcryptjs");
 const validator = require("validator");
+const jwt = require("jsonwebtoken");
+
+// Creating a token for the client
+const createToken = (_id) => {
+  return jwt.sign({ _id }, process.env.JWT_SECRET, {
+    expiresIn: "3d",
+  });
+};
 
 const SignUpUser = async (req, res) => {
   const { name, email, password } = req.body;
@@ -18,7 +27,7 @@ const SignUpUser = async (req, res) => {
     });
   }
 
-  // Function for checking strong password
+  // Password validation through regex
   const isStrongPassword = (password) => {
     const strongRegex = new RegExp(
       "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})"
@@ -53,7 +62,11 @@ const SignUpUser = async (req, res) => {
     // Saving the user into the DB
     const savedUser = await newUser.save();
 
+    // Creating a token for the client
+    const token = createToken(savedUser._id);
+
     res.json({
+      token,
       user: {
         id: savedUser.id,
         name: savedUser.name,
