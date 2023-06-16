@@ -14,7 +14,7 @@ const LoginUser = async (req, res) => {
   if (!email || !password) {
     return res
       .status(400)
-      .json({ message: "Please provide an email and password" });
+      .json({ message: "All Credentials Must be Filled!!" });
   }
 
   try {
@@ -25,7 +25,7 @@ const LoginUser = async (req, res) => {
 
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
-      return res.status(401).json({ message: "Invalid credentials" });
+      return res.status(401).json({ message: "Wrong Password" });
     }
 
     // Creating a token for the client
@@ -36,7 +36,9 @@ const LoginUser = async (req, res) => {
     });
   } catch (error) {
     console.log(error);
-    res.status(500).json({ message: "Internal server error" });
+    res.status(400).json({
+      error: error.message,
+    });
   }
 };
 

@@ -25,13 +25,13 @@ const SignUp = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     const user = {
       name: name,
       email: email,
       password: password,
     };
-
+  
     try {
       const response = await fetch("http://localhost:8080/api/users/signup", {
         method: "POST",
@@ -40,7 +40,7 @@ const SignUp = () => {
         },
         body: JSON.stringify(user),
       });
-
+  
       if (response.ok) {
         const data = await response.json();
         console.log(data);
@@ -52,6 +52,7 @@ const SignUp = () => {
       console.log(error);
     }
   };
+  
 
   return (
     <div className="flex justify-evenly items-center h-screen bg-gray-100">
