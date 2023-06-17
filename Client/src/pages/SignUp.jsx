@@ -24,6 +24,7 @@ const SignUp = () => {
     setPassword(e.target.value);
   };
 
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
   
