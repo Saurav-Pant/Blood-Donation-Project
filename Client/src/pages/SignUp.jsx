@@ -4,6 +4,7 @@ import LogIn from "../asset/LogIn.png";
 import { motion } from "framer-motion";
 import { FcGoogle } from "react-icons/fc";
 import { IoMdArrowRoundBack } from "react-icons/io";
+import axios from "axios";
 
 const SignUp = () => {
   const [name, setName] = useState("");
@@ -33,16 +34,18 @@ const SignUp = () => {
     };
   
     try {
-      const response = await fetch("http://localhost:8080/api/users/signup", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(user),
-      });
+      const response = await axios.post(
+        "http://localhost:8080/api/users/signup",
+        user,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
   
-      if (response.ok) {
-        const data = await response.json();
+      if (response.status === 200) {
+        const data = response.data;
         console.log(data);
         navigate("/register-donor");
       } else {
@@ -52,6 +55,7 @@ const SignUp = () => {
       console.log(error);
     }
   };
+  
   
 
   return (
