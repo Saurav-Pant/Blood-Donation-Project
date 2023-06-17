@@ -168,7 +168,7 @@ const SignUp = () => {
                 Sign in
               </button>
             </div>
-            {error && <p className="text-red-500 mb-4 text-center">{error}</p>}
+            {error && <p className="text-red-500 mb-4 text-center animate-bounce">{error}</p>}
           </motion.form>
 
           <div className="flex items-center justify-center">
