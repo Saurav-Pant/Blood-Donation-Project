@@ -10,6 +10,7 @@ const SignUp = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
   const handleName = (e) => {
@@ -52,7 +53,7 @@ const SignUp = () => {
         throw new Error("Authentication failed");
       }
     } catch (error) {
-      console.log(error);
+      setError(error.response.data.msg);
     }
   };
 
@@ -167,6 +168,7 @@ const SignUp = () => {
                 Sign in
               </button>
             </div>
+            {error && <p className="text-red-500 mb-4 text-center">{error}</p>}
           </motion.form>
 
           <div className="flex items-center justify-center">
