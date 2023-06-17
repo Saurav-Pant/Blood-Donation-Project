@@ -16,8 +16,6 @@ import PageNotFound from "./components/PageNotFound";
 const App = () => {
   const { theme } = useContext(ThemeContext);
   const location = useLocation();
-  console.log(location);
-
   return (
     <div
       style={{
