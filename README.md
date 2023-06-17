@@ -29,42 +29,33 @@ To contribute to the project, follow the steps below:
      ```bash
      npm install
      ```
-     
-Node.js Server SetupSetup
-To start the Node.js server, follow these steps:
 
-Clone the repository or create a new directory for your project.
-bash
-Copy code
-$ git clone https://github.com/your-repo-url.git
-Install the project dependencies using either NPM or Yarn.
-bash
-$ npm install
-or
+4. **Start Server**
 
-bash
-Copy code
-$ yarn install
-Customize server configuration (optional).
-If needed, you can modify the server configuration by editing the relevant files, such as server.js or any other configuration files present in your project.
+ - For starting server you have to follow these steps -
 
-Start the server.
-cd Server
-bash
-$ node index.js
-Access the server.
-The server is now running and ready to handle incoming requests. You can access it by opening a web browser and navigating to http://localhost:3000 or the specific address and port specified in your server configuration.
+1. Start the server by opening a terminal or command prompt.
+2. Navigate to the server directory using the `cd` command:
+3. Run the following command to start the server:
+```bash
+node index.js
+```
+ - Feel free to modify the above code snippet to fit your specific requirements or provide more details about your server setup.
 
-4. **Start Contributing**
+
+
+
+
+6. **Start Contributing**
    - Now that you have set up the project on your local machine, you can start contributing to the project by adding the necessary functionality to connect blood donors with individuals in need.
 
-5. **Committing Changes**
+7. **Committing Changes**
    - After making changes to the code, use the following command to stage the changes:
      ```bash
      git add .
      ```
  
-6. **Creating a New Branch**
+8. **Creating a New Branch**
    - Before starting work on a new feature or bug fix, create a new branch with your GitHub profile name:
    ```bash
       git checkout -b your-github-profile-name
@@ -74,7 +65,7 @@ The server is now running and ready to handle incoming requests. You can access 
      git commit -m "Add feature XYZ"
      ```
 
-7. **Pushing Changes**
+9. **Pushing Changes**
    - Push your changes to your forked repository:
      ```bash
      git push -u origin your-github-profile-name
