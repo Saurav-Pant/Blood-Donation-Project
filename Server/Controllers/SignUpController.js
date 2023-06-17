@@ -1,13 +1,43 @@
+require("dotenv").config();
 const User = require("../Models/User");
 const bcrypt = require("bcryptjs");
+const validator = require("validator");
+const jwt = require("jsonwebtoken");
+
+// Creating a token for the client
+const createToken = (_id) => {
+  return jwt.sign({ _id }, process.env.JWT_SECRET, {
+    expiresIn: "3d",
+  });
+};
 
 const SignUpUser = async (req, res) => {
   const { name, email, password } = req.body;
 
-  // validation
+  // Validation
   if (!name || !email || !password) {
     return res.status(400).json({
-      msg: "Please enter all fields",
+      msg: "All fields are required",
+    });
+  }
+
+  if (!validator.isEmail(email)) {
+    return res.status(400).json({
+      msg: "Invalid email",
+    });
+  }
+
+  // Password validation through regex
+  const isStrongPassword = (password) => {
+    const strongRegex = new RegExp(
+      "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})"
+    );
+    return strongRegex.test(password);
+  };
+
+  if (!isStrongPassword(password)) {
+    return res.status(400).json({
+      msg: "Password is not strong enough",
     });
   }
 
@@ -18,7 +48,7 @@ const SignUpUser = async (req, res) => {
       return res.status(400).json({ msg: "User already exists" });
     }
 
-    // For Hashing the password
+    // Hashing the password
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
 
@@ -29,10 +59,14 @@ const SignUpUser = async (req, res) => {
       password: hashedPassword,
     });
 
-    // For Saving the user into the DB
+    // Saving the user into the DB
     const savedUser = await newUser.save();
 
+    // Creating a token for the client
+    const token = createToken(savedUser._id);
+
     res.json({
+      token,
       user: {
         id: savedUser.id,
         name: savedUser.name,
