@@ -24,16 +24,15 @@ const SignUp = () => {
     setPassword(e.target.value);
   };
 
-  
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     const user = {
       name: name,
       email: email,
       password: password,
     };
-  
+
     try {
       const response = await axios.post(
         "http://localhost:8080/api/users/signup",
@@ -44,7 +43,7 @@ const SignUp = () => {
           },
         }
       );
-  
+
       if (response.status === 200) {
         const data = response.data;
         console.log(data);
@@ -56,15 +55,13 @@ const SignUp = () => {
       console.log(error);
     }
   };
-  
-  
 
   return (
     <div className="flex justify-evenly items-center h-screen bg-gray-100">
       <div className="absolute top-4 left-4">
         <Link
           to="/"
-          className="px-4 py-2 rounded-ful font-bold bg-gradient-to-br h-20 w-40 transition-colors duration-300 ease-in-out"
+          className="px-4 py-2 rounded-full font-bold bg-gradient-to-br h-20 w-40 transition-colors duration-300 ease-in-out"
         >
           <motion.span
             initial={{ opacity: 0, position: "relative", left: "-100px" }}
@@ -165,9 +162,7 @@ const SignUp = () => {
             <div className="mb-6">
               <button
                 type="submit"
-                className="w-full bg-red-400 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline hover:bg-red-500
-                transition-colors duration-300 ease-in-out
-                "
+                className="w-full bg-red-400 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline hover:bg-red-500 transition-colors duration-300 ease-in-out"
               >
                 Sign in
               </button>
@@ -195,8 +190,7 @@ const SignUp = () => {
           >
             <Link
               href="#"
-              className="px-4 py-2 rounded-xl flex items-center bg-red-400 text-white font-bold hover:bg-red-500
-              transition-colors duration-300 ease-in-out"
+              className="px-4 py-2 rounded-xl flex items-center bg-red-400 text-white font-bold hover:bg-red-500 transition-colors duration-300 ease-in-out"
             >
               <button className="flex items-center justify-center w-full focus:outline-none">
                 Sign In with <FcGoogle className="ml-3" size={20} />
