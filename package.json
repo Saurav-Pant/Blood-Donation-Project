@@ -1,0 +1,19 @@
+{
+  "name": "blood-donation-project",
+  "version": "1.0.0",
+  "description": "## Introduction The Blood Donation Project is an initiative aimed at connecting individuals in need of blood with willing blood donors. The project utilizes npm (Node Package Manager) and version control using Git to manage the codebase and facilitate collaboration.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vivekrawat21/Blood-Donation-Project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vivekrawat21/Blood-Donation-Project/issues"
+  },
+  "homepage": "https://github.com/vivekrawat21/Blood-Donation-Project#readme"
+}
