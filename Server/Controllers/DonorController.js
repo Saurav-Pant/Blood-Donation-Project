@@ -3,6 +3,13 @@ const Donor = require("../models/Donor");
 const DonorController = {
   register: async (req, res) => {
     try {
+      const { email } = req.body;
+
+      const existingDonor = await Donor.findOne({ email });
+      if (existingDonor) {
+        return res.status(400).json({ error: "Email already exists" });
+      }
+
       const donor = new Donor(req.body);
       await donor.save();
       res.status(201).json({ message: "Donor registered successfully" });
