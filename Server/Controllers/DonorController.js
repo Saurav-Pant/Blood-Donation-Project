@@ -1,4 +1,5 @@
 const Donor = require("../models/Donor");
+const jwt = require("jsonwebtoken");
 
 const DonorController = {
   register: async (req, res) => {
@@ -12,7 +13,11 @@ const DonorController = {
 
       const donor = new Donor(req.body);
       await donor.save();
-      res.status(201).json({ message: "Donor registered successfully" });
+
+      // Generate token
+      const token = jwt.sign({ email: donor.email }, "your_secret_key");
+
+      res.status(201).json({ message: "Donor registered successfully", token });
     } catch (error) {
       res.status(500).json({ error: "Internal server error" });
     }
