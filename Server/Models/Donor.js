@@ -19,6 +19,7 @@ const DonorSchema = new Schema({
   email: {
     type: String,
     required: true,
+    unique: true,
   },
   bloodGroup: {
     type: String,
