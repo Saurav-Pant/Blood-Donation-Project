@@ -46,7 +46,7 @@ const OrgForm = ()=>{
           <input
             type="text"
             id="OrganisationName"
-            name="name"
+            name="OrganisationName"
             value={formData.OrganisationName}
             onChange={handleInputChange}
             className="pl-2 border-2 border-gray-300 hover:border-red-800  h-10 w-[30vw] flex-grow"
@@ -61,7 +61,7 @@ const OrgForm = ()=>{
           <input
             type="text"
             id="OrganisationPhone"
-            name="phone"
+            name="OrganisationPhone"
             value={formData.OrganisationPhone}
             onChange={handleInputChange}
             className="pl-2 border-2 border-gray-300 hover:border-red-800 flex-grow h-10 mb-[2vw]"
@@ -74,7 +74,7 @@ const OrgForm = ()=>{
           <input
             type="email"
             id="OrganisationEmail"
-            name="email"
+            name="OrganisationEmail"
             value={formData.OrganisationEmail}
             onChange={handleInputChange}
             className="pl-2 border-2 border-gray-300 hover:border-red-800 flex-grow h-10 mb-[2vw]"
@@ -129,7 +129,7 @@ const OrgForm = ()=>{
           </select>
         
         </div>
-        <div className="mb-[24vh]  font-bold ">
+        <div className="mb-[2vh]  font-bold ">
       <label>
         <input
           type="checkbox"
