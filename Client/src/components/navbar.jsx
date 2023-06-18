@@ -4,33 +4,31 @@ import { BiDonateBlood } from "react-icons/bi";
 import { ThemeContext } from "../context/ThemeContext";
 import { motion } from "framer-motion";
 import { AiFillCaretDown, AiFillCaretUp } from "react-icons/ai";
+import { FaUserCircle } from "react-icons/fa";
 
 const Navbar = () => {
   const [showDropdown, setShowDropdown] = useState(false);
 
   const handleclick = () => {
-    document.querySelector(".hamburger").classList.toggle('active');
-    document.querySelector(".nav-menu").classList.toggle('active');
-  }
+    document.querySelector(".hamburger").classList.toggle("active");
+    document.querySelector(".nav-menu").classList.toggle("active");
+  };
 
   const { theme, toggleTheme } = useContext(ThemeContext);
-  
-  let barcolor,navcolor;
-  if(theme.background === "#000000"){
+
+  let barcolor, navcolor;
+  if (theme.background === "#000000") {
     barcolor = "#fff";
     navcolor = "#000";
-  }
-  else{
+  } else {
     barcolor = "#000";
     navcolor = "#fff";
   }
 
-  
   const handleDropdownToggle = () => {
     setShowDropdown(!showDropdown);
   };
 
-  
   return (
     <motion.nav
       className="sticky top-0 z-10 px-4 py-2 flex items-center justify-between "
@@ -50,7 +48,11 @@ const Navbar = () => {
         </Link>
       </div>
       {/* Hide links in small devices */}
-      <ul className=" font-mono text-xl sm:flex nav-menu" onClick={handleclick} style={{backgroundColor:navcolor}}>
+      <ul
+        className=" font-mono text-xl sm:flex nav-menu"
+        onClick={handleclick}
+        style={{ backgroundColor: navcolor }}
+      >
         <li className="ml-8 hover:text-red-400 transition-colors duration-300 nav-item">
           <Link to="/">Home</Link>
         </li>
@@ -60,10 +62,7 @@ const Navbar = () => {
         <li className="ml-8 hover:text-red-400 transition-colors duration-300 nav-item">
           <Link to="/find-blood">Find Blood</Link>
         </li>
-        <li
-          className="ml-16 nav-item relative"
-          onClick={handleDropdownToggle}
-        >
+        <li className="ml-16 nav-item relative" onClick={handleDropdownToggle}>
           <div className="register-link flex items-center cursor-pointer">
             <span className="register-text  mr-2 ">Register Now</span>
             {showDropdown ? (
@@ -78,7 +77,9 @@ const Navbar = () => {
               <li className="hover:text-red-400 transition-colors duration-300  px-4 py-2">
                 <Link to="/register-donor"> Donor</Link>
               </li>
-              <li><hr /></li>
+              <li>
+                <hr />
+              </li>
               <li className="hover:text-red-400 transition-colors duration-300  px-4  py-3">
                 <Link to="/register-org">Organization</Link>
               </li>
@@ -95,8 +96,11 @@ const Navbar = () => {
           }}
           whileHover={{ opacity: 0.7, transition: { duration: 0.5 } }}
         >
-         Sign Up
+          Sign Up
         </motion.button>
+      </Link>
+      <Link to="/dashboard">
+        <FaUserCircle size={40}/>
       </Link>
       <motion.button
         onClick={toggleTheme}
@@ -107,9 +111,9 @@ const Navbar = () => {
         {theme.icon}
       </motion.button>
       <div className="hamburger" onClick={handleclick}>
-        <span className="bar" style={{backgroundColor:barcolor}}></span>
-        <span className="bar" style={{backgroundColor:barcolor}}></span>
-        <span className="bar" style={{backgroundColor:barcolor}}></span>
+        <span className="bar" style={{ backgroundColor: barcolor }}></span>
+        <span className="bar" style={{ backgroundColor: barcolor }}></span>
+        <span className="bar" style={{ backgroundColor: barcolor }}></span>
       </div>
     </motion.nav>
   );

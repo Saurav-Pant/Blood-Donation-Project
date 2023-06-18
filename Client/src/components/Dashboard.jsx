@@ -20,8 +20,7 @@ const Dashboard = () => {
         console.error("Error:", error);
       }
     };
-
-    fetchData();
+      fetchData();
   }, []);
 
   return (

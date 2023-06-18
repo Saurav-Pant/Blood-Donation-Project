@@ -15,7 +15,9 @@ const DonorController = {
       await donor.save();
 
       // Generate token
-      const token = jwt.sign({ email: donor.email }, "your_secret_key");
+      const token = jwt.sign({ email: donor.email }, process.env.JWT_SECRET, {
+        expiresIn: "1h", // Set the expiration time for the token
+      });
 
       res.status(201).json({ message: "Donor registered successfully", token });
     } catch (error) {
