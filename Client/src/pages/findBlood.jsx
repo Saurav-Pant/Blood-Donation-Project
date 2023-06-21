@@ -27,7 +27,7 @@ const FindBlood = () => {
    <form >
 <div className="flex  mt-12 ">
   <label htmlFor="bloodGroup" className=" ">Blood Group</label>
-  <select name="bloodGroup" id="bloodGroup" onChange={handleInput} className="w-64 bg-white rounded-xl ml-12">
+  <select name="bloodGroup" id="bloodGroup" onChange={handleInput} className=" hover:border-red-800 w-64 bg-white ml-12 border-2">
   <option value="">-- Select --</option>
             <option value="A+">A+</option>
             <option value="A-">A-</option>
@@ -41,7 +41,7 @@ const FindBlood = () => {
   </select>
 </div>
 
-<button className="ml-64 w-[10vw] mt-8 bg-black text-white rounded h-10 w-auto">Current Location</button>
+<button className="ml-64 w-[11vw] mt-8 bg-black text-white rounded h-10 w-auto">Current Location</button>
 
 <p className="mt-2  text-center ml-[210px] ">OR</p>
 
@@ -49,15 +49,15 @@ const FindBlood = () => {
 <div className=" flex flex-col  my-12">
   <div className=" mb-8">
     <label htmlFor="state" className="">State</label>
-    <select name="state" id="state" onChange={handleInput} className=" ml-28 w-64 bg-white">
-      <option value=""> select -</option>
-    </select>
+    <input  type="text"  value = {setFormData.state} name="state" id="state" placeholder="State" onChange={handleInput} className="hover:border-red-800 border-2 ml-28 w-64 bg-white">
+      {/* <option value=""> select -</option> */}
+    </input>
   </div>
   <div className="">
   <label htmlFor="city" className="">City</label>
-    <select name="city" id="city" onChange={handleInput} className="ml-32 w-64 bg-white">
-      <option value=""> select -</option>
-    </select>
+    <input  type="text" value={setFormData.city} name="city" id="city" placeholder="City" onChange={handleInput} className=" hover:border-red-800 border-2 ml-32 w-64 bg-white">
+      
+    </input>
   </div>
 </div>
 <button  type="submit" className=" w-[10vw] ml-64 mt-6 bg-black text-white rounded h-10">Proceed &gt;</button>
