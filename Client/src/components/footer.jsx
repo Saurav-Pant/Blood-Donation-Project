@@ -22,7 +22,7 @@ const footer = () => {
               Blood Donation Project
             </h2>
             <p className="mt-2 hover:text-red-200 font-light">
-              Saving Lives Through Blood Donation
+              Saving Liwves Through Blood Donation
             </p>
           </motion.div>
           <motion.div
