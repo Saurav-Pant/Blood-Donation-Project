@@ -17,7 +17,7 @@ To contribute to the project, follow the steps below:
      ```bash
      git clone https://github.com/your-username/Blood-Donation-Project.git
      ```
-   - This will create a local copy of the repository on your machine.
+   - This will create a local copy of the repository on your machin.
 
 3. **Install Dependencies**
    - Navigate to the project's root directory:
