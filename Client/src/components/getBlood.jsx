@@ -11,7 +11,7 @@ const InfoCard = ({ infotext, infonumber }) => {
         style={{ border: '5px solid ', textShadow: '0 0 2px black' }}>
           {infonumber}
       </div>
-      <div className="md:h-[23vmax] md:w-[23vmax] h-[21vmax] w-[21vmax] absolute flex flex-col top-1/4 items-center justify-center rounded-full overflow-hidden shadow-lg bg-white text-red-300" style={{ top: '40%'}}>
+      <div className="md:h-[23vmax] md:w-[23vmax] h-[21vmax] w-[21vmax] absolute flex flex-col top-1/4 items-center justify-center rounded-full overflow-hidden shadow-lg bg-white text-red-600" style={{ top: '40%'}}>
         <div className="md:h-[11vmin] md:w-[11vmin] h-[6vmin] w-[6vmin] overflow-hidden rounded-full">
           <img src={pencil} alt="" className="md:scale-95 scale-20" />
         </div>

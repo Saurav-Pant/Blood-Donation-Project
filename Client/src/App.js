@@ -12,12 +12,11 @@ import RegisterDonor from "./pages/registerDonor";
 import SignUp from "./pages/SignUp";
 import Login from "./pages/login";
 import PageNotFound from "./components/PageNotFound";
+import Dashboard from "./components/Dashboard";
 
 const App = () => {
   const { theme } = useContext(ThemeContext);
   const location = useLocation();
-  console.log(location);
-
   return (
     <div
       style={{
@@ -38,6 +37,8 @@ const App = () => {
         <Route path="/register-org" element={<RegisterOrg />} />
         <Route path="/register-donor" element={<RegisterDonor />} />
         <Route path="*" element={<PageNotFound />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        {/* {Just for checking purposes} */}
       </Routes>
 
       {location.pathname !== "/SignUp" && location.pathname !== "/login" && (

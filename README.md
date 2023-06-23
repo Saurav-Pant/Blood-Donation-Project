@@ -17,7 +17,7 @@ To contribute to the project, follow the steps below:
      ```bash
      git clone https://github.com/your-username/Blood-Donation-Project.git
      ```
-   - This will create a local copy of the repository on your machine.
+   - This will create a local copy of the repository on your machin.
 
 3. **Install Dependencies**
    - Navigate to the project's root directory:
@@ -30,16 +30,32 @@ To contribute to the project, follow the steps below:
      npm install
      ```
 
-4. **Start Contributing**
+4. **Start Server**
+
+ - For starting server you have to follow these steps -
+
+1. Start the server by opening a terminal or command prompt.
+2. Navigate to the server directory using the `cd` command:
+3. Run the following command to start the server:
+```bash
+node index.js
+```
+ - Feel free to modify the above code snippet to fit your specific requirements or provide more details about your server setup.
+
+
+
+
+
+6. **Start Contributing**
    - Now that you have set up the project on your local machine, you can start contributing to the project by adding the necessary functionality to connect blood donors with individuals in need.
 
-5. **Committing Changes**
+7. **Committing Changes**
    - After making changes to the code, use the following command to stage the changes:
      ```bash
      git add .
      ```
  
-6. **Creating a New Branch**
+8. **Creating a New Branch**
    - Before starting work on a new feature or bug fix, create a new branch with your GitHub profile name:
    ```bash
       git checkout -b your-github-profile-name
@@ -49,7 +65,7 @@ To contribute to the project, follow the steps below:
      git commit -m "Add feature XYZ"
      ```
 
-7. **Pushing Changes**
+9. **Pushing Changes**
    - Push your changes to your forked repository:
      ```bash
      git push -u origin your-github-profile-name

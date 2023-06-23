@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 const DonorForm = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -15,6 +17,7 @@ const DonorForm = () => {
     gender: "",
   });
   const [isChecked, setIsChecked] = useState(false);
+  const [error, setError] = useState(null);
 
   const handleCheckboxChange = (e) => {
     setIsChecked(e.target.checked);
@@ -66,13 +69,19 @@ const DonorForm = () => {
     }
 
     try {
-      await fetch("http://localhost:8080/api/donors", {
+      const response = await fetch("http://localhost:8080/api/donors", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
       });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error);
+      }
+
       console.log("Donor registered successfully");
       console.log(formData);
 
@@ -89,7 +98,10 @@ const DonorForm = () => {
         gender: "",
       });
       setIsChecked(false);
+      setError(null);
+      navigate("/dashboard");
     } catch (error) {
+      setError(error.message);
       console.error("Error registering donor", error);
     }
   };
@@ -152,6 +164,7 @@ const DonorForm = () => {
             placeholder="Phone Number"
             required
           />
+
           <label htmlFor="email" className="w-24 mb-[2vw] ml-4 mt-2 mr-1">
             Email {compulsory}
           </label>
@@ -299,6 +312,15 @@ const DonorForm = () => {
             All the details which are filled by me are right and ethical.
           </label>
         </div>
+        {error && (
+          <div
+            className="absolute right-14 bottom-3 text-red-300 hover:text-red-500 animate-bounce 
+        transition-all duration-500 ease-in-out
+        "
+          >
+            {error}
+          </div>
+        )}
         <div className="flex justify-end">
           <button
             type="submit"

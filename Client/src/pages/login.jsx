@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import LogIn from "../asset/LogIn.png";
 import { motion } from "framer-motion";
-import { BsFacebook } from "react-icons/bs";
+import axios from "axios";
 import { FcGoogle } from "react-icons/fc";
 import { IoMdArrowRoundBack } from "react-icons/io";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
   const handleEmail = (e) => {
@@ -19,29 +20,37 @@ const Login = () => {
     setPassword(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     const user = {
       email: email,
       password: password,
     };
-
-    fetch("http://localhost:8080/api/users/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(user),
-    })
-      .then((res) => res.json())
-      .then((data) => {
+  
+    try {
+      const response = await axios.post(
+        "http://localhost:8080/api/users/login",
+        user,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+  
+      if (response.status === 200) {
+        const data = response.data;
         console.log(data);
         navigate("/register-donor");
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+      } else {
+        throw new Error("Authentication failed");
+      }
+    } catch (error) {
+      setError(error.response.data.message); 
+      console.log(error.response)
+      
+    }
   };
 
   return (
@@ -140,6 +149,11 @@ const Login = () => {
                 Login
               </button>
             </div>
+            {error && (
+              <p className="text-red-500 mb-4 text-center animate-bounce">
+                {error}
+              </p>
+            )}
           </motion.form>
 
           <div className="flex items-center justify-center">
@@ -161,13 +175,6 @@ const Login = () => {
             }}
             transition={{ duration: 1 }}
           >
-            {/* <Link
-              href="#"
-              className="px-4 py-2 rounded-full flex items-center mr-2 hover:transform hover:-translate-y-1 transition duration-300"
-            >
-              <BsFacebook className="text-blue-500" size="30" />
-            </Link> */}
-
             <Link
               href="#"
               className="px-4 py-2 rounded-xl flex items-center bg-red-400 text-white font-bold hover:bg-red-500

@@ -4,6 +4,7 @@ import { BiDonateBlood } from "react-icons/bi";
 import { ThemeContext } from "../context/ThemeContext";
 import { motion } from "framer-motion";
 import { AiFillCaretDown, AiFillCaretUp } from "react-icons/ai";
+import { FaUserCircle } from "react-icons/fa";
 
 const Navbar = () => {
   const handleclick = () => {
@@ -55,7 +56,6 @@ const Navbar = () => {
         <li className='ml-8 hover:text-red-400 transition-colors duration-300 nav-item'>
           <Link to='/find-blood'>Find Blood</Link>
         </li>
-
         <li className='ml-8 hover:text-black transition-colors duration-300 nav-item rounded text-red-500'>
           <Link to='/register-donor'>Register Donor</Link>
         </li>
@@ -75,6 +75,9 @@ const Navbar = () => {
           Sign Up
         </motion.button>
       </Link>
+      <Link to="/dashboard">
+        <FaUserCircle size={40}/>
+      </Link>
       <motion.button
         onClick={toggleTheme}
         className='flex justify-center items-center text-3xl rounded-full'
@@ -83,10 +86,12 @@ const Navbar = () => {
       >
         {theme.icon}
       </motion.button>
+
       <div className='hamburger' onClick={handleclick}>
         <span className='bar' style={{ backgroundColor: barcolor }}></span>
         <span className='bar' style={{ backgroundColor: barcolor }}></span>
         <span className='bar' style={{ backgroundColor: barcolor }}></span>
+
       </div>
     </motion.nav>
   );
