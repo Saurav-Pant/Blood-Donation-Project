@@ -21,7 +21,7 @@
     -webkit-transition: all 0.3s ease-in-out;
     /* background-color: #fff; */
 }
-@media screen and (max-width:640px) {
+@media screen and (max-width:1050px) {
     .hamburger{
         display: block;
     }
