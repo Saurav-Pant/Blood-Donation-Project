@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { ThemeContext } from "../context/ThemeContext";
 
 import donor from "../asset/donor.jpg";
 const FindBlood = () => {
+  const { theme, toggleTheme } = useContext(ThemeContext);
   const [formData, setFormData] = useState({
     bloodGroup: "",
     state: "",
@@ -46,6 +48,7 @@ const FindBlood = () => {
               <option value='AB-'>AB-</option>
             </select>
           </div>
+
 
           <button className='w-full sm:w-2/3 mt-4  mx-auto sm:block p-2 bg-black text-white rounded w-auto'>
             Current Location
