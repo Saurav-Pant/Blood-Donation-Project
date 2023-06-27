@@ -4,9 +4,6 @@ import { ThemeContext } from "../context/ThemeContext";
 import donor from "../asset/donor.jpg";
 const FindBlood = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
-
-  console.log(theme);
-
   const [formData, setFormData] = useState({
     bloodGroup: "",
     state: "",
@@ -22,26 +19,23 @@ const FindBlood = () => {
     });
   };
   return (
-    <div className='flex justify-center mt-12 px-32 '>
-      <div className='mr-[32px] '>
-        <img src={donor} className='w-[30vw] rounded-xl shadow ' />
+    <div className='md:flex justify-center px-4'>
+      <div className='mx-auto w-96  mt-8'>
+        <img src={donor} className='w-sm rounded-xl shadow ' />
       </div>
-      <div className='flex flex-col flex-end ml-32'>
-        <h1 className='text-4xl ml-24 '>Recipient Details</h1>
+      <div className='md:pr-4 lg:pr-8 xl:pr-16 md:w-1/3'>
+        <h1 className='mt-8 text-4xl text-center '>Recipient Details</h1>
 
-        <form>
-          <div className='flex  mt-12 '>
-            <label htmlFor='bloodGroup' className=' '>
+        <form className='mx-auto max-w-sm'>
+          <div className='mt-12 '>
+            <label htmlFor='bloodGroup' className=''>
               Blood Group
             </label>
             <select
               name='bloodGroup'
               id='bloodGroup'
               onChange={handleInput}
-              className=' hover:border-red-800 w-64 bg-white ml-12 border-2'
-              style={{
-                color: "#000",
-              }}
+              className=' hover:border-red-800 w-full mt-1 bg-white border-2'
             >
               <option value=''>-- Select --</option>
               <option value='A+'>A+</option>
@@ -55,17 +49,12 @@ const FindBlood = () => {
             </select>
           </div>
 
-          <button
-            className='ml-64 w-[11vw] mt-8 bg-black p-1 text-white rounded h-10 w-auto'
-            style={{
-              backgroundColor: theme.button.buttonBgColor,
-              color: theme.button.buttonTextColor,
-            }}
-          >
+
+          <button className='w-full sm:w-2/3 mt-4  mx-auto sm:block p-2 bg-black text-white rounded w-auto'>
             Current Location
           </button>
 
-          <p className='mt-2  text-center ml-[210px] '>OR</p>
+          <p className='text-center ml-[210px] mt-4'>OR</p>
 
           <div className=' flex flex-col  my-12'>
             <div className=' mb-8'>
@@ -79,10 +68,7 @@ const FindBlood = () => {
                 id='state'
                 placeholder='State'
                 onChange={handleInput}
-                className='hover:border-red-800 border-2 ml-28 w-64 bg-white'
-                style={{
-                  color: "#000",
-                }}
+                className='hover:border-red-800 border-2 w-full mt-1 bg-white'
               >
                 {/* <option value=""> select -</option> */}
               </input>
@@ -98,20 +84,13 @@ const FindBlood = () => {
                 id='city'
                 placeholder='City'
                 onChange={handleInput}
-                className=' hover:border-red-800 border-2 ml-32 w-64 bg-white'
-                style={{
-                  color: "#000",
-                }}
+                className=' hover:border-red-800 border-2 w-full mt-1 bg-white'
               ></input>
             </div>
           </div>
           <button
             type='submit'
-            className=' w-[10vw] ml-64 mt-6 bg-black text-white rounded h-10'
-            style={{
-              backgroundColor: theme.button.buttonBgColor,
-              color: theme.button.buttonTextColor,
-            }}
+            className=' w-full sm:w-2/3 mt-4 mx-auto sm:block p-2 bg-black text-white rounded'
           >
             Proceed &gt;
           </button>
