@@ -16,7 +16,7 @@ const DonorController = {
 
       // Generate token
       const token = jwt.sign({ email: donor.email }, process.env.JWT_SECRET, {
-        expiresIn: "1h", // Set the expiration time for the token
+        expiresIn: "1h",
       });
 
       res.status(201).json({ message: "Donor registered successfully", token });
