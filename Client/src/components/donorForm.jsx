@@ -324,7 +324,7 @@ const DonorForm = () => {
         <div className='flex justify-end'>
           <button
             type='submit'
-            className='bg-red-900 hover:bg-red-800 text-white font-bold py-2 px-4 rounded'
+            className='w-full sm:w-1/2 mx-auto bg-red-900 hover:bg-red-800 text-white font-bold py-2 px-4 rounded'
           >
             Register
           </button>
