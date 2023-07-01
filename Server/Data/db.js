@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 exports.connectToDB = () => {
   mongoose
-    .connect("mongodb://127.0.0.1/Blood-Donation", {
+    .connect(process.env.MONGO_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     })

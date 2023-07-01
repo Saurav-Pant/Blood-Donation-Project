@@ -18,6 +18,6 @@ app.use("/api", require("./Routes/donorRoutes"));
 //For Database Connection
 connectToDB();
 
-app.listen(8080, () => {
+app.listen(process.env.PORT, () => {
   console.log("Server is running on port 8080");
 });
