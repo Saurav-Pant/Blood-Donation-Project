@@ -1,3 +1,4 @@
+// MONGO DB
 const mongoose = require("mongoose");
 
 exports.connectToDB = () => {
