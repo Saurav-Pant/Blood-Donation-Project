@@ -34,6 +34,8 @@ const LoginUser = async (req, res) => {
       token,
       email: user.email,
     });
+
+    res.cookie("token", token, { maxAge: 3600000 });
   } catch (error) {
     console.log(error);
     res.status(500).json({
