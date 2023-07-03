@@ -14,12 +14,10 @@ const DonorController = {
       const donor = new Donor(req.body);
       await donor.save();
 
-      // Generate token
-      const token = jwt.sign({ email: donor.email }, process.env.JWT_SECRET, {
+      const token = jwt.sign({ id: donor._id }, process.env.JWT_SECRET, {
         expiresIn: "1h",
       });
 
-      // Set the token as a cookie
       res.cookie("token", token, { maxAge: 3600000 });
 
       res.status(201).json({ message: "Donor registered successfully", token });
@@ -39,9 +37,13 @@ const DonorController = {
 
   getDonorById: async (req, res) => {
     try {
-      const { id } = req.params;
+      const token = req.cookies.token;
 
-      const donor = await Donor.findById(id);
+      // Verify the token and extract the donor ID
+      const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
+      const donorId = decodedToken.id;
+
+      const donor = await Donor.findById(donorId);
       if (!donor) {
         return res.status(404).json({ error: "Donor not found" });
       }

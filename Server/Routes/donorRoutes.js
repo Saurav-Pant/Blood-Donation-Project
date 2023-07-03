@@ -4,6 +4,6 @@ const DonorController = require("../Controllers/DonorController");
 
 router.post("/donors", DonorController.register);
 router.get("/donors", DonorController.getAllDonors);
-router.get("/donors/:id", DonorController.getDonorById);
+router.get("/donors/id", DonorController.getDonorById);
 
 module.exports = router;

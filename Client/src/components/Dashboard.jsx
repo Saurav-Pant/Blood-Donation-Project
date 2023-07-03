@@ -9,18 +9,20 @@ const Dashboard = () => {
 
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:8080/api/donors", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
+        const response = await axios.get(
+          "http://localhost:8080/api/donors/id",
+          {
+            withCredentials: true,
+          }
+        );
         setDonorData(response.data);
         console.log(response.data);
       } catch (error) {
         console.error("Error:", error);
       }
     };
-      fetchData();
+
+    fetchData();
   }, []);
 
   return (

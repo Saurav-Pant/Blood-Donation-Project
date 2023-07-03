@@ -5,10 +5,12 @@ require("dotenv").config({
 const express = require("express");
 const app = express();
 const cors = require("cors");
+const cookieParser = require("cookie-parser");
 
 // Middleware
 app.use(express.json());
 app.use(cors());
+app.use(cookieParser());
 
 // Routes
 app.use("/api/users", require("./Routes/SignUp"));
