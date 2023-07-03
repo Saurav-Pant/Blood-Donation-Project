@@ -18,7 +18,11 @@ const DonorController = {
         expiresIn: "1h",
       });
 
-      res.cookie("token", token, { httpOnly: true });
+      res.cookie("token", token, {
+        httpOnly: true,
+        secure: true,
+        sameSite: "none",
+      });
       console.log(token);
       console.log(res.cookie());
 
