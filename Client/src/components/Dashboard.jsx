@@ -4,24 +4,19 @@ import axios from "axios";
 const Dashboard = () => {
   const [donorData, setDonorData] = useState(null);
 
+  const fetchData = async () => {
+    try {
+      const response = await axios.get("http://localhost:8080/api/donors/id", {
+        withCredentials: true,
+      });
+      setDonorData(response.data);
+      console.log(response.data);
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+
   useEffect(() => {
-    const token = localStorage.getItem("token");
-
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(
-          "http://localhost:8080/api/donors/id",
-          {
-            withCredentials: true,
-          }
-        );
-        setDonorData(response.data);
-        console.log(response.data);
-      } catch (error) {
-        console.error("Error:", error);
-      }
-    };
-
     fetchData();
   }, []);
 
