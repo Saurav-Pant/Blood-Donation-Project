@@ -14,11 +14,13 @@ const DonorController = {
       const donor = new Donor(req.body);
       await donor.save();
 
-      const token = jwt.sign({ id: donor._id }, process.env.JWT_SECRET, {
+      const token = jwt.sign({ _id: donor._id }, process.env.JWT_SECRET, {
         expiresIn: "1h",
       });
 
-      res.cookie("token", token, { maxAge: 3600000 });
+      res.cookie("token", token, { httpOnly: true });
+      console.log(token);
+      console.log(res.cookie());
 
       res.status(201).json({ message: "Donor registered successfully", token });
     } catch (error) {
@@ -41,7 +43,7 @@ const DonorController = {
 
       // Verify the token and extract the donor ID
       const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
-      const donorId = decodedToken.id;
+      const donorId = decodedToken._id;
 
       const donor = await Donor.findById(donorId);
       if (!donor) {
