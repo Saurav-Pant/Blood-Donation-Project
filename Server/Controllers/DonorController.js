@@ -45,7 +45,6 @@ const DonorController = {
     try {
       const token = req.cookies.token;
 
-      // Verify the token and extract the donor ID
       const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
       const donorId = decodedToken._id;
 
