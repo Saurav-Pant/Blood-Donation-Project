@@ -53,7 +53,13 @@ const FindBlood = () => {
             </select>
           </div>
 
-          <button className='w-full sm:w-2/3 mt-4  mx-auto sm:block p-2 bg-black text-white rounded w-auto'>
+          <button
+            className='w-full sm:w-2/3 mt-4  mx-auto sm:block p-2 bg-black text-white rounded w-auto'
+            style={{
+              color: theme.button.buttonTextColor,
+              backgroundColor: theme.button.buttonBgColor,
+            }}
+          >
             Current Location
           </button>
 
@@ -102,6 +108,10 @@ const FindBlood = () => {
           <button
             type='submit'
             className=' w-full sm:w-2/3 mt-4 mx-auto sm:block p-2 bg-black text-white rounded'
+            style={{
+              color: theme.button.buttonTextColor,
+              backgroundColor: theme.button.buttonBgColor,
+            }}
           >
             Proceed &gt;
           </button>
