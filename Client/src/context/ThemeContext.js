@@ -19,7 +19,7 @@ const darkTheme = {
   background: "#000000",
   color: "#FFFFFF",
   icon: "🌜",
-  boxShadow: "  0 2px 4px rgba(255, 255, 255, 0.2)",
+  boxShadow: "0px 4px 10px rgba(255, 255, 255, 0.2)",
   button: {
     buttonBgColor: "#fff",
     buttonTextColor: "#000",
