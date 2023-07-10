@@ -36,6 +36,10 @@ const FindBlood = () => {
               id='bloodGroup'
               onChange={handleInput}
               className=' hover:border-red-800 w-full mt-1 bg-white border-2'
+              style={{
+                color: theme.color,
+                backgroundColor: theme.background,
+              }}
             >
               <option value=''>-- Select --</option>
               <option value='A+'>A+</option>
@@ -48,7 +52,6 @@ const FindBlood = () => {
               <option value='AB-'>AB-</option>
             </select>
           </div>
-
 
           <button className='w-full sm:w-2/3 mt-4  mx-auto sm:block p-2 bg-black text-white rounded w-auto'>
             Current Location
@@ -69,6 +72,10 @@ const FindBlood = () => {
                 placeholder='State'
                 onChange={handleInput}
                 className='hover:border-red-800 border-2 w-full mt-1 bg-white'
+                style={{
+                  color: theme.color,
+                  backgroundColor: theme.background,
+                }}
               >
                 {/* <option value=""> select -</option> */}
               </input>
@@ -85,6 +92,10 @@ const FindBlood = () => {
                 placeholder='City'
                 onChange={handleInput}
                 className=' hover:border-red-800 border-2 w-full mt-1 bg-white'
+                style={{
+                  color: theme.color,
+                  backgroundColor: theme.background,
+                }}
               ></input>
             </div>
           </div>
