@@ -31,8 +31,22 @@ const App = () => {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/SignUp" element={<SignUp />} />
+        {token ? (
+          <Route
+            path="/login"
+            element={<Navigate to="/dashboard" replace={true} />}
+          />
+        ) : (
+          <Route path="/login" element={<Login />} />
+        )}
+        {token ? (
+          <Route
+            path="/SignUp"
+            element={<Navigate to="/dashboard" replace={true} />}
+          />
+        ) : (
+          <Route path="/SignUp" element={<SignUp />} />
+        )}
         <Route path="/about" element={<AboutUs />} />
         {token ? (
           <Route path="/find-blood" element={<FindBlood />} />
