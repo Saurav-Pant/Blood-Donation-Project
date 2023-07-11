@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/home";
 import AboutUs from "./pages/aboutUs";
@@ -17,6 +17,7 @@ import Dashboard from "./components/Dashboard";
 const App = () => {
   const { theme } = useContext(ThemeContext);
   const location = useLocation();
+  const token = localStorage.getItem("token");
   return (
     <div
       style={{
@@ -33,12 +34,19 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/SignUp" element={<SignUp />} />
         <Route path="/about" element={<AboutUs />} />
+        {token ? (
+          <Route path="/find-blood" element={<FindBlood />} />
+        ) : (
+          <Route
+            path="/find-blood"
+            element={<Navigate to="/login" replace={true} />}
+          />
+        )}
         <Route path="/find-blood" element={<FindBlood />} />
         <Route path="/register-org" element={<RegisterOrg />} />
         <Route path="/register-donor" element={<RegisterDonor />} />
         <Route path="*" element={<PageNotFound />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        {/* {Just for checking purposes} */}
       </Routes>
 
       {location.pathname !== "/SignUp" && location.pathname !== "/login" && (

@@ -38,6 +38,9 @@ const Login = () => {
           },
         }
       );
+      const {token}=response.data;
+      localStorage.setItem("token",token);
+
   
       if (response.status === 200) {
         const data = response.data;

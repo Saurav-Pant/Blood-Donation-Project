@@ -33,6 +33,7 @@ const LoginUser = async (req, res) => {
 
     // Set the token as a cookie
     res.cookie("token", token, { maxAge: 3600000 });
+    console.log(token);
 
     // Send the token and email as a JSON response
     res.status(200).json({
