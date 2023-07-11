@@ -3,14 +3,51 @@
 @tailwind utilities;
 
 
+/* Firefox */
+body {
+  scrollbar-width: thin;
+  scrollbar-color: #EF4444 #EDF8FA;
+}
+
+/* Chrome, Edge and Safari */
+body::-webkit-scrollbar {
+  width: 13px;
+  width: 13px;
+}
+body::-webkit-scrollbar-track {
+  border-radius: 0px;
+  background-color: #EDF8FA;
+}
+
+body::-webkit-scrollbar-track:hover {
+  background-color: #F2FCFF;
+}
+
+body::-webkit-scrollbar-track:active {
+  background-color: #E1EBED;
+}
+
+body::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  background-color: #EF4444;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background-color: #FC4747;
+}
+
+body::-webkit-scrollbar-thumb:active {
+  background-color: #FC4747;
+}
+
+.overflow-hide {
+    overflow: hidden;
+}
+
 
 .hero-section{
     overflow: scroll;
-}
-::-webkit-scrollbar{
-    display: none;
-}
-.hamburger{
+}.hamburger{
     display: none;
 }
 .bar{

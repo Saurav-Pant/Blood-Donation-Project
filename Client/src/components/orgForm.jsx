@@ -1,6 +1,8 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState, useContext } from "react";
+import { ThemeContext } from "../context/ThemeContext";
+
 const OrgForm = () => {
+  const { theme, toggleTheme } = useContext(ThemeContext);
   const [formData, setFormData] = useState({
     OrganisationName: "",
     OrganisationPhone: "",
@@ -32,7 +34,13 @@ const OrgForm = () => {
 
   return (
     <>
-      <form onSubmit={handleSubmit} className='mx-auto max-w-xl '>
+      <form
+        onSubmit={handleSubmit}
+        className='mx-auto max-w-xl '
+        style={{
+          boxShadow: theme.boxShadow,
+        }}
+      >
         <div className='flex items-center bg-gradient-to-r from-red-900 via-red-900 to-red-800 h-[11vh] mt-4 rounded w-full mb-[2vh]'>
           <h1 className='text-white text-2xl font-bold ml-4'>
             Register as Organisation
@@ -50,6 +58,10 @@ const OrgForm = () => {
               value={formData.OrganisationName}
               onChange={handleInputChange}
               className='pl-2 border-2 border-gray-300 hover:border-red-800  h-10 w-full flex-grow'
+              style={{
+                color: theme.color,
+                backgroundColor: theme.background,
+              }}
               placeholder='Organistaion Name'
               required
             />
@@ -65,6 +77,10 @@ const OrgForm = () => {
               value={formData.OrganisationPhone}
               onChange={handleInputChange}
               className='pl-2 border-2 border-gray-300 hover:border-red-800 flex-grow h-10 w-full mb-[2vw]'
+              style={{
+                color: theme.color,
+                backgroundColor: theme.background,
+              }}
               placeholder='Organistaion Phone Number'
               required
             />
@@ -78,6 +94,10 @@ const OrgForm = () => {
               value={formData.OrganisationEmail}
               onChange={handleInputChange}
               className='pl-2 border-2 border-gray-300 hover:border-red-800 flex-grow h-10 w-full mb-[2vw]'
+              style={{
+                color: theme.color,
+                backgroundColor: theme.background,
+              }}
               placeholder=' Organistion Email'
               required
             />
@@ -94,6 +114,10 @@ const OrgForm = () => {
               value={formData.OrganisationAddress}
               onChange={handleInputChange}
               className='pl-2 border-2 border-gray-300 hover:border-red-800 flex-grow h-[11vh] w-full mb-5'
+              style={{
+                color: theme.color,
+                backgroundColor: theme.background,
+              }}
               placeholder=' Organisation Address'
               required
             />
@@ -106,6 +130,10 @@ const OrgForm = () => {
               value={formData.OrganisationState}
               onChange={handleInputChange}
               className='pl-2 border-2 border-gray-300 hover:border-red-800 flex-grow h-10 w-full mb-[2vw]'
+              style={{
+                color: theme.color,
+                backgroundColor: theme.background,
+              }}
               required
             >
               <option value=''>-- Select --</option>
@@ -121,6 +149,10 @@ const OrgForm = () => {
               value={formData.OrganisationCity}
               onChange={handleInputChange}
               className='pl-2 border-2 border-gray-300 hover:border-red-800 flex-grow w-full h-10'
+              style={{
+                color: theme.color,
+                backgroundColor: theme.background,
+              }}
               required
             >
               <option value=''>-- Select --</option>
