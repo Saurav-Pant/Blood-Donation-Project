@@ -40,23 +40,6 @@ const DonorController = {
       res.status(500).json({ error: "Internal server error" });
     }
   },
-
-  getDonorById: async (req, res) => {
-    try {
-      const token = req.cookies.token;
-
-      const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
-      const donorId = decodedToken._id;
-
-      const donor = await Donor.findById(donorId);
-      if (!donor) {
-        return res.status(404).json({ error: "Donor not found" });
-      }
-      res.status(200).json(donor);
-    } catch (error) {
-      res.status(500).json({ error: "Internal server error" });
-    }
-  },
 };
 
 module.exports = DonorController;
