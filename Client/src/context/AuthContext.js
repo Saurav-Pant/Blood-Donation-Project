@@ -5,9 +5,11 @@ const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(null);
+  const [tokenOne, setTokenOne] = useState(null);
 
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
+    const storedToken1 = localStorage.getItem("token1");
     if (storedToken) {
       setToken(storedToken);
     }
@@ -20,6 +22,11 @@ const AuthProvider = ({ children }) => {
   const login = (token) => {
     setToken(token);
     localStorage.setItem("token", token);
+  };
+
+  const token1 = (token1) => {
+    setTokenOne(token1);
+    localStorage.setItem("token1", token1);
   };
 
   const logout = () => {

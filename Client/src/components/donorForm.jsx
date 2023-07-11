@@ -85,8 +85,13 @@ const DonorForm = () => {
         throw new Error(errorData.error);
       }
 
+      const data = await response.json();
+      const token1 = data.token;
+
       console.log("Donor registered successfully");
       console.log(formData);
+      console.log("Token1: ", token1);
+      localStorage.setItem("token1", token1);
 
       setFormData({
         firstName: "",

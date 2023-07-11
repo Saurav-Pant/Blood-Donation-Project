@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { BiDonateBlood } from "react-icons/bi";
 import { ThemeContext } from "../context/ThemeContext";
 import { motion } from "framer-motion";
-import { AiFillCaretDown, AiFillCaretUp } from "react-icons/ai";
 import { FaUserCircle } from "react-icons/fa";
 
 const Navbar = () => {
@@ -14,6 +13,7 @@ const Navbar = () => {
 
   const { theme, toggleTheme } = useContext(ThemeContext);
   const token = localStorage.getItem("token");
+  const token1 = localStorage.getItem("token1");
 
   let barcolor, navcolor;
   if (theme.background === "#000000") {
@@ -57,9 +57,11 @@ const Navbar = () => {
         <li className="ml-8 hover:text-red-400 transition-colors duration-300 nav-item">
           <Link to="/find-blood">Find Blood</Link>
         </li>
-        <li className="ml-8 hover:text-black transition-colors duration-300 nav-item rounded text-red-500">
-          <Link to="/register-donor">Register Donor</Link>
-        </li>
+        {token1 ? null : (
+          <li className="ml-8 hover:text-black transition-colors duration-300 nav-item rounded text-red-500">
+            <Link to="/register-donor">Register Donor</Link>
+          </li>
+        )}
         <li className="ml-8 hover:text-black transition-colors duration-300 nav-item rounded text-red-500">
           <Link to="/register-org">Register Organization</Link>
         </li>
