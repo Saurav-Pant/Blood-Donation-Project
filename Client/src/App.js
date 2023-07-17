@@ -18,6 +18,7 @@ const App = () => {
   const { theme } = useContext(ThemeContext);
   const location = useLocation();
   const token = localStorage.getItem("token");
+  const token1 = localStorage.getItem("token1");
   return (
     <div
       style={{
@@ -48,7 +49,7 @@ const App = () => {
           <Route path="/SignUp" element={<SignUp />} />
         )}
         <Route path="/about" element={<AboutUs />} />
-        {token ? (
+        {token1 ? (
           <Route path="/find-blood" element={<FindBlood />} />
         ) : (
           <Route
