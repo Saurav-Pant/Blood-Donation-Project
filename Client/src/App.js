@@ -61,7 +61,7 @@ const App = () => {
         <Route path="/register-org" element={<RegisterOrg />} />
         <Route path="/register-donor" element={<RegisterDonor />} />
         <Route path="*" element={<PageNotFound />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        {token1 && <Route path="/dashboard" element={<Dashboard />} />}
       </Routes>
 
       {location.pathname !== "/SignUp" && location.pathname !== "/login" && (

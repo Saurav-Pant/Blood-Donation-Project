@@ -20,7 +20,7 @@ const Navbar = () => {
     localStorage.removeItem("token1");
     localStorage.removeItem("token");
     window.location.reload();
-    navigate("/");
+    navigate("/login");
   };
 
   const { theme, toggleTheme } = useContext(ThemeContext);
@@ -118,9 +118,12 @@ const Navbar = () => {
         </motion.button>
       )}
 
-      <Link to="/dashboard">
-        <FaUserCircle size={40} />
-      </Link>
+      {token1 ? (
+        <Link to="/dashboard">
+          <FaUserCircle size={40} />
+        </Link>
+      ) : null}
+
       <motion.button
         onClick={toggleTheme}
         className="flex justify-center items-center text-3xl rounded-full"
