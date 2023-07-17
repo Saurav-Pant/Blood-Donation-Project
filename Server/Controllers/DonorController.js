@@ -23,8 +23,13 @@ const DonorController = {
         secure: true,
         sameSite: "none",
       });
+
       console.log(token);
       console.log(res.cookie());
+
+      const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
+      const userId = decodedToken._id;
+      console.log(userId);
 
       res.status(201).json({ message: "Donor registered successfully", token });
     } catch (error) {
@@ -32,10 +37,13 @@ const DonorController = {
     }
   },
 
-  getAllDonors: async (req, res) => {
+  SpecificUser: async (req, res) => {
     try {
-      const donors = await Donor.find();
-      res.status(200).json(donors);
+      const token = req.headers.authorization.split(" ")[1];
+      const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
+      const userId = decodedToken._id;
+      const donor = await Donor.findById(userId);
+      res.status(200).json(donor);
     } catch (error) {
       res.status(500).json({ error: "Internal server error" });
     }
