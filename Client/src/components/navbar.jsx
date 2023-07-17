@@ -1,11 +1,12 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { BiDonateBlood } from "react-icons/bi";
 import { ThemeContext } from "../context/ThemeContext";
 import { motion } from "framer-motion";
 import { FaUserCircle } from "react-icons/fa";
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const handleclick = () => {
     document.querySelector(".hamburger").classList.toggle("active");
     document.querySelector(".nav-menu").classList.toggle("active");
@@ -15,8 +16,14 @@ const Navbar = () => {
     window.scrollTo(0, 0);
   };
 
+  const handleLogOut = () => {
+    localStorage.removeItem("token1");
+    localStorage.removeItem("token");
+    window.location.reload();
+    navigate("/");
+  };
+
   const { theme, toggleTheme } = useContext(ThemeContext);
-  const token = localStorage.getItem("token");
   const token1 = localStorage.getItem("token1");
 
   let barcolor, navcolor;
@@ -42,8 +49,16 @@ const Navbar = () => {
     >
       <div className="flex items-center rounded-full border-2 border-red-500 p-2">
         <Link to="/" className="text-red-500">
-          <BiDonateBlood size={50} className=" hidden sm:block" onClick={handleLogo}/>
-          <BiDonateBlood size={30} className="sm:hidden " onClick={handleLogo} />
+          <BiDonateBlood
+            size={50}
+            className=" hidden sm:block"
+            onClick={handleLogo}
+          />
+          <BiDonateBlood
+            size={30}
+            className="sm:hidden "
+            onClick={handleLogo}
+          />
         </Link>
       </div>
       {/* Hide links in small devices */}
@@ -53,7 +68,9 @@ const Navbar = () => {
         style={{ backgroundColor: navcolor }}
       >
         <li className="ml-8 hover:text-red-400 transition-colors duration-300 nav-item">
-          <Link to="/" onClick={handleLogo}>Home</Link>
+          <Link to="/" onClick={handleLogo}>
+            Home
+          </Link>
         </li>
         <li className="ml-8 hover:text-red-400 transition-colors duration-300 nav-item">
           <Link to="/about">About Us</Link>
@@ -74,7 +91,7 @@ const Navbar = () => {
         )}
       </ul>
 
-      {token ? null : (
+      {!token1 ? (
         <Link to="/SignUp">
           <motion.button
             className="ml-10 px-4 py-2 rounded border-2 sm:flex border-black"
@@ -87,7 +104,20 @@ const Navbar = () => {
             Sign Up
           </motion.button>
         </Link>
+      ) : (
+        <motion.button
+          className="ml-10 px-4 py-2 rounded border-2 sm:flex border-black"
+          style={{
+            backgroundColor: theme.button.buttonBgColor,
+            color: theme.button.buttonTextColor,
+          }}
+          whileHover={{ opacity: 0.7, transition: { duration: 0.5 } }}
+          onClick={handleLogOut}
+        >
+          Logout
+        </motion.button>
       )}
+
       <Link to="/dashboard">
         <FaUserCircle size={40} />
       </Link>

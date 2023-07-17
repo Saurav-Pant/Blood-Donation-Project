@@ -38,25 +38,25 @@ const Dashboard = () => {
         {Object.keys(donorData).length > 0 ? (
           <div>
             <div className="mb-4">
-              <span className="font-bold text-gray-800">Name:</span>{" "}
+              <span className="font-bold text-gray-800">Name:</span>
               <span className="text-gray-600">
                 {donorData.firstName} {donorData.lastName}
               </span>
             </div>
             <div className="mb-4">
-              <span className="font-bold text-gray-800">Email:</span>{" "}
+              <span className="font-bold text-gray-800">Email:</span>
               <span className="text-gray-600">{donorData.email}</span>
             </div>
             <div className="mb-4">
-              <span className="font-bold text-gray-800">Phone:</span>{" "}
+              <span className="font-bold text-gray-800">Phone:</span>
               <span className="text-gray-600">{donorData.phone}</span>
             </div>
             <div className="mb-4">
-              <span className="font-bold text-gray-800">BloodGroup:</span>{" "}
+              <span className="font-bold text-gray-800">BloodGroup:</span>
               <span className="text-gray-600">{donorData.bloodGroup}</span>
             </div>
             <div className="mb-4">
-              <span className="font-bold text-gray-800">Age:</span>{" "}
+              <span className="font-bold text-gray-800">Age:</span>
               <span className="text-gray-600">{donorData.age}</span>
             </div>
           </div>
