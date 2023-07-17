@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { BiDonateBlood } from "react-icons/bi";
 import { ThemeContext } from "../context/ThemeContext";
@@ -9,6 +9,10 @@ const Navbar = () => {
   const handleclick = () => {
     document.querySelector(".hamburger").classList.toggle("active");
     document.querySelector(".nav-menu").classList.toggle("active");
+  };
+
+  const handleLogo = () => {
+    window.scrollTo(0, 0);
   };
 
   const { theme, toggleTheme } = useContext(ThemeContext);
@@ -38,8 +42,8 @@ const Navbar = () => {
     >
       <div className="flex items-center rounded-full border-2 border-red-500 p-2">
         <Link to="/" className="text-red-500">
-          <BiDonateBlood size={50} className=" hidden sm:block" />
-          <BiDonateBlood size={30} className="sm:hidden " />
+          <BiDonateBlood size={50} className=" hidden sm:block" onClick={handleLogo}/>
+          <BiDonateBlood size={30} className="sm:hidden " onClick={handleLogo} />
         </Link>
       </div>
       {/* Hide links in small devices */}
@@ -49,7 +53,7 @@ const Navbar = () => {
         style={{ backgroundColor: navcolor }}
       >
         <li className="ml-8 hover:text-red-400 transition-colors duration-300 nav-item">
-          <Link to="/">Home</Link>
+          <Link to="/" onClick={handleLogo}>Home</Link>
         </li>
         <li className="ml-8 hover:text-red-400 transition-colors duration-300 nav-item">
           <Link to="/about">About Us</Link>

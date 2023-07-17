@@ -30,9 +30,9 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-gray">
-      <div className="max-w-md p-8 bg-white rounded-lg shadow-lg">
-        <h1 className="text-4xl font-bold mb-8 text-red-400 hover:text-red-600 transition-colors duration-300 ease-out">
+    <div className="flex flex-col items-center justify-center h-[90vh] bg-gray">
+      <div className="max-w-md p-8 bg-white rounded-lg shadow-lg hover:shadow-xl">
+        <h1 className="text-4xl font-bold mb-8 text-red-400 hover:text-red-600 transition-colors duration-300 ease-out text-center">
           Dashboard
         </h1>
         {Object.keys(donorData).length > 0 ? (
@@ -47,9 +47,17 @@ const Dashboard = () => {
               <span className="font-bold text-gray-800">Email:</span>{" "}
               <span className="text-gray-600">{donorData.email}</span>
             </div>
-            <div>
+            <div className="mb-4">
               <span className="font-bold text-gray-800">Phone:</span>{" "}
               <span className="text-gray-600">{donorData.phone}</span>
+            </div>
+            <div className="mb-4">
+              <span className="font-bold text-gray-800">BloodGroup:</span>{" "}
+              <span className="text-gray-600">{donorData.bloodGroup}</span>
+            </div>
+            <div className="mb-4">
+              <span className="font-bold text-gray-800">Age:</span>{" "}
+              <span className="text-gray-600">{donorData.age}</span>
             </div>
           </div>
         ) : (
