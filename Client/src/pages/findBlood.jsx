@@ -1,9 +1,11 @@
 import React, { useState, useContext, useEffect } from "react";
 import { ThemeContext } from "../context/ThemeContext";
 import axios from "axios";
+import Loading from "../components/Loading";
 
 const FindBlood = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
+  const [loading, setLoading] = useState(true);
   const [Donors, setDonors] = useState([]);
   const [formData, setFormData] = useState({
     bloodGroup: "",
@@ -26,6 +28,7 @@ const FindBlood = () => {
         withCredentials: true,
       });
       setDonors(response.data);
+      setLoading(false);
       // console.log(response.data);
       console.log(Donors);
     } catch (error) {
@@ -40,31 +43,34 @@ const FindBlood = () => {
   return (
     <div className="md:flex justify-center px-4">
       <div className="mx-auto w-96 mt-8">
-        {/* All Blood Details */}
-
-        <div className="grid grid-cols-1 gap-4">
-          {Donors.map((donor, index) => (
-            <div
-              key={index}
-              className="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 text-white p-4 text-center rounded-lg shadow-lg relative overflow-hidden"
-            >
-              <div className="mb-2 text-xl font-semibold">
-                {`${donor.firstName} ${donor.lastName}`}
-              </div>
-              <div className="mb-2 text-gray-300">{donor.gender}</div>
-              <div className="flex items-center justify-between">
-                <div className="text-yellow-400">
-                  Blood Group: {donor.bloodGroup}
+        {loading ? (
+          <Loading />
+        ) : (
+          <div className="grid grid-cols-1 gap-4">
+            {Donors.map((donor, index) => (
+              <div
+                key={index}
+                className="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 text-white p-4 text-center rounded-lg shadow-lg relative overflow-hidden"
+              >
+                <div className="mb-2 text-xl font-semibold">
+                  {`${donor.firstName} ${donor.lastName}`}
                 </div>
-                <div className="text-gray-300">Age: {donor.age}</div>
+                <div className="mb-2 text-gray-300">{donor.gender}</div>
+                <div className="flex items-center justify-between">
+                  <div className="text-yellow-400">
+                    Blood Group: {donor.bloodGroup}
+                  </div>
+                  <div className="text-gray-300">Age: {donor.age}</div>
+                </div>
+                <button className="bg-black w-full rounded-md p-2 mt-5">
+                  {donor.phone}
+                </button>
               </div>
-              <button className="bg-black w-full rounded-md p-2 mt-5 ">
-                {donor.phone}
-              </button>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </div>
+
       <div className="md:pr-4 lg:pr-8 xl:pr-16 md:w-1/3">
         <h1 className="mt-8 text-4xl text-center ">Recipient Details</h1>
 
