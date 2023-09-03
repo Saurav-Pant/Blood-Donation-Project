@@ -42,14 +42,13 @@ const GetBlood = () => {
       <motion.div
         className="flex justify-center items-center px-10"
         initial={{ opacity: 0, position: "relative", top: "-50px" }}
-        whileInView={{ opacity: 1, position: "relative", top: "0px" }}
+        animate={{ opacity: 1, position: "relative", top: "0px" }}
         transition={{ duration: 1 }}
       >
         <motion.div
           className="h-fit w-full md:mb-18 lg:mb-24 mb-6 flex flex-col items-center justify-center"
           initial={{ opacity: 0, position: "relative", right: "-100px" }}
-          whileInView={{ opacity: 1, position: "relative", right: "0px" }}
-          stagger={{ opacity: 1, position: "relative" }}
+          animate={{ opacity: 1, position: "relative", right: "0px" }}
           transition={{ duration: 1 }}
         >
           <table>

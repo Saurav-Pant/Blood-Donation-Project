@@ -37,6 +37,15 @@ const DonorController = {
     }
   },
 
+  getAllUsers: async (req, res) => {
+    try {
+      const donors = await Donor.find();
+      res.status(200).json(donors);
+    } catch (error) {
+      res.status(500).json({ error: "Internal server error" });
+    }
+  },
+
   SpecificUser: async (req, res) => {
     try {
       const token = req.headers.authorization.split(" ")[1];
