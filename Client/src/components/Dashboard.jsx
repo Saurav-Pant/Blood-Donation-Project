@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Loading from "./Loading";
 
 const Dashboard = () => {
   const [donorData, setDonorData] = useState({});
+  const [loading, setLoading] = useState(true);
 
   const fetchData = async () => {
     try {
@@ -19,15 +21,22 @@ const Dashboard = () => {
         withCredentials: true,
       });
       setDonorData(response.data);
+      setLoading(false);
       console.log(response.data);
     } catch (error) {
       console.error("Error:", error);
+      setLoading(false); 
     }
   };
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, []); 
+
+  
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <div className="flex flex-col items-center justify-center h-[90vh] bg-gray">

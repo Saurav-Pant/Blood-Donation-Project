@@ -12,7 +12,7 @@ const footer = () => {
             className="text-center md:text-left md:w-1/2 md:mb-0"
             initial={{ opacity: 0, x: 50 }}
             transition={{ duration: 0.5 }}
-            whileInView={{
+            animate={{
               opacity: 1,
               position: "relative",
               x: 0,
@@ -29,7 +29,7 @@ const footer = () => {
             className="flex justify-center md:justify-end md:w-1/2 mt-4"
             initial={{ opacity: 0, x: -50 }}
             transition={{ duration: 0.5 }}
-            whileInView={{
+            animate={{
               opacity: 1,
               position: "relative",
               x: 0,
@@ -67,7 +67,7 @@ const footer = () => {
           className="mt-8 text-center text-sm text-gray-400 hover:text-red-300 transition-colors duration-300 ease-in-out"
           initial={{ opacity: 0, y: 50 }}
           transition={{ duration: 0.5 }}
-          whileInView={{
+          animate={{
             opacity: 1,
             position: "relative",
             y: 0,

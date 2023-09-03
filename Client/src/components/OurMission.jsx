@@ -32,7 +32,7 @@ const OurMission = () => {
         className="text-lg px-16 font-light font-sans py-4 text-justify "
         style={missionStyle}
         initial={{ opacity: 0, position: "relative", top: "-100px" }}
-        whileInView={{ opacity: 1, position: "relative", top: "0px" }}
+        animate={{ opacity: 1, position: "relative", top: "0px" }}
         transition={{ delay: 0.3, duration: 0.7 }}
         
       >

@@ -13,6 +13,7 @@ import SignUp from "./pages/SignUp";
 import Login from "./pages/login";
 import PageNotFound from "./components/PageNotFound";
 import Dashboard from "./components/Dashboard";
+import Loading from "./components/Loading";
 
 const App = () => {
   const { theme } = useContext(ThemeContext);
@@ -62,6 +63,7 @@ const App = () => {
         <Route path="/register-donor" element={<RegisterDonor />} />
         <Route path="*" element={<PageNotFound />} />
         {token1 && <Route path="/dashboard" element={<Dashboard />} />}
+        <Route path="/check" element={<Loading />} />
       </Routes>
 
       {location.pathname !== "/SignUp" && location.pathname !== "/login" && (

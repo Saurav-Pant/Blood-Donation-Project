@@ -11,7 +11,7 @@ const Collaborators = () => {
       <motion.div
         className="flex justify-center items-center h-[50vh] px-10"
         initial={{ opacity: 0, position: "relative", top: "-100px" }}
-        whileInView={{ opacity: 1, position: "relative", top: "0px" }}
+        animate={{ opacity: 1, position: "relative", top: "0px" }}
         transition={{ delay: 0.3, duration: 1 }}
       >
         <div className="m-2 p-4 bg-white text-black shadow-md flex items-center justify-center w-[200px] h-[200px] hover:bg-red-50 rounded-sm ">
