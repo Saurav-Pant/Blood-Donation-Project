@@ -32,7 +32,11 @@ const Dashboard = () => {
   return (
     <div className="flex flex-col items-center justify-center h-[90vh] bg-gray">
       <div className="max-w-md p-8 bg-white rounded-lg shadow-lg hover:shadow-xl">
-        <h1 className="text-4xl font-bold mb-8 text-red-400 hover:text-red-600 transition-colors duration-300 ease-out text-center">
+        <h1
+          className="text-4xl font-bold mb-8 text-center
+          bg-gradient-to-r from-red-500 to-blue-500 bg-clip-text  text-transparent
+        "
+        >
           Dashboard
         </h1>
         {Object.keys(donorData).length > 0 ? (
