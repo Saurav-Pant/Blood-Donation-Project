@@ -1,9 +1,10 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { BiDonateBlood } from "react-icons/bi";
 import { ThemeContext } from "../context/ThemeContext";
 import { motion } from "framer-motion";
 import { FaUserCircle } from "react-icons/fa";
+import Loading from "../components/Loading";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -16,11 +17,17 @@ const Navbar = () => {
     window.scrollTo(0, 0);
   };
 
+  const [loggingOut, setLoggingOut] = useState(false); // State to track logout loading
+
   const handleLogOut = () => {
-    localStorage.removeItem("token1");
-    localStorage.removeItem("token");
-    window.location.reload();
-    navigate("/login");
+    setLoggingOut(true); // Start loading
+
+    setTimeout(() => {
+      localStorage.removeItem("token1");
+      localStorage.removeItem("token");
+      navigate("/login");
+      setLoggingOut(false); // End loading after 3000ms
+    }, 3000);
   };
 
   const { theme, toggleTheme } = useContext(ThemeContext);
@@ -54,11 +61,7 @@ const Navbar = () => {
             className=" hidden sm:block"
             onClick={handleLogo}
           />
-          <BiDonateBlood
-            size={30}
-            className="sm:hidden "
-            onClick={handleLogo}
-          />
+          <BiDonateBlood size={30} className="sm:hidden " onClick={handleLogo} />
         </Link>
       </div>
       {/* Hide links in small devices */}
@@ -138,6 +141,8 @@ const Navbar = () => {
         <span className="bar" style={{ backgroundColor: barcolor }}></span>
         <span className="bar" style={{ backgroundColor: barcolor }}></span>
       </div>
+
+      {loggingOut && <Loading/>} 
     </motion.nav>
   );
 };
