@@ -3,6 +3,40 @@
 ## Introduction
 The Blood Donation Project is an initiative aimed at connecting individuals in need of blood with willing blood donors. The project utilizes npm (Node Package Manager) and version control using Git to manage the codebase and facilitate collaboration.
 
+---
+
+<div align="center">
+
+<h2 align=center>Project Maintainers</h2> 
+<table align="center">
+  <tr>
+    <td align="center">
+      <a href="https://github.com/marshadkhn">
+        <img src="https://avatars.githubusercontent.com/u/103263909?v=4" width="100px" alt=""/>
+        <br />
+        <sub><b>Saurav-Pant</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/Adityamishra9719">
+        <img src="https://avatars.githubusercontent.com/u/89774623?v=4" width="100px" alt=""/>
+        <br />
+        <sub><b>Hikmee</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/Abdul-365">
+        <img src="https://avatars.githubusercontent.com/u/90946899?v=4" width="100px" alt=""/>
+        <br />
+        <sub><b>vaibhav-xt</b></sub>
+      </a>
+    </td>
+  </tr>
+</table>
+</div>
+
+---
+
 ## Getting Started
 To contribute to the project, follow the steps below:
 
@@ -17,7 +51,7 @@ To contribute to the project, follow the steps below:
      ```bash
      git clone https://github.com/your-username/Blood-Donation-Project.git
      ```
-   - This will create a local copy of the repository on your machin.
+   - This will create a local copy of the repository on your machine.
 
 3. **Install Dependencies**
    - Navigate to the project's root directory:
@@ -36,15 +70,14 @@ To contribute to the project, follow the steps below:
 
 1. Start the server by opening a terminal or command prompt.
 2. Navigate to the server directory using the `cd` command:
-3. Run the following command to start the server:
+3. Run the following command to install dependencies
+      ```bash
+      npm install
+      ```
+5. Run the following command to start the server:
 ```bash
-node index.js
+nodemon Server.js
 ```
- - Feel free to modify the above code snippet to fit your specific requirements or provide more details about your server setup.
-
-
-
-
 
 6. **Start Contributing**
    - Now that you have set up the project on your local machine, you can start contributing to the project by adding the necessary functionality to connect blood donors with individuals in need.
