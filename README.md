@@ -11,21 +11,28 @@ The Blood Donation Project is an initiative aimed at connecting individuals in n
 <table align="center">
   <tr>
     <td align="center">
-      <a href="https://github.com/marshadkhn">
+      <a href="https://github.com/Saurav-Pant">
         <img src="https://avatars.githubusercontent.com/u/103263909?v=4" width="100px" alt=""/>
         <br />
         <sub><b>Saurav-Pant</b></sub>
       </a>
     </td>
+     <td align="center">
+      <a href="https://github.com/Shyamtawli">
+        <img src="https://avatars.githubusercontent.com/u/104145978?v=4" width="100px" alt=""/>
+        <br />
+        <sub><b>Shyamtawli</b></sub>
+      </a>
+    </td>
     <td align="center">
-      <a href="https://github.com/Adityamishra9719">
+      <a href="https://github.com/hikmee">
         <img src="https://avatars.githubusercontent.com/u/89774623?v=4" width="100px" alt=""/>
         <br />
         <sub><b>Hikmee</b></sub>
       </a>
     </td>
     <td align="center">
-      <a href="https://github.com/Abdul-365">
+      <a href="https://github.com/vaibhav-xt">
         <img src="https://avatars.githubusercontent.com/u/90946899?v=4" width="100px" alt=""/>
         <br />
         <sub><b>vaibhav-xt</b></sub>
