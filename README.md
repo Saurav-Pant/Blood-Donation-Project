@@ -140,7 +140,7 @@ To contribute to the project, follow the steps below:
 
 12. Click on **`Create Pull Request`**.
 
-13. Voila! You have made a PR to the Opensource-practice 💥 Wait for your submission to be accepted and your PR to be merged 🎉
+13. Voila! You have made a PR to the **Blood-Donation-Project** 💥 Wait for your submission to be accepted and your PR to be merged 🎉
 
 ## Contributing Guidelines
 
