@@ -40,7 +40,7 @@ const OrgForm = () => {
       ...prevState,
       [name]: value,
     }));
-    if (name === 'state') {
+    if (name === 'OrganisationState') {
       try {
         const response = await fetch(`https://cdn-api.co-vin.in/api/v2/admin/location/districts/${value}`)
         const data = await response.json()
