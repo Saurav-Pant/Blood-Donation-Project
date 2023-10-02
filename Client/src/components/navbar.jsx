@@ -82,13 +82,13 @@ const Navbar = () => {
           <Link to="/find-blood">Find Blood</Link>
         </li>
         {token1 ? null : (
-          <li className="ml-8 hover:text-red-900 transition-colors duration-300 nav-item rounded text-red-500">
+          <li className="ml-8 hover:text-red-400 transition-colors duration-300 nav-item rounded ">
             <Link to="/register-donor">Register Donor</Link>
           </li>
         )}
 
         {token1 ? null : (
-          <li className="ml-8 hover:text-red-900 transition-colors duration-300 nav-item rounded text-red-500">
+          <li className="ml-8 hover:text-red-400 transition-colors duration-300 nav-item rounded ">
             <Link to="/register-org">Register Organization</Link>
           </li>
         )}
