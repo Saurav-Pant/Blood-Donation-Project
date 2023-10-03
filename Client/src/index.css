@@ -58,6 +58,18 @@ body::-webkit-scrollbar-thumb:active {
     -webkit-transition: all 0.3s ease-in-out;
     /* background-color: #fff; */
 }
+
+.user-container{
+  visibility: hidden;
+  transform: translateY(0);
+  transition: .4s ease-in;
+}
+.user-profile:hover .user-container{
+  visibility:visible;
+  transform: translateY(5%);
+  transition: .3s ease-out;
+}
+
 @media screen and (max-width:1050px) {
     .hamburger{
         display: block;
