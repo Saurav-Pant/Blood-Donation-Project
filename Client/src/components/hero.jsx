@@ -19,7 +19,7 @@ const Hero = () => {
           help others to live a better life and make a better future for their
           families.
         </p>
-        <Link to="/">
+        <Link to="/find-blood">
           <motion.button
             className="mt-12 px-6 py-3 rounded-md hover:opacity-80 transition-colors duration-300 w-40 mx-16 mb-3"
             style={{
