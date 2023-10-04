@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { BsTwitter, BsInstagram, BsFacebook } from "react-icons/bs";
+import { BsInstagram, BsFacebook } from "react-icons/bs";
+import { RiTwitterXFill } from 'react-icons/ri'
 import { Link } from "react-router-dom";
 
 const footer = () => {
@@ -42,7 +43,7 @@ const footer = () => {
                 rel="noopener noreferrer"
                 className="transform hover:-translate-y-1 transition-transform duration-300"
               >
-                <BsTwitter size={30} className="hover:text-red-300" />
+                <RiTwitterXFill size={30} className="hover:text-red-300" />
               </Link>
               <Link
                 to="https://instagram.com"

@@ -30,7 +30,7 @@ const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState(lightTheme);
 
   const toggleTheme = () => {
-    const newTheme = theme === lightTheme ? darkTheme : lightTheme;
+    const newTheme = JSON.stringify(theme) === JSON.stringify(lightTheme) ? darkTheme : lightTheme;
     setTheme(newTheme);
     localStorage.setItem("selectedTheme", JSON.stringify(newTheme));
   };
