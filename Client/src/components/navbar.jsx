@@ -94,7 +94,33 @@ const Navbar = () => {
           </li>
         )}
       </ul>
-
+      {!token1 ? (
+        <>
+          <Link to="/login">
+            <motion.button
+              className="ml-10 px-4 py-2 rounded border-2 sm:flex border-black"
+              style={{
+                backgroundColor: theme.button.buttonBgColor,
+                color: theme.button.buttonTextColor,
+              }}
+              whileHover={{ opacity: 0.7, transition: { duration: 0.5 } }}
+            >
+              Log In
+            </motion.button>
+          </Link>
+          <Link to="/SignUp">
+            <motion.button
+              className="px-4 py-2 rounded border-2 sm:flex border-black"
+              style={{
+                backgroundColor: theme.button.buttonBgColor,
+                color: theme.button.buttonTextColor,
+              }}
+              whileHover={{ opacity: 0.7, transition: { duration: 0.5 } }}
+            >
+              Sign Up
+            </motion.button>
+          </Link>
+        </>
       {token1 ? (
         <Link to="/SignUp">
           <motion.button
@@ -154,7 +180,7 @@ const Navbar = () => {
         <span className="bar" style={{ backgroundColor: barcolor }}></span>
       </div>
 
-      {loggingOut && <Loading/>} 
+      {loggingOut && <Loading />}
     </motion.nav>
   );
 };
