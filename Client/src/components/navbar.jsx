@@ -4,7 +4,6 @@ import { BiDonateBlood } from "react-icons/bi";
 import { ThemeContext } from "../context/ThemeContext";
 import { motion } from "framer-motion";
 import userProfile from "../asset/avatar.png"
-// import { FaUserCircle } from "react-icons/fa";
 import { TailSpin } from "react-loader-spinner";
 
 const Navbar = () => {
@@ -123,23 +122,6 @@ const Navbar = () => {
         </> ) : null
         }
       {token1 ? (
-        <Link to="/SignUp">
-          <motion.button
-            className="ml-10 px-4 py-2 rounded border-2 sm:flex border-black"
-            style={{
-              backgroundColor: theme.button.buttonBgColor,
-              color: theme.button.buttonTextColor,
-            }}
-            whileHover={{ opacity: 0.7, transition: { duration: 0.5 } }}
-          >
-            Sign Up
-          </motion.button>
-        </Link>
-      ) : (
-       null
-      )}
-
-      {!token1 ? (
         <Link>
         <div className="user-profile relative max-w-full">
           <div className=" flex items-center rounded-full border-2 border-red-400 p-2 bg-gray-300">
