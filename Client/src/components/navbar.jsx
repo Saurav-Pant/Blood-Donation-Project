@@ -5,7 +5,7 @@ import { ThemeContext } from "../context/ThemeContext";
 import { motion } from "framer-motion";
 import userProfile from "../asset/avatar.png"
 // import { FaUserCircle } from "react-icons/fa";
-import Loading from "../components/Loading";
+import { TailSpin } from "react-loader-spinner";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -120,7 +120,8 @@ const Navbar = () => {
               Sign Up
             </motion.button>
           </Link>
-        </>
+        </> ) : null
+        }
       {token1 ? (
         <Link to="/SignUp">
           <motion.button
@@ -180,7 +181,17 @@ const Navbar = () => {
         <span className="bar" style={{ backgroundColor: barcolor }}></span>
       </div>
 
-      {loggingOut && <Loading />}
+      {loggingOut && (
+  <div className="flex items-center ml-4">
+    <TailSpin
+      color={theme.button.buttonBgColor} // Set the loader color based on your theme
+      height={30} // Adjust the height as needed
+      width={30} // Adjust the width as needed
+    />
+    <span className="ml-2">Logging out...</span>
+  </div>
+)}
+
     </motion.nav>
   );
 };
