@@ -184,7 +184,7 @@ const Login = () => {
               transition-colors duration-300 ease-in-out"
             >
               <button className="flex items-center justify-center w-full focus:outline-none">
-                Sign In with <FcGoogle className="ml-3" size={20} />
+                Sign Up with <FcGoogle className="ml-3" size={20} />
               </button>
             </Link>
           </motion.div>

@@ -165,7 +165,7 @@ const SignUp = () => {
                 type="submit"
                 className="w-full bg-red-400 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline hover:bg-red-500 transition-colors duration-300 ease-in-out"
               >
-                Sign in
+                Sign Up
               </button>
             </div>
             {error && <p className="text-red-500 mb-4 text-center animate-bounce">{error}</p>}
@@ -195,7 +195,7 @@ const SignUp = () => {
               className="px-4 py-2 rounded-xl flex items-center bg-red-400 text-white font-bold hover:bg-red-500 transition-colors duration-300 ease-in-out"
             >
               <button className="flex items-center justify-center w-full focus:outline-none">
-                Sign In with <FcGoogle className="ml-3" size={20} />
+                Sign Up with <FcGoogle className="ml-3" size={20} />
               </button>
             </Link>
           </motion.div>
