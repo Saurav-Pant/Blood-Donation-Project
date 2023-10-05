@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { BiDonateBlood } from "react-icons/bi";
 import { ThemeContext } from "../context/ThemeContext";
 import { motion } from "framer-motion";
-import userProfile from "../asset/avatar.png"
+import userProfile from "../asset/avatar.png";
 import { TailSpin } from "react-loader-spinner";
 
 const Navbar = () => {
@@ -17,16 +17,16 @@ const Navbar = () => {
     window.scrollTo(0, 0);
   };
 
-  const [loggingOut, setLoggingOut] = useState(false); // State to track logout loading
+  const [loggingOut, setLoggingOut] = useState(false);
 
   const handleLogOut = () => {
-    setLoggingOut(true); // Start loading
+    setLoggingOut(true);
 
     setTimeout(() => {
       localStorage.removeItem("token1");
       localStorage.removeItem("token");
       navigate("/login");
-      setLoggingOut(false); // End loading after 3000ms
+      setLoggingOut(false);
     }, 3000);
   };
 
@@ -61,10 +61,13 @@ const Navbar = () => {
             className=" hidden sm:block"
             onClick={handleLogo}
           />
-          <BiDonateBlood size={30} className="sm:hidden " onClick={handleLogo} />
+          <BiDonateBlood
+            size={30}
+            className="sm:hidden "
+            onClick={handleLogo}
+          />
         </Link>
       </div>
-      {/* Hide links in small devices */}
       <ul
         className=" font-mono text-xl sm:flex nav-menu"
         onClick={handleclick}
@@ -119,32 +122,48 @@ const Navbar = () => {
               Sign Up
             </motion.button>
           </Link>
-        </> ) : null
-        }
+        </>
+      ) : null}
       {token1 ? (
         <Link>
-        <div className="user-profile relative max-w-full">
-          <div className=" flex items-center rounded-full border-2 border-red-400 p-2 bg-gray-300">
-            <img src={userProfile} className="w-12 h-12 object-cover" />
-          </div>
-          <div className="user-container top-10 p-2  md:left-5 absolute w-[180px] h-auto shadow-lg shadow-gray-300" style={{ backgroundColor: navcolor }}>
-            <div className="w-full flex flex-col font-mono" style={{ backgroundColor: navcolor }}>
-                <Link to={"/userProfile"} className="text-xl text-center p-2 hover:bg-red-200 hover:scale-110 hover:duration-200">My Profile</Link>
-                <Link to={"/dashboard"} className="text-xl text-center p-2 hover:bg-red-200 hover:scale-110 hover:duration-200">My Dashboard</Link>
+          <div className="user-profile relative max-w-full">
+            <div className=" flex items-center rounded-full border-2 border-red-400 p-2 bg-gray-300">
+              <img src={userProfile} className="w-12 h-12 object-cover" />
+            </div>
+            <div
+              className="user-container top-10 p-2  md:left-5 absolute w-[180px] h-auto shadow-lg shadow-gray-300"
+              style={{ backgroundColor: navcolor }}
+            >
+              <div
+                className="w-full flex flex-col font-mono"
+                style={{ backgroundColor: navcolor }}
+              >
+                <Link
+                  to={"/userProfile"}
+                  className="text-xl text-center p-2 hover:bg-red-200 hover:scale-110 hover:duration-200"
+                >
+                  My Profile
+                </Link>
+                <Link
+                  to={"/dashboard"}
+                  className="text-xl text-center p-2 hover:bg-red-200 hover:scale-110 hover:duration-200"
+                >
+                  My Dashboard
+                </Link>
                 <motion.button
                   className="px-4 mt-2  py-2 rounded border-2 justify-center sm:flex border-black"
                   style={{
                     backgroundColor: theme.button.buttonBgColor,
                     color: theme.button.buttonTextColor,
-                     }}
-                   whileHover={{ opacity: 0.7, transition: { duration: 0.5 } }}
-                   onClick={handleLogOut}
-                    >
-                    Log out
-                 </motion.button>
-               </div>
+                  }}
+                  whileHover={{ opacity: 0.7, transition: { duration: 0.5 } }}
+                  onClick={handleLogOut}
+                >
+                  Log out
+                </motion.button>
+              </div>
             </div>
-        </div>
+          </div>
         </Link>
       ) : null}
 
@@ -164,16 +183,11 @@ const Navbar = () => {
       </div>
 
       {loggingOut && (
-  <div className="flex items-center ml-4">
-    <TailSpin
-      color={theme.button.buttonBgColor} // Set the loader color based on your theme
-      height={30} // Adjust the height as needed
-      width={30} // Adjust the width as needed
-    />
-    <span className="ml-2">Logging out...</span>
-  </div>
-)}
-
+        <div className="flex items-center ml-4">
+          <TailSpin color={theme.button.buttonBgColor} height={30} width={30} />
+          <span className="ml-2">Logging out...</span>
+        </div>
+      )}
     </motion.nav>
   );
 };
