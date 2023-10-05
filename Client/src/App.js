@@ -15,6 +15,7 @@ import PageNotFound from "./components/PageNotFound";
 import Dashboard from "./components/Dashboard";
 import Loading from "./components/Loading";
 import UserProfile from "./components/userProfile";
+import ScrollToTopButton from "./components/Scroll-to-top";
 
 const App = () => {
   const { theme } = useContext(ThemeContext);
@@ -31,7 +32,7 @@ const App = () => {
       {location.pathname !== "/SignUp" && location.pathname !== "/login" && (
         <Navbar />
       )}
-
+      <ScrollToTopButton/>
       <Routes>
         <Route path="/" element={<Home />} />
         {token ? (
