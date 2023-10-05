@@ -1,10 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
-import pencil from "../asset/pencil.svg";
+import contactforblood from "../asset/contactforblood.jpg"
+import donateBlood from "../asset/donateBloood.jpg"
+import helpinblood from "../asset/helpinblood.jpg"
 import heartbeat from "../asset/heartbeat.svg";
 import { motion } from "framer-motion";
 
-const InfoCard = ({ infotext, infonumber }) => {
+const InfoCard = ({ infotext, infonumber, infoimg }) => {
   return (
     <div className="h-[45vh] w-[25vw] my-0 p-0 relative flex items-center justify-center">
       <div
@@ -17,8 +19,8 @@ const InfoCard = ({ infotext, infonumber }) => {
         className="md:h-[23vmax] md:w-[23vmax] h-[21vmax] w-[21vmax] absolute flex flex-col top-1/4 items-center justify-center rounded-full overflow-hidden shadow-lg bg-white text-red-600"
         style={{ top: "40%" }}
       >
-        <div className="md:h-[11vmin] md:w-[11vmin] h-[6vmin] w-[6vmin] overflow-hidden rounded-full">
-          <img src={pencil} alt="" className="md:scale-95 scale-20" />
+        <div className="md:h-[15vmin] md:w-[15vmin] h-[6vmin] w-[6vmin] overflow-hidden rounded-full">
+          <img src={infoimg} alt="" className=" md:scale-95 scale-20" />
         </div>
         <div className="w-[85%] break-normal inline-block p-2 text-center text-xs md:text-sm lg:text-base">
           {infotext}
@@ -31,6 +33,7 @@ const InfoCard = ({ infotext, infonumber }) => {
 InfoCard.propTypes = {
   infotext: PropTypes.string.isRequired,
   infonumber: PropTypes.number.isRequired,
+  infoimg: PropTypes.string.isRequired
 };
 
 const GetBlood = () => {
@@ -57,6 +60,7 @@ const GetBlood = () => {
                 <InfoCard
                   infotext="Donate blood and save lives, your contribution can make a difference."
                   infonumber={1}
+                  infoimg={donateBlood}
                 />
               </td>
             </tr>
@@ -67,6 +71,7 @@ const GetBlood = () => {
                 <InfoCard
                   infotext="Help those in need by donating blood, a selfless act of kindness"
                   infonumber={2}
+                  infoimg={helpinblood}
                 />
               </td>
               <td className="pt-20 md:pt-36 lg:pt-64">
@@ -81,6 +86,7 @@ const GetBlood = () => {
                 <InfoCard
                   infotext="Need blood? Connect with blood banks or donors to get the support you require"
                   infonumber={3}
+                  infoimg={contactforblood}
                 />
               </td>
             </tr>
