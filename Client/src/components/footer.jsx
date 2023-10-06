@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { BsInstagram, BsFacebook } from "react-icons/bs";
+import { BsInstagram, BsFacebook, BsGithub } from "react-icons/bs";
 import { RiTwitterXFill } from 'react-icons/ri'
 import { Link } from "react-router-dom";
 
@@ -25,6 +25,7 @@ const footer = () => {
             <p className="mt-2 hover:text-red-200 font-light">
               Saving Lives Through Blood Donation
             </p>
+            <p>Feel free to to request a feature by visiting github & raising issue</p>
           </motion.div>
           <motion.div
             className="flex justify-center md:justify-end md:w-1/2 mt-4"
@@ -37,6 +38,16 @@ const footer = () => {
             }}
           >
             <div className="flex space-x-8">
+            {/* Twitter Link */}
+              <Link
+                to="https://github.com/Saurav-Pant/Blood-Donation-Project"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transform hover:-translate-y-1 transition-transform duration-300"
+              >
+                <BsGithub size={30} className="hover:text-red-300" />
+              </Link>
+              {/* Github Link */}
               <Link
                 to="https://twitter.com"
                 target="_blank"
@@ -45,6 +56,7 @@ const footer = () => {
               >
                 <RiTwitterXFill size={30} className="hover:text-red-300" />
               </Link>
+              {/* Instagram link */}
               <Link
                 to="https://instagram.com"
                 target="_blank"
@@ -53,6 +65,7 @@ const footer = () => {
               >
                 <BsInstagram size={30} className="hover:text-red-300" />
               </Link>
+              {/* Facebook link */}
               <Link
                 to="https://facebook.com"
                 target="_blank"

@@ -32,6 +32,7 @@ const Navbar = () => {
 
   const { theme, toggleTheme } = useContext(ThemeContext);
   const token1 = localStorage.getItem("token1");
+  const token = localStorage.getItem("token");
 
   let barcolor, navcolor;
   if (theme.background === "#000000") {
@@ -96,7 +97,7 @@ const Navbar = () => {
           </li>
         )}
       </ul>
-      {!token1 ? (
+      {!token ? (
         <>
           <Link to="/login">
             <motion.button
@@ -124,7 +125,7 @@ const Navbar = () => {
           </Link>
         </>
       ) : null}
-      {token1 ? (
+      {token ? (
         <Link>
           <div className="user-profile relative max-w-full">
             <div className=" flex items-center rounded-full border-2 border-red-400 p-2 bg-gray-300">
@@ -140,13 +141,13 @@ const Navbar = () => {
               >
                 <Link
                   to={"/userProfile"}
-                  className="text-xl text-center p-2 hover:bg-red-200 hover:scale-110 hover:duration-200"
+                  className="text-xl text-center p-2 hover:text-red-500  hover:duration-200"
                 >
                   My Profile
                 </Link>
                 <Link
                   to={"/dashboard"}
-                  className="text-xl text-center p-2 hover:bg-red-200 hover:scale-110 hover:duration-200"
+                  className="text-xl text-center p-2 hover:text-red-500 hover:duration-200"
                 >
                   My Dashboard
                 </Link>
