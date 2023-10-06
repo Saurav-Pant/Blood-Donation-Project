@@ -32,7 +32,7 @@ const Navbar = () => {
 
   const { theme, toggleTheme } = useContext(ThemeContext);
   const token1 = localStorage.getItem("token1");
-  const token=localStorage.getItem("token");
+  const token = localStorage.getItem("token");
 
   let barcolor, navcolor;
   if (theme.background === "#000000") {
@@ -85,13 +85,13 @@ const Navbar = () => {
         <li className="ml-8 hover:text-red-400 transition-colors duration-300 nav-item">
           <Link to="/find-blood">Find Blood</Link>
         </li>
-        {!token ? null : (
+        {token1 ? null : (
           <li className="ml-8 hover:text-red-400 transition-colors duration-300 nav-item rounded ">
             <Link to="/register-donor">Register Donor</Link>
           </li>
         )}
 
-        {!token ? null : (
+        {token1 ? null : (
           <li className="ml-8 hover:text-red-400 transition-colors duration-300 nav-item rounded ">
             <Link to="/register-org">Register Organization</Link>
           </li>
@@ -141,13 +141,13 @@ const Navbar = () => {
               >
                 <Link
                   to={"/userProfile"}
-                  className="text-xl text-center p-2 hover:bg-red-200 hover:scale-110 hover:duration-200"
+                  className="text-xl text-center p-2 hover:text-red-500  hover:duration-200"
                 >
                   My Profile
                 </Link>
                 <Link
                   to={"/dashboard"}
-                  className="text-xl text-center p-2 hover:bg-red-200 hover:scale-110 hover:duration-200"
+                  className="text-xl text-center p-2 hover:text-red-500 hover:duration-200"
                 >
                   My Dashboard
                 </Link>
