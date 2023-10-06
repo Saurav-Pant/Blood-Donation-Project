@@ -106,6 +106,63 @@ const SignUp = () => {
                     right: "0px",
                 }}
                 transition={{ duration: 1 }}
+            <div className="mb-6">
+              <button
+                type="submit"
+                className="w-full bg-red-400 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline hover:bg-red-500 transition-colors duration-300 ease-in-out"
+              >
+                Sign Up
+              </button>
+            </div>
+            {error && <p className="text-red-500 mb-4 text-center animate-bounce">{error}</p>}
+          </motion.form>
+
+          <div className="flex items-center justify-center">
+            <div className="border-b border-gray-300 w-full mr-3"></div>
+            <span className="text-gray-500">OR</span>
+            <div className="border-b border-gray-300 w-full ml-3"></div>
+          </div>
+          <motion.div
+            className="flex items-center justify-center mt-6"
+            initial={{
+              opacity: 0,
+              position: "relative",
+              bottom: "-100px",
+            }}
+            animate={{
+              opacity: 1,
+              position: "relative",
+              bottom: "0px",
+            }}
+            transition={{ duration: 1 }}
+          >
+            <Link
+              href="#"
+              className="px-4 py-2 rounded-xl flex items-center bg-red-400 text-white font-bold hover:bg-red-500 transition-colors duration-300 ease-in-out"
+            >
+              <button className="flex items-center justify-center w-full focus:outline-none">
+                Sign Up with <FcGoogle className="ml-3" size={20} />
+              </button>
+            </Link>
+          </motion.div>
+          <motion.div
+            className="mt-6 text-center"
+            initial={{
+              opacity: 0,
+              position: "relative",
+              left: "-250px",
+            }}
+            animate={{
+              opacity: 1,
+              position: "relative",
+              left: "0px",
+            }}
+            transition={{ duration: 2 }}
+          >
+            <span className="text-gray-700">Already have an account?</span>
+            <Link
+              to="/login"
+              className="text-blue-500  font-bold pl-3 hover:text-red-400 transition-colors duration-300 ease-in-out "
             >
                 <div className="">
                     <motion.form
