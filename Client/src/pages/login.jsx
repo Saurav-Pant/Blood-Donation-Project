@@ -22,12 +22,12 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     const user = {
       email: email,
       password: password,
     };
-  
+
     try {
       const response = await axios.post(
         "http://localhost:8080/api/users/login",
@@ -38,10 +38,9 @@ const Login = () => {
           },
         }
       );
-      const {token}=response.data;
-      localStorage.setItem("token",token);
+      const { token } = response.data;
+      localStorage.setItem("token", token);
 
-  
       if (response.status === 200) {
         const data = response.data;
         console.log(data);
@@ -50,9 +49,8 @@ const Login = () => {
         throw new Error("Authentication failed");
       }
     } catch (error) {
-      setError(error.response.data.message); 
-      console.log(error.response)
-      
+      setError(error.response.data.message);
+      console.log(error.response);
     }
   };
 
