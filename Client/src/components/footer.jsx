@@ -56,24 +56,6 @@ const footer = () => {
               >
                 <RiTwitterXFill size={30} className="hover:text-red-300" />
               </Link>
-              {/* Instagram link */}
-              <Link
-                to="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="transform hover:-translate-y-1 transition-transform duration-300"
-              >
-                <BsInstagram size={30} className="hover:text-red-300" />
-              </Link>
-              {/* Facebook link */}
-              <Link
-                to="https://facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="transform hover:-translate-y-1 transition-transform duration-300"
-              >
-                <BsFacebook size={30} className="hover:text-red-300" />
-              </Link>
             </div>
           </motion.div>
         </div>
