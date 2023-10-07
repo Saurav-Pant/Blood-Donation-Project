@@ -85,17 +85,17 @@ const Navbar = () => {
         <li className="ml-8 hover:text-red-400 transition-colors duration-300 nav-item">
           <Link to="/find-blood">Find Blood</Link>
         </li>
-        {token1 ? null : (
+        {token && !token1 ? (
           <li className="ml-8 hover:text-red-400 transition-colors duration-300 nav-item rounded ">
             <Link to="/register-donor">Register Donor</Link>
           </li>
-        )}
+        ) : null}
 
-        {token1 ? null : (
+        {token && !token1 ? (
           <li className="ml-8 hover:text-red-400 transition-colors duration-300 nav-item rounded ">
             <Link to="/register-org">Register Organization</Link>
           </li>
-        )}
+        ) : null}
       </ul>
       {!token ? (
         <>
@@ -125,7 +125,7 @@ const Navbar = () => {
           </Link>
         </>
       ) : null}
-      {token ? (
+      {token1 ? (
         <Link>
           <div className="user-profile relative max-w-full">
             <div className=" flex items-center rounded-full border-2 border-red-400 p-2 bg-gray-300">
@@ -146,7 +146,7 @@ const Navbar = () => {
                   My Profile
                 </Link>
                 <Link
-                  to={"/dashboard"}
+                  to={"/register-donor"}
                   className="text-xl text-center p-2 hover:text-red-500 hover:duration-200"
                 >
                   My Dashboard
