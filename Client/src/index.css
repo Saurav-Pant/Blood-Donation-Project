@@ -46,7 +46,7 @@ body::-webkit-scrollbar-thumb:active {
 
 
 .hero-section{
-    overflow: scroll;
+    overflow: auto;
 }.hamburger{
     display: none;
 }

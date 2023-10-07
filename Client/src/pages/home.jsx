@@ -6,7 +6,7 @@ import GetBlood from "../components/getBlood";
 
 const home = () => {
   return (
-    <div className="overflow-x-hidden">
+    <div className="overflow-hide">
       {/* Commmented stuff */}
       <Hero />
       <OurMission />
