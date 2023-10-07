@@ -14,13 +14,13 @@ const Collaborators = () => {
         animate={{ opacity: 1, position: "relative", top: "0px" }}
         transition={{ delay: 0.3, duration: 1 }}
       >
-        <div className="m-2 p-4 bg-white text-black shadow-md flex items-center justify-center w-[200px] h-[200px] hover:bg-red-50 rounded-sm ">
+        <div className="m-2 p-4 bg-white text-black shadow-md flex items-center justify-center w-[200px] h-[200px] hover:bg-red-50 rounded-sm collaborator-hover">
           <p className="text-center">NCC</p>
         </div>
-        <div className="m-2 p-4 bg-white text-black shadow-md flex items-center justify-center w-[200px] h-[200px] hover:bg-red-50 rounded-sm">
+        <div className="m-2 p-4 bg-white text-black shadow-md flex items-center justify-center w-[200px] h-[200px] hover:bg-red-50 rounded-sm collaborator-hover">
           <p className="text-center">NSS</p>
         </div>
-        <div className="m-2 p-4 bg-white text-black shadow-md flex items-center justify-center w-[200px] h-[200px] hover:bg-red-50 rounded-sm">
+        <div className="m-2 p-4 bg-white text-black shadow-md flex items-center justify-center w-[200px] h-[200px] hover:bg-red-50 rounded-sm collaborator-hover">
           <p className="text-center">YMCA</p>
         </div>
       </motion.div>
