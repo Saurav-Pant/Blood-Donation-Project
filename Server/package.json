@@ -2,10 +2,10 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "Server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
+    "start": "nodemon Server.js"
     },
   "keywords": [],
   "author": "",
@@ -22,8 +22,5 @@
     "mongoose": "^7.2.3",
     "nodemon": "^2.0.22",
     "validator": "^13.9.0"
-  },
-  "engines": {
-  "node": ">=18.18.0 <19.0.0"
-}
+  }
 }
