@@ -1,93 +1,80 @@
-import React, { useState } from 'react'
-import { useNavigate, Link } from 'react-router-dom'
-import LogIn from '../asset/LogIn.png'
-import { motion } from 'framer-motion'
-import axios from 'axios'
-import { FcGoogle } from 'react-icons/fc'
-import { IoMdArrowRoundBack } from 'react-icons/io'
+import React, { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import LogIn from "../asset/LogIn.png";
+import { motion } from "framer-motion";
+import axios from "axios";
+import { FcGoogle } from "react-icons/fc";
+import { IoMdArrowRoundBack } from "react-icons/io";
 
 const Login = () => {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [error, setError] = useState('')
-  const navigate = useNavigate()
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const handleEmail = (e) => {
-    setEmail(e.target.value)
-  }
+    setEmail(e.target.value);
+  };
 
   const handlePassword = (e) => {
-    setPassword(e.target.value)
-  }
+    setPassword(e.target.value);
+  };
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
     e.preventDefault();
 
     const user = {
       email: email,
       password: password,
-    }
     };
+
     try {
       const response = await axios.post(
-        'http://localhost:8080/api/users/login',
+        "http://localhost:8080/api/users/login",
         user,
         {
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
-        },
-      )
-      const { token } = response.data
-      localStorage.setItem('token', token)
-
         }
       );
       const { token } = response.data;
       localStorage.setItem("token", token);
 
       if (response.status === 200) {
-        const data = response.data
-        console.log(data)
-        navigate('/register-donor')
+        const data = response.data;
+        console.log(data);
+        navigate("/register-donor");
       } else {
-        throw new Error('Authentication failed')
+        throw new Error("Authentication failed");
       }
     } catch (error) {
-
-      setError(error.response.data.message)
-      console.log(error.response)
-
       setError(error.response.data.message);
       console.log(error.response);
     }
-  }
+  };
 
   return (
-    <div className="flex px-3 md:px-0 justify-evenly items-center h-screen bg-gray-100">
+    <div className="flex justify-evenly items-center h-screen bg-gray-100">
       <div className="absolute top-4 left-4">
         <Link
           to="/"
           className="px-4 py-2 rounded-ful font-bold bg-gradient-to-br h-20 w-40 transition-colors duration-300 ease-in-out"
         >
           <motion.span
-            initial={{ opacity: 0, position: 'relative', left: '-100px' }}
-            animate={{ opacity: 1, position: 'relative', left: '0px' }}
+            initial={{ opacity: 0, position: "relative", left: "-100px" }}
+            animate={{ opacity: 1, position: "relative", left: "0px" }}
             transition={{ duration: 2.5 }}
           >
-            <IoMdArrowRoundBack
-              size={50}
-              color="red"
-            />
+            <IoMdArrowRoundBack size={50} color="red" />
           </motion.span>
         </Link>
       </div>
 
       <motion.div
         className="hidden md:block"
-        initial={{ opacity: 0, position: 'relative', left: '-100px' }}
-        animate={{ opacity: 1, position: 'relative', left: '0px' }}
+        initial={{ opacity: 0, position: "relative", left: "-100px" }}
+        animate={{ opacity: 1, position: "relative", left: "0px" }}
         transition={{ duration: 2 }}
       >
         <img
@@ -100,13 +87,13 @@ const Login = () => {
         className="w-screen max-w-md bg-white rounded-lg shadow-lg p-6 flex flex-col md:flex-row justify-center items-center hover:bg-red-50 transition-colors duration-500 ease-in-out"
         initial={{
           opacity: 0,
-          position: 'relative',
-          right: '-200px',
+          position: "relative",
+          right: "-200px",
         }}
         animate={{
           opacity: 1,
-          position: 'relative',
-          right: '0px',
+          position: "relative",
+          right: "0px",
         }}
         transition={{ duration: 1 }}
       >
@@ -179,13 +166,13 @@ const Login = () => {
             className="flex items-center justify-center mt-6"
             initial={{
               opacity: 0,
-              position: 'relative',
-              bottom: '-100px',
+              position: "relative",
+              bottom: "-100px",
             }}
             animate={{
               opacity: 1,
-              position: 'relative',
-              bottom: '0px',
+              position: "relative",
+              bottom: "0px",
             }}
             transition={{ duration: 1 }}
           >
@@ -195,12 +182,6 @@ const Login = () => {
               transition-colors duration-300 ease-in-out"
             >
               <button className="flex items-center justify-center w-full focus:outline-none">
-                Sign In with{' '}
-                <FcGoogle
-                  className="ml-3"
-                  size={20}
-                />
-
                 Sign Up with <FcGoogle className="ml-3" size={20} />
               </button>
             </Link>
@@ -209,13 +190,13 @@ const Login = () => {
             className="mt-6 text-center"
             initial={{
               opacity: 0,
-              position: 'relative',
-              left: '-250px',
+              position: "relative",
+              left: "-250px",
             }}
             animate={{
               opacity: 1,
-              position: 'relative',
-              left: '0px',
+              position: "relative",
+              left: "0px",
             }}
             transition={{ duration: 2 }}
           >
@@ -230,7 +211,7 @@ const Login = () => {
         </div>
       </motion.div>
     </div>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;
