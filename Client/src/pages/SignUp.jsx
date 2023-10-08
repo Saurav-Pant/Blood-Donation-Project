@@ -207,6 +207,7 @@ const SignUp = () => {
                   className="ml-3"
                   size={20}
                 />
+                Sign Up with <FcGoogle className="ml-3" size={20} />
               </button>
             </Link>
           </motion.div>

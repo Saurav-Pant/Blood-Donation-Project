@@ -69,11 +69,15 @@ To contribute to the project, follow the steps below:
    - Navigate to the project's root directory:
      ```bash
      cd Blood-Donation-Project
-     cd client
+     cd Client
      ```
    - Run the following command to install the project dependencies using npm:
      ```bash
      npm install
+     ```
+   - Run the following command to start the client:
+     ```bash
+     npm start
      ```
 
 4. **Start Server**

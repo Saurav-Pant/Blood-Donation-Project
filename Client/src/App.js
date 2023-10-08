@@ -14,6 +14,8 @@ import Login from "./pages/login";
 import PageNotFound from "./components/PageNotFound";
 import Dashboard from "./components/Dashboard";
 import Loading from "./components/Loading";
+import UserProfile from "./components/userProfile";
+import ScrollToTopButton from "./components/ScrollToTopButton";
 
 const App = () => {
   const { theme } = useContext(ThemeContext);
@@ -63,8 +65,11 @@ const App = () => {
         <Route path="/register-donor" element={<RegisterDonor />} />
         <Route path="*" element={<PageNotFound />} />
         {token1 && <Route path="/dashboard" element={<Dashboard />} />}
+        <Route path="/userProfile" element={<UserProfile />} />
         <Route path="/check" element={<Loading />} />
       </Routes>
+
+      <ScrollToTopButton />
 
       {location.pathname !== "/SignUp" && location.pathname !== "/login" && (
         <Footer />
