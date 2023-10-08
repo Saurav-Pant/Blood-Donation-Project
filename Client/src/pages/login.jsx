@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { ToastContainer , toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate, Link } from "react-router-dom";
 import LogIn from "../asset/LogIn.png";
 import { motion } from "framer-motion";
@@ -44,17 +46,21 @@ const Login = () => {
       if (response.status === 200) {
         const data = response.data;
         console.log(data);
+        toast.success('LogIn successful!');
         navigate("/register-donor");
       } else {
+        
         throw new Error("Authentication failed");
       }
     } catch (error) {
       setError(error.response.data.message);
       console.log(error.response);
+      toast.error('LogIn failed. Please try again.');
     }
   };
 
   return (
+    <>
     <div className="flex justify-evenly items-center h-screen bg-gray-100">
       <div className="absolute top-4 left-4">
         <Link
@@ -211,6 +217,8 @@ const Login = () => {
         </div>
       </motion.div>
     </div>
+    <ToastContainer />
+    </>
   );
 };
 
