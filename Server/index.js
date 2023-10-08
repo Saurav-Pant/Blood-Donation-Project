@@ -19,9 +19,9 @@ app.use(
 app.use(cookieParser());
 
 // Routes
-app.use("/api/users", require("./Routes/SignUp"));
-app.use("/api/users", require("./Routes/Login"));
-app.use("/api", require("./Routes/donorRoutes"));
+app.use("/api/users", require("./Routes/SignUp.js"));
+app.use("/api/users", require("./Routes/Login.js"));
+app.use("/api", require("./Routes/donorRoutes.js"));
 
 module.exports = {
   app,
