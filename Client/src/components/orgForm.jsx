@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import { ThemeContext } from "../context/ThemeContext";
 
 const OrgForm = () => {
-  const { theme, toggleTheme } = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
   const [formData, setFormData] = useState({
     OrganisationName: "",
     OrganisationPhone: "",

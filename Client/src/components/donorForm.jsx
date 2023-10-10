@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { ThemeContext } from "../context/ThemeContext";
 
 const DonorForm = () => {
-  const { theme, toggleTheme } = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
 
   //fetching the states and the districts
   const [states, setStates] = useState([]);
