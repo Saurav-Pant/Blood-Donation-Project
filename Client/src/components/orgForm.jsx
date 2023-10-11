@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import { ThemeContext } from "../context/ThemeContext";
-
+import Form from "../asset/Form.png"
 const OrgForm = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
   const [formData, setFormData] = useState({
@@ -73,10 +73,19 @@ const OrgForm = () => {
             Register as Organisation
           </h1>
         </div>
-        <div className='shadow border-1 p-8'>
+        <p className="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+          <img className="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src={Form} alt="Image" />
+          <div className="flex flex-col justify-between p-4 leading-normal">
+            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Blood donation form</h5>
+            <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Blood donated by you can save lives. Be a donor save lives.</p>
+          </div>
+        </p>
+        <div className='shadow border-1 p-8 rounded-md hover:bg-red-300'>
+          <p>{compulsory} fields are compulsory</p>
+          <br />
           <div className='mb-5'>
             <label htmlFor='name' className='w-full mb-[2vw] mt-2'>
-              <h1>Organisation Name {compulsory}</h1>
+              <strong>Organisation Name {compulsory}</strong>
             </label>
             <input
               type='text'
@@ -84,7 +93,7 @@ const OrgForm = () => {
               name='OrganisationName'
               value={formData.OrganisationName}
               onChange={handleInputChange}
-              className='pl-2 border-2 border-gray-300 hover:border-red-800  h-10 w-full flex-grow'
+              className='pl-2 border-2 border-gray-300 hover:border-red-800 rounded-lg h-10 w-full flex-grow'
               style={{
                 color: theme.color,
                 backgroundColor: theme.background,
@@ -95,7 +104,7 @@ const OrgForm = () => {
           </div>
           <div className='mb-5'>
             <label htmlFor='phone' className='w-full mb-[2vw] mt-2'>
-              Contact Number {compulsory}
+              <strong> Contact Number {compulsory}</strong>
             </label>
             <input
               type='text'
@@ -103,7 +112,7 @@ const OrgForm = () => {
               name='OrganisationPhone'
               value={formData.OrganisationPhone}
               onChange={handleInputChange}
-              className='pl-2 border-2 border-gray-300 hover:border-red-800 flex-grow h-10 w-full mb-[2vw]'
+              className='pl-2 border-2 border-gray-300 hover:border-red-800 rounded-lg flex-grow h-10 w-full mb-[2vw]'
               style={{
                 color: theme.color,
                 backgroundColor: theme.background,
@@ -112,7 +121,7 @@ const OrgForm = () => {
               required
             />
             <label htmlFor='email' className='w-full mb-[2vw] mt-2 mr-1'>
-              Email {compulsory}
+              <strong> Email {compulsory} </strong>
             </label>
             <input
               type='email'
@@ -120,7 +129,7 @@ const OrgForm = () => {
               name='OrganisationEmail'
               value={formData.OrganisationEmail}
               onChange={handleInputChange}
-              className='pl-2 border-2 border-gray-300 hover:border-red-800 flex-grow h-10 w-full mb-[2vw]'
+              className='pl-2 border-2 border-gray-300 hover:border-red-800 rounded-lg flex-grow h-10 w-full mb-[2vw]'
               style={{
                 color: theme.color,
                 backgroundColor: theme.background,
@@ -132,7 +141,7 @@ const OrgForm = () => {
 
           <div className='mb-5 '>
             <label htmlFor='OrganisationAddress' className='w-full mt-2'>
-              Address {compulsory}
+              <strong> Address {compulsory} </strong>
             </label>
             <input
               type='text'
@@ -140,7 +149,7 @@ const OrgForm = () => {
               name='OrganisationAddress'
               value={formData.OrganisationAddress}
               onChange={handleInputChange}
-              className='pl-2 border-2 border-gray-300 hover:border-red-800 flex-grow h-[11vh] w-full mb-5'
+              className='pl-2 border-2 border-gray-300 hover:border-red-800 rounded-lg flex-grow h-[11vh] w-full mb-5'
               style={{
                 color: theme.color,
                 backgroundColor: theme.background,
@@ -149,14 +158,14 @@ const OrgForm = () => {
               required
             />
             <label htmlFor='OrganisationState' className='w-full mt-2'>
-              State {compulsory}
+              <strong> State {compulsory} </strong>
             </label>
             <select
               id='OrganisationState'
               name='OrganisationState'
               value={formData.OrganisationState}
               onChange={handleInputChange}
-              className='pl-2 border-2 border-gray-300 hover:border-red-800 flex-grow h-10 w-full mb-[2vw]'
+              className='pl-2 border-2 border-gray-300 hover:border-red-800 rounded-lg flex-grow h-10 w-full mb-[2vw]'
               style={{
                 color: theme.color,
                 backgroundColor: theme.background,
@@ -171,14 +180,14 @@ const OrgForm = () => {
               ))}
             </select>
             <label htmlFor='OrganisationCity' className='w-full mb-[7vw] '>
-              City {compulsory}
+              <strong> City {compulsory}</strong>
             </label>
             <select
               id='OrganisationCity'
               name='OrganisationCity'
               value={formData.OrganisationCity}
               onChange={handleInputChange}
-              className='pl-2 border-2 border-gray-300 hover:border-red-800 flex-grow w-full h-10'
+              className='pl-2 border-2 border-gray-300 hover:border-red-800 rounded-lg flex-grow w-full h-10'
               style={{
                 color: theme.color,
                 backgroundColor: theme.background,
@@ -208,7 +217,7 @@ const OrgForm = () => {
           <div className='flex justify-end'>
             <button
               type='submit'
-              className='w-full sm:w-1/2 mx-auto bg-red-900 hover:bg-red-800 text-white font-bold py-2 px-4 rounded'
+              className='w-full sm:w-1/2 mx-auto bg-red-900 hover:bg-red-800 text-white font-bold py-2 px-4 rounded-lg'
             >
               Register
             </button>
