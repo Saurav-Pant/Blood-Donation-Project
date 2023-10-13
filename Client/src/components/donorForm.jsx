@@ -1,10 +1,29 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { ThemeContext } from "../context/ThemeContext";
 
 const DonorForm = () => {
-  const { theme, toggleTheme } = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
+
+  //fetching the states and the districts
+  const [states, setStates] = useState([]);
+  const [cities, setCities] = useState([])
+
+  const fetchStates = async () => {
+    try {
+      const response = await fetch(`https://cdn-api.co-vin.in/api/v2/admin/location/states`);
+      const data = await response.json();
+      setStates(data.states);
+    } catch (error) {
+      setError(error.message);
+      console.error('Error while fetching the states', error);
+    }
+  };
+
+  useEffect(() => {
+    fetchStates();
+  }, []);
 
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -26,12 +45,24 @@ const DonorForm = () => {
     setIsChecked(e.target.checked);
   };
 
-  const handleInputChange = (e) => {
+  const handleInputChange = async (e) => {
     const { name, value } = e.target;
+
     setFormData((prevState) => ({
       ...prevState,
-      [name]: value,
+      [name]: value
     }));
+    if (name === 'state') {
+      try {
+        const response = await fetch(`https://cdn-api.co-vin.in/api/v2/admin/location/districts/${value}`)
+        const data = await response.json()
+        setCities(data.districts)
+      } catch (error) {
+        setError(error.message)
+        console.log(`Error while fetching the cities ${error}`)
+      }
+    }
+
   };
 
   const handleSubmit = async (e) => {
@@ -59,7 +90,8 @@ const DonorForm = () => {
       );
       const message = `Please fill in the following fields: ${fieldNames.join(
         ", "
-      )}`;
+      )
+        }`;
       alert(message);
       return;
     }
@@ -284,8 +316,11 @@ const DonorForm = () => {
             required
           >
             <option value="">-- Select --</option>
-            <option value="Uk">Uttarakhand</option>
-            {/* Add options for states */}
+            {states.map((state) => (
+              <option key={state.state_id} value={state.state_id} name={state.state_name}>
+                {state.state_name}
+              </option>
+            ))}
           </select>
           <label htmlFor="city" className="w-full mb-[14vh]">
             City {compulsory}
@@ -303,8 +338,11 @@ const DonorForm = () => {
             required
           >
             <option value="">-- Select --</option>
-            <option value="Almora">Almora</option>
-            {/* Add options for cities */}
+            {cities.map((city) => (
+              <option key={city.district_id} value={city.district_name}>
+                {city.district_name}
+              </option>
+            ))}
           </select>
         </div>
         <div className="flex  mb-[3vw]">

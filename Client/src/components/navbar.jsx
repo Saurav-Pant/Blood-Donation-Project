@@ -6,6 +6,8 @@ import { motion } from "framer-motion";
 import { FaUserCircle } from "react-icons/fa";
 import Loading from "../components/Loading";
 import { useAuth0 } from "@auth0/auth0-react";
+import userProfile from "../asset/avatar.png";
+import { TailSpin } from "react-loader-spinner";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -19,22 +21,23 @@ const Navbar = () => {
     window.scrollTo(0, 0);
   };
 
-  const [loggingOut, setLoggingOut] = useState(false); // State to track logout loading
+  const [loggingOut, setLoggingOut] = useState(false);
 
   const handleLogOut = () => {
-    setLoggingOut(true); // Start loading
+    setLoggingOut(true);
 
     setTimeout(() => {
        logout({ logoutParams: { returnTo: window.location.origin } })
       localStorage.removeItem("token1");
       localStorage.removeItem("token");
       navigate("/login");
-      setLoggingOut(false); // End loading after 3000ms
+      setLoggingOut(false);
     }, 3000);
   };
 
   const { theme, toggleTheme } = useContext(ThemeContext);
   const token1 = localStorage.getItem("token1");
+  const token = localStorage.getItem("token");
 
   let barcolor, navcolor;
   if (theme.background === "#000000") {
@@ -64,10 +67,13 @@ const Navbar = () => {
             className=" hidden sm:block"
             onClick={handleLogo}
           />
-          <BiDonateBlood size={30} className="sm:hidden " onClick={handleLogo} />
+          <BiDonateBlood
+            size={30}
+            className="sm:hidden "
+            onClick={handleLogo}
+          />
         </Link>
       </div>
-      {/* Hide links in small devices */}
       <ul
         className=" font-mono text-xl sm:flex nav-menu"
         onClick={handleclick}
@@ -84,49 +90,86 @@ const Navbar = () => {
         <li className="ml-8 hover:text-red-400 transition-colors duration-300 nav-item">
           <Link to="/find-blood">Find Blood</Link>
         </li>
-        {token1 ? null : (
-          <li className="ml-8 hover:text-red-900 transition-colors duration-300 nav-item rounded text-red-500">
+        {token && !token1 ? (
+          <li className="ml-8 hover:text-red-400 transition-colors duration-300 nav-item rounded ">
             <Link to="/register-donor">Register Donor</Link>
           </li>
-        )}
+        ) : null}
 
-        {token1 ? null : (
-          <li className="ml-8 hover:text-red-900 transition-colors duration-300 nav-item rounded text-red-500">
+        {token && !token1 ? (
+          <li className="ml-8 hover:text-red-400 transition-colors duration-300 nav-item rounded ">
             <Link to="/register-org">Register Organization</Link>
           </li>
-        )}
+        ) : null}
       </ul>
-
-      {!token1 ? (
-        <Link to="/SignUp">
-          <motion.button
-            className="ml-10 px-4 py-2 rounded border-2 sm:flex border-black"
-            style={{
-              backgroundColor: theme.button.buttonBgColor,
-              color: theme.button.buttonTextColor,
-            }}
-            whileHover={{ opacity: 0.7, transition: { duration: 0.5 } }}
-          >
-            Sign Up
-          </motion.button>
-        </Link>
-      ) : (
-        <motion.button
-          className="ml-10 px-4 py-2 rounded border-2 sm:flex border-black"
-          style={{
-            backgroundColor: theme.button.buttonBgColor,
-            color: theme.button.buttonTextColor,
-          }}
-          whileHover={{ opacity: 0.7, transition: { duration: 0.5 } }}
-          onClick={handleLogOut}
-        >
-          Logout
-        </motion.button>
-      )}
-
+      {!token ? (
+        <>
+          <Link to="/login">
+            <motion.button
+              className="ml-10 px-4 py-2 rounded border-2 sm:flex border-black"
+              style={{
+                backgroundColor: theme.button.buttonBgColor,
+                color: theme.button.buttonTextColor,
+              }}
+              whileHover={{ opacity: 0.7, transition: { duration: 0.5 } }}
+            >
+              Log In
+            </motion.button>
+          </Link>
+          <Link to="/SignUp">
+            <motion.button
+              className="px-4 py-2 rounded border-2 sm:flex border-black"
+              style={{
+                backgroundColor: theme.button.buttonBgColor,
+                color: theme.button.buttonTextColor,
+              }}
+              whileHover={{ opacity: 0.7, transition: { duration: 0.5 } }}
+            >
+              Sign Up
+            </motion.button>
+          </Link>
+        </>
+      ) : null}
       {token1 ? (
-        <Link to="/dashboard">
-          <FaUserCircle size={40} />
+        <Link>
+          <div className="user-profile relative max-w-full">
+            <div className=" flex items-center rounded-full border-2 border-red-400 p-2 bg-gray-300">
+              <img src={userProfile} className="w-12 h-12 object-cover" />
+            </div>
+            <div
+              className="user-container top-10 p-2  md:left-5 absolute w-[180px] h-auto shadow-lg shadow-gray-300"
+              style={{ backgroundColor: navcolor }}
+            >
+              <div
+                className="w-full flex flex-col font-mono"
+                style={{ backgroundColor: navcolor }}
+              >
+                <Link
+                  to={"/userProfile"}
+                  className="text-xl text-center p-2 hover:text-red-500  hover:duration-200"
+                >
+                  My Profile
+                </Link>
+                <Link
+                  to={"/register-donor"}
+                  className="text-xl text-center p-2 hover:text-red-500 hover:duration-200"
+                >
+                  My Dashboard
+                </Link>
+                <motion.button
+                  className="px-4 mt-2  py-2 rounded border-2 justify-center sm:flex border-black"
+                  style={{
+                    backgroundColor: theme.button.buttonBgColor,
+                    color: theme.button.buttonTextColor,
+                  }}
+                  whileHover={{ opacity: 0.7, transition: { duration: 0.5 } }}
+                  onClick={handleLogOut}
+                >
+                  Log out
+                </motion.button>
+              </div>
+            </div>
+          </div>
         </Link>
       ) : null}
 
@@ -145,7 +188,12 @@ const Navbar = () => {
         <span className="bar" style={{ backgroundColor: barcolor }}></span>
       </div>
 
-      {loggingOut && <Loading/>} 
+      {loggingOut && (
+        <div className="flex items-center ml-4">
+          <TailSpin color={theme.button.buttonBgColor} height={30} width={30} />
+          <span className="ml-2">Logging out...</span>
+        </div>
+      )}
     </motion.nav>
   );
 };

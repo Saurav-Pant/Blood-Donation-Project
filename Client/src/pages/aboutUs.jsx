@@ -9,7 +9,6 @@ const aboutUs = () => {
         <OurMission />
         <Collaborators />
       </div>
-      ;
     </>
   );
 };

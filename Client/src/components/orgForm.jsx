@@ -1,8 +1,8 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { ThemeContext } from "../context/ThemeContext";
 
 const OrgForm = () => {
-  const { theme, toggleTheme } = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
   const [formData, setFormData] = useState({
     OrganisationName: "",
     OrganisationPhone: "",
@@ -16,12 +16,39 @@ const OrgForm = () => {
   const handleCheckboxChange = (e) => {
     setIsChecked(e.target.checked);
   };
-  const handleInputChange = (e) => {
+
+  const [states, setStates] = useState([]);
+  const [cities, setCities] = useState([])
+
+  const fetchStates = async () => {
+    try {
+      const response = await fetch(`https://cdn-api.co-vin.in/api/v2/admin/location/states`);
+      const data = await response.json();
+      setStates(data.states);
+    } catch (error) {
+      console.error('Error while fetching the states', error);
+    }
+  };
+
+  useEffect(() => {
+    fetchStates();
+  }, []);
+
+  const handleInputChange = async (e) => {
     const { name, value } = e.target;
     setFormData((prevState) => ({
       ...prevState,
       [name]: value,
     }));
+    if (name === 'OrganisationState') {
+      try {
+        const response = await fetch(`https://cdn-api.co-vin.in/api/v2/admin/location/districts/${value}`)
+        const data = await response.json()
+        setCities(data.districts)
+      } catch (error) {
+        console.log(`Error while fetching the cities ${error}`)
+      }
+    }
   };
 
   const handleSubmit = (e) => {
@@ -137,8 +164,11 @@ const OrgForm = () => {
               required
             >
               <option value=''>-- Select --</option>
-              <option value='Uk'>Uttarakhand</option>
-              {/* Add options for states */}
+              {states.map((state) => (
+                <option key={state.state_id} value={state.state_id} name={state.state_name}>
+                  {state.state_name}
+                </option>
+              ))}
             </select>
             <label htmlFor='OrganisationCity' className='w-full mb-[7vw] '>
               City {compulsory}
@@ -156,8 +186,11 @@ const OrgForm = () => {
               required
             >
               <option value=''>-- Select --</option>
-              <option value='Almora'>Almora</option>
-              {/* Add options for cities */}
+              {cities.map((city) => (
+                <option key={city.district_id} value={city.district_name}>
+                  {city.district_name}
+                </option>
+              ))}
             </select>
           </div>
           <div className='mb-[2vh]  font-bold '>

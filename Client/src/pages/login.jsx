@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import { ToastContainer , toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate, Link } from "react-router-dom";
 import LogIn from "../asset/LogIn.png";
 import { motion } from "framer-motion";
@@ -68,12 +71,12 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     const user = {
       email: email,
       password: password,
     };
-  
+
     try {
       const response = await axios.post(
         "http://localhost:8080/api/users/login",
@@ -84,25 +87,27 @@ const Login = () => {
           },
         }
       );
-      const {token}=response.data;
-      localStorage.setItem("token",token);
+      const { token } = response.data;
+      localStorage.setItem("token", token);
 
-  
       if (response.status === 200) {
         const data = response.data;
         console.log(data);
+        toast.success('LogIn successful!');
         navigate("/register-donor");
       } else {
+        
         throw new Error("Authentication failed");
       }
     } catch (error) {
-      setError(error.response.data.message); 
-      console.log(error.response)
-      
+      setError(error.response.data.message);
+      console.log(error.response);
+      toast.error('LogIn failed. Please try again.');
     }
   };
 
   return (
+    <>
     <div className="flex justify-evenly items-center h-screen bg-gray-100">
       <div className="absolute top-4 left-4">
         <Link
@@ -231,6 +236,8 @@ const Login = () => {
             >
               <button onClick={() => loginWithRedirect()} className="flex items-center justify-center w-full focus:outline-none">
                 Sign In with <FcGoogle className="ml-3" size={20} />
+              <button className="flex items-center justify-center w-full focus:outline-none">
+                Sign Up with <FcGoogle className="ml-3" size={20} />
               </button>
             </Link>
           </motion.div>
@@ -259,6 +266,8 @@ const Login = () => {
         </div>
       </motion.div>
     </div>
+    <ToastContainer />
+    </>
   );
 };
 

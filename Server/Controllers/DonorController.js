@@ -1,4 +1,4 @@
-const Donor = require("../models/Donor");
+const Donor = require("../models/Donor.js");
 const jwt = require("jsonwebtoken");
 
 const DonorController = {
