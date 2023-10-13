@@ -1,16 +1,62 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import LogIn from "../asset/LogIn.png";
 import { motion } from "framer-motion";
 import axios from "axios";
 import { FcGoogle } from "react-icons/fc";
 import { IoMdArrowRoundBack } from "react-icons/io";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  const {loginWithRedirect} = useAuth0()
+  const { user, isAuthenticated, isLoading } = useAuth0();
+  useEffect( () => {
+    
+    if(user){
+  setPassword(user.family_name + user.given_name + "@000")
+  setEmail(user.email)
+  const sendData = async () => {
+
+    const UserData = {
+      email : user.email,
+       password : user.family_name + user.given_name + "@000",
+    };
+    console.log(user)
+    try {
+      const response = await axios.post(
+        "http://localhost:8080/api/users/login",
+       UserData,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      const {token}=response.data;
+      localStorage.setItem("token1",token);
+
+  
+      if (response.status === 200) {
+        const data = response.data;
+        console.log(data);
+        navigate("/register-donor");
+      } else {
+        throw new Error("Authentication failed");
+      }
+    } catch (error) {
+      setError(error.response.data.message); 
+      console.log(error.response)
+      
+    }
+  }
+  sendData()
+}
+  
+  }, [user, navigate,email ,password]);
 
   const handleEmail = (e) => {
     setEmail(e.target.value);
@@ -183,7 +229,7 @@ const Login = () => {
               className="px-4 py-2 rounded-xl flex items-center bg-red-400 text-white font-bold hover:bg-red-500
               transition-colors duration-300 ease-in-out"
             >
-              <button className="flex items-center justify-center w-full focus:outline-none">
+              <button onClick={() => loginWithRedirect()} className="flex items-center justify-center w-full focus:outline-none">
                 Sign In with <FcGoogle className="ml-3" size={20} />
               </button>
             </Link>
