@@ -3,11 +3,15 @@ import { Link, useNavigate } from "react-router-dom";
 import { BiDonateBlood } from "react-icons/bi";
 import { ThemeContext } from "../context/ThemeContext";
 import { motion } from "framer-motion";
+import { FaUserCircle } from "react-icons/fa";
+import Loading from "../components/Loading";
+import { useAuth0 } from "@auth0/auth0-react";
 import userProfile from "../asset/avatar.png";
 import { TailSpin } from "react-loader-spinner";
 
 const Navbar = () => {
   const navigate = useNavigate();
+  const { logout } = useAuth0();
   const handleclick = () => {
     document.querySelector(".hamburger").classList.toggle("active");
     document.querySelector(".nav-menu").classList.toggle("active");
@@ -23,6 +27,7 @@ const Navbar = () => {
     setLoggingOut(true);
 
     setTimeout(() => {
+       logout({ logoutParams: { returnTo: window.location.origin } })
       localStorage.removeItem("token1");
       localStorage.removeItem("token");
       navigate("/login");

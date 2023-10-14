@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from "react";
 import React, { useState } from "react";
 import { ToastContainer , toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -7,6 +8,7 @@ import { motion } from "framer-motion";
 import { FcGoogle } from "react-icons/fc";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import axios from "axios";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const SignUp = () => {
   const [name, setName] = useState("");
@@ -14,7 +16,48 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  const {loginWithRedirect} = useAuth0()
+  const { user, isAuthenticated, isLoading } = useAuth0();
+  // const {name,password, email  , } = user;
 
+  useEffect( () => {
+    
+    if(user){
+
+  const sendData = async () => {
+
+    const Userdata = {
+      name: user.name,
+      email: user.email,
+      password: user.family_name + user.given_name + "@000",
+    };
+
+    try {
+      const response = await axios.post(
+        "http://localhost:8080/api/users/signup",
+        Userdata,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      if (response.status === 200) {
+        const data = response.data;
+        console.log(data);
+        navigate("/register-donor");
+      } else {
+        throw new Error("Authentication failed");
+      }
+    } catch (error) {
+      setError(error.response.data.msg);
+    }
+  }
+  sendData()
+}
+  
+  }, [user, navigate,name,email ,password]);
   const handleName = (e) => {
     setName(e.target.value);
   };
@@ -199,6 +242,8 @@ const SignUp = () => {
               href="#"
               className="px-4 py-2 rounded-xl flex items-center bg-red-400 text-white font-bold hover:bg-red-500 transition-colors duration-300 ease-in-out"
             >
+              <button onClick={() => loginWithRedirect()} className="flex items-center justify-center w-full focus:outline-none">
+                Sign In with <FcGoogle className="ml-3" size={20} />
               <button className="flex items-center justify-center w-full focus:outline-none">
                 Sign Up with <FcGoogle className="ml-3" size={20} />
               </button>
