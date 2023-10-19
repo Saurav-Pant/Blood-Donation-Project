@@ -126,7 +126,7 @@ const SignUp = () => {
               </label>
               <input
                 type="text"
-                className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-center"
+                className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-left"
                 id="name"
                 placeholder="Enter Name"
                 value={name}
@@ -142,7 +142,7 @@ const SignUp = () => {
               </label>
               <input
                 type="email"
-                className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-center"
+                className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-leftt"
                 id="email"
                 placeholder="Email address"
                 value={email}
@@ -158,7 +158,7 @@ const SignUp = () => {
               </label>
               <input
                 type="password"
-                className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-center"
+                className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-left"
                 id="password"
                 placeholder="Password"
                 value={password}
