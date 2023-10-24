@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const connectToDB = async () => {
+exports.connectToDB = async () => {
   try {
     await mongoose.connect(process.env.MONGO_URI, {
       useNewUrlParser: true,
@@ -10,18 +10,4 @@ const connectToDB = async () => {
   } catch (err) {
     console.error(err)
   }
-}
-
-const closeConnection = async () => {
-  try {
-    await mongoose.connection.close();
-    console.log('MongoDB close connection')
-  } catch (err) {
-    console.error(err)
-  }
-}
-
-module.exports = {
-  connectToDB: connectToDB,
-  closeConnection: closeConnection,
 }
