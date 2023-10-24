@@ -7,7 +7,6 @@ import { motion } from "framer-motion";
 import { FcGoogle } from "react-icons/fc";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import axios from "axios";
-// formik and yup validation 
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
@@ -23,7 +22,7 @@ const SignUp = () => {
   }
   // validation by YUP 
   const validationSchema = Yup.object({
-    name: Yup.string().min(2, 'Too Short!').max(50, 'Too Long!').required('required'),
+    name: Yup.string().min(4, 'Too Short!').max(50, 'Too Long!').required('required'),
     email: Yup.string().email('Invalid email').required('required'),
     password: Yup.string()
       .min(6, 'Password must be 6 characters long')
@@ -58,7 +57,7 @@ const SignUp = () => {
         const data = response.data;
         console.log(data);
         toast.success('Sign Up successful!');
-        navigate("/register-donor");
+        navigate("/login");
       } else {
         throw new Error("Authentication failed");
       }
