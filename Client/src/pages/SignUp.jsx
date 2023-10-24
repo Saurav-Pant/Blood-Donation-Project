@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { ToastContainer , toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate, Link } from "react-router-dom";
@@ -7,35 +7,42 @@ import { motion } from "framer-motion";
 import { FcGoogle } from "react-icons/fc";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import axios from "axios";
+// formik and yup validation 
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
 
 const SignUp = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+   
   const navigate = useNavigate();
 
-  const handleName = (e) => {
-    setName(e.target.value);
-  };
+  // Initial values of form 
+  const initialValues = {
+    name:"",
+    email:"",
+    password:""
+  }
+  // validation by YUP 
+  const validationSchema = Yup.object({
+    name: Yup.string().min(2, 'Too Short!').max(50, 'Too Long!').required('required'),
+    email: Yup.string().email('Invalid email').required('required'),
+    password: Yup.string()
+      .min(6, 'Password must be 6 characters long')
+      .matches(/[0-9]/, 'Password requires a number')
+      .matches(/[a-z]/, 'Password requires a lowercase letter')
+      .required('required'),
+    //-------------- If Require in future------------//
 
-  const handleEmail = (e) => {
-    setEmail(e.target.value);
-  };
-
-  const handlePassword = (e) => {
-    setPassword(e.target.value);
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
+      // .matches(/[A-Z]/, 'Password requires an uppercase letter')
+      // .matches(/[^\w]/, 'Password requires a symbol')
+  })
+  // OnSubmit function
+  const onSubmit = async (values) => {
+    const {name,email,password} = values
     const user = {
       name: name,
       email: email,
       password: password,
     };
-
     try {
       const response = await axios.post(
         "http://localhost:8080/api/users/signup",
@@ -56,10 +63,16 @@ const SignUp = () => {
         throw new Error("Authentication failed");
       }
     } catch (error) {
-      setError(error.response.data.msg);
+      console.log(error)
       toast.error('Signup failed. Please try again.');
     }
   };
+  // formik 
+  const formik = useFormik({
+    initialValues,
+    onSubmit,
+    validationSchema
+  })
 
   return (
     <>
@@ -115,7 +128,7 @@ const SignUp = () => {
               y: 0,
             }}
             transition={{ duration: 1 }}
-            onSubmit={handleSubmit}
+            onSubmit={formik.handleSubmit}
           >
             <div className="mb-6">
               <label
@@ -129,9 +142,12 @@ const SignUp = () => {
                 className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-left"
                 id="name"
                 placeholder="Enter Name"
-                value={name}
-                onChange={handleName}
+                name="name"
+                value={formik.values.name}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
               />
+            {formik.errors.name ? <div  className='text-red-500'>{formik.errors.name}</div> : null}
             </div>
             <div className="mb-6">
               <label
@@ -145,9 +161,12 @@ const SignUp = () => {
                 className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-leftt"
                 id="email"
                 placeholder="Email address"
-                value={email}
-                onChange={handleEmail}
+                name="email"
+                value={formik.values.email}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
               />
+            {formik.errors.email ? <div  className='text-red-500'>{formik.errors.email}</div> : null}
             </div>
             <div className="mb-6">
               <label
@@ -161,9 +180,12 @@ const SignUp = () => {
                 className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-left"
                 id="password"
                 placeholder="Password"
-                value={password}
-                onChange={handlePassword}
+                name="password"
+                value={formik.values.password}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
               />
+            {formik.errors.password ? <div className='text-red-500'>{formik.errors.password}</div> : null}
             </div>
             <div className="mb-6">
               <button
@@ -173,7 +195,6 @@ const SignUp = () => {
                 Sign Up
               </button>
             </div>
-            {error && <p className="text-red-500 mb-4 text-center animate-bounce">{error}</p>}
           </motion.form>
 
           <div className="flex items-center justify-center">
