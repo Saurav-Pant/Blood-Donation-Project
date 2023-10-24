@@ -13,7 +13,7 @@ app.use(express.json());
 // For Preventing CORS error
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: process.env.HTTP_CORS,
     credentials: true,
   })
 );
