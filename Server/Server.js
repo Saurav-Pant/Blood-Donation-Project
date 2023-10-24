@@ -9,6 +9,7 @@ const cookieParser = require("cookie-parser");
 
 // Middleware
 app.use(express.json());
+
 // For Preventing CORS error
 app.use(
   cors({
