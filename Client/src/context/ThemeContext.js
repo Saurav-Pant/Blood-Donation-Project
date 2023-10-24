@@ -1,8 +1,8 @@
 import React, { createContext, useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSun } from '@fortawesome/free-solid-svg-icons'
-import { faMoon } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSun } from "@fortawesome/free-solid-svg-icons";
+import { faMoon } from "@fortawesome/free-solid-svg-icons";
 
 const ThemeContext = createContext("light");
 
@@ -33,12 +33,14 @@ const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState(lightTheme);
 
   const toggleTheme = () => {
-    const newTheme = JSON.stringify(theme) === JSON.stringify(lightTheme) ? darkTheme : lightTheme;
+    const newTheme =
+      JSON.stringify(theme) === JSON.stringify(lightTheme)
+        ? darkTheme
+        : lightTheme;
     setTheme(newTheme);
     localStorage.setItem("selectedTheme", JSON.stringify(newTheme));
   };
 
-  // Retrieve theme from local storage, if available
   useEffect(() => {
     const savedTheme = JSON.parse(localStorage.getItem("selectedTheme"));
     if (savedTheme) {
