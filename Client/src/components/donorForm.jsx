@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { ThemeContext } from "../context/ThemeContext";
-import Form from "../asset/Form.png"
+
 const DonorForm = () => {
   const { theme } = useContext(ThemeContext);
 
@@ -164,68 +164,90 @@ const DonorForm = () => {
           Register as donor
         </h1>
       </div>
-
-      <p className="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-    <img className="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src={Form} alt="Image"/>
-    <div className="flex flex-col justify-between p-4 leading-normal">
-        <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Blood donation form</h5>
-        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Blood donated by you can save lives. Be a donor save lives.</p>
-    </div>
-</p>
-      
-      <div className="shadow border-1 p-8 rounded-md hover:bg-red-300">
-        <p>{compulsory} fields are compulsory</p>
-        <br />
+      <div className="shadow border-1 p-8">
         <div className="mb-5">
-
-
-          <label htmlFor="firstName" className="w-full mb-[2vw] mt-2 mr-1">
-            <strong>First Name {compulsory}</strong>
+          <label htmlFor="firstName" className="w-full mb-[2vw] mt-2">
+            <h1>First Name {compulsory}</h1>
           </label>
-          <input type="text" id="firstName" name="firstName" value={formData.firstName} onChange={handleInputChange} className="mb-[2vw] bg-gray-50 border-2 hover:border-red-800 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" style={{
-            color: theme.color,
-            backgroundColor: theme.background,
-          }} placeholder="First" required />
-
+          <input
+            type="text"
+            id="firstName"
+            name="firstName"
+            value={formData.firstName}
+            onChange={handleInputChange}
+            className="mb-[2vw] pl-2 border-2 border-gray-300 hover:border-red-800 flex-grow h-10 w-full"
+            style={{
+              color: theme.color,
+              backgroundColor: theme.background,
+            }}
+            placeholder="First"
+            required
+          />
           <label htmlFor="lastName" className="w-full mb-[2vw] mt-2 mr-1">
-            <strong> Last Name {compulsory} </strong>
+            Last Name {compulsory}
           </label>
-
-          <input type="text" id="lastName" name="lastName" value={formData.lastName} onChange={handleInputChange} className=" mb-[2vw] bg-gray-50 border-2 hover:border-red-800 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" style={{
-            color: theme.color,
-            backgroundColor: theme.background,
-          }} placeholder="Last" required />
+          <input
+            type="text"
+            id="lastName"
+            name="lastName"
+            value={formData.lastName}
+            onChange={handleInputChange}
+            className=" mb-[2vw] pl-2 border-2 border-gray-300 hover:border-red-800 flex-grow h-10 w-full"
+            style={{
+              color: theme.color,
+              backgroundColor: theme.background,
+            }}
+            placeholder="Last"
+            required
+          />
         </div>
         <div className="mb-5">
           <label htmlFor="phone" className="w-full mb-[2vw] mt-2 mr-1">
-            <strong>Phone {compulsory}</strong>
+            Phone {compulsory}
           </label>
-
-          <input type="text" id="phone" name="phone" value={formData.phone} onChange={handleInputChange} className=" mb-[2vw] bg-gray-50 border-2 hover:border-red-800 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" style={{
-            color: theme.color,
-            backgroundColor: theme.background,
-          }} placeholder="Phone Number" required />
+          <input
+            type="text"
+            id="phone"
+            name="phone"
+            value={formData.phone}
+            onChange={handleInputChange}
+            className="pl-2 border-2 border-gray-300 hover:border-red-800 flex-grow h-10 w-full mb-[2vw]"
+            style={{
+              color: theme.color,
+              backgroundColor: theme.background,
+            }}
+            placeholder="Phone Number"
+            required
+          />
 
           <label htmlFor="email" className="w-full mb-[2vw] mt-2 mr-1">
-            <strong> Email {compulsory}</strong>
+            Email {compulsory}
           </label>
-
-          <input type="email" id="email" name="email" value={formData.email} onChange={handleInputChange} className=" mb-[2vw] bg-gray-50 border-2 hover:border-red-800 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" style={{
-            color: theme.color,
-            backgroundColor: theme.background,
-          }} placeholder="Email" required />
-
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value={formData.email}
+            onChange={handleInputChange}
+            className="pl-2 border-2 border-gray-300 hover:border-red-800 flex-grow h-10 w-full mb-[2vw]"
+            style={{
+              color: theme.color,
+              backgroundColor: theme.background,
+            }}
+            placeholder="Email"
+            required
+          />
         </div>
         <div className="mb-5">
           <label htmlFor="bloodGroup" className="w-full mb-[2vw] mt-2 mr-1">
-            <strong>Blood Group {compulsory}</strong>
+            Blood Group {compulsory}
           </label>
           <select
             id="bloodGroup"
             name="bloodGroup"
             value={formData.bloodGroup}
             onChange={handleInputChange}
-            className="pl-2 border-2  border-gray-300 hover:border-red-800 rounded-lg h-10 w-full mb-[2vw] "
+            className="pl-2 border-2  border-gray-300 hover:border-red-600  h-10 w-full mb-[2vw] "
             style={{
               color: theme.color,
               backgroundColor: theme.background,
@@ -242,9 +264,8 @@ const DonorForm = () => {
             <option value="AB+">AB+</option>
             <option value="AB-">AB-</option>
           </select>
-
           <label htmlFor="age" className=" mb-[2vw] mt-2 mr-1 w-full ">
-            <strong> Age {compulsory}</strong>
+            Age {compulsory}
           </label>
           <input
             type="number"
@@ -252,7 +273,7 @@ const DonorForm = () => {
             name="age"
             value={formData.age}
             onChange={handleInputChange}
-            className="pl-2 border-2 border-gray-300 hover:border-red-800 rounded-lg w-full h-10"
+            className="pl-2 border-2 border-gray-300 hover:border-red-600 w-full h-10"
             style={{
               color: theme.color,
               backgroundColor: theme.background,
@@ -263,7 +284,7 @@ const DonorForm = () => {
         </div>
         <div className="mb-5 ">
           <label htmlFor="address" className=" mt-2 mr-[2vw] w-full">
-            <strong> Address {compulsory}</strong>
+            Address {compulsory}
           </label>
           <input
             type="text"
@@ -271,7 +292,7 @@ const DonorForm = () => {
             name="address"
             value={formData.address}
             onChange={handleInputChange}
-            className="pl-2 border-2 border-gray-300 hover:border-red-800 rounded-lg h-[12vh] w-full  mb-[2vw]"
+            className="pl-2 border-2 border-gray-300 hover:border-red-800 h-[12vh] w-full"
             style={{
               color: theme.color,
               backgroundColor: theme.background,
@@ -280,14 +301,14 @@ const DonorForm = () => {
             required
           />
           <label htmlFor="state" className="w-24 mt-2 w-full">
-            <strong> State {compulsory}</strong>
+            State {compulsory}
           </label>
           <select
             id="state"
             name="state"
             value={formData.state}
             onChange={handleInputChange}
-            className="pl-2 border-2 border-gray-300 hover:border-red-800 rounded-lg flex-grow h-10 w-full mb-[2vw]"
+            className="pl-2 border-2 border-gray-300 hover:border-red-800 flex-grow h-10 w-full mb-[2vw]"
             style={{
               color: theme.color,
               backgroundColor: theme.background,
@@ -302,14 +323,14 @@ const DonorForm = () => {
             ))}
           </select>
           <label htmlFor="city" className="w-full mb-[14vh]">
-            <strong>  City {compulsory}</strong>
+            City {compulsory}
           </label>
           <select
             id="city"
             name="city"
             value={formData.city}
             onChange={handleInputChange}
-            className="pl-2 border-2 border-gray-300 hover:border-red-800 rounded-lg flex-grow h-10 w-full"
+            className="pl-2 border-2 border-gray-300 hover:border-red-800 flex-grow h-10 w-full"
             style={{
               color: theme.color,
               backgroundColor: theme.background,
@@ -326,35 +347,44 @@ const DonorForm = () => {
         </div>
         <div className="flex  mb-[3vw]">
           <label htmlFor="gender" className="w-24 mr-4">
-            <strong>Gender {compulsory}</strong>
+            Gender {compulsory}
           </label>
-
-
-
-          <ul className="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
-            <li className="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
-              <div className="flex items-center pl-3">
-                <input id="male" type="radio" value="male" name="gender" onChange={handleInputChange} className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" required />
-                <label htmlFor="male" className="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Male </label>
-              </div>
-            </li>
-            <li className="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
-              <div className="flex items-center pl-3">
-                <input id="female" type="radio" value="female" name="gender" onChange={handleInputChange} className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" required />
-                <label htmlFor="female" className="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Female </label>
-              </div>
-            </li>
-            <li className="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
-              <div className="flex items-center pl-3">
-                <input id="other" type="radio" value="other" name="gender" onChange={handleInputChange} className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500" required />
-                <label htmlFor="other" className="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Others </label>
-              </div>
-            </li>
-
-          </ul>
-
-
-
+          <div className="flex items-center">
+            <input
+              type="radio"
+              id="male"
+              name="gender"
+              value="male"
+              onChange={handleInputChange}
+              className="mr-1"
+              required
+            />
+            <label htmlFor="male">Male</label>
+          </div>
+          <div className="flex items-center ml-4">
+            <input
+              type="radio"
+              id="female"
+              name="gender"
+              value="female"
+              onChange={handleInputChange}
+              className="mr-1"
+              required
+            />
+            <label htmlFor="female">Female</label>
+          </div>
+          <div className="flex items-center ml-4">
+            <input
+              type="radio"
+              id="other"
+              name="gender"
+              value="other"
+              onChange={handleInputChange}
+              className="mr-1"
+              required
+            />
+            <label htmlFor="other">Others</label>
+          </div>
         </div>
         <div className="mb-[4vh]  font-bold ">
           <label>
@@ -379,20 +409,12 @@ const DonorForm = () => {
         <div className="flex justify-end">
           <button
             type="submit"
-            className="w-full sm:w-1/2 mx-auto bg-red-900 hover:bg-red-800 text-white rounded-lg font-bold py-2 px-4 rounded"
+            className="w-full sm:w-1/2 mx-auto bg-red-900 hover:bg-red-800 text-white font-bold py-2 px-4 rounded"
           >
             Register
           </button>
         </div>
-
-      	
-        
-
-
       </div>
-      
-    
-         
     </motion.form>
   );
 };
