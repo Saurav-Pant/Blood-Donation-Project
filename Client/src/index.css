@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+.sample-slider [class^="swiper-button-"]{
+  color: rgb(239, 68, 68);
+}
 
 /* Firefox */
 body {

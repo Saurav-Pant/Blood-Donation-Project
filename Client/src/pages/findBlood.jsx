@@ -4,7 +4,7 @@ import axios from "axios";
 import Loading from "../components/Loading";
 
 const FindBlood = () => {
-  const { theme, toggleTheme } = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
   const [loading, setLoading] = useState(true);
   const [Donors, setDonors] = useState([]);
   const [formData, setFormData] = useState({
@@ -38,6 +38,7 @@ const FindBlood = () => {
 
   useEffect(() => {
     fetchData();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
