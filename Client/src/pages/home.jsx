@@ -3,6 +3,7 @@ import Hero from "../components/hero";
 import OurMission from "../components/OurMission";
 import Collaborators from "../components/collaborators";
 import GetBlood from "../components/getBlood";
+import MatchingBloodGroup from "../components/MatchingBloodGroup";
 
 const home = () => {
   return (
@@ -10,6 +11,7 @@ const home = () => {
       {/* Commmented stuff */}
       <Hero />
       <OurMission />
+      <MatchingBloodGroup />
       <Collaborators />
       <GetBlood />
       
