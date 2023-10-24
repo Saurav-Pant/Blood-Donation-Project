@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { ToastContainer , toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate, Link } from "react-router-dom";
@@ -7,23 +7,34 @@ import { motion } from "framer-motion";
 import axios from "axios";
 import { FcGoogle } from "react-icons/fc";
 import { IoMdArrowRoundBack } from "react-icons/io";
+// formik and yup validation 
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
   const navigate = useNavigate();
+ 
+    // Initial values of form 
+    const initialValues = {
+      email:"",
+      password:""
+    }
+    // validation by YUP 
+    const validationSchema = Yup.object({
+      email: Yup.string().email('Invalid email').required('required'),
+      password: Yup.string()
+        .min(6, 'Password must be 6 characters long')
+        .matches(/[0-9]/, 'Password requires a number')
+        .required('required')
+        .matches(/[a-z]/, 'Password requires a lowercase letter'),
 
-  const handleEmail = (e) => {
-    setEmail(e.target.value);
-  };
-
-  const handlePassword = (e) => {
-    setPassword(e.target.value);
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+      //-------------- If Require in future------------//
+        // .matches(/[A-Z]/, 'Password requires an uppercase letter')
+        // .matches(/[^\w]/, 'Password requires a symbol')
+    })
+  const onSubmit = async (values) => {
+    
+    const {email,password} = values
 
     const user = {
       email: email,
@@ -53,11 +64,17 @@ const Login = () => {
         throw new Error("Authentication failed");
       }
     } catch (error) {
-      setError(error.response.data.message);
-      console.log(error.response);
+      console.log(error);
       toast.error('LogIn failed. Please try again.');
     }
   };
+
+   // formik 
+  const formik = useFormik({
+    initialValues,
+    onSubmit,
+    validationSchema
+  })
 
   return (
     <>
@@ -114,7 +131,7 @@ const Login = () => {
               y: 0,
             }}
             transition={{ duration: 1 }}
-            onSubmit={handleSubmit}
+            onSubmit={formik.handleSubmit}
           >
             <div className="mb-6">
               <label
@@ -128,9 +145,12 @@ const Login = () => {
                 className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-left"
                 id="email"
                 placeholder="Email address"
-                value={email}
-                onChange={handleEmail}
+                name="email"
+                value={formik.values.email}
+                onChange={formik.handleChange}
+                
               />
+            {formik.errors.email ? <div  className='text-red-500'>{formik.errors.email}</div> : null}
             </div>
             <div className="mb-6">
               <label
@@ -144,9 +164,12 @@ const Login = () => {
                 className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-left"
                 id="password"
                 placeholder="Password"
-                value={password}
-                onChange={handlePassword}
+                name="password"
+                value={formik.values.password}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
               />
+            {formik.errors.password ? <div className='text-red-500'>{formik.errors.password}</div> : null}
             </div>
             <div className="mb-6">
               <button
@@ -156,11 +179,6 @@ const Login = () => {
                 Login
               </button>
             </div>
-            {error && (
-              <p className="text-red-500 mb-4 text-center animate-bounce">
-                {error}
-              </p>
-            )}
           </motion.form>
 
           <div className="flex items-center justify-center">
