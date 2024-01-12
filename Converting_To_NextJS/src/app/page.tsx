@@ -1,5 +1,14 @@
-export default function Home() {
-  return <div>
-    <p> Hello Everyone!</p>
-  </div>;
-}
+import React from "react";
+import Hero from "@/components/hero";
+import Navbar from "@/components/navbar";
+
+const page = () => {
+  return (
+    <div>
+      <Navbar/>
+      <Hero />
+    </div>
+  );
+};
+
+export default page;
