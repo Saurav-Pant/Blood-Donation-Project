@@ -1,12 +1,13 @@
+"use client"
 import React from "react";
 import { motion } from "framer-motion";
-import { BsInstagram, BsFacebook, BsGithub } from "react-icons/bs";
+import { BsGithub } from "react-icons/bs";
 import { RiTwitterXFill } from 'react-icons/ri'
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
-const footer = () => {
+const Footer = () => {
   return (
-    <footer className="py-10 mx-5 shadow-2xl bg-slate-700 rounded-2xl text-white mt-6 mb-1 ">
+    <footer className="py-10 shadow-2xl bg-slate-700 rounded-2xl text-white mt-6 mb-1 mx-4">
       <div className="container mx-auto px-4">
         <div className="md:flex md:flex-wrap md:justify-between md:items-center">
           <motion.div
@@ -38,18 +39,16 @@ const footer = () => {
             }}
           >
             <div className="flex space-x-8">
-            {/* Twitter Link */}
               <Link
-                to="https://github.com/Saurav-Pant/Blood-Donation-Project"
+                href="https://github.com/Saurav-Pant/Blood-Donation-Project"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="transform hover:-translate-y-1 transition-transform duration-300"
               >
                 <BsGithub size={30} className="hover:text-red-300" />
               </Link>
-              {/* Github Link */}
               <Link
-                to="https://twitter.com"
+                href="https://twitter.com/Saurav_Pant_"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="transform hover:-translate-y-1 transition-transform duration-300"
@@ -76,4 +75,4 @@ const footer = () => {
   );
 };
 
-export default footer;
+export default Footer;

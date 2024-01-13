@@ -1,10 +1,14 @@
 import React from "react";
-import PropTypes from "prop-types";
-import pencil from "../asset/pencil.svg";
-import heartbeat from "../asset/heartbeat.svg";
+import pencil from "../../asset/pencil.svg";
+import heartbeat from "../../asset/heartbeat.svg";
 import { motion } from "framer-motion";
 
-const InfoCard = ({ infotext, infonumber }) => {
+interface InfoCardProps {
+    infotext: string;
+    infonumber: number;
+}
+
+const InfoCard: React.FC<InfoCardProps> = ({ infotext, infonumber }) => {
     return (
         <div className="h-[45vh] w-[25vw] my-0 p-0 relative flex items-center justify-center">
             <div
@@ -32,10 +36,6 @@ const InfoCard = ({ infotext, infonumber }) => {
     );
 };
 
-InfoCard.propTypes = {
-    infotext: PropTypes.string.isRequired,
-    infonumber: PropTypes.number.isRequired,
-};
 
 const GetBlood = () => {
     return (

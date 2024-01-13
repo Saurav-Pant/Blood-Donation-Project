@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import { motion } from "framer-motion";
 
@@ -5,7 +6,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import SwiperCore from "swiper";
 
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
@@ -13,10 +13,9 @@ import "swiper/css/autoplay";
 
 SwiperCore.use([Navigation, Pagination, Autoplay]);
 
-const Collaborators = () => {
+const OurCollaborators = () => {
   return (
     <>
-      {/* desktop view */}
       <div className="hidden sm:block">
         <h1 className="text-3xl lg:text-4xl font-bold inline-block w-full text-center pt-10 font-mono hover:text-red-300 transition-colors duration-300 ease-in-out">
           Our Collaborators
@@ -89,4 +88,4 @@ const Collaborators = () => {
   );
 };
 
-export default Collaborators;
+export default OurCollaborators;
