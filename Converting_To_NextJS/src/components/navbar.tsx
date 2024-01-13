@@ -33,7 +33,7 @@ const Navbar = () => {
       </ul>
 
       <>
-        <Link href="/SignUp">
+      <Link href="/Register">
           <motion.button
             className="px-4 py-2 rounded border-2 sm:flex ml-8 hover:bg-red-300 transition-all"
             whileHover={{ opacity: 0.7, transition: { duration: 0.5 } }}

@@ -11,7 +11,7 @@ import GetBlood from "./getBlood";
 const Hero = () => {
   return (
     <>
-    <div className="flex flex-col md:flex-row justify-evenly items-center mt-5  md:min-h-screen hero-section">
+    <div className="flex flex-col md:flex-row justify-evenly items-center mt-5  md:min-h-[85vh] hero-section">
       <div className="flex flex-col md:order-2 md:ml-8 w-[60vh] mx-5 ">
         <h1 className="text-3xl w-11/12 m-auto lg:text-6xl font-bold font-serif text-center hover:text-red-300 transition-colors duration-300 ease-in-out ">
           Save Lifes Donate Blood
@@ -23,7 +23,7 @@ const Hero = () => {
           families.
         </p>
         <div className="flex justify-center items-center">
-          <Link href="/">
+          <Link href="/Register">
             <motion.button className="mt-12 px-6 py-3 rounded-md hover:opacity-80 transition-colors duration-300 mx-4 md:mx-16 mb-3 bg-red-300 text-white">
               Get Blood Now
             </motion.button>
