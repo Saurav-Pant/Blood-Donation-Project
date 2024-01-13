@@ -1,6 +1,7 @@
+"use client"
 import React from "react";
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const PageNotFound = () => {
   return (
@@ -18,7 +19,7 @@ const PageNotFound = () => {
         Oops! The page you are looking for does not exist.
       </p>
       <Link
-        to="/"
+        href="/"
         className="px-4 py-2 rounded-lg bg-red-300 hover:bg-red-500 transition-colors duration-200  "
       >
         Go back to homepage

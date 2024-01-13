@@ -6,7 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import OurMission from "./OurMission";
 import OurCollaborators from "./OurCollaborators";
-import GetBlood from "./getBlood";
+import GetBlood from "./GetBlood";
 
 const Hero = () => {
   return (

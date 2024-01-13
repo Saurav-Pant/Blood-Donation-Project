@@ -24,15 +24,15 @@ const Navbar = () => {
       </div>
       <ul className=" font-mono text-xl sm:flex nav-menu">
         <li className="ml-8 hover:text-red-400 transition-colors duration-300 nav-item">
-          <Link href="/find-blood">Find Blood</Link>
+          <Link href="/FindBlood">Find Blood</Link>
         </li>
 
         <li className="ml-8 hover:text-red-400 transition-colors duration-300 nav-item rounded ">
-          <Link href="/register-donor">Register Donor</Link>
+          <Link href="/DonorForm">Register Donor</Link>
         </li>
 
         <li className="ml-8 hover:text-red-400 transition-colors duration-300 nav-item rounded ">
-          <Link href="/register-org">Register Organization</Link>
+          <Link href="/OrgForm">Register Organization</Link>
         </li>
       </ul>
 

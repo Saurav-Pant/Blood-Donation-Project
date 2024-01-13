@@ -1,8 +1,6 @@
-import React, { useState, useContext, useEffect } from "react";
-import { ThemeContext } from "../context/ThemeContext";
-
+"use client"
+import React, { useState, useEffect } from "react";
 const OrgForm = () => {
-  const { theme } = useContext(ThemeContext);
   const [formData, setFormData] = useState({
     OrganisationName: "",
     OrganisationPhone: "",
@@ -13,7 +11,7 @@ const OrgForm = () => {
   });
   const [isChecked, setIsChecked] = useState(false);
 
-  const handleCheckboxChange = (e) => {
+  const handleCheckboxChange = (e:any) => {
     setIsChecked(e.target.checked);
   };
 
@@ -34,7 +32,7 @@ const OrgForm = () => {
     fetchStates();
   }, []);
 
-  const handleInputChange = async (e) => {
+  const handleInputChange = async (e:any) => {
     const { name, value } = e.target;
     setFormData((prevState) => ({
       ...prevState,
@@ -51,9 +49,8 @@ const OrgForm = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e:any) => {
     e.preventDefault();
-    // Perform form submission logic here
     console.log(formData);
     console.log(isChecked);
   };
@@ -64,9 +61,6 @@ const OrgForm = () => {
       <form
         onSubmit={handleSubmit}
         className='mx-auto max-w-xl '
-        style={{
-          boxShadow: theme.boxShadow,
-        }}
       >
         <div className='flex items-center bg-gradient-to-r from-red-900 via-red-900 to-red-800 h-[11vh] mt-4 rounded w-full mb-[2vh]'>
           <h1 className='text-white text-2xl font-bold ml-4'>
@@ -85,10 +79,6 @@ const OrgForm = () => {
               value={formData.OrganisationName}
               onChange={handleInputChange}
               className='pl-2 border-2 border-gray-300 hover:border-red-800  h-10 w-full flex-grow'
-              style={{
-                color: theme.color,
-                backgroundColor: theme.background,
-              }}
               placeholder='Organistaion Name'
               required
             />
@@ -104,10 +94,6 @@ const OrgForm = () => {
               value={formData.OrganisationPhone}
               onChange={handleInputChange}
               className='pl-2 border-2 border-gray-300 hover:border-red-800 flex-grow h-10 w-full mb-[2vw]'
-              style={{
-                color: theme.color,
-                backgroundColor: theme.background,
-              }}
               placeholder='Organistaion Phone Number'
               required
             />
@@ -121,10 +107,6 @@ const OrgForm = () => {
               value={formData.OrganisationEmail}
               onChange={handleInputChange}
               className='pl-2 border-2 border-gray-300 hover:border-red-800 flex-grow h-10 w-full mb-[2vw]'
-              style={{
-                color: theme.color,
-                backgroundColor: theme.background,
-              }}
               placeholder=' Organistion Email'
               required
             />
@@ -141,10 +123,6 @@ const OrgForm = () => {
               value={formData.OrganisationAddress}
               onChange={handleInputChange}
               className='pl-2 border-2 border-gray-300 hover:border-red-800 flex-grow h-[11vh] w-full mb-5'
-              style={{
-                color: theme.color,
-                backgroundColor: theme.background,
-              }}
               placeholder=' Organisation Address'
               required
             />
@@ -157,15 +135,11 @@ const OrgForm = () => {
               value={formData.OrganisationState}
               onChange={handleInputChange}
               className='pl-2 border-2 border-gray-300 hover:border-red-800 flex-grow h-10 w-full mb-[2vw]'
-              style={{
-                color: theme.color,
-                backgroundColor: theme.background,
-              }}
               required
             >
               <option value=''>-- Select --</option>
-              {states.map((state) => (
-                <option key={state.state_id} value={state.state_id} name={state.state_name}>
+              {states.map((state:any) => (
+                <option key={state.state_id} value={state.state_id}>
                   {state.state_name}
                 </option>
               ))}
@@ -179,14 +153,10 @@ const OrgForm = () => {
               value={formData.OrganisationCity}
               onChange={handleInputChange}
               className='pl-2 border-2 border-gray-300 hover:border-red-800 flex-grow w-full h-10'
-              style={{
-                color: theme.color,
-                backgroundColor: theme.background,
-              }}
               required
             >
               <option value=''>-- Select --</option>
-              {cities.map((city) => (
+              {cities.map((city:any) => (
                 <option key={city.district_id} value={city.district_name}>
                   {city.district_name}
                 </option>

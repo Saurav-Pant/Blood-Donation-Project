@@ -1,12 +1,8 @@
-import React, { useState, useContext, useEffect } from "react";
+"use client"
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom";
-import { ThemeContext } from "../context/ThemeContext";
 
 const DonorForm = () => {
-  const { theme } = useContext(ThemeContext);
-
-  //fetching the states and the districts
   const [states, setStates] = useState([]);
   const [cities, setCities] = useState([])
 
@@ -15,7 +11,7 @@ const DonorForm = () => {
       const response = await fetch(`https://cdn-api.co-vin.in/api/v2/admin/location/states`);
       const data = await response.json();
       setStates(data.states);
-    } catch (error) {
+    } catch (error: any) {
       setError(error.message);
       console.error('Error while fetching the states', error);
     }
@@ -25,7 +21,6 @@ const DonorForm = () => {
     fetchStates();
   }, []);
 
-  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -41,11 +36,11 @@ const DonorForm = () => {
   const [isChecked, setIsChecked] = useState(false);
   const [error, setError] = useState(null);
 
-  const handleCheckboxChange = (e) => {
+  const handleCheckboxChange = (e: any) => {
     setIsChecked(e.target.checked);
   };
 
-  const handleInputChange = async (e) => {
+  const handleInputChange = async (e: any) => {
     const { name, value } = e.target;
 
     setFormData((prevState) => ({
@@ -57,7 +52,7 @@ const DonorForm = () => {
         const response = await fetch(`https://cdn-api.co-vin.in/api/v2/admin/location/districts/${value}`)
         const data = await response.json()
         setCities(data.districts)
-      } catch (error) {
+      } catch (error: any) {
         setError(error.message)
         console.log(`Error while fetching the cities ${error}`)
       }
@@ -65,96 +60,12 @@ const DonorForm = () => {
 
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    const requiredFields = [
-      "firstName",
-      "lastName",
-      "phone",
-      "email",
-      "bloodGroup",
-      "age",
-      "address",
-      "state",
-      "city",
-      "gender",
-    ];
-    const emptyFields = requiredFields.filter((field) => !formData[field]);
-
-    if (emptyFields.length > 0) {
-      const fieldNames = emptyFields.map((field) =>
-        field === "bloodGroup"
-          ? "Blood Group"
-          : field.charAt(0).toUpperCase() + field.slice(1)
-      );
-      const message = `Please fill in the following fields: ${fieldNames.join(
-        ", "
-      )
-        }`;
-      alert(message);
-      return;
-    }
-
-    if (!isChecked) {
-      alert(
-        "Please confirm that the details provided are correct and ethical."
-      );
-      return;
-    }
-
-    try {
-      const response = await fetch("http://localhost:8080/api/donors", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error);
-      }
-
-      const data = await response.json();
-      const token1 = data.token;
-
-      console.log("Donor registered successfully");
-      console.log(formData);
-      console.log("Token1: ", token1);
-      localStorage.setItem("token1", token1);
-
-      setFormData({
-        firstName: "",
-        lastName: "",
-        phone: "",
-        email: "",
-        bloodGroup: "",
-        age: "",
-        address: "",
-        state: "",
-        city: "",
-        gender: "",
-      });
-      setIsChecked(false);
-      setError(null);
-      navigate("/dashboard");
-    } catch (error) {
-      setError(error.message);
-      console.error("Error registering donor", error);
-    }
-  };
 
   const compulsory = <span className="text-red-600">*</span>;
 
   return (
     <motion.form
-      onSubmit={handleSubmit}
       className="mx-auto max-w-xl"
-      style={{
-        boxShadow: theme.boxShadow,
-      }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 0.3, duration: 0.7 }}
@@ -176,10 +87,6 @@ const DonorForm = () => {
             value={formData.firstName}
             onChange={handleInputChange}
             className="mb-[2vw] pl-2 border-2 border-gray-300 hover:border-red-800 flex-grow h-10 w-full"
-            style={{
-              color: theme.color,
-              backgroundColor: theme.background,
-            }}
             placeholder="First"
             required
           />
@@ -193,10 +100,6 @@ const DonorForm = () => {
             value={formData.lastName}
             onChange={handleInputChange}
             className=" mb-[2vw] pl-2 border-2 border-gray-300 hover:border-red-800 flex-grow h-10 w-full"
-            style={{
-              color: theme.color,
-              backgroundColor: theme.background,
-            }}
             placeholder="Last"
             required
           />
@@ -212,10 +115,7 @@ const DonorForm = () => {
             value={formData.phone}
             onChange={handleInputChange}
             className="pl-2 border-2 border-gray-300 hover:border-red-800 flex-grow h-10 w-full mb-[2vw]"
-            style={{
-              color: theme.color,
-              backgroundColor: theme.background,
-            }}
+
             placeholder="Phone Number"
             required
           />
@@ -230,10 +130,6 @@ const DonorForm = () => {
             value={formData.email}
             onChange={handleInputChange}
             className="pl-2 border-2 border-gray-300 hover:border-red-800 flex-grow h-10 w-full mb-[2vw]"
-            style={{
-              color: theme.color,
-              backgroundColor: theme.background,
-            }}
             placeholder="Email"
             required
           />
@@ -248,10 +144,6 @@ const DonorForm = () => {
             value={formData.bloodGroup}
             onChange={handleInputChange}
             className="pl-2 border-2  border-gray-300 hover:border-red-600  h-10 w-full mb-[2vw] "
-            style={{
-              color: theme.color,
-              backgroundColor: theme.background,
-            }}
             required
           >
             <option value="">-- Select --</option>
@@ -274,10 +166,6 @@ const DonorForm = () => {
             value={formData.age}
             onChange={handleInputChange}
             className="pl-2 border-2 border-gray-300 hover:border-red-600 w-full h-10"
-            style={{
-              color: theme.color,
-              backgroundColor: theme.background,
-            }}
             placeholder="Age"
             required
           />
@@ -293,14 +181,10 @@ const DonorForm = () => {
             value={formData.address}
             onChange={handleInputChange}
             className="pl-2 border-2 border-gray-300 hover:border-red-800 h-[12vh] w-full"
-            style={{
-              color: theme.color,
-              backgroundColor: theme.background,
-            }}
             placeholder="Address"
             required
           />
-          <label htmlFor="state" className="w-24 mt-2 w-full">
+          <label htmlFor="state" className="mt-2 w-full">
             State {compulsory}
           </label>
           <select
@@ -309,15 +193,11 @@ const DonorForm = () => {
             value={formData.state}
             onChange={handleInputChange}
             className="pl-2 border-2 border-gray-300 hover:border-red-800 flex-grow h-10 w-full mb-[2vw]"
-            style={{
-              color: theme.color,
-              backgroundColor: theme.background,
-            }}
             required
           >
             <option value="">-- Select --</option>
-            {states.map((state) => (
-              <option key={state.state_id} value={state.state_id} name={state.state_name}>
+            {states.map((state: any) => (
+              <option key={state.state_id} value={state.state_id}>
                 {state.state_name}
               </option>
             ))}
@@ -331,14 +211,10 @@ const DonorForm = () => {
             value={formData.city}
             onChange={handleInputChange}
             className="pl-2 border-2 border-gray-300 hover:border-red-800 flex-grow h-10 w-full"
-            style={{
-              color: theme.color,
-              backgroundColor: theme.background,
-            }}
             required
           >
             <option value="">-- Select --</option>
-            {cities.map((city) => (
+            {cities.map((city: any) => (
               <option key={city.district_id} value={city.district_name}>
                 {city.district_name}
               </option>
