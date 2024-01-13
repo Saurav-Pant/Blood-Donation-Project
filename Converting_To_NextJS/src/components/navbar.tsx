@@ -7,8 +7,8 @@ import Link from "next/link";
 const Navbar = () => {
   return (
     <motion.nav
-    className="sticky top-0 px-4 py-2 flex items-center justify-between shadow-md z-10 bg-slate-50"
-    initial={{ opacity: 0, y: -100 }}
+      className="sticky top-0 px-4 py-2 flex items-center justify-between shadow-md z-10 bg-slate-50"
+      initial={{ opacity: 0, y: -100 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1, delay: 0.2 }}
     >
@@ -32,16 +32,24 @@ const Navbar = () => {
         </li>
       </ul>
 
-      <>
-      <Link href="/Register">
+      <div className="flex justify-between items-center">
+        <Link href="/sign-up">
           <motion.button
-            className="px-4 py-2 rounded border-2 sm:flex ml-8 hover:bg-red-300 transition-all"
+            className="px-4 py-2 rounded sm:flex ml-8 bg-red-200 hover:bg-red-300 transition-all duration-100 text-black"
             whileHover={{ opacity: 0.7, transition: { duration: 0.5 } }}
           >
-            SignUp
+            Sign Up
           </motion.button>
         </Link>
-      </>
+        <Link href="/sign-in">
+          <motion.button
+            className="px-4 py-2 rounded  sm:flex ml-8 bg-red-200 hover:bg-red-300 transition-all duration-100 text-black"
+            whileHover={{ opacity: 0.7, transition: { duration: 0.5 } }}
+          >
+            Sign In
+          </motion.button>
+        </Link>
+      </div>
 
 
     </motion.nav>

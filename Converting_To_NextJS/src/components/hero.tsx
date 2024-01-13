@@ -23,7 +23,7 @@ const Hero = () => {
           families.
         </p>
         <div className="flex justify-center items-center">
-          <Link href="/Register">
+          <Link href="/">
             <motion.button className="mt-12 px-6 py-3 rounded-md hover:opacity-80 transition-colors duration-300 mx-4 md:mx-16 mb-3 bg-red-300 text-white">
               Get Blood Now
             </motion.button>
