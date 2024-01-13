@@ -3,8 +3,12 @@ import React from "react";
 import { BiDonateBlood } from "react-icons/bi";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { UserButton } from "@clerk/nextjs";
+import { useAuth } from "@clerk/nextjs";
+
 
 const Navbar = () => {
+  const { userId } = useAuth();
   return (
     <motion.nav
       className="sticky top-0 px-4 py-2 flex items-center justify-between shadow-md z-10 bg-slate-50"
@@ -32,26 +36,33 @@ const Navbar = () => {
         </li>
       </ul>
 
-      <div className="flex justify-between items-center">
-        <Link href="/sign-up">
-          <motion.button
-            className="px-4 py-2 rounded sm:flex ml-8 bg-red-200 hover:bg-red-300 transition-all duration-100 text-black"
-            whileHover={{ opacity: 0.7, transition: { duration: 0.5 } }}
-          >
-            Sign Up
-          </motion.button>
-        </Link>
-        <Link href="/sign-in">
-          <motion.button
-            className="px-4 py-2 rounded  sm:flex ml-8 bg-red-200 hover:bg-red-300 transition-all duration-100 text-black"
-            whileHover={{ opacity: 0.7, transition: { duration: 0.5 } }}
-          >
-            Sign In
-          </motion.button>
-        </Link>
-      </div>
+      {!userId ?
+        (
+          <div className="flex justify-between items-center">
+            <Link href="/sign-up">
+              <motion.button
+                className="px-4 py-2 rounded sm:flex ml-8 bg-red-200 hover:bg-red-300 transition-all duration-100 text-black"
+                whileHover={{ opacity: 0.7, transition: { duration: 0.5 } }}
+              >
+                Sign Up
+              </motion.button>
+            </Link>
+            <Link href="/sign-in">
+              <motion.button
+                className="px-4 py-2 rounded  sm:flex ml-8 bg-red-200 hover:bg-red-300 transition-all duration-100 text-black"
+                whileHover={{ opacity: 0.7, transition: { duration: 0.5 } }}
+              >
+                Sign In
+              </motion.button>
+            </Link>
+          </div>) :
+        (
+          <div>
+            <UserButton afterSignOutUrl="/" />
+          </div>
 
-
+        )
+      }
     </motion.nav>
   );
 };
