@@ -6,12 +6,19 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prisma:generate": "npx dotenv -e .env.local -- prisma generate",
+    "migrate:dev": "npx dotenv -e .env.local -- prisma migrate dev",
+    "prisma:studio": "npx dotenv -e .env.local -- prisma studio",
+    "migrate": "npx dotenv -e .env.local -- prisma migrate deploy",
+    "build:production": "npx dotenv -e .env.local -- npm run migrate && npm run generate && npm run build"
   },
   "dependencies": {
     "@clerk/nextjs": "^4.29.3",
+    "@prisma/client": "^5.8.0",
     "framer-motion": "^10.18.0",
     "next": "14.0.4",
+    "prisma": "^5.8.0",
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^5.0.1",

@@ -11,7 +11,7 @@ const Navbar = () => {
   const { userId } = useAuth();
   return (
     <motion.nav
-      className="sticky top-0 px-4 py-2 flex items-center justify-between shadow-md z-10 bg-slate-50"
+      className="sticky top-0 px-4 py-1 flex items-center justify-between shadow-md z-10 bg-slate-50"
       initial={{ opacity: 0, y: -100 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1, delay: 0.2 }}
@@ -22,19 +22,24 @@ const Navbar = () => {
           <BiDonateBlood size={30} className="sm:hidden " />
         </Link>
       </div>
-      <ul className=" font-mono text-xl sm:flex nav-menu">
-        <li className="ml-8 hover:text-red-400 transition-colors duration-300 nav-item">
-          <Link href="/FindBlood">Find Blood</Link>
-        </li>
+      {userId ?
+        (
+          <ul className=" font-mono text-xl sm:flex nav-menu">
+            <li className="ml-8 hover:text-red-400 transition-colors duration-300 nav-item">
+              <Link href="/FindBlood">Find Blood</Link>
+            </li>
 
-        <li className="ml-8 hover:text-red-400 transition-colors duration-300 nav-item rounded ">
-          <Link href="/DonorForm">Register Donor</Link>
-        </li>
+            <li className="ml-8 hover:text-red-400 transition-colors duration-300 nav-item rounded ">
+              <Link href="/DonorForm">Register Donor</Link>
+            </li>
 
-        <li className="ml-8 hover:text-red-400 transition-colors duration-300 nav-item rounded ">
-          <Link href="/OrgForm">Register Organization</Link>
-        </li>
-      </ul>
+            <li className="ml-8 hover:text-red-400 transition-colors duration-300 nav-item rounded ">
+              <Link href="/OrgForm">Register Organization</Link>
+            </li>
+          </ul>) : (
+          null
+        )
+      }
 
       {!userId ?
         (
@@ -58,7 +63,7 @@ const Navbar = () => {
           </div>) :
         (
           <div>
-            <UserButton afterSignOutUrl="/" />
+            <UserButton afterSignOutUrl="/"/>
           </div>
 
         )
