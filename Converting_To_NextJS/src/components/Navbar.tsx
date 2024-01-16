@@ -18,7 +18,7 @@ const Navbar = () => {
     >
       <div className="flex items-center rounded-full border-2 border-red-500 p-2">
         <Link href="/" className="text-red-500">
-          <BiDonateBlood size={50} className=" hidden sm:block" />
+          <BiDonateBlood size={30} className=" hidden sm:block" />
           <BiDonateBlood size={30} className="sm:hidden " />
         </Link>
       </div>
@@ -33,9 +33,9 @@ const Navbar = () => {
               <Link href="/DonorForm">Register Donor</Link>
             </li>
 
-            <li className="ml-8 hover:text-red-400 transition-colors duration-300 nav-item rounded ">
+            {/* <li className="ml-8 hover:text-red-400 transition-colors duration-300 nav-item rounded ">
               <Link href="/OrgForm">Register Organization</Link>
-            </li>
+            </li> */}
           </ul>) : (
           null
         )

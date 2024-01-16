@@ -1,5 +1,8 @@
 "use client"
 import React, { useState, useEffect } from "react";
+import { useFormik } from "formik";
+import * as Yup from "yup";
+
 const OrgForm = () => {
   const [formData, setFormData] = useState({
     OrganisationName: "",
@@ -32,6 +35,38 @@ const OrgForm = () => {
     fetchStates();
   }, []);
 
+
+  const validationSchema = Yup.object().shape({
+    OrganisationName: Yup.string().required("First Name is required"),
+    OrganisationPhone: Yup.string().required("Last Name is required"),
+    OrganisationEmail: Yup.string().email("Invalid email").required("Email is required"),
+    addreOrganisationAddressss: Yup.string().required("Address is required"),
+    OrganisationState: Yup.string().required("State is required"),
+    OrganisationCity: Yup.string().required("City is required"),
+  });
+
+
+
+  const handleSubmit = (e:any) => {
+    e.preventDefault();
+    console.log(formData);
+    console.log(isChecked);
+  };
+
+
+  const formik = useFormik({
+    initialValues: {
+      OrganisationName: "",
+      OrganisationPhone: "",
+      OrganisationEmail: "",
+      OrganisationAddress: "",
+      OrganisationState: "",
+      OrganisationCity: "",
+      },
+    validationSchema,
+    onSubmit: handleSubmit,
+  });
+
   const handleInputChange = async (e:any) => {
     const { name, value } = e.target;
     setFormData((prevState) => ({
@@ -49,11 +84,6 @@ const OrgForm = () => {
     }
   };
 
-  const handleSubmit = (e:any) => {
-    e.preventDefault();
-    console.log(formData);
-    console.log(isChecked);
-  };
   const compulsory = <span className='text-red-600'>*</span>;
 
   return (

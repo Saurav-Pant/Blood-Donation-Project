@@ -3,15 +3,12 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { useUser } from "@clerk/nextjs";
-
-
+import { useRouter } from "next/navigation";
 
 const DonorForm = () => {
   const [states, setStates] = useState([]);
   const [cities, setCities] = useState([])
-
-
+  const router = useRouter();
 
   const fetchStates = async () => {
     try {
@@ -46,7 +43,7 @@ const DonorForm = () => {
   const handleSubmit = async (values: any) => {
     try {
       const { isChecked, ...dataToSend } = values;
-  
+
       const response = await fetch("http://localhost:3000/api/DonorForm", {
         method: "POST",
         headers: {
@@ -54,15 +51,16 @@ const DonorForm = () => {
         },
         body: JSON.stringify(dataToSend),
       });
-  
+
       console.log(dataToSend)
       const data = await response.json();
       console.log("Data submitted successfully:", data);
+      router.push("/")
     } catch (error) {
       console.error("Error submitting data:", error);
     }
   };
-  
+
   const formik = useFormik({
     initialValues: {
       firstName: "",
@@ -83,7 +81,6 @@ const DonorForm = () => {
 
 
 
-  const [isChecked, setIsChecked] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const handleCheckboxChange = (e: any) => {
