@@ -4,12 +4,10 @@ import { NextRequest, NextResponse } from "next/server"
 export const POST = async (request: NextRequest) => {
     try {
         const body = await request.json();
-        const { id, userLoginemail, firstName, lastName, phone, email, bloodGroup, age, address, state, city, gender } = body;
+        const {firstName, lastName, phone, email, bloodGroup, age, address, state, city, gender } = body;
 
         const newDonor = await prisma.donor.create({
             data: {
-                id,
-                userLoginemail,
                 firstName,
                 lastName,
                 phone,
@@ -21,7 +19,8 @@ export const POST = async (request: NextRequest) => {
                 city,
                 gender
             }
-        })
+        });
+
 
         return NextResponse.json(newDonor);
 

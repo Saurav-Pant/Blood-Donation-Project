@@ -10,7 +10,6 @@ import { useUser } from "@clerk/nextjs";
 const DonorForm = () => {
   const [states, setStates] = useState([]);
   const [cities, setCities] = useState([])
-  const { user } = useUser();
 
 
 
@@ -56,6 +55,7 @@ const DonorForm = () => {
         body: JSON.stringify(dataToSend),
       });
   
+      console.log(dataToSend)
       const data = await response.json();
       console.log("Data submitted successfully:", data);
     } catch (error) {
@@ -65,7 +65,6 @@ const DonorForm = () => {
   
   const formik = useFormik({
     initialValues: {
-      userLoginemail: user?.emailAddresses, 
       firstName: "",
       lastName: "",
       phone: "",
