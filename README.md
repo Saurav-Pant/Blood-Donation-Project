@@ -4,7 +4,7 @@
 
 The Blood Donation Project is an initiative aimed at connecting individuals in need of blood with willing blood donors. The project utilizes npm (Node Package Manager) and version control using Git to manage the codebase and facilitate collaboration.
 
----
+<!-- ---
 
 <div align="center">
 
@@ -43,7 +43,7 @@ The Blood Donation Project is an initiative aimed at connecting individuals in n
 </table>
 </div>
 
----
+--- -->
 
 ## Getting Started
 
@@ -66,37 +66,15 @@ To contribute to the project, follow the steps below:
 
 3. **Install Dependencies**
 
-   - Navigate to the project's root directory:
-     ```bash
-     cd Blood-Donation-Project
-     cd Client
-     ```
+
    - Run the following command to install the project dependencies using npm:
      ```bash
      npm install
      ```
-   - Run the following command to start the client:
+   - Run the following command to start the Website locally:
      ```bash
-     npm start
+     npm run dev
      ```
-
-4. **Start Server**
-
-   - For starting server you have to follow these steps -
-
-   1. Start the server by opening a terminal or command prompt.
-   2. Navigate to the server directory using the `cd` command:
-      ```bash
-      cd Server
-      ```
-   3. Run the following command to install dependencies
-      ```bash
-      npm install
-      ```
-   4. Run the following command to start the server:
-      ```bash
-      nodemon Server.js
-      ```
 
 5. **Maintaining Synchronization**
 
