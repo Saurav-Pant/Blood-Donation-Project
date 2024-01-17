@@ -2,6 +2,7 @@ import React from "react";
 import pencil from "../../asset/pencil.svg";
 import heartbeat from "../../asset/heartbeat.svg";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 interface InfoCardProps {
     infotext: string;
@@ -22,7 +23,7 @@ const InfoCard: React.FC<InfoCardProps> = ({ infotext, infonumber }) => {
                 style={{ top: "40%" }}
             >
                 <div className="md:h-[11vmin] md:w-[11vmin] h-[6vmin] w-[6vmin] overflow-hidden rounded-full">
-                    <img
+                    <Image
                         src={pencil}
                         alt=""
                         className="md:scale-75 scale-[0.8]"
@@ -70,7 +71,7 @@ const GetBlood = () => {
                         <div></div>
                     </div>
                     <div className="absolute top-[34vmax]  md:top-[28vmax]  lg:top-[30vmax]">
-                        <img
+                        <Image
                             src={heartbeat}
                             alt=""
                             className=" scale-[0.6] lg:scale-[1.1]"
@@ -84,7 +85,7 @@ const GetBlood = () => {
                             />
                         </div>
                         <div>
-                            <img
+                            <Image
                                 src={heartbeat}
                                 alt=""
                                 className=" scale-x-.1 md:scale-x-110 lg:scale-x-130"
