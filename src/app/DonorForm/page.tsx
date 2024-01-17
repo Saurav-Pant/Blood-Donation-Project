@@ -44,7 +44,7 @@ const DonorForm = () => {
     try {
       const { isChecked, ...dataToSend } = values;
 
-      const response = await fetch("http://localhost:3000/api/DonorForm", {
+      const response = await fetch("/api/DonorForm", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

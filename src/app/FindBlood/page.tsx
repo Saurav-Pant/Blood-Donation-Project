@@ -14,7 +14,7 @@ const FindBlood = () => {
         try {
             setLoading(true);
     
-            const response = await fetch("http://localhost:3000/api/DonorForm");
+            const response = await fetch("/api/DonorForm");
             const data = await response.json();
             console.log(data);
     

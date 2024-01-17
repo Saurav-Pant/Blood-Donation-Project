@@ -53,7 +53,7 @@ const OrgForm = () => {
     try {
       const { ...dataToSend } = values;
 
-      const response = await fetch("http://localhost:3000/api/orgForm", {
+      const response = await fetch("/api/orgForm", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
