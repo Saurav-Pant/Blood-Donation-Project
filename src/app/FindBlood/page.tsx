@@ -13,13 +13,13 @@ const FindBlood = () => {
     const handleQuery = async () => {
         try {
             setLoading(true);
-
+    
             const response = await fetch("http://localhost:3000/api/DonorForm");
             const data = await response.json();
             console.log(data);
-
-            const filteredResults = data.filter((donor: any) => donor.bloodGroup === bloodGroup);
-
+    
+            const filteredResults = data.Donors.filter((donor: any) => donor.bloodGroup === bloodGroup);
+    
             setTimeout(() => {
                 setResults(filteredResults);
                 setLoading(false);
@@ -29,6 +29,7 @@ const FindBlood = () => {
             setLoading(false);
         }
     };
+    
 
     const handleBloodGroupChange = (e: any) => {
         setBloodGroup(e.target.value);
