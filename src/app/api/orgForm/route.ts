@@ -31,19 +31,22 @@ export const POST = async (request: NextRequest, response: NextResponse) => {
     }
 }
 
-export const GET = async (response: NextResponse) => {
+export const GET = async () => {
     try {
         const Donors = await prisma.donorOrg.findMany()
+
+        const response = NextResponse.json({
+            message: "DonorOrgs fetched successfully",
+            success: true,
+            Donors,
+          });
+
         response.headers.set("Access-Control-Allow-Origin", "*");
         response.headers.set("Access-Control-Allow-Methods", "*");
         response.headers.set("Access-Control-Allow-Headers", "*");
 
-        return NextResponse.json(Donors);
+        return response;
     } catch (err) {
-        response.headers.set("Access-Control-Allow-Origin", "*");
-        response.headers.set("Access-Control-Allow-Methods", "*");
-        response.headers.set("Access-Control-Allow-Headers", "*");
-
         return NextResponse.json({ message: "GET Error", err }, { status: 500 })
     }
 }
