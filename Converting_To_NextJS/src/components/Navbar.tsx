@@ -33,9 +33,9 @@ const Navbar = () => {
               <Link href="/DonorForm">Register Donor</Link>
             </li>
 
-            {/* <li className="ml-8 hover:text-red-400 transition-colors duration-300 nav-item rounded ">
+            <li className="ml-8 hover:text-red-400 transition-colors duration-300 nav-item rounded ">
               <Link href="/OrgForm">Register Organization</Link>
-            </li> */}
+            </li>
           </ul>) : (
           null
         )

@@ -414,3 +414,32 @@ const DonorForm = () => {
 };
 
 export default DonorForm;
+
+
+
+    {/* <div className="flex flex-col my-12">
+                        <div className="mb-8">
+                            <label htmlFor="state" className="font-semibold text-gray-700">
+                                State
+                            </label>
+                            <input
+                                type="text"
+                                name="state"
+                                id="state"
+                                placeholder="State"
+                                className="hover:border-red-800 border-2 w-full mt-1 bg-white rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                            />
+                        </div>
+                        <div className="">
+                            <label htmlFor="city" className="font-semibold text-gray-700">
+                                City
+                            </label>
+                            <input
+                                type="text"
+                                name="city"
+                                id="city"
+                                placeholder="City"
+                                className="hover:border-red-800 border-2 w-full mt-1 bg-white rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                            />
+                        </div>
+                    </div> */}
