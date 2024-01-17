@@ -27,7 +27,17 @@ const OrgForm = () => {
 
   const fetchStates = async () => {
     try {
-      const response = await fetch(`https://cdn-api.co-vin.in/api/v2/admin/location/states`);
+      const response = await fetch("https://cdn-api.co-vin.in/api/v2/admin/location/states", {
+        method: "GET",
+        headers: {
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36",
+        },
+      });
+  
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+  
       const data = await response.json();
       setStates(data.states);
     } catch (error) {
@@ -93,8 +103,18 @@ const OrgForm = () => {
     }));
     if (name === 'OrganisationState') {
       try {
-        const response = await fetch(`https://cdn-api.co-vin.in/api/v2/admin/location/districts/${value}`)
-        const data = await response.json()
+        const response = await fetch(`https://cdn-api.co-vin.in/api/v2/admin/location/districts/${value}`, {
+          method: "GET",
+          headers: {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36",
+          },
+        });
+  
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+  
+        const data = await response.json();
         setCities(data.districts)
       } catch (error) {
         console.log(`Error while fetching the cities ${error}`)

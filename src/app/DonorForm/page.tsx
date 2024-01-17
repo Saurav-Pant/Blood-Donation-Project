@@ -12,19 +12,29 @@ const DonorForm = () => {
 
   const fetchStates = async () => {
     try {
-      const response = await fetch(`https://cdn-api.co-vin.in/api/v2/admin/location/states`);
+      const response = await fetch("https://cdn-api.co-vin.in/api/v2/admin/location/states", {
+        method: "GET",
+        headers: {
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36",
+        },
+      });
+  
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+  
       const data = await response.json();
       setStates(data.states);
-    } catch (error: any) {
+    } catch (error:any) {
       setError(error.message);
       console.error('Error while fetching the states', error);
     }
   };
-
+  
   useEffect(() => {
     fetchStates();
   }, []);
-
+  
 
 
   const validationSchema = Yup.object().shape({
@@ -89,21 +99,31 @@ const DonorForm = () => {
   };
   const handleInputChange = async (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
-
+  
     formik.handleChange(e);
-
+  
     if (name === "state") {
       try {
-        const response = await fetch(`https://cdn-api.co-vin.in/api/v2/admin/location/districts/${value}`);
+        const response = await fetch(`https://cdn-api.co-vin.in/api/v2/admin/location/districts/${value}`, {
+          method: "GET",
+          headers: {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36",
+          },
+        });
+  
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+  
         const data = await response.json();
         setCities(data.districts);
       } catch (error: any) {
         setError(error.message);
-        console.log(`Error while fetching the cities ${error}`);
+        console.error(`Error while fetching the cities ${error}`);
       }
     }
   };
-
+  
 
 
   const compulsory = <span className="text-red-600">*</span>;

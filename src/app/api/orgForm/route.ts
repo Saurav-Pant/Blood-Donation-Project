@@ -1,6 +1,12 @@
 import prisma from "@/app/libs/prismadb"
 import { NextRequest, NextResponse } from "next/server"
 
+export const corsHeaders = {
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "Access-Control-Allow-Headers": "Content-Type, Authorization",
+  };
+
 export const POST = async (request: NextRequest, response: NextResponse) => {
     try {
         const body = await request.json();
@@ -16,17 +22,10 @@ export const POST = async (request: NextRequest, response: NextResponse) => {
                 OrganisationCity
             }
         });
-        response.headers.set("Access-Control-Allow-Origin", "*");
-        response.headers.set("Access-Control-Allow-Methods", "*");
-        response.headers.set("Access-Control-Allow-Headers", "*");
 
-        return NextResponse.json(newOrg);
+        return NextResponse.json(newOrg,{headers:corsHeaders});
 
     } catch (err) {
-        response.headers.set("Access-Control-Allow-Origin", "*");
-        response.headers.set("Access-Control-Allow-Methods", "*");
-        response.headers.set("Access-Control-Allow-Headers", "*");
-
         return NextResponse.json({ message: "POST Error", err }, { status: 500 })
     }
 }
@@ -37,16 +36,11 @@ export const GET = async () => {
 
         const response = NextResponse.json({
             message: "DonorOrgs fetched successfully",
-            success: true,
             Donors,
+            Headers:corsHeaders
           });
-
-        response.headers.set("Access-Control-Allow-Origin", "*");
-        response.headers.set("Access-Control-Allow-Methods", "*");
-        response.headers.set("Access-Control-Allow-Headers", "*");
-
         return response;
     } catch (err) {
-        return NextResponse.json({ message: "GET Error", err }, { status: 500 })
+        return NextResponse.json({ message: "GET Error", err }, { headers: corsHeaders })
     }
 }
