@@ -1,12 +1,6 @@
 import prisma from "@/app/libs/prismadb"
 import { NextRequest, NextResponse } from "next/server"
 
-export const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
-  "Access-Control-Allow-Headers": "Content-Type, Authorization",
-};
-
 export const POST = async (request: NextRequest, response: NextResponse) => {
     try {
         const body = await request.json();
@@ -26,7 +20,7 @@ export const POST = async (request: NextRequest, response: NextResponse) => {
                 gender
             }
         });
-        return NextResponse.json(newDonor,{headers:corsHeaders});
+        return NextResponse.json(newDonor);
     } catch (err) {
         return NextResponse.json({ message: "POST Error", err }, { status: 500 })
     }
@@ -39,7 +33,7 @@ export const GET = async () => {
             message: "Donors fetched successfully",
             success: true,
             Donors,
-          });
+          });      
           return response;
     } catch (err) {
         return NextResponse.json({ message: "GET Error", err }, { status: 500 })
