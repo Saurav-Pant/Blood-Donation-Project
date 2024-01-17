@@ -34,7 +34,7 @@ export const POST = async (request: NextRequest, response: NextResponse) => {
     }
 }
 
-export const GET = async (response: NextResponse) => {
+export const GET = async (NextRequest:NextRequest,response: NextResponse) => {
     try {
 
         const Donors = await prisma.donor.findMany()
