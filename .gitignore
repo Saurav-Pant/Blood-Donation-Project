@@ -12,8 +12,6 @@
 # next.js
 /.next/
 /out/
-/FiguringOut/
-
 
 # production
 /build
