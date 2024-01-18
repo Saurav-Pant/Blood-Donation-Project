@@ -4,13 +4,38 @@ import { motion } from "framer-motion";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useRouter } from "next/navigation";
-import statesData from "../../Content/State.json"
 
 const DonorForm = () => {
-
-  const states = statesData.states;
-
+  const [states, setStates] = useState([]);
+  const [cities, setCities] = useState([])
   const router = useRouter();
+
+  const fetchStates = async () => {
+    try {
+      const response = await fetch("https://cdn-api.co-vin.in/api/v2/admin/location/states", {
+        method: "GET",
+        headers: {
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36",
+        },
+      });
+  
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+  
+      const data = await response.json();
+      setStates(data.states);
+    } catch (error:any) {
+      setError(error.message);
+      console.error('Error while fetching the states', error);
+    }
+  };
+  
+  useEffect(() => {
+    fetchStates();
+  }, []);
+  
+
 
   const validationSchema = Yup.object().shape({
     firstName: Yup.string().required("First Name is required"),
@@ -73,8 +98,33 @@ const DonorForm = () => {
     console.log(e.target.checked)
   };
   const handleInputChange = async (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+  
     formik.handleChange(e);
+  
+    if (name === "state") {
+      try {
+        const response = await fetch(`https://cdn-api.co-vin.in/api/v2/admin/location/districts/${value}`, {
+          method: "GET",
+          headers: {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36",
+          },
+        });
+  
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+  
+        const data = await response.json();
+        setCities(data.districts);
+      } catch (error: any) {
+        setError(error.message);
+        console.error(`Error while fetching the cities ${error}`);
+      }
+    }
   };
+  
+
 
   const compulsory = <span className="text-red-600">*</span>;
 
@@ -204,9 +254,9 @@ const DonorForm = () => {
             <option value="AB+">AB+</option>
             <option value="AB-">AB-</option>
           </select>
-          {formik.touched.bloodGroup && formik.errors.bloodGroup && (
+          {formik.touched.state && formik.errors.state && (
             <div className="text-red-600">
-              {formik.errors.bloodGroup}
+              {formik.errors.state}
             </div>
           )}
 
@@ -260,28 +310,43 @@ const DonorForm = () => {
             id="state"
             name="state"
             value={formik.values.state}
-            onChange={formik.handleChange}
+            onChange={handleInputChange}
             onBlur={formik.handleBlur}
             className="pl-2 border-2 border-gray-300 hover:border-red-800 flex-grow h-10 w-full mb-[2vw]"
             required
           >
             {formik.touched.state && formik.errors.state && (
-              <div className="text-red-600">{formik.errors.state}</div>
+              <div className="text-red-600">
+                {formik.errors.state}
+              </div>
             )}
 
-            <option value="">-- Choose State --</option>
-            {states.map((state) => (
-              <option key={state} value={state}>
-                {state}
+            <option value="">-- Choose City --</option>
+            {states.map((state: any) => (
+              <option key={state.state_id} value={state.state_id}>
+                {state.state_name}
               </option>
             ))}
           </select>
-          {formik.touched.state && formik.errors.state && (
-            <div className="text-red-600">
-              {formik.errors.state}
-            </div>
-          )}
-
+          <label htmlFor="city" className="w-full mb-[14vh]">
+            City {compulsory}
+          </label>
+          <select
+            id="city"
+            name="city"
+            value={formik.values.city}
+            onChange={handleInputChange}
+            onBlur={formik.handleBlur}
+            className="pl-2 border-2 border-gray-300 hover:border-red-800 flex-grow h-10 w-full"
+            required
+          >
+            <option value="">-- Select --</option>
+            {cities.map((city: any) => (
+              <option key={city.district_id} value={city.district_name}>
+                {city.district_name}
+              </option>
+            ))}
+          </select>
         </div>
         <div className="flex  mb-[3vw]">
           <label htmlFor="gender" className="w-24 mr-4">

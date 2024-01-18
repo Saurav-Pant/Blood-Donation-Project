@@ -3,8 +3,6 @@ import React, { useState, useEffect } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useRouter } from "next/navigation";
-import statesData from "../../Content/State.json"
-
 
 
 const OrgForm = () => {
@@ -18,20 +16,43 @@ const OrgForm = () => {
   });
   const [isChecked, setIsChecked] = useState(false);
 
-  const states = statesData.states;
-
-
   const handleCheckboxChange = (e: any) => {
     setIsChecked(e.target.checked);
   };
 
+  const [states, setStates] = useState([]);
+  const [cities, setCities] = useState([])
   const router = useRouter();
 
+
+  const fetchStates = async () => {
+    try {
+      const response = await fetch("https://cdn-api.co-vin.in/api/v2/admin/location/states", {
+        method: "GET",
+        headers: {
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36",
+        },
+      });
+  
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+  
+      const data = await response.json();
+      setStates(data.states);
+    } catch (error) {
+      console.error('Error while fetching the states', error);
+    }
+  };
+
+  useEffect(() => {
+    fetchStates();
+  }, []);
 
 
   const validationSchema = Yup.object().shape({
     OrganisationName: Yup.string().required("Organization Name is required"),
-    OrganisationPhone: Yup.string().required("Organization Number is required"),
+    OrganisationPhone: Yup.string().required("Organization Name is required"),
     OrganisationEmail: Yup.string().email("Invalid email").required("Email is required"),
     OrganisationAddress: Yup.string().required("Organization Address is required"),
     OrganisationState: Yup.string().required("Organization Address is required"),
@@ -80,6 +101,25 @@ const OrgForm = () => {
       ...prevState,
       [name]: value,
     }));
+    if (name === 'OrganisationState') {
+      try {
+        const response = await fetch(`https://cdn-api.co-vin.in/api/v2/admin/location/districts/${value}`, {
+          method: "GET",
+          headers: {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36",
+          },
+        });
+  
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+  
+        const data = await response.json();
+        setCities(data.districts)
+      } catch (error) {
+        console.log(`Error while fetching the cities ${error}`)
+      }
+    }
   };
 
   const compulsory = <span className='text-red-600'>*</span>;
@@ -186,32 +226,45 @@ const OrgForm = () => {
               State {compulsory}
             </label>
             <select
-              id="OrganisationState" 
-              name="OrganisationState"  
-              value={formik.values.OrganisationState}
-              onChange={formik.handleChange}
+              id='OrganisationState'
+              name='OrganisationState'
+              value={formData.OrganisationState}
+              onChange={handleInputChange}
               onBlur={formik.handleBlur}
-              className="pl-2 border-2 border-gray-300 hover:border-red-800 flex-grow h-10 w-full mb-[2vw]"
+              className='pl-2 border-2 border-gray-300 hover:border-red-800 flex-grow h-10 w-full mb-[2vw]'
               required
             >
               {formik.touched.OrganisationState && formik.errors.OrganisationState && (
-                <div className="text-red-600">{formik.errors.OrganisationState}</div>
+                <div className="text-red-600">
+                  {formik.errors.OrganisationState}
+                </div>
               )}
-
-              <option value="">-- Choose State --</option>
-              {states.map((state) => (
-                <option key={state} value={state}>
-                  {state}
+              <option value=''>-- Select --</option>
+              {states.map((state: any) => (
+                <option key={state.state_id} value={state.state_id}>
+                  {state.state_name}
                 </option>
               ))}
             </select>
-
-
-            {formik.touched.OrganisationState && formik.errors.OrganisationState && (
-              <div className="text-red-600">
-                {formik.errors.OrganisationState}
-              </div>
-            )}
+            <label htmlFor='OrganisationCity' className='w-full mb-[7vw] '>
+              City {compulsory}
+            </label>
+            <select
+              id='OrganisationCity'
+              name='OrganisationCity'
+              value={formData.OrganisationCity}
+              onChange={handleInputChange}
+              onBlur={formik.handleBlur}
+              className='pl-2 border-2 border-gray-300 hover:border-red-800 flex-grow w-full h-10'
+              required
+            >
+              <option value=''>-- Select --</option>
+              {cities.map((city: any) => (
+                <option key={city.district_id} value={city.district_name}>
+                  {city.district_name}
+                </option>
+              ))}
+            </select>
           </div>
           <div className='mb-[2vh]  font-bold '>
             <label>
@@ -226,7 +279,7 @@ const OrgForm = () => {
               ethical.
             </label>
           </div>
-
+          
           <div className='flex justify-end'>
             <button
               type='submit'
