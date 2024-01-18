@@ -27,15 +27,13 @@ const OrgForm = () => {
 
   const router = useRouter();
 
-
-
   const validationSchema = Yup.object().shape({
     OrganisationName: Yup.string().required("Organization Name is required"),
     OrganisationPhone: Yup.string().required("Organization Number is required"),
     OrganisationEmail: Yup.string().email("Invalid email").required("Email is required"),
     OrganisationAddress: Yup.string().required("Organization Address is required"),
     OrganisationState: Yup.string().required("Organization Address is required"),
-    OrganisationCity: Yup.string().required("Organization City is required"),
+    OrganisationCity: Yup.string()
   });
 
   const handleSubmit = async (values: any) => {
