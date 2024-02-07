@@ -1,0 +1,16 @@
+name: Issue Created Notification
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Comment on issue
+        uses: actions/github-script@v5
+        with:
+          script: |
+            const issueComment = context.issue({ body: 'Thank you for opening this issue! We appreciate your contribution.' });
+            await github.rest.issues.createComment(issueComment);

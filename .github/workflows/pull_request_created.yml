@@ -1,0 +1,15 @@
+name: Pull Request Created Notification
+
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v6
+        with:
+          script: |
+            const prComment = context.issue({ body: 'Thank you for submitting this pull request! We appreciate your contribution.' });
+            await github.rest.issues.createComment(prComment);
