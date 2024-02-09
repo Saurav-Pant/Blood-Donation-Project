@@ -60,16 +60,14 @@ const Sidebar = ({ isOpen, onClose }: any) => {
 const Navbar = () => {
   const { userId } = useAuth();
   const [menuOpen, setMenuOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
     function handleResize() {
-      setIsMobile(window.innerWidth <= 768);
+      setWindowWidth(window.innerWidth);
     }
 
     window.addEventListener("resize", handleResize);
-    handleResize();
-
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
@@ -89,47 +87,43 @@ const Navbar = () => {
             <BiDonateBlood size={30} />
           </Link>
         </div>
-        {!isMobile ? (
-          userId ? (
-            <ul className="font-mono text-xl sm:flex nav-menu">
-              <li className="ml-8 hover:text-red-400 transition-colors duration-300 nav-item">
+        {windowWidth <= 768 && userId && (
+          <button
+            className="text-red-500 focus:outline-none"
+            onClick={handleMobileUpdate}
+          >
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d={menuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16m-7 6h7"}
+              />
+            </svg>
+          </button>
+        )}
+        {windowWidth <= 768 || !userId? null : (
+          <div className="">
+            <ul className="p-4 flex">
+              <li className="mr-4 hover:text-red-400 transition-colors duration-300">
                 <Link href="/FindBlood">Find Blood</Link>
               </li>
-
-              <li className="ml-8 hover:text-red-400 transition-colors duration-300 nav-item rounded ">
+              <li className="mr-4 hover:text-red-400 transition-colors duration-300">
                 <Link href="/DonorForm">Register Donor</Link>
               </li>
-
-              <li className="ml-8 hover:text-red-400 transition-colors duration-300 nav-item rounded ">
+              <li className="hover:text-red-400 transition-colors duration-300">
                 <Link href="/OrgForm">Register Organization</Link>
               </li>
             </ul>
-          ) : null
-        ) : (
-          <div>
-            <button
-              className="text-red-500 focus:outline-none"
-              onClick={handleMobileUpdate}
-            >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d={
-                    menuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16m-7 6h7"
-                  }
-                />
-              </svg>
-            </button>
           </div>
         )}
-        {!isMobile && !userId ? (
+
+        {!userId ? (
           <div className="flex justify-between items-center">
             <Link href="/sign-up">
               <button className="px-4 py-2 rounded sm:flex ml-8 bg-red-200 hover:bg-red-300 transition-all duration-100 text-black">
@@ -150,7 +144,9 @@ const Navbar = () => {
           )
         )}
       </nav>
-      {isMobile && <Sidebar isOpen={menuOpen} onClose={handleCloseSidebar} />}
+      {windowWidth <= 768 && (
+        <Sidebar isOpen={menuOpen} onClose={handleCloseSidebar} />
+      )}
     </>
   );
 };
