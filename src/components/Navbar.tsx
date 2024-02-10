@@ -182,12 +182,12 @@ const Navbar = () => {
           {!userId ? (
             <div className="flex justify-between items-center">
               <Link href="/sign-up">
-                <button className="px-4 py-2 rounded sm:flex ml-8 bg-red-200 hover:bg-red-300 transition-all duration-100 text-black">
+                <button className="px-2 lg:px-4  py-2  rounded sm:flex ml-8 bg-red-200 hover:bg-red-300 transition-all duration-100 text-black">
                   Sign Up
                 </button>
               </Link>
               <Link href="/sign-in">
-                <button className="px-4 py-2 rounded  sm:flex ml-8 bg-red-200 hover:bg-red-300 transition-all duration-100 text-black">
+                <button className="px-2 lg:px-4 py-2  rounded  sm:flex ml-8 bg-red-200 hover:bg-red-300 transition-all duration-100 text-black">
                   Sign In
                 </button>
               </Link>

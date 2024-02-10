@@ -31,7 +31,7 @@ const Signin = () => {
           />
         </div>
         <div
-          className="w-screen max-w-md bg-white dark:bg-[#181717] rounded-lg shadow-lg p-6 flex flex-col md:flex-row justify-center items-center hover:bg-red-50 transition-colors duration-500 ease-in-out"
+          className="w-full bg-white dark:bg-[#181717] rounded-lg shadow-lg p-6 flex flex-col md:flex-row justify-center items-center hover:bg-red-50 transition-colors duration-500 ease-in-out"
         >
           <SignIn/>
         </div>
