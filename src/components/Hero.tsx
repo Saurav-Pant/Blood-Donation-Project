@@ -20,8 +20,8 @@ const Hero = () => {
             </p>
           </div>
 
-          <div className="absolute top-10 right-10 h-40 w-40 bg-gradient-to-tr from-transparent to-red-200 rounded-full opacity-50"></div>
-          <div className="absolute top-10 left-10 h-40 w-40 bg-gradient-to-tr from-transparent to-red-200 rounded-full opacity-50"></div>
+          {/* <div className="absolute top-10 right-10 h-40 w-40 bg-gradient-to-tr from-transparent to-red-200 rounded-full opacity-50"></div>
+          <div className="absolute top-10 left-10 h-40 w-40 bg-gradient-to-tr from-transparent to-red-200 rounded-full opacity-50"></div> */}
 
         </div>
       </div>

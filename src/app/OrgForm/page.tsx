@@ -5,8 +5,6 @@ import * as Yup from "yup";
 import { useRouter } from "next/navigation";
 import statesData from "../../Content/State.json"
 
-
-
 const OrgForm = () => {
   const [formData, setFormData] = useState({
     OrganisationName: "",

@@ -12,7 +12,7 @@ const Footer = () => {
           <div
             className="text-center md:text-left md:w-1/2 md:mb-0"
           >
-            <h2 className="text-lg font-mono hover:text-red-400">
+            <h2 className="text-lg font-mono hover:text-red-800">
               Blood Donation Project
             </h2>
             <p className="mt-2 hover:text-red-200 font-light">
@@ -30,7 +30,7 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="transform hover:-translate-y-1 transition-transform duration-300"
               >
-                <BsGithub size={30} className="hover:text-red-300" />
+                <BsGithub size={30} className="hover:text-red-800" />
               </Link>
               <Link
                 href="https://twitter.com/Saurav_Pant_"
@@ -38,13 +38,13 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="transform hover:-translate-y-1 transition-transform duration-300"
               >
-                <RiTwitterXFill size={30} className="hover:text-red-300" />
+                <RiTwitterXFill size={30} className="hover:text-red-800" />
               </Link>
             </div>
           </div>
         </div>
         <p
-          className="mt-8 text-center text-sm text-gray-400 hover:text-red-300 transition-colors duration-300 ease-in-out"
+          className="mt-8 text-center text-sm text-gray-400 hover:text-red-800 transition-colors duration-300 ease-in-out"
         >
           &copy; {new Date().getFullYear()} Blood Donation. All rights reserved.
         </p>

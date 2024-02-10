@@ -47,7 +47,7 @@ const FindBlood = () => {
             <select
               name="bloodGroup"
               id="bloodGroup"
-              className="hover:border-red-800 w-full mt-1 bg-white border-2 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500"
+              className="hover:border-red-800 w-full mt-1 bg-white dark:bg-gray-700 border-2 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500"
               value={bloodGroup}
               onChange={handleBloodGroupChange}
             >
@@ -66,7 +66,7 @@ const FindBlood = () => {
           <button
             type="button"
             onClick={handleQuery}
-            className="w-full sm:w-2/3 mt-4 mx-auto sm:block p-2 bg-black text-white rounded-lg shadow-md hover:bg-gray-800 transition duration-200 ease-in"
+            className="w-full sm:w-2/3 mt-4 mx-auto sm:block p-2 bg-black dark:bg-white text-white dark:text-black rounded-lg shadow-md hover:bg-gray-800 transition duration-200 ease-in"
           >
             Proceed &gt;
           </button>
