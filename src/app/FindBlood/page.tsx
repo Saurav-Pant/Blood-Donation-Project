@@ -1,111 +1,117 @@
-"use client";
-import { AnyTxtRecord } from "dns";
-import React, { useState } from "react";
+"use client"
+
+import { User } from "@clerk/nextjs/server";
+import React, { useState, useEffect } from "react";
 import { BiFemale } from "react-icons/bi";
 import { FaCircleUser } from "react-icons/fa6";
 
-const FindBlood = () => {
-  const [bloodGroup, setBloodGroup] = useState("");
-  const [results, setResults] = useState([]);
-  const [loading, setLoading] = useState(false);
+interface Donor {
+  id: number;
+  firstName: string;
+  lastName: string;
+  gender: string;
+  bloodGroup: string;
+  age: number;
+  phone: string;
+  address: string;
+}
 
-  const handleQuery = async () => {
-    try {
-      setLoading(true);
+const FindBlood: React.FC = () => {
+  const [donors, setDonors] = useState<Donor[]>([]);
+  const [filteredDonors, setFilteredDonors] = useState<Donor[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [bloodGroupFilter, setBloodGroupFilter] = useState<string>("");
 
-      const response = await fetch("/api/DonorForm");
-      const data = await response.json();
-      console.log(data);
-
-      const filteredResults = data.Donors.filter(
-        (donor: any) => donor.bloodGroup === bloodGroup
-      );
-
-      setTimeout(() => {
-        setResults(filteredResults);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("/api/DonorForm");
+        const data: { Donors: Donor[] } = await response.json();
+        console.log(data);
+        setDonors(data.Donors);
         setLoading(false);
-      }, 2000);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-      setLoading(false);
-    }
-  };
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        setLoading(false);
+      }
+    };
 
-  const handleBloodGroupChange = (e: any) => {
-    setBloodGroup(e.target.value);
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    if (bloodGroupFilter === "") {
+      setFilteredDonors(donors);
+    } else {
+      setFilteredDonors(donors.filter((donor) => donor.bloodGroup === bloodGroupFilter));
+    }
+  }, [bloodGroupFilter, donors]);
+
+  const handleBloodGroupChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setBloodGroupFilter(e.target.value);
   };
 
   return (
-    <div className="flex flex-col md:flex-row justify-center px-4">
-      <div className="md:w-1/2 pr-4 lg:pr-8 xl:pr-16">
+    <div className="mb-10">
+      <div className="md:w-full lg:w-1/2 pr-4 lg:pr-8 xl:pr-16 mb-4 md:mb-0">
         <h1 className="mt-8 text-4xl text-center">Recipient Details</h1>
-        <form className="mx-auto max-w-sm">
-          <div className="mt-12">
-            <label htmlFor="bloodGroup" className="font-semibold text-gray-700">
-              Blood Group
-            </label>
-            <select
-              name="bloodGroup"
-              id="bloodGroup"
-              className="hover:border-red-800 w-full mt-1 bg-white dark:bg-gray-700 border-2 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500"
-              value={bloodGroup}
-              onChange={handleBloodGroupChange}
-            >
-              <option value="">-- Select --</option>
-              <option value="A+">A+</option>
-              <option value="A-">A-</option>
-              <option value="B+">B+</option>
-              <option value="B-">B-</option>
-              <option value="O+">O+</option>
-              <option value="O-">O-</option>
-              <option value="AB+">AB+</option>
-              <option value="AB-">AB-</option>
-            </select>
-          </div>
-
-          <button
-            type="button"
-            onClick={handleQuery}
-            className="w-full sm:w-2/3 mt-4 mx-auto sm:block p-2 bg-black dark:bg-white text-white dark:text-black rounded-lg shadow-md hover:bg-gray-800 transition duration-200 ease-in"
+        <div className="mt-12">
+          <label htmlFor="bloodGroup" className="font-semibold text-gray-700">
+            Filter by Blood Group
+          </label>
+          <select
+            name="bloodGroup"
+            id="bloodGroup"
+            className="hover:border-red-800 w-full mt-1 bg-white dark:bg-gray-700 border-2 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500"
+            value={bloodGroupFilter}
+            onChange={handleBloodGroupChange}
           >
-            Proceed &gt;
-          </button>
-        </form>
+            <option value="">-- All --</option>
+            <option value="A+">A+</option>
+            <option value="A-">A-</option>
+            <option value="B+">B+</option>
+            <option value="B-">B-</option>
+            <option value="O+">O+</option>
+            <option value="O-">O-</option>
+            <option value="AB+">AB+</option>
+            <option value="AB-">AB-</option>
+          </select>
+        </div>
       </div>
-
-      <div className="md:w-1/2 mt-8 md:mt-0">
+  
+      <div className="lg:wd-1/2">
         {loading ? (
           <div className="text-center mt-8">
             <h2 className="text-2xl font-semibold">Loading...</h2>
           </div>
         ) : (
           <div className="grid grid-cols-1 gap-4 mx-auto mt-5 sm:w-full lg:grid-cols-2">
-            {results.map((result: any) => (
+            {filteredDonors.map((donor) => (
               <div
-                key={result.id}
-                className="relative bg-white shadow-lg rounded-lg p-4 text-center mb-4"
+                key={donor.id}
+                className="bg-white shadow-lg rounded-lg p-4 text-center mb-4 md:mb-0"
               >
-                {result.gender.toLowerCase() === "male" ? (
-                  <FaCircleUser className="absolute top-0 right-0 mt-2 mr-2 w-10 h-10 rounded-full" />
+                {donor.gender.toLowerCase() === "male" ? (
+                  <FaCircleUser className="w-10 h-10 text-blue-500 inline-block mb-2" />
                 ) : (
-                  <BiFemale className="absolute top-0 right-0 mt-2 mr-2 w-10 h-10 rounded-full" />
+                  <BiFemale className="w-10 h-10 text-pink-500 inline-block mb-2" />
                 )}
-                <h2 className="text-2xl font-semibold text-gray-800">{`${result.firstName} ${result.lastName}`}</h2>
-                <p className="text-gray-500 mb-2">{result.address}</p>
+                <h2 className="text-xl font-semibold text-gray-800 mb-2">{`${donor.firstName} ${donor.lastName}`}</h2>
+                <p className="text-gray-600 mb-2">{donor.address}</p>
                 <div className="flex justify-between items-center border-t pt-2">
-                  <div className="text-yellow-400">
-                    Blood Group: {result.bloodGroup}
-                  </div>
-                  <div className="text-gray-500">Age: {result.age}</div>
-                  <div className="text-gray-500">Phone: {result.phone}</div>
+                  <div className="text-yellow-500">Blood Group: {donor.bloodGroup}</div>
+                  <div className="text-gray-500">Age: {donor.age}</div>
+                  <div className="text-gray-500">Phone: {donor.phone}</div>
                 </div>
               </div>
             ))}
+            {/* Added mb-0 to the last donor card for better responsiveness */}
           </div>
         )}
       </div>
     </div>
   );
+  
 };
 
 export default FindBlood;
