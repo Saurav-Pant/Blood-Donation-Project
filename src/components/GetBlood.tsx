@@ -69,7 +69,7 @@ const GetBlood = () => {
             <Image
               src={heartbeat}
               alt=""
-              className=" scale-[0.6] lg:scale-[1.1]"
+              className=" scale-[0.6] lg:scale-[1.1] max-[650px]:hidden"
             />
           </div>
           <div className="grid grid-cols-3">
