@@ -56,13 +56,13 @@ const FindBlood: React.FC = () => {
       <div className="md:w-full lg:w-1/2 pr-4 lg:pr-8 xl:pr-16 mb-4 md:mb-0">
         <h1 className="mt-8 text-4xl text-center">Recipient Details</h1>
         <div className="mt-12">
-          <label htmlFor="bloodGroup" className="font-semibold text-gray-700">
+          <label htmlFor="bloodGroup" className="font-semibold text-gray-400 ml-4">
             Filter by Blood Group
           </label>
           <select
             name="bloodGroup"
             id="bloodGroup"
-            className="hover:border-red-800 w-full mt-1 bg-white dark:bg-gray-700 border-2 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500"
+            className="hover:border-red-800 w-full mt-1 bg-white dark:bg-gray-300 border-2 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 h-11 m-7 mt-4 rounded-full dark:text-black bg-gray-500 text-slate-300"
             value={bloodGroupFilter}
             onChange={handleBloodGroupChange}
           >
