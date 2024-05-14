@@ -1,6 +1,5 @@
 "use client"
 
-import { User } from "@clerk/nextjs/server";
 import React, { useState, useEffect } from "react";
 import { BiFemale } from "react-icons/bi";
 import { FaCircleUser } from "react-icons/fa6";
@@ -19,7 +18,6 @@ interface Donor {
 const FindBlood: React.FC = () => {
   const [donors, setDonors] = useState<Donor[]>([]);
   const [filteredDonors, setFilteredDonors] = useState<Donor[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
   const [bloodGroupFilter, setBloodGroupFilter] = useState<string>("");
 
   useEffect(() => {
@@ -29,10 +27,8 @@ const FindBlood: React.FC = () => {
         const data: { Donors: Donor[] } = await response.json();
         console.log(data);
         setDonors(data.Donors);
-        setLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
-        setLoading(false);
       }
     };
 
@@ -80,11 +76,6 @@ const FindBlood: React.FC = () => {
       </div>
   
       <div className="lg:wd-1/2">
-        {loading ? (
-          <div className="text-center mt-8">
-            <h2 className="text-2xl font-semibold">Loading...</h2>
-          </div>
-        ) : (
           <div className="grid grid-cols-1 gap-4 mx-auto mt-5 sm:w-full lg:grid-cols-2">
             {filteredDonors.map((donor) => (
               <div
@@ -107,11 +98,10 @@ const FindBlood: React.FC = () => {
             ))}
             {/* Added mb-0 to the last donor card for better responsiveness */}
           </div>
-        )}
       </div>
     </div>
   );
-  
 };
 
 export default FindBlood;
+
