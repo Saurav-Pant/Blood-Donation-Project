@@ -53,10 +53,9 @@ const FindBlood: React.FC = () => {
   return (
     <div>
       {loading ? (
-        <div>
-          <svg className="animate-spin h-5 w-5 mr-3 ..." viewBox="0 0 24 24">
-          </svg>
-          Processing...
+        <div className="loader">
+          <div className="spinner"></div>
+          &nbsp; Loading...
         </div>
       ) : (
         <div className="mb-10">
