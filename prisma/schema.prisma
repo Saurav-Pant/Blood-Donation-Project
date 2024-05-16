@@ -17,7 +17,8 @@ model Donor {
   age        Int
   address    String
   state      String
-  city       String
+  city       String // city/town/village
+  pincode    Int // pincode
   gender     String
 }
 
