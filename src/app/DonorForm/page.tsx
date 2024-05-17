@@ -415,9 +415,7 @@ const DonorForm = () => {
                 </div>
                 {error && (
                     <div
-                        className="absolute right-14 bottom-3 text-red-300 hover:text-red-500 animate-bounce 
-        transition-all duration-500 ease-in-out
-        "
+                        className="absolute right-14 bottom-3 text-red-300 hover:text-red-500 animate-bounce transition-all duration-500 ease-in-out"
                     >
                         {error}
                     </div>

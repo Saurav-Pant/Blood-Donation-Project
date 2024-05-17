@@ -1,5 +1,6 @@
 "use client";
 
+import { User } from "@clerk/nextjs/server";
 import React, { useState, useEffect } from "react";
 import { BiFemale } from "react-icons/bi";
 import { FaCircleUser } from "react-icons/fa6";
@@ -18,11 +19,13 @@ interface Donor {
 }
 
 const FindBlood: React.FC = () => {
+
     const [donors, setDonors] = useState<Donor[]>([]);
     const [filteredDonors, setFilteredDonors] = useState<Donor[]>([]);
     const [loading, setLoading] = useState(true);
     const [bloodGroupFilter, setBloodGroupFilter] = useState<string>("");
     const [searchQuery, setSearchQuery] = useState<string>("");
+
 
     useEffect(() => {
         const fetchData = async () => {
@@ -68,6 +71,7 @@ const FindBlood: React.FC = () => {
         }
         setFilteredDonors(filtered);
     }, [bloodGroupFilter, searchQuery, donors]);
+
 
     const handleBloodGroupChange = (
         e: React.ChangeEvent<HTMLSelectElement>
@@ -184,6 +188,7 @@ const FindBlood: React.FC = () => {
             )}
         </div>
     );
+
 };
 
 export default FindBlood;
