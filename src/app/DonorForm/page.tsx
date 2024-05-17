@@ -5,6 +5,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useRouter } from "next/navigation";
 import statesData from "../../Content/State.json"
+import { Toaster, toast } from 'sonner'
 
 const DonorForm = () => {
 
@@ -351,7 +352,9 @@ const handleInputChange = async (e: React.ChangeEvent<HTMLInputElement | HTMLSel
           </div>
         )}
         <div className="flex justify-end">
+          <Toaster/>
           <button
+          onClick={()=>{toast.success('Donner added successfully')}}
             type="submit"
             className="w-full sm:w-1/2 mx-auto bg-red-900 hover:bg-red-800 text-white font-bold py-2 px-4 rounded"
             disabled={!formik.isValid || !formik.dirty || !formik.values.isChecked}
