@@ -1,15 +1,30 @@
-name: Pull Request Created Notification
+name: Greet New Pull Request
 
-on:
+on: 
   pull_request:
     types: [opened]
 
+permissions:
+  contents: read
+  pull-requests: write
+
 jobs:
-  notify:
+  greet:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/github-script@v6
-        with:
-          script: |
-            const prComment = context.issue({ body: 'Thank you for submitting this pull request! We appreciate your contribution.' });
-            await github.rest.issues.createComment(prComment);
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Greet the contributor
+      uses: actions/github-script@v6
+      with:
+        script: |
+          const pr_number = context.issue.number;
+          const owner = context.repo.owner;
+          const repo = context.repo.repo;
+          github.rest.issues.createComment({
+            issue_number: pr_number,
+            owner: owner,
+            repo: repo,
+            body: 'Thank you for submitting this pull request! We appreciate your contribution.'
+          });
