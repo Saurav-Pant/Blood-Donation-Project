@@ -23,6 +23,9 @@ Contributions are welcome! If you have any ideas, suggestions, or bug fixes, ple
 - Go through the [CONTRIBUTING.md](https://github.com/Saurav-Pant/Blood-Donation-Project/blob/main/contributing.md) file, where all the guidelines have been mentioned that will guide you to make your contribution.
 - Do check out the [project issue tracker](https://github.com/Saurav-Pant/Blood-Donation-Project/issues) section.
 
+**Please give it a star to support this open source project.**
+
+
 ## 🤝 Our Contributors
 
 <details>

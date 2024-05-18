@@ -8,6 +8,9 @@ The Blood Donation Project is an initiative aimed at connecting individuals in n
 
 To contribute to the project, follow the steps below:
 
+**Please give it a star to support this open source project.**
+
+
 1. **Fork the Repository**
 
    - Go to the GitHub repository at [https://github.com/Saurav-Pant/Blood-Donation-Project](https://github.com/Saurav-Pant/Blood-Donation-Project).
@@ -32,7 +35,7 @@ To contribute to the project, follow the steps below:
 
 4. **Configure Clerk**
 
-   - Go to [Clerk](https://clerk.com/) and log in to your account.
+   - Go to [Clerk](https://clerk.com/) and log in to your account and create an application.
    - Rename the `.env.example` file to `.env`:
      ```bash
      mv .env.example .env
