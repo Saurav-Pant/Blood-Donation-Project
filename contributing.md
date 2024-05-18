@@ -25,24 +25,41 @@ To contribute to the project, follow the steps below:
 
 3. **Install Dependencies**
 
-
    - Run the following command to install the project dependencies using npm:
      ```bash
      npm install
      ```
-   - Run the following command to start the Website locally:
+
+4. **Configure Clerk**
+
+   - Go to [Clerk](https://clerk.com/) and log in to your account.
+   - Rename the `.env.example` file to `.env`:
      ```bash
-     npm run dev
+     mv .env.example .env
      ```
+   - Open the `.env` file and replace the placeholders with your actual Clerk keys:
+     ```
+     NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your-clerk-publishable-key
+     CLERK_SECRET_KEY=your-clerk-secret-key
+     ```
+   - Clerk Application configuration:
+     ![Clerk Application Configuration ](./asset/clerk.png)
 
 5. **Maintaining Synchronization**
 
-   - Always take a pull from the repository to your master branch to keep it updated with the updated repository
+   - Always take a pull from the repository to your master branch to keep it updated with the updated repository:
      ```bash
      git pull
      ```
 
-6. **Creating a New Branch**
+6. **Start the Application**
+
+   - Run the following command to start the website locally:
+     ```bash
+     npm run dev
+     ```
+
+7. **Creating a New Branch**
 
    - Before starting work on a new feature or bug fix, create a new branch with your GitHub profile name:
 
@@ -50,11 +67,11 @@ To contribute to the project, follow the steps below:
       git checkout -b your-github-profile-name
      ```
 
-7. **Start Contributing**
+8. **Start Contributing**
 
    - Now that you have set up the project on your local machine, you can start contributing to the project by adding the necessary functionality to connect blood donors with individuals in need.
 
-8. **Committing Changes**
+9. **Committing Changes**
 
    - After making changes to the code, use the following command to stage the changes:
 
@@ -68,20 +85,20 @@ To contribute to the project, follow the steps below:
       git commit -m "Add feature XYZ"
      ```
 
-9. **Pushing Changes**
+10. **Pushing Changes**
 
    - Push your changes to your forked repository:
      ```bash
       git push -u origin your-github-profile-name
      ```
 
-10. To create a pull request, go to your fork of this repository,, you will see **`compare and pull requests`**. Click on that big green button
+11. To create a pull request, go to your fork of this repository,, you will see **`compare and pull requests`**. Click on that big green button
 
-11. Add an appropriate title and description to your pull request explaining your changes and efforts done.
+12. Add an appropriate title and description to your pull request explaining your changes and efforts done.
 
-12. Click on **`Create Pull Request`**.
+13. Click on **`Create Pull Request`**.
 
-13. Voila! You have made a PR to the **Blood-Donation-Project** 💥 Wait for your submission to be accepted and your PR to be merged 🎉
+14. Voila! You have made a PR to the **Blood-Donation-Project** 💥 Wait for your submission to be accepted and your PR to be merged 🎉
 
 ## Contributing Guidelines
 
