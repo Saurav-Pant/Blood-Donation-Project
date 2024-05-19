@@ -49,7 +49,7 @@ const OrgForm = () => {
       console.log(dataToSend)
       const data = await response.json();
       console.log("Data submitted successfully:", data);
-      router.push("/")      // change to Thank you page
+      router.push("/")
     } catch (error) {
       console.error("Error submitting data:", error);
     }

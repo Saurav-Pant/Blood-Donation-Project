@@ -24,5 +24,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/FindBlood", "/DonorForm", "/OrgForm", "/ThankYou"],
+  matcher: ["/FindBlood", "/DonorForm", "/OrgForm"],
 };

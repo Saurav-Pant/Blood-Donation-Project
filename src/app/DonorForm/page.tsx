@@ -40,7 +40,7 @@ const DonorForm = () => {
       console.log(dataToSend)
       const data = await response.json();
       console.log("Data submitted successfully:", data);
-      router.push("/ThankYou")
+      router.push("/")
     } catch (error) {
       console.error("Error submitting data:", error);
     }
