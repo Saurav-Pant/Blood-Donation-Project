@@ -54,7 +54,7 @@ const FindBlood: React.FC = () => {
   return (
     <div className="mb-10">
       <div className="md:w-full lg:w-1/2 pr-4 lg:pr-8 xl:pr-16 mb-4 md:mb-0">
-        <h1 className="mt-8 text-4xl text-center">Recipient Details</h1>
+        <h1 className="mt-8 text-4xl text-center">Donor Information</h1>
         <div className="mt-12">
           <label htmlFor="bloodGroup" className="font-semibold text-gray-700">
             Filter by Blood Group
