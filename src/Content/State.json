@@ -5,15 +5,18 @@
     "Assam",
     "Bihar",
     "Chhattisgarh",
+    "Delhi",
     "Goa",
     "Gujarat",
+
     "Haryana",
     "Himachal Pradesh",
+    "Jammu & Kashmir",
     "Jharkhand",
     "Karnataka",
     "Kerala",
-    "Madhya Pradesh",
     "Maharashtra",
+    "Madhya Pradesh",
     "Manipur",
     "Meghalaya",
     "Mizoram",
@@ -23,10 +26,16 @@
     "Rajasthan",
     "Sikkim",
     "Tamil Nadu",
-    "Telangana",
     "Tripura",
+    "Telangana",
     "Uttar Pradesh",
     "Uttarakhand",
-    "West Bengal"
+    "West Bengal",
+    "Andaman & Nicobar",
+    "Chandigarh",
+    "Dadra & Nagar Haveli",
+    "Daman & Diu",
+    "Lakshadweep",
+    "Puducherry"
   ]
 }
