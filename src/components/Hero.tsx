@@ -9,7 +9,7 @@ const Hero = () => {
      
   <div className="flex justify-center items-center h-[80vh]">
         <div className="w-full relative">
-        <h1 className="text-5xl lg:text-8xl font-bold font-serif text-center mb-2 lg:mb-8">
+        <h1 className="text-5xl lg:text-7xl font-bold font-serif text-center mb-2 lg:mb-8">
     Save Life <span className="inline-block border-red-700 text-red-800  border-4 rounded-full px-4 py-2 lg:px-6 lg:py-3 ml-2 lg:ml-4">Donate Blood</span>
         </h1>
 
