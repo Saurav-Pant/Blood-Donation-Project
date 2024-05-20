@@ -18,6 +18,7 @@ jobs:
     - name: Greet the contributor
       uses: actions/github-script@v6
       with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
         script: |
           const pr_number = context.issue.number;
           const owner = context.repo.owner;
