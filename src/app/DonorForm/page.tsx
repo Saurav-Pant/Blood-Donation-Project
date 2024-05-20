@@ -4,7 +4,9 @@ import { motion } from "framer-motion";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useRouter } from "next/navigation";
-import statesData from "../../Content/State.json";
+import statesData from "../../Content/State.json"
+import { Toaster, toast } from 'sonner'
+
 
 const DonorForm = () => {
     const states = statesData.states;
@@ -434,8 +436,95 @@ const DonorForm = () => {
                     </button>
                 </div>
             </div>
-        </motion.form>
-    );
+
+          )}
+
+        </div>
+        <div className="flex  mb-[3vw]">
+          <label htmlFor="gender" className="w-24 mr-4">
+            Gender {compulsory}
+          </label>
+<div className="flex items-center">
+  <input
+    type="radio"
+    id="male"
+    name="gender"
+    value="male"
+    onChange={handleInputChange}
+    className="mr-1"
+    required
+  />
+  <label htmlFor="male">Male</label>
+</div>
+<div className="flex items-center ml-4">
+  <input
+    type="radio"
+    id="female"
+    name="gender"
+    value="female"
+    onChange={handleInputChange}
+    onBlur={formik.handleBlur}
+    className="mr-1"
+    required
+  />
+  <label htmlFor="female">Female</label>
+</div>
+<div className="flex items-center ml-4">
+  <input
+    type="radio"
+    id="other"
+    name="gender"
+    value="other"
+    onChange={handleInputChange}
+    onBlur={formik.handleBlur}
+    className="mr-1"
+    required
+  />
+  <label htmlFor="other">Others</label>
+</div>
+          {formik.touched.isChecked && formik.errors.isChecked && (
+            <div className="text-red-600">{formik.errors.isChecked}</div>
+          )}
+        </div>
+        <div className="mb-[4vh] font-bold">
+          <label>
+            <input
+              type="checkbox"
+              checked={formik.values.isChecked}
+              onChange={handleCheckboxChange}
+              onBlur={formik.handleBlur}
+              className="mr-6"
+            />
+            All the details which are filled by me are right and ethical.
+          </label>
+          {formik.touched.isChecked && formik.errors.isChecked && (
+            <div className="text-red-600">{formik.errors.isChecked}</div>
+          )}
+        </div>
+
+        {error && (
+          <div
+            className="absolute right-14 bottom-3 text-red-300 hover:text-red-500 animate-bounce
+        transition-all duration-500 ease-in-out
+        "
+          >
+            {error}
+          </div>
+        )}
+        <div className="flex justify-end">
+          <Toaster/>
+          <button
+          onClick={()=>{toast.success('Donner added successfully')}}
+            type="submit"
+            className="w-full sm:w-1/2 mx-auto bg-red-900 hover:bg-red-800 text-white font-bold py-2 px-4 rounded"
+            disabled={!formik.isValid || !formik.dirty || !formik.values.isChecked}
+          >
+            Register
+          </button>
+        </div>
+      </div>
+    </motion.form>
+  );
 };
 
 export default DonorForm;

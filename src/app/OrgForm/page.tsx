@@ -4,6 +4,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useRouter } from "next/navigation";
 import statesData from "../../Content/State.json"
+import { toast, Toaster } from "sonner";
 
 const OrgForm = () => {
   const [formData, setFormData] = useState({
@@ -224,9 +225,12 @@ const OrgForm = () => {
           </div>
 
           <div className='flex justify-end'>
+            <Toaster/>
             <button
+            onClick={()=>{toast.success('Organisation added successfully')}}
               type='submit'
               className='w-full sm:w-1/2 mx-auto bg-red-900 hover:bg-red-800 text-white font-bold py-2 px-4 rounded'
+              disabled={!formik.isValid || !formik.dirty}
             >
               Register
             </button>
