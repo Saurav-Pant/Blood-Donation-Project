@@ -26,5 +26,5 @@ jobs:
             issue_number: issue_number,
             owner: owner,
             repo: repo,
-            body: 'Thank you for opening an issue! We will look into it ASAP.'
+            body: 'Thank you for opening an issue! We will look into it ASAP. star the repo if you like it.'
           });
