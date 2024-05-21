@@ -6,8 +6,7 @@ const ThankYou: React.FC = () => {
   return (
     <>
       <div
-        className="flex flex-col items-center justify-center h-screen overflow-hidden"
-        style={{ overflowY: "hidden", height: "100vh" }}
+        className="flex flex-col items-center justify-center overflow-hidden overflow-y-hidden h-screen"
       >
         <div className="text-center p-6 rounded shadow-lg">
           <h1 className="text-3xl font-bold text-red-600 mb-6">
