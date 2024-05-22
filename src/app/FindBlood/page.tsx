@@ -1,8 +1,16 @@
-"use client"
+"use client";
 
 import React, { useState, useEffect } from "react";
-import { BiFemale } from "react-icons/bi";
-import { FaCircleUser } from "react-icons/fa6";
+import DonorCard from "@/components/DonorCard";
+
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 interface Donor {
   id: number;
@@ -39,15 +47,17 @@ const FindBlood: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    if (bloodGroupFilter === "") {
+    if (bloodGroupFilter === "" || bloodGroupFilter === "all") {
       setFilteredDonors(donors);
     } else {
-      setFilteredDonors(donors.filter((donor) => donor.bloodGroup === bloodGroupFilter));
+      setFilteredDonors(
+        donors.filter((donor) => donor.bloodGroup === bloodGroupFilter)
+      );
     }
   }, [bloodGroupFilter, donors]);
 
-  const handleBloodGroupChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setBloodGroupFilter(e.target.value);
+  const handleBloodGroupChange = (value: string) => {
+    setBloodGroupFilter(value);
   };
 
   return (
@@ -59,62 +69,65 @@ const FindBlood: React.FC = () => {
         </div>
       ) : (
         <div className="mb-10">
-          <div className="md:w-full lg:w-1/2 pr-4 lg:pr-8 xl:pr-16 mb-4 md:mb-0">
-            <h1 className="mt-8 text-4xl text-center">Recipient Details</h1>
+          <div className="md:w-full lg:w-1/2 pr-4 lg:pr-8 px-6 mx-4 xl:pr-16 mb-4 md:mb-0">
+            <h1 className="mt-8 text-4xl">Recipient Details</h1>
             <div className="mt-12">
-              <label htmlFor="bloodGroup" className="font-semibold text-gray-400 ml-4">
-                Filter by Blood Group
-              </label>
-              <select
-                name="bloodGroup"
-                id="bloodGroup"
-                className="hover:border-red-800 w-full mt-1 bg-white dark:bg-gray-300 border-2 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 h-11 m-7 mt-4 rounded-full dark:text-black bg-gray-500 text-slate-300"
-                value={bloodGroupFilter}
-                onChange={handleBloodGroupChange}
-              >
-                <option value="">-- All --</option>
-                <option value="A+">A+</option>
-                <option value="A-">A-</option>
-                <option value="B+">B+</option>
-                <option value="B-">B-</option>
-                <option value="O+">O+</option>
-                <option value="O-">O-</option>
-                <option value="AB+">AB+</option>
-                <option value="AB-">AB-</option>
-              </select>
+              <div className="">
+                <label
+                  htmlFor="bloodGroup"
+                  className="font-semibold text-gray-400"
+                >
+                  Filter by Blood Group
+                </label>
+                {/* Select */}
+                <div className="my-2">
+                  <Select
+                    name="bloodGroup"
+                    value={bloodGroupFilter}
+                    onValueChange={handleBloodGroupChange}
+                  >
+                    <SelectTrigger className="w-[380px]">
+                      <SelectValue placeholder="Select Blood Group" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectGroup>
+                        <SelectItem value="all"> All </SelectItem>
+                        <SelectItem value="A+"> A + </SelectItem>
+                        <SelectItem value="A-"> A - </SelectItem>
+                        <SelectItem value="B+">B +</SelectItem>
+                        <SelectItem value="B-"> B -</SelectItem>
+                        <SelectItem value="AB+"> AB+ </SelectItem>
+                        <SelectItem value="AB-"> AB- </SelectItem>
+                        <SelectItem value="O+"> O + </SelectItem>
+                        <SelectItem value="O-"> O - </SelectItem>
+                      </SelectGroup>
+                    </SelectContent>
+                  </Select>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div className="lg:wd-1/2">
-            <div className="grid grid-cols-1 gap-4 mx-auto mt-5 sm:w-full lg:grid-cols-2">
+          <div className="lg:wd-1/2 mx-auto">
+            <div className="grid grid-cols-1 gap-4 mt-5 sm:w-full lg:grid-cols-2 xl:grid-cols-3 place-items-center">
               {filteredDonors.map((donor) => (
-                <div
+                <DonorCard
                   key={donor.id}
-                  className="bg-white shadow-lg rounded-lg p-4 text-center mb-4 md:mb-0"
-                >
-                  {donor.gender.toLowerCase() === "male" ? (
-                    <FaCircleUser className="w-10 h-10 text-blue-500 inline-block mb-2" />
-                  ) : (
-                    <BiFemale className="w-10 h-10 text-pink-500 inline-block mb-2" />
-                  )}
-                  <h2 className="text-xl font-semibold text-gray-800 mb-2">{`${donor.firstName} ${donor.lastName}`}</h2>
-                  <p className="text-gray-600 mb-2">{donor.address}</p>
-                  <div className="flex justify-between items-center border-t pt-2">
-                    <div className="text-yellow-500">Blood Group: {donor.bloodGroup}</div>
-                    <div className="text-gray-500">Age: {donor.age}</div>
-                    <div className="text-gray-500">Phone: {donor.phone}</div>
-                  </div>
-                </div>
+                  name={donor.firstName + " " + donor.lastName}
+                  age={donor.age}
+                  phone={donor.phone}
+                  address={donor.address}
+                  bloodGroup={donor.bloodGroup}
+                  // city={donor.city}
+                  // pincode={donor.pincode}
+                />
               ))}
-              {/* Added mb-0 to the last donor card for better responsiveness */}
             </div>
           </div>
         </div>
-      )
-      }
+      )}
     </div>
   );
 };
 
 export default FindBlood;
-
