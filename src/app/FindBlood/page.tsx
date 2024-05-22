@@ -69,9 +69,9 @@ const FindBlood: React.FC = () => {
         </div>
       ) : (
         <div className="mb-10">
-          <div className="md:w-full lg:w-1/2 pr-4 lg:pr-8 px-6 mx-4 xl:pr-16 mb-4 md:mb-0">
-            <h1 className="mt-8 text-4xl">Recipient Details</h1>
-            <div className="mt-12">
+          <div className="md:w-full pr-4 lg:pr-8 px-6  xl:pr-16 mb-4 md:mb-0">
+            <h1 className="w-full text-center mt-10 text-4xl">Find Blood</h1>
+            <div className="mt-12 mx-10">
               <div className="">
                 <label
                   htmlFor="bloodGroup"
@@ -107,9 +107,9 @@ const FindBlood: React.FC = () => {
               </div>
             </div>
           </div>
-
+          <div className="w-[90vw] rounded my-8 mx-auto h-1 bg-slate-500/40"></div>
           <div className="lg:wd-1/2 mx-auto">
-            <div className="grid grid-cols-1 gap-4 mt-5 sm:w-full lg:grid-cols-2 xl:grid-cols-3 place-items-center">
+            <div className="grid grid-cols-1 gap-x-4 gap-y-8 mt-5 sm:w-full lg:grid-cols-2 xl:grid-cols-3 place-items-center">
               {filteredDonors.map((donor) => (
                 <DonorCard
                   key={donor.id}

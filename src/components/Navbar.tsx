@@ -144,13 +144,13 @@ const Navbar = () => {
         {windowWidth <= 768 || !userId ? null : (
           <div className="">
             <ul className="p-4 flex">
-              <li className="mr-4  hover:text-red-800 transition-colors duration-300">
+              <li className="mx-4 hover:text-red-700 transition-colors duration-300 font-semibold hover:underline hover:underline-offset-8 hover:decoration-4">
                 <Link href="/FindBlood">Find Blood</Link>
               </li>
-              <li className="mr-4 hover:text-red-800 transition-colors duration-300">
+              <li className="mx-4 hover:text-red-700 transition-colors duration-300 font-semibold hover:underline hover:underline-offset-8 hover:decoration-4">
                 <Link href="/DonorForm">Register Donor</Link>
               </li>
-              <li className="hover:text-red-800 transition-colors duration-300">
+              <li className="mx-4 hover:text-red-700 transition-colors duration-300 font-semibold hover:underline hover:underline-offset-8 hover:decoration-4">
                 <Link href="/OrgForm">Register Organization</Link>
               </li>
             </ul>
