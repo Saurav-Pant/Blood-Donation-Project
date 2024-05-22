@@ -1,16 +1,30 @@
-name: Issue Created Notification
+name: Greet New Contributors
 
-on:
+on: 
   issues:
     types: [opened]
 
+permissions:
+  contents: read
+  issues: write
+
 jobs:
-  notify:
+  greet:
     runs-on: ubuntu-latest
     steps:
-      - name: Comment on issue
-        uses: actions/github-script@v5
-        with:
-          script: |
-            const issueComment = context.issue({ body: 'Thank you for opening this issue! We appreciate your contribution.' });
-            await github.rest.issues.createComment(issueComment);
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Greet the contributor
+      uses: actions/github-script@v5
+      with:
+        script: |
+          const issue_number = context.issue.number;
+          const owner = context.repo.owner;
+          const repo = context.repo.repo;
+          github.rest.issues.createComment({
+            issue_number: issue_number,
+            owner: owner,
+            repo: repo,
+            body: 'Thank you for opening an issue! We will look into it ASAP. star the repo if you like it.'
+          });
