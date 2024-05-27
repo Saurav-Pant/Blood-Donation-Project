@@ -15,25 +15,27 @@ import Link from "next/link";
 
 const Footer = () => {
   const { setTheme } = useTheme();
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className="py-10 shadow-2xl bg-slate-700 rounded-2xl text-white mt-6 mb-1 mx-4">
       <div className="container mx-auto px-4">
         <div className="md:flex md:flex-wrap md:justify-between md:items-center">
-          <div
-            className="text-center md:text-left md:w-1/2 md:mb-0"
-          >
+          <div className="text-center md:text-left md:w-1/2 md:mb-0">
             <h2 className="text-lg font-mono hover:text-red-800">
               Blood Donation Project
             </h2>
             <p className="mt-2 hover:text-red-200 font-light">
               Saving Lives Through Blood Donation
             </p>
-            <p>Feel free to to request a feature by visiting github & raising issue</p>
+            <p className="mt-2 hover:text-red-200">
+              Feel free to request a feature by visiting our <a href="https://github.com/Saurav-Pant/Blood-Donation-Project" target="_blank" rel="noopener noreferrer" className="underline hover:text-red-500">GitHub repository</a> and raising an issue.
+            </p>
+            <p className="mt-2 hover:text-red-200">
+              Follow us on <a href="https://twitter.com/Saurav_Pant_" target="_blank" rel="noopener noreferrer" className="underline hover:text-red-500">Twitter</a> for updates.
+            </p>
           </div>
-          <div
-            className="flex justify-center md:justify-end md:w-1/2 mt-4"
-          >
-
+          <div className="flex justify-center md:justify-end md:w-1/2 mt-4">
             <div className="flex items-center space-x-8">
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
@@ -55,7 +57,6 @@ const Footer = () => {
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
-
               <Link
                 href="https://github.com/Saurav-Pant/Blood-Donation-Project"
                 target="_blank"
@@ -75,14 +76,27 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <p
-          className="mt-8 text-center text-sm text-gray-400 hover:text-red-800 transition-colors duration-300 ease-in-out"
-        >
-          &copy; {new Date().getFullYear()} Blood Donation. All rights reserved.
-        </p>
+        <div className="mt-8 flex justify-center space-x-4 text-sm text-gray-400">
+          <p className="hover:text-red-800 transition-colors duration-300 ease-in-out">
+            &copy; {currentYear} Blood Donation. All rights reserved.
+          </p>
+          <Link 
+            href="https://blood-donation-project.vercel.app/" 
+            className="underline hover:text-red-500"
+          >
+            Visit our website
+          </Link>
+          <Link 
+            href="https://github.com/Saurav-Pant/Blood-Donation-Project/blob/main/LICENSE" 
+            className="underline hover:text-red-500"
+          >
+            License
+          </Link>
+        </div>
       </div>
     </footer>
   );
 };
+
 
 export default Footer;
