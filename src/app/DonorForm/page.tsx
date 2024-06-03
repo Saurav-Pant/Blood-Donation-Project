@@ -1,14 +1,13 @@
-"use client"
+"use client";
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useRouter } from "next/navigation";
-import statesData from "../../Content/State.json"
-import { Toaster, toast } from 'sonner'
+import statesData from "../../Content/State.json";
+import { Toaster, toast } from "sonner";
 
 const DonorForm = () => {
-
   const states = statesData.states;
 
   const router = useRouter();
@@ -38,10 +37,10 @@ const DonorForm = () => {
         body: JSON.stringify(dataToSend),
       });
 
-      console.log(dataToSend)
+      console.log(dataToSend);
       const data = await response.json();
       console.log("Data submitted successfully:", data);
-      router.push("/")
+      router.push("/");
     } catch (error) {
       console.error("Error submitting data:", error);
     }
@@ -67,13 +66,15 @@ const DonorForm = () => {
 
   const [error, setError] = useState<string | null>(null);
 
-const handleCheckboxChange = (e: any) => {
-  formik.setFieldValue("isChecked", e.target.checked);
-  console.log(e.target.checked)
-};
-const handleInputChange = async (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-  formik.handleChange(e);
-};
+  const handleCheckboxChange = (e: any) => {
+    formik.setFieldValue("isChecked", e.target.checked);
+    console.log(e.target.checked);
+  };
+  const handleInputChange = async (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
+    formik.handleChange(e);
+  };
 
   const compulsory = <span className="text-red-600">*</span>;
 
@@ -107,9 +108,7 @@ const handleInputChange = async (e: React.ChangeEvent<HTMLInputElement | HTMLSel
             required
           />
           {formik.touched.firstName && formik.errors.firstName && (
-            <div className="text-red-600">
-              {formik.errors.firstName}
-            </div>
+            <div className="text-red-600">{formik.errors.firstName}</div>
           )}
 
           <label htmlFor="lastName" className="w-full mb-[2vw] mt-2 mr-1">
@@ -127,11 +126,8 @@ const handleInputChange = async (e: React.ChangeEvent<HTMLInputElement | HTMLSel
             required
           />
           {formik.touched.lastName && formik.errors.lastName && (
-            <div className="text-red-600">
-              {formik.errors.lastName}
-            </div>
+            <div className="text-red-600">{formik.errors.lastName}</div>
           )}
-
         </div>
         <div className="mb-5">
           <label htmlFor="phone" className="w-full mb-[2vw] mt-2 mr-1">
@@ -145,15 +141,12 @@ const handleInputChange = async (e: React.ChangeEvent<HTMLInputElement | HTMLSel
             onBlur={formik.handleBlur}
             onChange={handleInputChange}
             className="pl-2 border-2 border-gray-300 hover:border-red-800 flex-grow h-10 w-full mb-[2vw]"
-
             placeholder="Phone Number"
             required
           />
 
           {formik.touched.phone && formik.errors.phone && (
-            <div className="text-red-600">
-              {formik.errors.phone}
-            </div>
+            <div className="text-red-600">{formik.errors.phone}</div>
           )}
 
           <label htmlFor="email" className="w-full mb-[2vw] mt-2 mr-1">
@@ -172,11 +165,8 @@ const handleInputChange = async (e: React.ChangeEvent<HTMLInputElement | HTMLSel
           />
 
           {formik.touched.email && formik.errors.email && (
-            <div className="text-red-600 ">
-              {formik.errors.email}
-            </div>
+            <div className="text-red-600 ">{formik.errors.email}</div>
           )}
-
         </div>
         <div className="mb-5">
           <label htmlFor="bloodGroup" className="w-full mb-[2vw] mt-2 mr-1">
@@ -202,9 +192,7 @@ const handleInputChange = async (e: React.ChangeEvent<HTMLInputElement | HTMLSel
             <option value="AB-">AB-</option>
           </select>
           {formik.touched.bloodGroup && formik.errors.bloodGroup && (
-            <div className="text-red-600">
-              {formik.errors.bloodGroup}
-            </div>
+            <div className="text-red-600">{formik.errors.bloodGroup}</div>
           )}
 
           <label htmlFor="age" className=" mb-[2vw] mt-2 mr-1 w-full ">
@@ -222,11 +210,8 @@ const handleInputChange = async (e: React.ChangeEvent<HTMLInputElement | HTMLSel
             required
           />
           {formik.touched.age && formik.errors.age && (
-            <div className="text-red-600">
-              {formik.errors.age}
-            </div>
+            <div className="text-red-600">{formik.errors.age}</div>
           )}
-
         </div>
         <div className="mb-5 ">
           <label htmlFor="address" className=" mt-2 mr-[2vw] w-full">
@@ -245,9 +230,7 @@ const handleInputChange = async (e: React.ChangeEvent<HTMLInputElement | HTMLSel
           />
 
           {formik.touched.address && formik.errors.address && (
-            <div className="text-red-600 ">
-              {formik.errors.address}
-            </div>
+            <div className="text-red-600 ">{formik.errors.address}</div>
           )}
 
           <label htmlFor="state" className="mt-2 w-full">
@@ -274,54 +257,51 @@ const handleInputChange = async (e: React.ChangeEvent<HTMLInputElement | HTMLSel
             ))}
           </select>
           {formik.touched.state && formik.errors.state && (
-            <div className="text-red-600">
-              {formik.errors.state}
-            </div>
+            <div className="text-red-600">{formik.errors.state}</div>
           )}
-
         </div>
         <div className="flex  mb-[3vw]">
           <label htmlFor="gender" className="w-24 mr-4">
             Gender {compulsory}
           </label>
-<div className="flex items-center">
-  <input
-    type="radio"
-    id="male"
-    name="gender"
-    value="male"
-    onChange={handleInputChange}
-    className="mr-1"
-    required
-  />
-  <label htmlFor="male">Male</label>
-</div>
-<div className="flex items-center ml-4">
-  <input
-    type="radio"
-    id="female"
-    name="gender"
-    value="female"
-    onChange={handleInputChange}
-    onBlur={formik.handleBlur}
-    className="mr-1"
-    required
-  />
-  <label htmlFor="female">Female</label>
-</div>
-<div className="flex items-center ml-4">
-  <input
-    type="radio"
-    id="other"
-    name="gender"
-    value="other"
-    onChange={handleInputChange}
-    onBlur={formik.handleBlur}
-    className="mr-1"
-    required
-  />
-  <label htmlFor="other">Others</label>
-</div>
+          <div className="flex items-center">
+            <input
+              type="radio"
+              id="male"
+              name="gender"
+              value="male"
+              onChange={handleInputChange}
+              className="mr-1"
+              required
+            />
+            <label htmlFor="male">Male</label>
+          </div>
+          <div className="flex items-center ml-4">
+            <input
+              type="radio"
+              id="female"
+              name="gender"
+              value="female"
+              onChange={handleInputChange}
+              onBlur={formik.handleBlur}
+              className="mr-1"
+              required
+            />
+            <label htmlFor="female">Female</label>
+          </div>
+          <div className="flex items-center ml-4">
+            <input
+              type="radio"
+              id="other"
+              name="gender"
+              value="other"
+              onChange={handleInputChange}
+              onBlur={formik.handleBlur}
+              className="mr-1"
+              required
+            />
+            <label htmlFor="other">Others</label>
+          </div>
           {formik.touched.isChecked && formik.errors.isChecked && (
             <div className="text-red-600">{formik.errors.isChecked}</div>
           )}
@@ -352,12 +332,16 @@ const handleInputChange = async (e: React.ChangeEvent<HTMLInputElement | HTMLSel
           </div>
         )}
         <div className="flex justify-end">
-          <Toaster/>
+          <Toaster />
           <button
-          onClick={()=>{toast.success('Donner added successfully')}}
+            onClick={() => {
+              toast.success("Donner added successfully");
+            }}
             type="submit"
             className="w-full sm:w-1/2 mx-auto bg-red-900 hover:bg-red-800 text-white font-bold py-2 px-4 rounded"
-            disabled={!formik.isValid || !formik.dirty || !formik.values.isChecked}
+            disabled={
+              !formik.isValid || !formik.dirty || !formik.values.isChecked
+            }
           >
             Register
           </button>

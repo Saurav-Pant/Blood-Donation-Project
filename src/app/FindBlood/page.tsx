@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { User } from "@clerk/nextjs/server";
 import React, { useState, useEffect } from "react";
@@ -43,7 +43,9 @@ const FindBlood: React.FC = () => {
     if (bloodGroupFilter === "") {
       setFilteredDonors(donors);
     } else {
-      setFilteredDonors(donors.filter((donor) => donor.bloodGroup === bloodGroupFilter));
+      setFilteredDonors(
+        donors.filter((donor) => donor.bloodGroup === bloodGroupFilter)
+      );
     }
   }, [bloodGroupFilter, donors]);
 
@@ -78,7 +80,7 @@ const FindBlood: React.FC = () => {
           </select>
         </div>
       </div>
-  
+
       <div className="lg:wd-1/2">
         {loading ? (
           <div className="text-center mt-8">
@@ -99,7 +101,9 @@ const FindBlood: React.FC = () => {
                 <h2 className="text-xl font-semibold text-gray-800 mb-2">{`${donor.firstName} ${donor.lastName}`}</h2>
                 <p className="text-gray-600 mb-2">{donor.address}</p>
                 <div className="flex justify-between items-center border-t pt-2">
-                  <div className="text-yellow-500">Blood Group: {donor.bloodGroup}</div>
+                  <div className="text-yellow-500">
+                    Blood Group: {donor.bloodGroup}
+                  </div>
                   <div className="text-gray-500">Age: {donor.age}</div>
                   <div className="text-gray-500">Phone: {donor.phone}</div>
                 </div>
@@ -111,7 +115,6 @@ const FindBlood: React.FC = () => {
       </div>
     </div>
   );
-  
 };
 
 export default FindBlood;
