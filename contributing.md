@@ -102,6 +102,41 @@ To contribute to the project, follow the steps below:
 13. Click on **`Create Pull Request`**.
 
 14. Voila! You have made a PR to the **Blood-Donation-Project** 💥 Wait for your submission to be accepted and your PR to be merged 🎉
+    
+## Quick Docker Setup
+### Requirement:
+
+* Docker Desktop
+  
+### Let's Begin:
+1. Make sure you have followed **step-4 (Configure Clerk)** from the above procedure.
+2. #### Verify Docker Status:
+To ensure a seamless Docker experience, it's essential to check the status of the Docker service on your system.To verify whether the Docker service is currently active or inactive, you can use the following steps:
+* Check Docker Service Status:
+```bash
+systemctl status docker
+```
+if it's inactive, you'll need to take corrective action.
+
+* To activate the Docker service, use the following command:
+```bash
+sudo systemctl start docker
+```
+3. #### Build:
+Now, let's build the Docker image named 'blood-donation' using the docker build command:
+```bash
+sudo docker build -t blood-donation .
+```
+4. #### Run:
+Write the following command to run a Docker container named 'blood_donation '
+```bash
+sudo docker run -p 8080:3000 --name blood_donation blood-donation
+```
+5. Wait until the ***Ready*** message to appear.
+6. Search the following syntax in your web browser to view the website.
+```bash
+localhost:8080
+```
 
 ## Contributing Guidelines
 
