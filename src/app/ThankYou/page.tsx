@@ -8,7 +8,7 @@ const ThankYou: React.FC = () => {
       <div
         className="flex flex-col items-center justify-center overflow-hidden overflow-y-hidden h-screen"
       >
-        <div className="text-center p-6 rounded shadow-lg">
+        <div className="text-center p-6 rounded shadow-lg shadow-cyan-100/20">
           <h1 className="text-3xl font-bold text-red-600 mb-6">
             Thank you for your Gift!
           </h1>
