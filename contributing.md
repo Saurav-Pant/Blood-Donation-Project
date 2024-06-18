@@ -120,17 +120,17 @@ if it's inactive, you'll need to take corrective action.
 
 * To activate the Docker service, use the following command:
 ```bash
-sudo systemctl start docker
+systemctl start docker
 ```
 3. #### Build:
 Now, let's build the Docker image named 'blood-donation' using the docker build command:
 ```bash
-sudo docker build -t blood-donation .
+docker build -t blood-donation .
 ```
 4. #### Run:
 Write the following command to run a Docker container named 'blood_donation '
 ```bash
-sudo docker run -p 8080:3000 --name blood_donation blood-donation
+docker run -p 8080:3000 --name blood_donation blood-donation
 ```
 5. Wait until the ***Ready*** message to appear.
 6. Search the following syntax in your web browser to view the website.
