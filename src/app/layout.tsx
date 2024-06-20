@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
+import {  dark, neobrutalism  } from '@clerk/themes';
 import Navbar from "@/components/Navbar";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
 import { ThemeProvider } from "@/Context/ThemeContext";
@@ -19,7 +20,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <ClerkProvider>
+    <ClerkProvider appearance={{
+      baseTheme: [dark] as any,
+      variables: { colorPrimary: '#B22222' },
+    }}>
       <html lang="en">
         <body className={inter.className}>
           <ThemeProvider
