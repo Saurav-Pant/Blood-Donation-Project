@@ -94,11 +94,11 @@ const Sidebar = ({ isOpen, onClose }: any) => {
 const Navbar = () => {
   const { userId } = useAuth();
   const [menuOpen, setMenuOpen] = useState(false);
-  const [windowWidth, setWindowWidth] = useState(1200);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
     function handleResize() {
-      setWindowWidth(1200);
+      setWindowWidth(window.innerWidth);
     }
 
     window.addEventListener("resize", handleResize);
