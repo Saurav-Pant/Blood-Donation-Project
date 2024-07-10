@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import { User } from "@clerk/nextjs/server";
 import React, { useState, useEffect } from "react";
 import { BiFemale } from "react-icons/bi";
 import { FaCircleUser } from "react-icons/fa6";
+import { FaArrowUp } from "react-icons/fa";
 
 interface Donor {
   id: number;
@@ -21,6 +21,7 @@ const FindBlood: React.FC = () => {
   const [filteredDonors, setFilteredDonors] = useState<Donor[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [bloodGroupFilter, setBloodGroupFilter] = useState<string>("");
+  const [showTopButton, setShowTopButton] = useState<boolean>(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -50,6 +51,25 @@ const FindBlood: React.FC = () => {
   const handleBloodGroupChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setBloodGroupFilter(e.target.value);
   };
+
+  const handleScroll = () => {
+    if (window.pageYOffset > 300) {
+      setShowTopButton(true);
+    } else {
+      setShowTopButton(false);
+    }
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <div className="mb-10">
@@ -109,9 +129,17 @@ const FindBlood: React.FC = () => {
           </div>
         )}
       </div>
+      
+      {showTopButton && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-10 right-10 bg-blue-500 text-white p-3 rounded-full shadow-lg hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
+        >
+          <FaArrowUp className="w-6 h-6" />
+        </button>
+      )}
     </div>
   );
-  
 };
 
 export default FindBlood;
