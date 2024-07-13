@@ -1,15 +1,35 @@
-FROM node:20-alpine
+FROM node:20-alpine AS BUILD_IMAGE
 
-WORKDIR /app
+RUN mkdir -p /usr/app/
 
-COPY package*.json ./
+WORKDIR /usr/app/
+
+COPY ./ ./
 
 RUN npm install
 
-COPY . .
-
 RUN npm run build
 
-EXPOSE  3000
+RUN rm -rf node_modules
 
-CMD ["npm", "start"]
+RUN npm install --production
+
+FROM node:20-alpine
+
+RUN mkdir -p /usr/app/
+
+WORKDIR /usr/app/
+
+COPY --from=BUILD_IMAGE /usr/app/node_modules ./node_modules
+
+COPY --from=BUILD_IMAGE /usr/app/package.json ./
+
+COPY --from=BUILD_IMAGE /usr/app/package-lock.json ./
+
+COPY --from=BUILD_IMAGE /usr/app/public ./public
+
+COPY --from=BUILD_IMAGE /usr/app/.next ./.next
+
+EXPOSE 3000
+
+CMD [ "npm", "start" ]
