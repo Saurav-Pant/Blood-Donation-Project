@@ -1,0 +1,31 @@
+# Ignore node modules
+node_modules
+
+# Ignore log files
+*.log
+
+# Ignore build output
+build
+dist
+
+# Ignore dotenv files (secrets and environment variables)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+
+# Ignore any files related to git
+.git
+.gitignore
+
+# Ignore miscellaneous files
+.DS_Store
+*.swp
+.github
+.git
+.gitignore
+CODE_OF_CONDUCT.md
+README.md
+contributing.md

@@ -17,7 +17,11 @@
   height: 40px;
   animation: spin 1s linear infinite;
 }
-
+.dark .form-mode{
+  filter: invert(1);
+}
+.dark .form-mode img,.dark .form-mode p{filter: invert(1);}
+.dark .cl-dividerText{filter: invert(0) !important;}
 @keyframes spin {
   0% {
     transform: rotate(0deg);

@@ -10,7 +10,7 @@ The Blood Donation Project is an initiative aimed at connecting individuals in n
 - [NextJs](https://nextjs.org) - Next.js is an open-source web development framework.
 - [Typescript](https://www.typescriptlang.org) - TypeScript is a free and open-source high-level programming language.
 - [TailwindCSS](https://tailwindcss.com) - Tailwind CSS is a utility-first CSS framework for rapidly building modern websites without ever leaving your HTML.
-- [Docker] -
+- [Docker](https://www.docker.com/) - Docker is a platform designed to help developers build, share, and run container applications. it handle the tedious setup, so devloper can focus on the code
 
 ## 🚀 Quick start
 
