@@ -23,3 +23,9 @@ dist
 # Ignore miscellaneous files
 .DS_Store
 *.swp
+.github
+.git
+.gitignore
+CODE_OF_CONDUCT.md
+README.md
+contributing.md
