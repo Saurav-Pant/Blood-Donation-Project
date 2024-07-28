@@ -2,6 +2,7 @@
 import React from "react";
 import { BsGithub } from "react-icons/bs";
 import { RiTwitterXFill } from 'react-icons/ri'
+import { IoMdMail } from "react-icons/io";
 import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
 import { Button } from "./ui/button";
 import { useTheme } from "next-themes";
@@ -72,6 +73,14 @@ const Footer = () => {
                 className="transform hover:-translate-y-1 transition-transform duration-300"
               >
                 <RiTwitterXFill size={30} className="hover:text-red-800" />
+              </Link>
+              <Link
+                href="mailto:pantsaurav005@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transform hover:-translate-y-1 transition-transform duration-300"
+              >
+                <IoMdMail size={30} className="hover:text-red-800" />
               </Link>
             </div>
           </div>
