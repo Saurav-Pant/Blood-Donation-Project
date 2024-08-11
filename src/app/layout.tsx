@@ -25,22 +25,22 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-      <body
+        <body
           className={cn(
             "min-h-screen bg-gradient-to-r from-rose-50 to-teal-50 antialiased",
             poppins.className,
           )}
         >
-          <ThemeProvider
+          {/* <ThemeProvider
             attribute="class"
             defaultTheme="system"
             enableSystem
             disableTransitionOnChange
-          >
-            <Navbar />
-            {children}
-            {/* <ScrollToTopButton /> */}
-          </ThemeProvider>
+          > */}
+          <Navbar />
+          {children}
+          {/* <ScrollToTopButton /> */}
+          {/* </ThemeProvider> */}
         </body>
       </html>
     </ClerkProvider>
