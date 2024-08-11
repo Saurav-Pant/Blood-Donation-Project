@@ -1,30 +1,39 @@
 "use client";
+
 import React from "react";
+import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
+import { Terminal } from "lucide-react";
+import ShinyButton from "@/components/ui/shiny-button";
 import OurMission from "./OurMission";
 import GetBlood from "./GetBlood";
 
 const Hero = () => {
   return (
     <>
-      <div className="flex justify-center items-center h-[80vh]">
-        <div className="w-full relative">
-        <h1 className="text-5xl lg:text-7xl font-bold font-serif text-center mb-2 lg:mb-8">
-    Save Life <span className="inline-block border-red-700 text-red-800  border-4 rounded-full px-4 py-2 lg:px-6 lg:py-3 ml-2 lg:ml-4">Donate Blood</span>
-        </h1>
-
-
-          <div className="mx-5 sm:mx-10 lg:mx-30 xl:mx-60 mt-5">
-            <p className="text-lg sm:text-xl md:text-lg lg:text-xl xl:text-2xl font-mono text-center sm:text-justify">
-              Donate blood to save lives. Your blood donation can save a life
-              and help others to live a better life and make a better future for
-              their families.
-            </p>
-          </div>
-
-          {/* <div className="absolute top-10 right-10 h-40 w-40 bg-gradient-to-tr from-transparent to-red-200 rounded-full opacity-50"></div>
-          <div className="absolute top-10 left-10 h-40 w-40 bg-gradient-to-tr from-transparent to-red-200 rounded-full opacity-50"></div> */}
-
+      <div className="min-h-[80vh] flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 mb-10">
+        <div className="mx-4 mb-20 hover:shadow-md transition-all duration-300 ease-in-out">
+          <Alert>
+            <Terminal className="h-4 w-4" />
+            <AlertTitle>Heads up!</AlertTitle>
+            <AlertDescription>
+              Your blood donation can save a life and help others
+            </AlertDescription>
+          </Alert>
         </div>
+        
+        <ShinyButton text="Donate Now" className="font-bold shadow-md" />
+
+        <h1 className="max-w-4xl text-5xl md:text-6xl lg:text-6xl font-bold mb-4 sm:mb-5 text-center mt-3">
+          Save Life
+          <span className="text-red-800 block sm:inline sm:ml-3">
+            Donate Blood
+          </span>
+        </h1>
+        <p className="text-sm sm:text-base lg:text-lg mb-6 font-normal text-center max-w-2xl">
+          Donate blood to save lives. Your blood donation can save a life
+          and help others to live a better life and make a better future for
+          their families.
+        </p>
       </div>
       <OurMission />
       <GetBlood />

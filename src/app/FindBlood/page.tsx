@@ -72,7 +72,7 @@ const FindBlood: React.FC = () => {
   }, []);
 
   return (
-    <div className="mb-10">
+    <div className="mb-10 overflow-x-hidden mx-5">
       <div className="md:w-full lg:w-1/2 pr-4 lg:pr-8 xl:pr-16 mb-4 md:mb-0">
         <h1 className="mt-8 text-4xl text-center">Donor Information</h1>
         <div className="mt-12">
@@ -105,27 +105,37 @@ const FindBlood: React.FC = () => {
             <h2 className="text-2xl font-semibold">Loading...</h2>
           </div>
         ) : (
-          <div className="grid grid-cols-1 gap-4 mx-auto mt-5 sm:w-full lg:grid-cols-2">
+          <div className="grid grid-cols-1 gap-6 mt-8 sm:w-full lg:grid-cols-2 xl:grid-cols-3">
             {filteredDonors.map((donor) => (
               <div
                 key={donor.id}
-                className="bg-white shadow-lg rounded-lg p-4 text-center mb-4 md:mb-0"
+                className="bg-white shadow-xl rounded-xl p-6 text-center mb-4 md:mb-0 transform transition duration-300 hover:scale-105"
               >
-                {donor.gender.toLowerCase() === "male" ? (
-                  <FaCircleUser className="w-10 h-10 text-blue-500 inline-block mb-2" />
-                ) : (
-                  <BiFemale className="w-10 h-10 text-pink-500 inline-block mb-2" />
-                )}
-                <h2 className="text-xl font-semibold text-gray-800 mb-2">{`${donor.firstName} ${donor.lastName}`}</h2>
-                <p className="text-gray-600 mb-2">{donor.address}</p>
-                <div className="flex justify-between items-center border-t pt-2">
-                  <div className="text-yellow-500">Blood Group: {donor.bloodGroup}</div>
-                  <div className="text-gray-500">Age: {donor.age}</div>
-                  <div className="text-gray-500">Phone: {donor.phone}</div>
+                <div className="mb-4">
+                  {donor.gender.toLowerCase() === "male" ? (
+                    <FaCircleUser className="w-16 h-16 text-blue-600 inline-block" />
+                  ) : (
+                    <BiFemale className="w-16 h-16 text-pink-600 inline-block" />
+                  )}
+                </div>
+                <h2 className="text-2xl font-bold text-gray-800 mb-3">{`${donor.firstName} ${donor.lastName}`}</h2>
+                <p className="text-gray-600 mb-4">{donor.address}</p>
+                <div className="flex flex-col space-y-2 border-t pt-4">
+                  <div className="flex justify-between items-center">
+                    <span className="font-semibold">Blood Group:</span>
+                    <span className="text-red-600 font-bold">{donor.bloodGroup}</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="font-semibold">Age:</span>
+                    <span>{donor.age}</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="font-semibold">Phone:</span>
+                    <span>{donor.phone}</span>
+                  </div>
                 </div>
               </div>
             ))}
-            {/* Added mb-0 to the last donor card for better responsiveness */}
           </div>
         )}
       </div>

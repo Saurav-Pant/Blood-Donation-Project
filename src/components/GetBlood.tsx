@@ -35,7 +35,7 @@ const InfoCard: React.FC<InfoCardProps> = ({ infotext, infonumber }) => {
 const GetBlood = () => {
   return (
     <div className="sm:mb-[50px] md:mb-[150px] lg:mb-[200px]">
-      <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center pt-10 font-mono text-red-800 transition-colors duration-300 ease-in-out">
+      <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center pt-10 text-red-800 transition-colors duration-300 ease-in-out">
         How to get Blood?
       </h1>
       <motion.div

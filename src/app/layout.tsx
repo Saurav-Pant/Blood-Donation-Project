@@ -1,17 +1,21 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import Navbar from "@/components/Navbar";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
 import { ThemeProvider } from "@/Context/ThemeContext";
+import { Poppins } from "next/font/google";
+import { cn } from "@/lib/utils"
 
-const inter = Inter({ subsets: ["latin"] });
+
 
 export const metadata: Metadata = {
   title: "Blood Donation",
   description: "Help to get blood donation",
 };
+
+const poppins = Poppins({ subsets: ["latin"], weight: ["400", "500", "600"] });
+
 
 export default function RootLayout({
   children,
@@ -21,7 +25,12 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className={inter.className}>
+      <body
+          className={cn(
+            "min-h-screen bg-gradient-to-r from-rose-50 to-teal-50 antialiased",
+            poppins.className,
+          )}
+        >
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
