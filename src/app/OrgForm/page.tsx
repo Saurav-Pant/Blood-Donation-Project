@@ -5,6 +5,8 @@ import * as Yup from "yup";
 import { useRouter } from "next/navigation";
 import statesData from "../../Content/State.json"
 import { toast, Toaster } from "sonner";
+import { BorderBeam } from "@/components/ui/border-beam";
+
 
 const OrgForm = () => {
   const [formData, setFormData] = useState({
@@ -85,14 +87,16 @@ const OrgForm = () => {
     <>
       <form
         onSubmit={formik.handleSubmit}
-        className='mx-auto max-w-xl '
+        className='mx-auto max-w-xl my-5'
       >
         <div className='flex items-center bg-gradient-to-r from-red-900 via-red-900 to-red-800 h-[11vh] mt-4 rounded w-full mb-[2vh]'>
           <h1 className='text-white text-2xl font-bold ml-4'>
             Register as Organisation
           </h1>
         </div>
-        <div className='shadow border-1 p-8'>
+        <div className='shadow border-1 p-8 relative h-full w-full rounded-xl'>
+        <BorderBeam/>
+
           <div className='mb-5'>
             <label htmlFor='name' className='w-full mb-[2vw] mt-2'>
               <h1>Organisation Name {compulsory}</h1>

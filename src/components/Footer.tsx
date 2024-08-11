@@ -2,19 +2,21 @@
 import React from "react";
 import { BsGithub } from "react-icons/bs";
 import { RiTwitterXFill } from 'react-icons/ri'
-import { IoMdMail } from "react-icons/io";
 import Link from 'next/link'
+import { Separator } from "@/components/ui/separator"
+
 
 const Footer = () => {
   return (
-    <footer className="py-10 mt-6 mb-1 mx-4">
+    <footer className="py-10 mt-6 mb-1 mx-auto w-[85%] ">
+      <Separator className="mb-4 w-[60%] mx-auto" />
       <div className="container mx-auto px-4">
         <div className="md:flex md:flex-wrap md:justify-between md:items-center ">
           <div className="text-center md:text-left md:w-1/2 md:mb-0">
-            <h2 className="text-lg font-mono hover:text-red-800">
+            <h2 className="text-lg">
               Blood Donation Project
             </h2>
-            <p className="mt-2 hover:text-red-200 font-light">
+            <p className="mt-2  font-light">
               Saving Lives Through Blood Donation
             </p>
 
@@ -28,7 +30,7 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="transform hover:-translate-y-1 transition-transform duration-300"
               >
-                <BsGithub size={30} className="hover:text-red-800" />
+                <BsGithub size={30} className="" />
               </Link>
               <Link
                 href="https://twitter.com/Saurav_Pant_"
@@ -36,16 +38,7 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="transform hover:-translate-y-1 transition-transform duration-300"
               >
-                <RiTwitterXFill size={30} className="hover:text-red-800" />
-              </Link>
-              
-              <Link
-                href="mailto:pantsaurav005@gmail.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="transform hover:-translate-y-1 transition-transform duration-300"
-              >
-                <IoMdMail size={30} className="hover:text-red-800" />
+                <RiTwitterXFill size={30} className="" />
               </Link>
             </div>
           </div>

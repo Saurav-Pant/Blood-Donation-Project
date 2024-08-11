@@ -109,7 +109,7 @@ const FindBlood: React.FC = () => {
             {filteredDonors.map((donor) => (
               <div
                 key={donor.id}
-                className="bg-white shadow-xl rounded-xl p-6 text-center mb-4 md:mb-0 transform transition duration-300 hover:scale-105"
+                className="bg-white shadow-md rounded-xl p-6 text-center mb-4 md:mb-0 transform transition duration-300 hover:shadow-lg"
               >
                 <div className="mb-4">
                   {donor.gender.toLowerCase() === "male" ? (
