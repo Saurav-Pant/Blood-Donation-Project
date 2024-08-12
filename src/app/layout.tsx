@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import Navbar from "@/components/Navbar";
-import ScrollToTopButton from "@/components/ScrollToTopButton";
 import { ThemeProvider } from "@/Context/ThemeContext";
 import { Poppins } from "next/font/google";
 import { cn } from "@/lib/utils"
@@ -39,7 +38,6 @@ export default function RootLayout({
           > */}
           <Navbar />
           {children}
-          {/* <ScrollToTopButton /> */}
           {/* </ThemeProvider> */}
         </body>
       </html>

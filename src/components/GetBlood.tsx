@@ -1,7 +1,6 @@
 import React from "react";
 import pencil from "../../asset/pencil.svg";
 import heartbeat from "../../asset/heartbeat.svg";
-import { motion } from "framer-motion";
 import Image from "next/image";
 
 interface InfoCardProps {
@@ -38,21 +37,11 @@ const GetBlood = () => {
       <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center pt-10 text-red-800 transition-colors duration-300 ease-in-out">
         How to get Blood?
       </h1>
-      <motion.div
+      <div
         className="flex justify-center items-center px-4 sm:px-10"
-        initial={{ opacity: 0, position: "relative", top: "-50px" }}
-        animate={{ opacity: 1, position: "relative", top: "0px" }}
-        transition={{ duration: 1 }}
       >
-        <motion.div
-          className="h-fit w-full mb-6 flex flex-col items-center justify-center"
-          initial={{
-            opacity: 0,
-            position: "relative",
-            right: "-100px",
-          }}
-          animate={{ opacity: 1, position: "relative", right: "0px" }}
-          transition={{ duration: 1 }}
+        <div
+          className="h-fit w-full mb-6 flex flex-col items-center justify-center relative"
         >
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="hidden md:block"></div>
@@ -92,8 +81,8 @@ const GetBlood = () => {
               />
             </div>
           </div>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </div>
   );
 };
