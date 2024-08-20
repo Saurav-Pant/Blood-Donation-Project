@@ -3,10 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "prisma generate && next build",
+    "dev": "next dev -H 0.0.0.0",
+    "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@clerk/clerk-react": "^5.1.0",
@@ -31,6 +32,7 @@
     "react-burger-menu": "^3.0.9",
     "react-dom": "^18",
     "react-icons": "^5.0.1",
+    "sharp": "^0.32.1",
     "sonner": "^1.4.41",
     "swiper": "^11.0.5",
     "tailwind-merge": "^2.3.0",
