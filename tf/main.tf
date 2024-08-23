@@ -68,11 +68,19 @@ resource "aws_security_group" "allow_web" {
   }
 
   ingress {
+    description = "Next.js"
+    from_port   = 3000
+    to_port     = 3000
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
     description = "SSH"
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+    cidr_blocks = ["0.0.0.0/0"]  
   }
 
   egress {
@@ -87,9 +95,10 @@ resource "aws_security_group" "allow_web" {
   }
 }
 
-resource "aws_instance" "nextjs_server" {
-  ami           = ""
+resource "aws_instance" "Blood-Donation-Project" {
+  ami           = ""  
   instance_type = "t2.micro"
+  key_name      = "new-Blood-Donation"
 
   vpc_security_group_ids = [aws_security_group.allow_web.id]
   subnet_id              = aws_subnet.main.id
@@ -98,15 +107,32 @@ resource "aws_instance" "nextjs_server" {
 
   user_data = <<-EOF
               #!/bin/bash
-              yum update -y
-              yum install -y nodejs npm
-              npm install -g pm2
-              mkdir -p /var/www/nextjs
+              set -e
+              
+              # Update and install dependencies
+              sudo apt update
+              sudo apt install -y nodejs npm
+              
+              # Install PM2
+              sudo npm install -g pm2
+              
+              # Set up the application
+              sudo mkdir -p /var/www/nextjs
               cd /var/www/nextjs
-              git clone https://github.com/Saurav-Pant/Blood-Donation-Project.git .
-              npm install
-              npm run build
-              pm2 start npm --name "nextjs" -- start
+              sudo git clone https://github.com/Saurav-Pant/Blood-Donation-Project.git .
+              sudo npm install
+                            
+              # Configure firewall
+              sudo ufw allow 22/tcp
+              sudo ufw allow 80/tcp
+              sudo ufw allow 443/tcp
+              sudo ufw allow 3000/tcp  
+              sudo ufw --force enable
+
+              # Start the application with PM2 in development mode
+              sudo pm2 start npm --name "Blood-Donation-Project" -- run dev
+
+              echo "Setup completed successfully"
               EOF
 
   tags = {
@@ -115,5 +141,5 @@ resource "aws_instance" "nextjs_server" {
 }
 
 output "public_ip" {
-  value = aws_instance.nextjs_server.public_ip
+  value = aws_instance.Blood-Donation-Project.public_ip
 }

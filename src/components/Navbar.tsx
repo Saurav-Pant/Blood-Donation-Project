@@ -4,18 +4,17 @@ import { BiDonateBlood } from "react-icons/bi";
 import Link from "next/link";
 import { UserButton } from "@clerk/nextjs";
 import { useAuth } from "@clerk/nextjs";
+import { Button } from "./ui/button";
 
 const Sidebar = ({ isOpen, onClose }: any) => {
   return (
     <div
-      className={`fixed inset-0 bg-gray-900 bg-opacity-50 z-50 transition-opacity ${
-        isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
-      }`}
+      className={`fixed inset-0 bg-gray-900 bg-opacity-50 z-50 transition-opacity ${isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+        }`}
     >
       <div
-        className={`fixed left-0 top-0 w-80 bg-white dark:bg-black h-full shadow-lg z-50 transform transition-transform ${
-          isOpen ? "translate-x-0" : "-translate-x-full"
-        }`}
+        className={`fixed left-0 top-0 w-80 bg-white dark:bg-black h-full shadow-lg z-50 transform transition-transform ${isOpen ? "translate-x-0" : "-translate-x-full"
+          }`}
       >
         <div className="flex flex-col h-full">
           <div className="p-4 flex justify-between items-center">
@@ -53,7 +52,7 @@ const Sidebar = ({ isOpen, onClose }: any) => {
           </div>
         </div>
         <div className="fixed bottom-8 right-10">
-         {/* <ThemeToggler/> */}
+          {/* <ThemeToggler/> */}
         </div>
       </div>
     </div>
@@ -130,14 +129,22 @@ const Navbar = () => {
           {!userId ? (
             <div className="flex justify-between items-center">
               <Link href="/sign-up">
-                <button className="px-2 lg:px-4  py-2  rounded sm:flex ml-8 bg-red-200 hover:bg-red-300 transition-all duration-100 text-black">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="flex items-center group rounded-lg text-xs sm:text-sm m-2 px-6"
+                >
                   Sign Up
-                </button>
+                </Button>
               </Link>
               <Link href="/sign-in">
-                <button className="px-2 lg:px-4 py-2  rounded  sm:flex ml-8 bg-red-200 hover:bg-red-300 transition-all duration-100 text-black">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="flex items-center gap-1 sm:gap-2 group rounded-lg text-xs sm:text-sm m-2 px-6"
+                >
                   Sign In
-                </button>
+                </Button>
               </Link>
             </div>
           ) : (
