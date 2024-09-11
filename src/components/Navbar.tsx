@@ -132,7 +132,7 @@ const Navbar = () => {
                 <Button
                   variant="outline"
                   size="sm"
-                  className="flex items-center group rounded-lg text-xs sm:text-sm m-2 px-6"
+                  className="flex items-center group rounded-lg text-sm sm:text-sm m-2 px-4"
                 >
                   Sign Up
                 </Button>
@@ -141,7 +141,7 @@ const Navbar = () => {
                 <Button
                   variant="outline"
                   size="sm"
-                  className="flex items-center gap-1 sm:gap-2 group rounded-lg text-xs sm:text-sm m-2 px-6"
+                  className="flex items-center gap-1 sm:gap-2 group rounded-lg text-sm sm:text-sm m-2 px-4"
                 >
                   Sign In
                 </Button>
